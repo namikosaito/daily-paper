@@ -1,0 +1,25 @@
+{
+  "title": "Physical AI Daily",
+  "timezone": "Asia/Tokyo",
+  "papersPerDay": 15,
+  "lookbackDays": 7,
+  "maxCandidates": 300,
+  "classicCandidatesPerCategory": 100,
+  "minimumCitations": 100,
+  "query": "(cat:cs.RO OR cat:cs.LG OR cat:cs.AI) AND (all:robot OR all:robotics OR all:manipulation OR all:\"vision language action\" OR all:VLA OR all:\"sim-to-real\" OR all:tactile OR all:haptic)",
+  "aiQuery": "cat:cs.AI OR cat:cs.LG OR cat:cs.CV OR cat:cs.CL OR cat:cs.NE OR cat:stat.ML",
+  "topics": [
+    { "label": "Residual RL", "terms": ["residual reinforcement learning", "residual rl", "residual policy", "residual learning"], "weight": 12 },
+    { "label": "Object-centric", "terms": ["object-centric", "object centric"], "weight": 3 },
+    { "label": "Touch & Multimodal", "terms": ["tactile", "haptic", "force sensing", "force feedback", "multimodal", "multi-modal", "cross-modal", "cross modal"], "weight": 9 },
+    { "label": "Contact Manipulation", "terms": ["contact-rich", "contact rich", "force control", "impedance", "compliant manipulation", "contact optimization"], "weight": 8 },
+    { "label": "Deformable & Tools", "terms": ["deformable object", "deformable objects", "soft object", "soft objects", "cloth", "wiping", "pouring", "tool-use", "tool use"], "weight": 7 },
+    { "label": "Long-horizon", "terms": ["long-horizon", "long horizon", "subgoal", "subgoals", "predictive learning", "imitation learning", "learning from demonstration"], "weight": 5 },
+    { "label": "Human-Robot", "terms": ["human-robot collaboration", "human robot collaboration", "human-robot collaborative", "human robot collaborative", "task replanning", "human-robot interaction"], "weight": 4 },
+    { "label": "VLA", "terms": ["vision-language-action", "vision language action", "vla"], "weight": 6 },
+    { "label": "Physical AI", "terms": ["physical ai", "embodied", "robot foundation", "world model"], "weight": 2 },
+    { "label": "RL", "terms": ["reinforcement learning", "reinforcement", "policy optimization"], "weight": 3 },
+    { "label": "Sim-to-real", "terms": ["sim-to-real", "sim2real", "simulation to real", "domain randomization", "sim to real"], "weight": 8 },
+    { "label": "Robotics", "terms": ["robot", "robots", "robotics", "robotic", "manipulation", "grasp", "grasping"], "weight": 1 }
+  ]
+}

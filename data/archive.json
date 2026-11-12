@@ -1,0 +1,1314 @@
+{
+  "version": 1,
+  "issues": [
+    {
+      "date": "2026-11-13",
+      "generatedAt": "2026-11-12T17:39:48.852Z",
+      "title": "Physical AI Daily",
+      "timezone": "Asia/Tokyo",
+      "source": "arXiv abstract",
+      "preview": false,
+      "groups": [
+        {
+          "id": "recent-personal",
+          "title": "最新 · 関心に近いRobot Learning",
+          "kind": "recent",
+          "scope": "personal",
+          "requestedCount": 3,
+          "paperIds": [
+            "2611.10490",
+            "2611.12806",
+            "2611.12676"
+          ],
+          "warnings": [
+            "昨日・今日の候補不足のため、直近7日から補充しています。"
+          ]
+        },
+        {
+          "id": "classic-personal",
+          "title": "高引用 · 関心に近いRobot Learning",
+          "kind": "classic",
+          "scope": "personal",
+          "requestedCount": 3,
+          "paperIds": [
+            "2303.04137",
+            "1703.06907",
+            "2406.09246"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "classic-robotics",
+          "title": "高引用 · ロボティクス全般",
+          "kind": "classic",
+          "scope": "robotics",
+          "requestedCount": 3,
+          "paperIds": [
+            "1707.06347",
+            "1502.00956",
+            "1610.06475"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "recent-ai",
+          "title": "最新 · AI / ML / Computer Vision",
+          "kind": "recent",
+          "scope": "ai",
+          "requestedCount": 3,
+          "paperIds": [
+            "2611.14519",
+            "2611.14518",
+            "2611.14516"
+          ],
+          "warnings": [
+            "昨日・今日の候補不足のため、直近7日から補充しています。"
+          ]
+        },
+        {
+          "id": "classic-ai",
+          "title": "高引用 · AI / ML / Computer Vision",
+          "kind": "classic",
+          "scope": "ai",
+          "requestedCount": 3,
+          "paperIds": [
+            "1512.03385",
+            "1706.03762",
+            "1810.04805"
+          ],
+          "warnings": []
+        }
+      ],
+      "papers": [
+        {
+          "id": "2611.10490",
+          "title": "Tactile Sensors Are an Effective Substitute for Wrist Cameras in Contact-Rich or Occluded Manipulation",
+          "abstract": "Learned manipulation policies often rely on wrist-mounted cameras for close-range visual feedback that complements external views of the workspace. However, contact-rich manipulation requires establishing and maintaining contacts that can remain hidden even from wrist cameras. Tactile sensors mounted on fingers can reliably and directly measure contact, without needing visual access. In this work, we show that this feedback enables policies to recover the performance advantage of wrist cameras using scene and egocentric vision together with touch. Our approach incorporates two low-cost tactile arrays into a visuotactile ACT policy, without wrist images during training or deployment. We evaluate six real-world task families spanning placement, insertion, occluded retrieval, and sustained-contact tool use. On three contact-rich tasks, we independently vary wrist-camera and tactile availability while keeping the demonstrations, policy architecture, and optimization settings fixed. Adding wrist cameras improves success by 18.3-28.3 percentage points over vision without wrist images. Adding tactile sensing instead improves success by 31.7-60.0 percentage points and yields higher observed success than vision-only policies with wrist cameras on all three tasks, with significant advantages on two under Holm-corrected tests. These results support finger-mounted tactile sensing as an effective alternative to wrist cameras in the evaluated contact-rich settings.",
+          "authors": [
+            "Aijia Yang",
+            "Arsh Tangri",
+            "Sergey Zakharov",
+            "Krishna Murthy Jatavallabhula"
+          ],
+          "published": "2026-11-07T05:33:17Z",
+          "updated": "2026-11-07T05:33:17Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "url": "https://arxiv.org/abs/2611.10490",
+          "pdfUrl": "https://arxiv.org/pdf/2611.10490",
+          "topics": [
+            "Touch & Multimodal",
+            "Contact Manipulation",
+            "Deformable & Tools",
+            "Robotics"
+          ],
+          "score": 25,
+          "headline": "接触・遮蔽下では手首カメラを触覚で代替できるか",
+          "summary": "接触点が遮蔽される操作で、指先触覚が手首カメラの代替になるかを実機で検証する。低価格の触覚アレイ二つを視触覚ACT方策へ統合し、学習時も実行時も手首画像を使わない。配置、挿入、遮蔽下の取り出し、接触を維持する道具使用を含む六つの課題群を評価した。条件を統制した三課題では、触覚追加による成功率向上は31.7〜60.0ポイントで、いずれも手首カメラ付き視覚方策より高い観測成功率を示した。",
+          "takeaways": [
+            "指先触覚は、カメラから見えない接触を直接観測できる。",
+            "三課題で実演データ、方策構造、最適化設定を固定してセンサ構成を比較した。",
+            "手首カメラ付き視覚方策に対する触覚利用の優位性は、三課題中二課題でHolm補正後も有意だった。"
+          ],
+          "relevance": "視覚と触覚のマルチモーダル学習、挿入などの接触操作、接触を維持する道具使用に直接関連する。接触状態の観測設計として有用だが、対象はACTであり、VLAや物体中心の残差強化学習への効果を示した研究ではない。",
+          "caveat": "結論は評価した接触課題の範囲に限られる。試行数、触覚アレイの仕様、失敗内訳、力覚との比較は抄録では不明。sim-to-real、変形物、サブゴール型の長期動作、人との協調への一般化も確認できない。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "authorAffiliations": [
+            {
+              "name": "Aijia Yang",
+              "institutions": []
+            },
+            {
+              "name": "Arsh Tangri",
+              "institutions": []
+            },
+            {
+              "name": "Sergey Zakharov",
+              "institutions": []
+            },
+            {
+              "name": "Krishna Murthy Jatavallabhula",
+              "institutions": []
+            }
+          ],
+          "personalScore": 24,
+          "freshness": "last-7-days",
+          "groupId": "recent-personal",
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Toyota Research Institute",
+              "https://annieyaj.github.io/tactile-vs-vision/"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.10490v1",
+            "method": "arxiv-html"
+          }
+        },
+        {
+          "id": "2611.12806",
+          "title": "Learning Heterogeneous Tactile Representation for General Dexterous Manipulation",
+          "abstract": "Tactile sensing is an indispensable modality for contact-rich dexterous manipulation, a capability that hints at the ultimate frontiers of embodied intelligence. However, commercially available tactile sensors are still at a relatively early stage of development, with each type of sensor offering irreplaceable strengths alongside its own drawbacks. A key challenge is thus to free tactile understanding from sensor-specific physics, so that embodied models can effectively leverage heterogeneous tactile data. To this end, we develop LingBot-Touch, a tactile foundation model characterized by the following properties. (i) Our model yields a unified representation across different tactile sensors (i.e., piezoresistive, magnetic, and visuotactile sensors), and is easily extensible to new sensor types. (ii) The resulting tactile tokens are plug-and-play: they can be seamlessly integrated into policy models across paradigms, from diffusion policy to vision-language-action (VLA) models such as $π_{0.5}$ and LingBot-VLA, consistently enhancing manipulation dexterity. (iii) Extensive experiments, spanning simulation and real-robot deployments across multiple hardware platforms, demonstrate that our tactile representation substantially benefits complex manipulation tasks while maintaining strong computational efficiency. We believe the findings in this work demonstrate the potential of leveraging cross-sensor data to scale tactile learning, and offer encouraging insights for the design of future hardware and embodied models.",
+          "authors": [
+            "Bing Han",
+            "Yichuan Peng",
+            "Haoyu Dong",
+            "Yuanmeng Hu",
+            "Yongyi Jia",
+            "Fangjing Wang",
+            "Kecheng Zheng",
+            "Yiming Zhang",
+            "Yanhong Zeng",
+            "Xiaoqing Zhang",
+            "Chen Song",
+            "Rundong Zou",
+            "Anqi Dong",
+            "Yuan Guan",
+            "Ka Leong Cheng",
+            "Xing Zhu",
+            "Yujun Shen",
+            "Nan Xue",
+            "Wei Ning"
+          ],
+          "published": "2026-11-09T18:12:00Z",
+          "updated": "2026-11-09T18:12:00Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "url": "https://arxiv.org/abs/2611.12806",
+          "pdfUrl": "https://arxiv.org/pdf/2611.12806",
+          "topics": [
+            "Touch & Multimodal",
+            "Contact Manipulation",
+            "VLA",
+            "Physical AI",
+            "Robotics"
+          ],
+          "score": 26,
+          "headline": "異種触覚センサを共通表現でつなぐLingBot-Touch",
+          "summary": "圧抵抗式・磁気式・視触覚式の異なるセンサから、共通の触覚表現を学習する基盤モデルLingBot-Touchを提案する。センサ固有の物理特性への依存を抑え、新しいセンサ種への拡張も目指す。得られる触覚トークンは拡散方策やπ₀.₅、LingBot-VLAなどに組み込める。複数のハードウェアを用いたシミュレーションと実機実験で、複雑な操作への有効性と計算効率を示したと報告している。",
+          "takeaways": [
+            "圧抵抗式・磁気式・視触覚式の触覚データを共通表現に統合する。",
+            "触覚トークンを拡散方策やVLAへ組み込める設計を採る。",
+            "複数のハードウェアでシミュレーションと実機の操作実験を行っている。"
+          ],
+          "relevance": "VLAへの触覚統合と接触を伴う巧緻操作に直接関連する。視覚・言語・行動に触覚を加える表現として参考になるが、力覚の明示的統合や物体中心の残差強化学習は抄録に記載がない。シミュレーションと実機の評価はあるものの、sim-to-real転移の実証とは区別したい。",
+          "caveat": "学習データ量、センサ間の対応付け、未学習センサへの適応手順、性能・計算量の具体値は不明。変形物・道具、明示的サブゴールによる長期動作、人との協調作業への適用も確認できない。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.12806.png",
+            "caption": "PDF 1ページのプレビュー（図の切り抜きではありません）。",
+            "sourceUrl": "https://arxiv.org/pdf/2611.12806",
+            "originalUrl": "https://arxiv.org/pdf/2611.12806",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "pdf-page",
+            "pageNumber": 1,
+            "credit": "Bing Han, Yichuan Peng, Haoyu Dong, Yuanmeng Hu, Yongyi Jia, Fangjing Wang, Kecheng Zheng, Yiming Zhang, Yanhong Zeng, Xiaoqing Zhang, Chen Song, Rundong Zou, Anqi Dong, Yuan Guan, Ka Leong Cheng, Xing Zhu, Yujun Shen, Nan Xue, Wei Ning · arXiv:2611.12806"
+          },
+          "authorAffiliations": [
+            {
+              "name": "Bing Han",
+              "institutions": []
+            },
+            {
+              "name": "Yichuan Peng",
+              "institutions": []
+            },
+            {
+              "name": "Haoyu Dong",
+              "institutions": []
+            },
+            {
+              "name": "Yuanmeng Hu",
+              "institutions": []
+            },
+            {
+              "name": "Yongyi Jia",
+              "institutions": []
+            },
+            {
+              "name": "Fangjing Wang",
+              "institutions": []
+            },
+            {
+              "name": "Kecheng Zheng",
+              "institutions": []
+            },
+            {
+              "name": "Yiming Zhang",
+              "institutions": []
+            },
+            {
+              "name": "Yanhong Zeng",
+              "institutions": []
+            },
+            {
+              "name": "Xiaoqing Zhang",
+              "institutions": []
+            },
+            {
+              "name": "Chen Song",
+              "institutions": []
+            },
+            {
+              "name": "Rundong Zou",
+              "institutions": []
+            },
+            {
+              "name": "Anqi Dong",
+              "institutions": []
+            },
+            {
+              "name": "Yuan Guan",
+              "institutions": []
+            },
+            {
+              "name": "Ka Leong Cheng",
+              "institutions": []
+            },
+            {
+              "name": "Xing Zhu",
+              "institutions": []
+            },
+            {
+              "name": "Yujun Shen",
+              "institutions": []
+            },
+            {
+              "name": "Nan Xue",
+              "institutions": []
+            },
+            {
+              "name": "Wei Ning",
+              "institutions": []
+            }
+          ],
+          "personalScore": 23,
+          "freshness": "last-7-days",
+          "groupId": "recent-personal",
+          "affiliations": {
+            "status": "unavailable",
+            "reason": "論文から所属を確認できませんでした。"
+          }
+        },
+        {
+          "id": "2611.12676",
+          "title": "VLA Adaptation with Real and Simulated Data: A Case Study on Robotic Chess",
+          "abstract": "Vision-language-action (VLA) models are trained as general-purpose foundation models for robot learning, and require fine-tuning for each downstream task and robot. This raises practical questions such as how much data and training updates are needed, how checkpoints should be selected, and whether simulation can be leveraged to alleviate the cost of real data collection. We study these questions on a task that requires both precise manipulation and spatial understanding of the scene. In this task, an SO-101 arm moves a chess king between two squares that are given only by their names, such as e4 and a5. We fine-tune $π_{0.5}$ with various dataset sizes and update budgets, using teleoperated demonstrations as well as simulated demonstrations from a randomized scripted expert that imitates the variability of human demonstrations. In simulation, the success rate scales with both data and updates. Importantly, we find that a short learning-rate cool-down adds up to 31 points and is necessary for comparing checkpoints, and that validation loss and action error are unreliable for model selection. On the real arm, we fine-tune on up to 256 teleoperated demonstrations and evaluate ten policies in 25 trials each. Partial results indicate that pretraining on the simulated demonstrations helps substantially, most clearly when real data is scarce. We also present a negative result, in which training on the policy's own rollouts with filtered behavior cloning, RECAP-style advantage conditioning, corrections from an automatic coach, or residual reinforcement learning did not yield a measurable improvement over plain behavior cloning in our setting. We release the simulator, the expert and the real demonstrations.",
+          "authors": [
+            "Matěj Kripner",
+            "Milan Straka"
+          ],
+          "published": "2026-11-09T16:43:53Z",
+          "updated": "2026-11-09T16:43:53Z",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "url": "https://arxiv.org/abs/2611.12676",
+          "pdfUrl": "https://arxiv.org/pdf/2611.12676",
+          "topics": [
+            "Residual RL",
+            "VLA",
+            "RL",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 22,
+          "headline": "ロボットチェスで探るVLA微調整と模擬データの効用",
+          "summary": "SO-101アームが、名前で指定された二つのマス間でチェスのキングを動かす課題を用い、π₀.₅の微調整条件を調べる。人の遠隔操作実演と、実演のばらつきを模した模擬データで、データ量や更新回数、モデル選択を比較した。シミュレーションでは短い学習率減衰が成功率を最大31ポイント改善し、検証損失や行動誤差は選択指標として不安定だった。実機の部分結果では、模擬データによる事前学習が特に実データの少ない条件で有効と報告する。",
+          "takeaways": [
+            "VLAの性能比較では、データ量だけでなく更新回数と学習率減衰も重要になる。",
+            "実機では最大256件の実演を用い、十方策を各25試行で評価している。",
+            "残差強化学習などの追加学習は、この設定では通常の行動クローニングを測定可能なほど改善しなかった。"
+          ],
+          "relevance": "VLA適応とsim-to-realのデータ配分に直接関連し、残差強化学習が常に改善をもたらすわけではないという限定的な負の結果も参考になる。ただし物体中心の残差設計は示されておらず、チェス全体の長期戦略やサブゴール生成を扱う研究ではない。",
+          "caveat": "実機での模擬事前学習の効果は部分結果であり、正確な改善幅や統計的確実性は不明。残差強化学習の実装・報酬設計も確認できない。触覚・力覚、変形物・道具、人との協調作業への適用は記載されていない。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.12676.png",
+            "caption": "Figure 1: The five stages of a move on the real arm (top) and in simulation (bottom), labeled with the stage tokens the policy predicts.",
+            "sourceUrl": "https://arxiv.org/html/2611.12676v1",
+            "originalUrl": "https://arxiv.org/html/2611.12676v1/stages.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "method": "html-figure",
+            "credit": "Matěj Kripner, Milan Straka · arXiv:2611.12676"
+          },
+          "authorAffiliations": [
+            {
+              "name": "Matěj Kripner",
+              "institutions": []
+            },
+            {
+              "name": "Milan Straka",
+              "institutions": []
+            }
+          ],
+          "personalScore": 21,
+          "freshness": "last-7-days",
+          "groupId": "recent-personal",
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Charles University, Faculty of Mathematics and Physics",
+              "Prague, Czech Republic"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.12676v1",
+            "method": "arxiv-html"
+          }
+        },
+        {
+          "id": "2303.04137",
+          "title": "Diffusion Policy: Visuomotor Policy Learning via Action Diffusion",
+          "abstract": "This paper introduces Diffusion Policy, a new way of generating robot behavior by representing a robot's visuomotor policy as a conditional denoising diffusion process. We benchmark Diffusion Policy across 12 different tasks from 4 different robot manipulation benchmarks and find that it consistently outperforms existing state-of-the-art robot learning methods with an average improvement of 46.9%. Diffusion Policy learns the gradient of the action-distribution score function and iteratively optimizes with respect to this gradient field during inference via a series of stochastic Langevin dynamics steps. We find that the diffusion formulation yields powerful advantages when used for robot policies, including gracefully handling multimodal action distributions, being suitable for high-dimensional action spaces, and exhibiting impressive training stability. To fully unlock the potential of diffusion models for visuomotor policy learning on physical robots, this paper presents a set of key technical contributions including the incorporation of receding horizon control, visual conditioning, and the time-series diffusion transformer. We hope this work will help motivate a new generation of policy learning techniques that are able to leverage the powerful generative modeling capabilities of diffusion models. Code, data, and training details is publicly available diffusion-policy.cs.columbia.edu",
+          "authors": [
+            "Cheng Chi",
+            "Zhenjia Xu",
+            "Siyuan Feng",
+            "Eric Cousineau",
+            "Yilun Du",
+            "Benjamin Burchfiel",
+            "Russ Tedrake",
+            "Shuran Song"
+          ],
+          "published": "2023-03-07T18:50:03Z",
+          "updated": "2024-03-14T04:36:31Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Cheng Chi",
+              "institutions": []
+            },
+            {
+              "name": "Zhenjia Xu",
+              "institutions": []
+            },
+            {
+              "name": "Siyuan Feng",
+              "institutions": []
+            },
+            {
+              "name": "Eric Cousineau",
+              "institutions": []
+            },
+            {
+              "name": "Yilun Du",
+              "institutions": []
+            },
+            {
+              "name": "Benjamin Burchfiel",
+              "institutions": []
+            },
+            {
+              "name": "Russ Tedrake",
+              "institutions": []
+            },
+            {
+              "name": "Shuran Song",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2303.04137",
+          "pdfUrl": "https://arxiv.org/pdf/2303.04137",
+          "citations": {
+            "count": 5146,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-12T17:40:11.495Z",
+            "url": "https://www.semanticscholar.org/paper/bdba3bd30a49ea4c5b20b43dbd8f0eb59e9d80e2"
+          },
+          "topics": [
+            "Touch & Multimodal",
+            "Robotics"
+          ],
+          "score": 10,
+          "personalScore": 9,
+          "groupId": "classic-personal",
+          "headline": "行動の拡散生成で視覚運動方策を学ぶ",
+          "summary": "Diffusion Policyは、ロボットの視覚運動方策を条件付きのノイズ除去拡散過程として表現する手法。行動分布のスコアを学び、推論時に確率的な反復更新で行動を生成する。複数の行動候補を持つ分布や高次元の行動空間への適性、学習の安定性を特徴とし、視覚条件付け、後退ホライズン制御、時系列拡散Transformerを組み合わせる。抄録では、4種の操作ベンチマークの計12タスクで、既存手法に対する平均46.9%の改善を報告している。",
+          "takeaways": [
+            "行動を単一の予測値ではなく分布として扱い、多峰的な行動選択を表現する。",
+            "視覚条件付けと後退ホライズン制御を拡散モデルに組み込む。",
+            "12タスクで平均46.9%の改善を報告するが、指標やタスク別の内訳は抄録にない。"
+          ],
+          "relevance": "視覚から操作行動を生成する手法として、VLAや物体中心の残差強化学習を評価する際の比較候補になる。ただし、本手法自体が言語条件付き方策や残差強化学習というわけではない。後退ホライズン制御は逐次的な行動更新に関係するが、サブゴールによる長期計画とは区別が必要。力覚・触覚の統合、接触操作、変形物・道具の操作、sim-to-real、人との協調への適用は抄録から確認できない。",
+          "caveat": "改善率の定義、比較条件、実機での推論時間、接触時の頑健性は抄録だけでは確認できない。コード・データ・学習詳細の公開は記載されているが、公開物の内容や再現性は未確認。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Columbia University, US",
+              "Toyota Research Institute, US",
+              "MIT, US",
+              "Stanford University, US"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2303.04137v5",
+            "method": "arxiv-html"
+          }
+        },
+        {
+          "id": "1703.06907",
+          "title": "Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World",
+          "abstract": "Bridging the 'reality gap' that separates simulated robotics from experiments on hardware could accelerate robotic research through improved data availability. This paper explores domain randomization, a simple technique for training models on simulated images that transfer to real images by randomizing rendering in the simulator. With enough variability in the simulator, the real world may appear to the model as just another variation. We focus on the task of object localization, which is a stepping stone to general robotic manipulation skills. We find that it is possible to train a real-world object detector that is accurate to $1.5$cm and robust to distractors and partial occlusions using only data from a simulator with non-realistic random textures. To demonstrate the capabilities of our detectors, we show they can be used to perform grasping in a cluttered environment. To our knowledge, this is the first successful transfer of a deep neural network trained only on simulated RGB images (without pre-training on real images) to the real world for the purpose of robotic control.",
+          "authors": [
+            "Josh Tobin",
+            "Rachel Fong",
+            "Alex Ray",
+            "Jonas Schneider",
+            "Wojciech Zaremba",
+            "Pieter Abbeel"
+          ],
+          "published": "2017-03-20T18:17:25Z",
+          "updated": "2017-03-20T18:17:25Z",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Josh Tobin",
+              "institutions": []
+            },
+            {
+              "name": "Rachel Fong",
+              "institutions": []
+            },
+            {
+              "name": "Alex Ray",
+              "institutions": []
+            },
+            {
+              "name": "Jonas Schneider",
+              "institutions": []
+            },
+            {
+              "name": "Wojciech Zaremba",
+              "institutions": []
+            },
+            {
+              "name": "Pieter Abbeel",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1703.06907",
+          "pdfUrl": "https://arxiv.org/pdf/1703.06907",
+          "citations": {
+            "count": 4446,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-12T17:40:11.495Z",
+            "url": "https://www.semanticscholar.org/paper/32ceb28e45a445df4d89df281bb0e3ab5aab1a2a"
+          },
+          "topics": [
+            "Sim-to-real",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 9,
+          "personalScore": 8,
+          "groupId": "classic-personal",
+          "headline": "見た目のランダム化で実世界へ視覚認識を転移",
+          "summary": "シミュレータの描画をランダム化し、合成画像だけで学習した視覚モデルを実画像へ転移するドメインランダム化を検討する研究。学習時に十分な見た目の変動を与え、実世界もその一変種として扱えるようにする。対象は操作の基盤となる物体位置推定で、非写実的なランダムテクスチャを使った学習により、実世界で1.5cmの精度と、妨害物・部分遮蔽への頑健性を報告する。さらに、検出器を用いた乱雑な環境での把持を示している。",
+          "takeaways": [
+            "写実性を高める代わりに、描画の多様性でシミュレーションと実画像の差を吸収する。",
+            "実画像による事前学習なしに、合成RGB画像のみから実世界の物体位置推定へ転移する。",
+            "物体位置推定に加え、乱雑な環境での把持への利用を示す。"
+          ],
+          "relevance": "sim-to-realに直接関連し、物体中心の残差強化学習に必要な実機上の物体位置推定を支える可能性がある。ただし、扱うのは主に視覚の外観差であり、接触や摩擦などの力学的な転移を示すものではない。VLA、視覚・力覚・触覚の融合、変形物や道具の操作、サブゴールによる長期動作、人との協調は抄録の検証対象として確認できない。",
+          "caveat": "1.5cmという精度の集計方法、対象物や撮影条件の範囲、把持成功率は抄録にない。「初の成功」という位置付けは著者の認識として記されており、抄録だけでは先行研究全体との比較を検証できない。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "OpenAI and UC Berkeley EECS,",
+              "OpenAI, {rfong, aray, jonas, woj}@openai.com",
+              "OpenAI, UC Berkeley EECS & ICSI,"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1703.06907v1",
+            "method": "arxiv-html"
+          }
+        },
+        {
+          "id": "2406.09246",
+          "title": "OpenVLA: An Open-Source Vision-Language-Action Model",
+          "abstract": "Large policies pretrained on a combination of Internet-scale vision-language data and diverse robot demonstrations have the potential to change how we teach robots new skills: rather than training new behaviors from scratch, we can fine-tune such vision-language-action (VLA) models to obtain robust, generalizable policies for visuomotor control. Yet, widespread adoption of VLAs for robotics has been challenging as 1) existing VLAs are largely closed and inaccessible to the public, and 2) prior work fails to explore methods for efficiently fine-tuning VLAs for new tasks, a key component for adoption. Addressing these challenges, we introduce OpenVLA, a 7B-parameter open-source VLA trained on a diverse collection of 970k real-world robot demonstrations. OpenVLA builds on a Llama 2 language model combined with a visual encoder that fuses pretrained features from DINOv2 and SigLIP. As a product of the added data diversity and new model components, OpenVLA demonstrates strong results for generalist manipulation, outperforming closed models such as RT-2-X (55B) by 16.5% in absolute task success rate across 29 tasks and multiple robot embodiments, with 7x fewer parameters. We further show that we can effectively fine-tune OpenVLA for new settings, with especially strong generalization results in multi-task environments involving multiple objects and strong language grounding abilities, and outperform expressive from-scratch imitation learning methods such as Diffusion Policy by 20.4%. We also explore compute efficiency; as a separate contribution, we show that OpenVLA can be fine-tuned on consumer GPUs via modern low-rank adaptation methods and served efficiently via quantization without a hit to downstream success rate. Finally, we release model checkpoints, fine-tuning notebooks, and our PyTorch codebase with built-in support for training VLAs at scale on Open X-Embodiment datasets.",
+          "authors": [
+            "Moo Jin Kim",
+            "Karl Pertsch",
+            "Siddharth Karamcheti",
+            "Ted Xiao",
+            "Ashwin Balakrishna",
+            "Suraj Nair",
+            "Rafael Rafailov",
+            "Ethan Foster",
+            "Grace Lam",
+            "Pannag Sanketi",
+            "Quan Vuong",
+            "Thomas Kollar",
+            "Benjamin Burchfiel",
+            "Russ Tedrake",
+            "Dorsa Sadigh",
+            "Sergey Levine",
+            "Percy Liang",
+            "Chelsea Finn"
+          ],
+          "published": "2024-06-13T15:46:55Z",
+          "updated": "2024-09-05T19:46:34Z",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Moo Jin Kim",
+              "institutions": []
+            },
+            {
+              "name": "Karl Pertsch",
+              "institutions": []
+            },
+            {
+              "name": "Siddharth Karamcheti",
+              "institutions": []
+            },
+            {
+              "name": "Ted Xiao",
+              "institutions": []
+            },
+            {
+              "name": "Ashwin Balakrishna",
+              "institutions": []
+            },
+            {
+              "name": "Suraj Nair",
+              "institutions": []
+            },
+            {
+              "name": "Rafael Rafailov",
+              "institutions": []
+            },
+            {
+              "name": "Ethan Foster",
+              "institutions": []
+            },
+            {
+              "name": "Grace Lam",
+              "institutions": []
+            },
+            {
+              "name": "Pannag Sanketi",
+              "institutions": []
+            },
+            {
+              "name": "Quan Vuong",
+              "institutions": []
+            },
+            {
+              "name": "Thomas Kollar",
+              "institutions": []
+            },
+            {
+              "name": "Benjamin Burchfiel",
+              "institutions": []
+            },
+            {
+              "name": "Russ Tedrake",
+              "institutions": []
+            },
+            {
+              "name": "Dorsa Sadigh",
+              "institutions": []
+            },
+            {
+              "name": "Sergey Levine",
+              "institutions": []
+            },
+            {
+              "name": "Percy Liang",
+              "institutions": []
+            },
+            {
+              "name": "Chelsea Finn",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2406.09246",
+          "pdfUrl": "https://arxiv.org/pdf/2406.09246",
+          "citations": {
+            "count": 4423,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-12T17:40:11.495Z",
+            "url": "https://www.semanticscholar.org/paper/8f9ceb5ffad8e7a066dfc9d9aaa5153b714740ee"
+          },
+          "topics": [
+            "Long-horizon",
+            "VLA",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 12,
+          "personalScore": 11,
+          "groupId": "classic-personal",
+          "headline": "公開VLAを少ない計算資源で新しい操作へ適応",
+          "summary": "OpenVLAは、97万件の実世界ロボット実演で学習した70億パラメータの公開視覚・言語・行動モデル。Llama 2に、DINOv2とSigLIPの事前学習特徴を融合する視覚エンコーダを組み合わせる。抄録では、複数のロボット形態にまたがる29タスクで、RT-2-Xより成功率が16.5パーセントポイント高いと報告する。新環境への微調整、多物体・複数タスクでの汎化と言語対応に加え、低ランク適応と量子化による計算資源の節約も検討している。",
+          "takeaways": [
+            "97万件の実機実演を用いた70億パラメータのVLAを公開する。",
+            "新環境への微調整と、多物体・複数タスクにおける汎化や言語指示への対応を報告する。",
+            "低ランク適応で一般消費者向けGPUによる微調整を可能にし、量子化による効率的な実行を検討する。"
+          ],
+          "relevance": "VLAを操作研究の基盤方策として利用・微調整する際に直接関係する。視覚と言語の統合は扱うが、力覚・触覚を含む融合は抄録にない。物体中心の残差強化学習との組み合わせは研究候補であり、本論文の実証内容ではない。また、多物体・複数タスクの汎化は、サブゴールを使う長期動作生成と同義ではない。sim-to-real、接触特有の制御、変形物・道具、人との協調の検証範囲も未確認。",
+          "caveat": "比較手法とのデータ・評価条件の整合性、量子化や微調整に必要な具体的GPU資源、失敗例や安全性は抄録だけでは判断できない。公開チェックポイントやコードの提供は記載されているが、その内容や再現性は未確認。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2406.09246.png",
+            "caption": "Figure 2: OpenVLA model architecture. Given an image observation and a language instruction, the model predicts 7-dimensional robot control actions. The architecture consists of three key components: (1) a vision encoder that concatenates Dino V2 [25] and SigLIP [79] features, (2) a projector that maps visual features to the language embedding space, and (3) the LLM backbone, a Llama 2 7B-parameter large language model [10].",
+            "sourceUrl": "https://arxiv.org/html/2406.09246v3",
+            "originalUrl": "https://arxiv.org/html/2406.09246v3/openvla_model.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Moo Jin Kim, Karl Pertsch, Siddharth Karamcheti, Ted Xiao, Ashwin Balakrishna, Suraj Nair, Rafael Rafailov, Ethan Foster, Grace Lam, Pannag Sanketi, Quan Vuong, Thomas Kollar, Benjamin Burchfiel, Russ Tedrake, Dorsa Sadigh, Sergey Levine, Percy Liang, Chelsea Finn · arXiv:2406.09246"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Stanford University, UC Berkeley, Toyota Research Institute, Google Deepmind, Physical Intelligence,",
+              "MIT, Work done in part while at Google Deepmind"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/2406.09246",
+            "method": "arxiv-pdf"
+          }
+        },
+        {
+          "id": "1707.06347",
+          "title": "Proximal Policy Optimization Algorithms",
+          "abstract": "We propose a new family of policy gradient methods for reinforcement learning, which alternate between sampling data through interaction with the environment, and optimizing a \"surrogate\" objective function using stochastic gradient ascent. Whereas standard policy gradient methods perform one gradient update per data sample, we propose a novel objective function that enables multiple epochs of minibatch updates. The new methods, which we call proximal policy optimization (PPO), have some of the benefits of trust region policy optimization (TRPO), but they are much simpler to implement, more general, and have better sample complexity (empirically). Our experiments test PPO on a collection of benchmark tasks, including simulated robotic locomotion and Atari game playing, and we show that PPO outperforms other online policy gradient methods, and overall strikes a favorable balance between sample complexity, simplicity, and wall-time.",
+          "authors": [
+            "John Schulman",
+            "Filip Wolski",
+            "Prafulla Dhariwal",
+            "Alec Radford",
+            "Oleg Klimov"
+          ],
+          "published": "2017-07-20T02:32:33Z",
+          "updated": "2017-08-28T09:20:06Z",
+          "categories": [
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "John Schulman",
+              "institutions": []
+            },
+            {
+              "name": "Filip Wolski",
+              "institutions": []
+            },
+            {
+              "name": "Prafulla Dhariwal",
+              "institutions": []
+            },
+            {
+              "name": "Alec Radford",
+              "institutions": []
+            },
+            {
+              "name": "Oleg Klimov",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1707.06347",
+          "pdfUrl": "https://arxiv.org/pdf/1707.06347",
+          "citations": {
+            "count": 33491,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-12T17:40:15.200Z",
+            "url": "https://www.semanticscholar.org/paper/dce6f9d4017b1785979e7520fd0834ef8cf02f4b"
+          },
+          "topics": [
+            "RL",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 4,
+          "personalScore": 3,
+          "groupId": "classic-robotics",
+          "headline": "PPO：実装の簡潔さと学習効率を両立する方策最適化",
+          "summary": "環境との相互作用によるデータ収集と、代理目的関数の最適化を交互に行う強化学習手法PPOを提案する。同じ収集データに対して複数エポックのミニバッチ更新を可能にし、TRPOの利点の一部をより簡潔な実装で得ることを目指す。模擬ロボットの移動運動とAtariを含む評価では、他のオンライン方策勾配法を上回り、サンプル効率、実装の簡潔さ、実行時間のバランスが良いと報告している。",
+          "takeaways": [
+            "代理目的関数により、収集したデータを複数エポックのミニバッチ更新に利用する。",
+            "TRPOと比べ、実装の簡潔さや汎用性、実験上のサンプル効率を利点として挙げる。",
+            "模擬ロボットの移動運動とAtariで、オンライン方策勾配法との比較を行う。"
+          ],
+          "relevance": "物体中心の残差強化学習において、残差方策を学習する最適化手法の候補になる。ただし、物体中心表現や残差制御そのものの提案ではない。VLA、視覚・力覚・触覚の統合、接触操作、変形物・道具操作、サブゴールによる長期動作、人との協調、sim-to-realへの有効性は、この抄録では示されていない。",
+          "caveat": "目的関数の具体形、更新を制約する仕組み、比較条件、数値的な改善幅は抄録だけでは確認できない。実機での性能や安全性、接触を伴う操作への適用も未確認である。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "OpenAI",
+              "OpenAI Gym [Bro+16] and described by Duan et al. [Dua+16]"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/1707.06347",
+            "method": "arxiv-pdf"
+          }
+        },
+        {
+          "id": "1502.00956",
+          "title": "ORB-SLAM: a Versatile and Accurate Monocular SLAM System",
+          "abstract": "This paper presents ORB-SLAM, a feature-based monocular SLAM system that operates in real time, in small and large, indoor and outdoor environments. The system is robust to severe motion clutter, allows wide baseline loop closing and relocalization, and includes full automatic initialization. Building on excellent algorithms of recent years, we designed from scratch a novel system that uses the same features for all SLAM tasks: tracking, mapping, relocalization, and loop closing. A survival of the fittest strategy that selects the points and keyframes of the reconstruction leads to excellent robustness and generates a compact and trackable map that only grows if the scene content changes, allowing lifelong operation. We present an exhaustive evaluation in 27 sequences from the most popular datasets. ORB-SLAM achieves unprecedented performance with respect to other state-of-the-art monocular SLAM approaches. For the benefit of the community, we make the source code public.",
+          "authors": [
+            "Raul Mur-Artal",
+            "J. M. M. Montiel",
+            "Juan D. Tardos"
+          ],
+          "published": "2015-02-03T18:52:23Z",
+          "updated": "2015-09-18T09:50:11Z",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Raul Mur-Artal",
+              "institutions": []
+            },
+            {
+              "name": "J. M. M. Montiel",
+              "institutions": []
+            },
+            {
+              "name": "Juan D. Tardos",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1502.00956",
+          "pdfUrl": "https://arxiv.org/pdf/1502.00956",
+          "citations": {
+            "count": 7623,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-12T17:40:15.200Z",
+            "url": "https://www.semanticscholar.org/paper/6933c70c747e6a8103f68f1a1db80185401d537b"
+          },
+          "topics": [
+            "Computer Vision"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-robotics",
+          "headline": "ORB-SLAM：単眼映像で追跡からループ閉じ込みまで統合",
+          "summary": "屋内外の大小さまざまな環境でリアルタイム動作する、特徴点ベースの単眼SLAMを提案する。追跡、地図作成、再局在化、ループ閉じ込みで同じ特徴を利用し、自動初期化も備える。再構成に残す点とキーフレームを選別して地図をコンパクトに保ち、場面内容が変化した場合にのみ地図を拡張する設計である。公開データセットの27系列で評価し、既存の単眼SLAMに対する高い性能とソースコード公開を報告している。",
+          "takeaways": [
+            "追跡、地図作成、再局在化、ループ閉じ込みを共通の特徴で構成する。",
+            "点とキーフレームの選別により、追跡可能でコンパクトな地図を維持する。",
+            "公開データセットの27系列で評価し、コード公開を述べている。"
+          ],
+          "relevance": "ロボットの視覚的な自己位置推定と環境地図の基盤として、長期動作やサブゴールへの移動を支える可能性がある。一方、地図は物体中心表現や操作用サブゴールと同義ではない。VLA、残差強化学習、力覚・触覚との融合、接触・変形物・道具操作、人との協調を直接扱う研究ではなく、sim-to-realも抄録の評価対象ではない。",
+          "caveat": "評価指標、具体的な誤差、計算機条件、長期運用の検証期間は不明である。動きへの頑健性という記述だけから、動的物体が多い協調作業環境での性能は保証できない。実スケールの取得方法やコードURLも抄録にはない。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "unavailable",
+            "reason": "論文から所属を確認できませんでした。"
+          }
+        },
+        {
+          "id": "1610.06475",
+          "title": "ORB-SLAM2: an Open-Source SLAM System for Monocular, Stereo and RGB-D Cameras",
+          "abstract": "We present ORB-SLAM2 a complete SLAM system for monocular, stereo and RGB-D cameras, including map reuse, loop closing and relocalization capabilities. The system works in real-time on standard CPUs in a wide variety of environments from small hand-held indoors sequences, to drones flying in industrial environments and cars driving around a city. Our back-end based on bundle adjustment with monocular and stereo observations allows for accurate trajectory estimation with metric scale. Our system includes a lightweight localization mode that leverages visual odometry tracks for unmapped regions and matches to map points that allow for zero-drift localization. The evaluation on 29 popular public sequences shows that our method achieves state-of-the-art accuracy, being in most cases the most accurate SLAM solution. We publish the source code, not only for the benefit of the SLAM community, but with the aim of being an out-of-the-box SLAM solution for researchers in other fields.",
+          "authors": [
+            "Raul Mur-Artal",
+            "Juan D. Tardos"
+          ],
+          "published": "2016-10-20T16:04:31Z",
+          "updated": "2017-06-19T04:44:33Z",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Raul Mur-Artal",
+              "institutions": []
+            },
+            {
+              "name": "Juan D. Tardos",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1610.06475",
+          "pdfUrl": "https://arxiv.org/pdf/1610.06475",
+          "citations": {
+            "count": 6729,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-12T17:40:15.200Z",
+            "url": "https://www.semanticscholar.org/paper/877a0ce8bc0457837e7c43dd0eb99e11ba4d84d6"
+          },
+          "topics": [
+            "Computer Vision"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-robotics",
+          "headline": "ORB-SLAM2：単眼・ステレオ・RGB-Dに対応するSLAM",
+          "summary": "単眼、ステレオ、RGB-Dカメラに対応し、地図再利用、ループ閉じ込み、再局在化を備えるSLAMシステムを提案する。標準的なCPUでリアルタイム動作し、手持ちの屋内撮影から産業環境のドローン、市街地の車両までを対象とする。バンドル調整を基盤に軌跡を推定し、未地図領域の視覚オドメトリと地図点への照合を併用する軽量な自己位置推定モードも備える。公開29系列で高い精度を報告し、コード公開を述べている。",
+          "takeaways": [
+            "単眼・ステレオ・RGB-D入力に対応し、地図再利用と再局在化を統合する。",
+            "バンドル調整に基づく軌跡推定と、地図照合を利用する軽量な自己位置推定モードを備える。",
+            "公開29系列の評価で最先端の精度を報告し、多くの場合に最も高精度だったと述べる。"
+          ],
+          "relevance": "複数のカメラ構成で自己位置と地図を扱えるため、移動を含む長期タスクの空間的な基盤候補となる。ただし、RGB-D対応は視覚・力覚・触覚のマルチモーダル学習を意味しない。VLAや物体中心の残差強化学習、操作用サブゴール生成、接触・変形物・道具操作、人との協調、sim-to-realの効果は抄録では検証されていない。",
+          "caveat": "実スケールでの推定という説明を、単眼入力だけで絶対スケールを取得できるとの主張には読み替えられない。また、ゼロドリフトという記述の成立条件、入力方式別の精度、動的環境での限界、コードURLは抄録だけでは確認できない。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "unavailable",
+            "reason": "論文から所属を確認できませんでした。"
+          }
+        },
+        {
+          "id": "2611.14519",
+          "title": "Medical Image Segmentation: Foundation Model Adaptation versus Task-Specific Training",
+          "abstract": "Foundation models pretrained on large natural-image collections are increasingly adapted for medical image segmentation, in the expectation that they will replace models trained for each task. Most comparisons, however, use data from the training distribution and a single task-specific baseline whose configuration is rarely justified, and therefore provide limited evidence of performance at new clinical sites. It also remains unclear how much of a foundation model must be adapted, and what determines this. We adapted a foundation model, DINOv2, with strategies ranging from tuning only its bias terms to full fine-tuning, and compared it with U-Nets and ResU-Nets trained from scratch. Experiments covered colonoscopy, breast ultrasound and dermoscopy, with testing on held-out data from the training source and on independent datasets from other institutions. The adapted foundation model generalised better on every external dataset. Within the training distribution, the task-specific models remained competitive when training data were abundant, and delineated boundaries more precisely, while the foundation model more often missed small lesions. Only a small fraction of the foundation model required adaptation, and the capacity needed was determined by the imaging domain rather than by the adaptation method. A widely used polyp test set was also found to duplicate images from another benchmark. Foundation-model adaptation is therefore warranted where models must work across sites, with capacity selected on the target domain.",
+          "authors": [
+            "Emre Kutlusan",
+            "Yongmin Li"
+          ],
+          "published": "2026-11-10T18:59:54Z",
+          "updated": "2026-11-10T18:59:54Z",
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Emre Kutlusan",
+              "institutions": []
+            },
+            {
+              "name": "Yongmin Li",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.14519",
+          "pdfUrl": "https://arxiv.org/pdf/2611.14519",
+          "topics": [
+            "Computer Vision"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "last-7-days",
+          "groupId": "recent-ai",
+          "headline": "医用画像の施設間汎化では基盤モデル適応が優位",
+          "summary": "医用画像の領域分割で、DINOv2の適応と、ゼロから学習したU-Net・ResU-Netを比較した研究。大腸内視鏡、乳房超音波、皮膚鏡画像を対象に、学習元と他施設のデータで評価した。抄録では、適応した基盤モデルが全外部データセットで優れた汎化を示す一方、十分な学習データがある同一分布内では専用モデルも競争力を持ち、境界をより精密に抽出したと報告する。必要な適応容量は手法より画像領域に依存し、基盤モデルには小病変の見逃しも認められた。",
+          "takeaways": [
+            "同一分布内の精度だけでなく、他施設の独立データによる評価がモデル選択に重要。",
+            "少量のパラメータ適応で足りる一方、必要な容量は対象の画像領域に依存した。",
+            "専用モデルの境界精度と基盤モデルの小病変見逃しに加え、既存ベンチマーク間の画像重複も報告された。"
+          ],
+          "relevance": "医療画像認識における分布変化への頑健性と、適応容量の選択に意義がある。読者のsim-to-real研究にも評価設計上の示唆はあるが、施設間汎化とsim-to-realは同一ではない。VLAや物体中心の残差強化学習、接触操作への有効性は検証されていない。",
+          "caveat": "抄録だけでは、データ規模、性能差の数値と統計的不確実性、各モデルの調整条件、見逃した病変の臨床的重要性を確認できない。画像重複が比較結果に与えた影響や、コード公開・査読状況も不明。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.14519.png",
+            "caption": "Figure 1: Experimental design. The architecture axis compares an adapted DINOv2 against two models trained from random initialisation; the adaptation axis compares seven configurations of the same model by trainable parameter count. The two intersect at LoRA rank 32, selected on in-domain validation. All comparisons run across three domains and eight out-of-distribution test sets.",
+            "sourceUrl": "https://arxiv.org/html/2611.14519v1",
+            "originalUrl": "https://arxiv.org/html/2611.14519v1/figs/fig_design.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Emre Kutlusan, Yongmin Li · arXiv:2611.14519"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Department of Computer Science, Brunel University of London, Uxbridge, UB8 3PH, United Kingdom"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.14519v1",
+            "method": "arxiv-html"
+          }
+        },
+        {
+          "id": "2611.14518",
+          "title": "Toward Foundation Detection Models via Example-Based Grounding in EM-DETR",
+          "abstract": "DeepLearning (DL)-based Computer-Aided Diagnostic (CAD) systems have shown great promise in supporting clinicians, but their performance heavily depends on the availability of large, well-annotated datasets. In medical lesion detection, the scarcity of comprehensive, stan dardized annotations and the heterogeneity of existing datasets limit the development of robust foundation models. In this work, we introduce a novel approach to building a multi-domain foundation model for le sion detection by integrating diverse medical image datasets annotated for both anatomical structures and abnormalities. We first propose a student-teacher training strategy to effectively combine datasets with heterogeneous label spaces, mitigating catastrophic forgetting, and im proving feature learning. In addition, building on our previously pro posed example-based EM-DETR framework, we adapt it to jointly learn from multiple domain-specific datasets, enabling fine-grained, example driven detection across modalities. Our model achieves state-of-the-art (SOTA) results, with image-level AUC scores exceeding previous SOTA by 1% point on four key findings in CXRs. We achieve a leading mAP50 in CXRs and mammography, surpassing EM-DETR trained on a single dataset by 2-3% points. This approach paves the way for scalable foundation models in medical imaging that leverage heterogeneous data while maintaining robust and generalizable performance.",
+          "authors": [
+            "Sheethal Bhat",
+            "Bogdan Georgescu",
+            "Awais Mansoor",
+            "Florin C. Ghesu",
+            "Sasa Grbic",
+            "Andreas Maier"
+          ],
+          "published": "2026-11-10T18:59:17Z",
+          "updated": "2026-11-10T18:59:17Z",
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Sheethal Bhat",
+              "institutions": []
+            },
+            {
+              "name": "Bogdan Georgescu",
+              "institutions": []
+            },
+            {
+              "name": "Awais Mansoor",
+              "institutions": []
+            },
+            {
+              "name": "Florin C. Ghesu",
+              "institutions": []
+            },
+            {
+              "name": "Sasa Grbic",
+              "institutions": []
+            },
+            {
+              "name": "Andreas Maier",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.14518",
+          "pdfUrl": "https://arxiv.org/pdf/2611.14518",
+          "topics": [
+            "Computer Vision"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "last-7-days",
+          "groupId": "recent-ai",
+          "headline": "異種ラベルの医用画像を統合する例示ベース病変検出",
+          "summary": "医用画像の病変検出で、注釈不足とデータセット間のラベル不整合に対処するEM-DETRの拡張を提案する。解剖構造と異常所見の注釈を持つ複数領域のデータを、生徒・教師型の学習で統合し、破滅的忘却を抑えつつ例示に基づく検出を学ぶ。抄録では、胸部X線の主要4所見で画像単位AUCが従来最高を1ポイント上回り、胸部X線とマンモグラフィのmAP50が単一データセット学習のEM-DETRを2〜3ポイント上回ったと報告している。",
+          "takeaways": [
+            "異なるラベル空間を持つデータセットの統合に、生徒・教師型の学習戦略を用いる。",
+            "例示ベースのEM-DETRを複数領域の共同学習へ拡張し、医用画像の異なるモダリティを扱う。",
+            "AUCとmAP50の改善を報告しているが、最高性能という主張の範囲は比較条件の確認が必要。"
+          ],
+          "relevance": "注釈体系が揃わない医療データを活用し、複数領域の検出モデルを構築する点に意義がある。ここでの複数モダリティは医用画像の種類を指し、視覚・力覚・触覚の統合ではない。例示による検出をVLAの指示理解やロボット操作能力と同一視することはできない。",
+          "caveat": "抄録だけでは、例示の入力形式、教師モデルの更新方法、対象4所見、データ分割や施設間の独立性、比較の公平性を確認できない。未知領域への汎化、臨床現場での有用性、コード公開・査読状況も不明。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.14518.png",
+            "caption": "Figure 1: Overview of the student-teacher training process to create a foundation model with GDINO [14]. A GDINO model is trained on each dataset with all available classes and used to generate weak annotations on remaining sets. A final model is trained in phase II with both gold-standard and generated annotations. The model outputs both predicted bounding boxes and classification scores for each box.",
+            "sourceUrl": "https://arxiv.org/html/2611.14518v1",
+            "originalUrl": "https://arxiv.org/html/2611.14518v1/images/foundation_model.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Sheethal Bhat, Bogdan Georgescu, Awais Mansoor, Florin C. Ghesu, Sasa Grbic, Andreas Maier · arXiv:2611.14518"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Friedrich-Alexander-Universität, 91058, Erlangen-Nürnberg, Germany",
+              "Siemens Healthineers, 91052, Erlangen, Germany",
+              "Siemens Medical Solutions, 08540, Princeton, USA"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.14518v1",
+            "method": "arxiv-html"
+          }
+        },
+        {
+          "id": "2611.14516",
+          "title": "TorchCurves: Differentiable Parametric Curves",
+          "abstract": "We present TorchCurves, a PyTorch library that treats vector-valued parametric curves as learnable primitives. Its central operation maps batches of scalar inputs to points on curves represented in B-spline or Legendre polynomial bases, with differentiation through both inputs and coefficients. Curve coefficients can be optimized jointly with the surrounding model or produced by another network. The library provides trainable modules, reusable basis modules, and a functional interface, supporting applications ranging from continuous feature embeddings to Kolmogorov-Arnold networks and functional regression. Its implementation combines classical evaluation algorithms with vectorized PyTorch operations, emphasizing readability and maintainability without custom hardware kernels. Timing experiments compare curve evaluation against NumPy and SciPy and KAN training against EfficientKAN across a range of problem sizes. The results illustrate where this generality remains computationally practical and where overhead is substantial. Library is available on GitHub at https://github.com/alexshtf/torchcurves.",
+          "authors": [
+            "Alex Shtoff"
+          ],
+          "published": "2026-11-10T18:58:52Z",
+          "updated": "2026-11-10T18:58:52Z",
+          "categories": [
+            "cs.LG",
+            "stat.ML"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Alex Shtoff",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.14516",
+          "pdfUrl": "https://arxiv.org/pdf/2611.14516",
+          "topics": [
+            "Machine Learning"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "last-7-days",
+          "groupId": "recent-ai",
+          "headline": "曲線を学習可能な部品にするPyTorchライブラリ",
+          "summary": "TorchCurvesは、ベクトル値のパラメトリック曲線を学習可能な部品として扱うPyTorchライブラリ。Bスプラインまたはルジャンドル多項式で曲線を表し、スカラー入力のバッチを曲線上の点へ写像する。入力と係数の双方を微分でき、係数はモデルと共同最適化するか、別のネットワークから生成できる。連続特徴埋め込み、KAN、関数回帰を想定し、独自ハードウェアカーネルを使わない実装を採用。速度比較では、汎用性が実用的な範囲と大きな計算負担を伴う範囲を示す。",
+          "takeaways": [
+            "曲線の入力と係数の両方を微分でき、周辺モデルと一体で学習できる。",
+            "学習可能モジュール、再利用可能な基底モジュール、関数形式のインターフェースを提供する。",
+            "NumPy・SciPyとの曲線評価比較とEfficientKANとの学習比較で、問題規模に応じた計算負担を調べる。"
+          ],
+          "relevance": "連続特徴表現やKAN、関数回帰で、曲線をニューラルモデルに組み込むための実装基盤として意義がある。ロボットの連続軌道表現への応用は考えられるが、抄録に実証はない。サブゴールによる長期動作生成、接触・変形物・道具の操作、人との協調作業の成果を示す論文ではない。",
+          "caveat": "抄録だけでは、速度の具体値、実験環境、数値安定性、メモリ使用量、各用途での予測性能を確認できない。公開先としてhttps://github.com/alexshtf/torchcurvesが記載されているが、実装内容、ライセンス、保守状況は未確認。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.14516.png",
+            "caption": "Figure 1: The basic operation behind TorchCurves. Input: a mini-batch of numerical features of size. Output: a mini-batch of points on multi-dimensional curves.",
+            "sourceUrl": "https://arxiv.org/html/2611.14516v1",
+            "originalUrl": "https://arxiv.org/html/2611.14516v1/features_to_points_light.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Alex Shtoff · arXiv:2611.14516"
+          },
+          "affiliations": {
+            "status": "unavailable",
+            "reason": "論文から所属を確認できませんでした。"
+          }
+        },
+        {
+          "id": "1512.03385",
+          "title": "Deep Residual Learning for Image Recognition",
+          "abstract": "Deeper neural networks are more difficult to train. We present a residual learning framework to ease the training of networks that are substantially deeper than those used previously. We explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. We provide comprehensive empirical evidence showing that these residual networks are easier to optimize, and can gain accuracy from considerably increased depth. On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers---8x deeper than VGG nets but still having lower complexity. An ensemble of these residual nets achieves 3.57% error on the ImageNet test set. This result won the 1st place on the ILSVRC 2015 classification task. We also present analysis on CIFAR-10 with 100 and 1000 layers. The depth of representations is of central importance for many visual recognition tasks. Solely due to our extremely deep representations, we obtain a 28% relative improvement on the COCO object detection dataset. Deep residual nets are foundations of our submissions to ILSVRC & COCO 2015 competitions, where we also won the 1st places on the tasks of ImageNet detection, ImageNet localization, COCO detection, and COCO segmentation.",
+          "authors": [
+            "Kaiming He",
+            "Xiangyu Zhang",
+            "Shaoqing Ren",
+            "Jian Sun"
+          ],
+          "published": "2015-12-10T19:51:55Z",
+          "updated": "2015-12-10T19:51:55Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Kaiming He",
+              "institutions": []
+            },
+            {
+              "name": "Xiangyu Zhang",
+              "institutions": []
+            },
+            {
+              "name": "Shaoqing Ren",
+              "institutions": []
+            },
+            {
+              "name": "Jian Sun",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1512.03385",
+          "pdfUrl": "https://arxiv.org/pdf/1512.03385",
+          "citations": {
+            "count": 247263,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-12T17:40:27.627Z",
+            "url": "https://www.semanticscholar.org/paper/2c03df8b48bf3fa39054345bafabfeff15bfd11d"
+          },
+          "topics": [
+            "Residual RL",
+            "Computer Vision"
+          ],
+          "score": 12,
+          "personalScore": 12,
+          "groupId": "classic-ai",
+          "headline": "残差学習で深い画像認識ネットワークを訓練",
+          "summary": "深いニューラルネットワークの訓練の難しさに対し、各層で入力に対する残差関数を学習する枠組みを提案する。抄録では、残差ネットワークは最適化しやすく、深さの増加によって精度も向上すると報告。ImageNetでは最大152層を評価し、アンサンブルでテスト誤り率3.57%を達成した。CIFAR-10では100層・1000層を分析し、COCOの物体検出でも28%の相対改善を報告している。",
+          "takeaways": [
+            "入力を基準とする残差関数の学習により、深いネットワークの最適化を容易にする。",
+            "ImageNetで評価した152層モデルは、VGGより8倍深い一方、複雑度は低いと報告されている。",
+            "画像分類に加え、物体検出などでも深い表現の有効性を示している。"
+          ],
+          "relevance": "画像認識の表現学習として、VLAや視覚を用いた操作研究の基盤に関係する。ただし、ここでの残差学習はネットワーク内の関数表現であり、物体中心の残差強化学習とは別概念である。sim-to-real、力覚・触覚との統合、接触操作への効果は抄録では扱われていない。",
+          "caveat": "層構成や訓練条件の詳細、比較条件の公平性、ロボット環境への転用性能は抄録だけでは確認できない。大会成績は記載されているが、それだけで査読状況や他条件での再現性は判断できない。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Microsoft Research"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1512.03385v1",
+            "method": "arxiv-html"
+          }
+        },
+        {
+          "id": "1706.03762",
+          "title": "Attention Is All You Need",
+          "abstract": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.",
+          "authors": [
+            "Ashish Vaswani",
+            "Noam Shazeer",
+            "Niki Parmar",
+            "Jakob Uszkoreit",
+            "Llion Jones",
+            "Aidan N. Gomez",
+            "Lukasz Kaiser",
+            "Illia Polosukhin"
+          ],
+          "published": "2017-06-12T17:57:34Z",
+          "updated": "2023-08-02T00:41:18Z",
+          "categories": [
+            "cs.CL",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Ashish Vaswani",
+              "institutions": []
+            },
+            {
+              "name": "Noam Shazeer",
+              "institutions": []
+            },
+            {
+              "name": "Niki Parmar",
+              "institutions": []
+            },
+            {
+              "name": "Jakob Uszkoreit",
+              "institutions": []
+            },
+            {
+              "name": "Llion Jones",
+              "institutions": []
+            },
+            {
+              "name": "Aidan N. Gomez",
+              "institutions": []
+            },
+            {
+              "name": "Lukasz Kaiser",
+              "institutions": []
+            },
+            {
+              "name": "Illia Polosukhin",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1706.03762",
+          "pdfUrl": "https://arxiv.org/pdf/1706.03762",
+          "citations": {
+            "count": 202786,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-12T17:40:27.627Z",
+            "url": "https://www.semanticscholar.org/paper/204e3073870fae3d05bcbc2f6a8e263d9b72e776"
+          },
+          "topics": [
+            "Machine Learning"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-ai",
+          "headline": "再帰と畳み込みを使わないTransformer",
+          "summary": "系列変換モデルで主流だった再帰・畳み込み構造を使わず、注意機構だけに基づくTransformerを提案する。二つの機械翻訳課題で、翻訳品質を高めながら並列化しやすく、訓練時間も短縮できると報告。WMT 2014の英独翻訳では28.4 BLEU、英仏翻訳では単一モデルで41.8 BLEUを達成した。さらに、データ量の異なる英語句構造解析にも適用し、翻訳以外の課題への汎化を示している。",
+          "takeaways": [
+            "注意機構のみを用いる、再帰や畳み込みのない系列変換アーキテクチャを提案する。",
+            "機械翻訳で品質向上と並列化のしやすさ、訓練時間短縮を報告している。",
+            "英語句構造解析への適用により、翻訳以外への展開も評価している。"
+          ],
+          "relevance": "主な意義は、自然言語の系列変換において品質と計算効率を両立する設計を示した点にある。VLAやマルチモーダル学習、サブゴールを用いた長期動作生成との接点は考えられるが、本抄録の実験対象は翻訳と構文解析であり、ロボット動作への有効性を示すものではない。",
+          "caveat": "訓練時間やコストの比較は、ハードウェアや比較手法の条件を含めて読む必要がある。長期系列での限界、視覚・力覚・触覚の統合、動作生成の安全性は抄録だけでは確認できない。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Google Brain",
+              "Google Research",
+              "University of Toronto"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1706.03762v7",
+            "method": "arxiv-html"
+          }
+        },
+        {
+          "id": "1810.04805",
+          "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+          "abstract": "We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models, BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications. BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5% (7.7% point absolute improvement), MultiNLI accuracy to 86.7% (4.6% absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement).",
+          "authors": [
+            "Jacob Devlin",
+            "Ming-Wei Chang",
+            "Kenton Lee",
+            "Kristina Toutanova"
+          ],
+          "published": "2018-10-11T00:50:01Z",
+          "updated": "2019-05-24T20:37:26Z",
+          "categories": [
+            "cs.CL"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Jacob Devlin",
+              "institutions": []
+            },
+            {
+              "name": "Ming-Wei Chang",
+              "institutions": []
+            },
+            {
+              "name": "Kenton Lee",
+              "institutions": []
+            },
+            {
+              "name": "Kristina Toutanova",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1810.04805",
+          "pdfUrl": "https://arxiv.org/pdf/1810.04805",
+          "citations": {
+            "count": 125604,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-12T17:40:27.627Z",
+            "url": "https://www.semanticscholar.org/paper/df2b0e26d0599ce3e70df8a9da02e51594e0e992"
+          },
+          "topics": [
+            "AI"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-ai",
+          "headline": "双方向の文脈で事前学習するBERT",
+          "summary": "BERTは、ラベルなしテキストを使い、すべての層で左右両方の文脈を同時に条件付けて深い双方向表現を事前学習する言語モデルである。事前学習済みモデルに出力層を一つ追加して微調整することで、大幅な課題別の構造変更なしに質問応答や言語推論へ適用できるとする。抄録では11の自然言語処理課題で当時の最高性能を報告し、GLUE、MultiNLI、SQuADなどでの改善を示している。",
+          "takeaways": [
+            "左右両方の文脈を全層で利用する双方向表現を、ラベルなしテキストから事前学習する。",
+            "出力層を一つ追加して微調整することで、多様な言語理解課題に適用する。",
+            "質問応答や言語推論を含む11課題で、当時の最高性能を報告している。"
+          ],
+          "relevance": "自然言語処理での意義は、共通の事前学習表現を多様な言語理解課題へ転用できる点にある。VLAの指示理解や人との協調作業に必要な言語理解との接点はあるが、身体動作との対応付けは本抄録の対象外である。変形物・道具の操作や接触操作への効果を直接示す論文ではない。",
+          "caveat": "事前学習の具体的な目的関数、データ構成、計算資源、失敗例は抄録だけでは確認できない。言語ベンチマークの改善から、物理的理解、対話能力、ロボット操作性能までを結論付けることはできない。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Google AI Language"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1810.04805v2",
+            "method": "arxiv-html"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "daily-paper",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A daily robotics and AI paper digest powered by arXiv and GitHub Copilot CLI",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "digest": "node scripts/digest.mjs",
+    "figures": "node scripts/digest.mjs --figures",
+    "preview": "node scripts/digest.mjs --preview",
+    "test": "node --test",
+    "build:site": "node scripts/build-site.mjs",
+    "schedule:install": "node scripts/schedule.mjs install",
+    "schedule:remove": "node scripts/schedule.mjs remove"
+  },
+  "dependencies": {
+    "@github/copilot": "1.0.109",
+    "@napi-rs/canvas": "^0.1.80",
+    "cheerio": "^1.2.0",
+    "fast-xml-parser": "^5.12.0",
+    "pdfjs-dist": "^5.4.0"
+  }
+}

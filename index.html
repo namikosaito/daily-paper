@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Robot Learning・ロボティクス・AIの新着論文と高引用論文を、5カテゴリで紹介。">
+    <title>Physical AI Daily</title>
+    <link rel="stylesheet" href="./style.css">
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body data-page="list">
+    <header class="site-header">
+      <a class="brand" href="./">Physical AI Daily</a>
+      <span class="schedule">3本 × 5カテゴリ · 6:00 JST</span>
+    </header>
+    <main class="page">
+      <section class="toolbar" aria-label="論文の絞り込み">
+        <h1>論文 <span id="total-count" class="count">0</span></h1>
+        <input id="search" type="search" aria-label="論文を検索" placeholder="タイトル・要約・著者・arXiv IDで検索">
+        <select id="issue-select" aria-label="掲載日を選択"><option value="">掲載日</option></select>
+      </section>
+      <div id="topics" class="topics" role="group" aria-label="分野"></div>
+      <div class="list-meta"><p id="status" role="status" aria-live="polite">読み込み中…</p><span id="paper-count"></span></div>
+      <section id="papers" class="paper-list" aria-label="論文一覧"></section>
+      <section id="empty" class="empty" hidden>
+        <h2>まだ論文が掲載されていません</h2>
+        <p>Copilotにログインし、初回の取得を実行してください。</p>
+        <code>npm exec -- copilot login<br>npm run digest</code>
+        <p><a href="?preview=1">選定プレビューを見る</a>（先に <code>npm run preview</code> を実行）</p>
+      </section>
+      <noscript>このページの表示にはJavaScriptを有効にしてください。</noscript>
+    </main>
+    <footer class="site-footer">
+      <p>抄録に基づくAI要約です。詳細は原論文をご確認ください。</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+node_modules/
+.tools/
+.run/
+*.log
+.DS_Store
+data/preview.json
+dist/
+.env
+.env.*
+!.env.example

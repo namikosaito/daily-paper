@@ -24,7 +24,7 @@ export function validateConfig(config) {
   dayInTimezone(new Date(), config.timezone);
   for (const [key, min, max] of [
     ['papersPerDay', 15, 15], ['lookbackDays', 7, 7], ['maxCandidates', 3, 500],
-    ['classicCandidatesPerCategory', 3, 200], ['minimumCitations', 100, 100000],
+    ['classicCandidatesPerCategory', 3, 200], ['minimumCitations', 30, 100000],
   ]) {
     if (!Number.isInteger(config[key]) || config[key] < min || config[key] > max) {
       throw new Error(`config.json: ${key} は ${min}〜${max} の整数にしてください。`);

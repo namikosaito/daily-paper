@@ -33,8 +33,9 @@ test('JST date changes at UTC 15:00, independent of host timezone', () => {
 
 test('config enforces fifteen papers, seven-day fallback, citation bounds and valid topics', () => {
   assert.equal(validateConfig(config), config);
+  assert.equal(config.minimumCitations, 30);
   for (const change of [
-    { papersPerDay: 5 }, { maxCandidates: 0 }, { lookbackDays: 30 }, { minimumCitations: 0 },
+    { papersPerDay: 5 }, { maxCandidates: 0 }, { lookbackDays: 30 }, { minimumCitations: 29 },
     { topics: [] }, { timezone: 'invalid' }, { timezone: undefined },
     { topics: [{ label: 'RL', terms: [''], weight: 1 }] },
   ]) assert.throws(() => validateConfig({ ...config, ...change }));
@@ -153,7 +154,7 @@ test('high-citation pools are year-independent, use real counts, and exclude irr
     categories: ['cs.LG'], published: '2016-01-01T00:00:00Z',
     citations: { ...high.citations, count: 1000000 },
   }));
-  pools['classic-ai'].push({ ...pools['classic-ai'][0], id: 'low', citations: { ...high.citations, count: 99 } });
+  pools['classic-ai'].push({ ...pools['classic-ai'][0], id: 'low', citations: { ...high.citations, count: 29 } });
   const result = selectDailyGroups(pools, empty, config, now);
   assert.ok(!result.papers.some(item => ['tensorflow', 'low'].includes(item.id)));
   assert.ok(result.papers.some(item => item.published.startsWith('2018')));
@@ -168,6 +169,23 @@ test('papers cannot repeat across groups or past editions', () => {
   const result = selectDailyGroups(pools, archived, config, now);
   assert.equal(new Set(result.papers.map(item => item.id)).size, result.papers.length);
   assert.ok(!result.papers.some(item => item.id === pools['recent-personal'][0].id));
+});
+
+test('all three classic categories include 30 citations, exclude 29, and retain citation ordering', () => {
+  const pools = fixturePools();
+  const classics = GROUPS.filter(group => group.kind === 'classic');
+  for (const [index, group] of classics.entries()) {
+    const source = pools[group.id][0];
+    pools[group.id] = [29, 30, 31].map(count => ({
+      ...source, id: `1801.${30000 + index * 100 + count}`,
+      citations: { ...source.citations, count },
+    }));
+  }
+  const result = selectDailyGroups(pools, empty, config, now);
+  for (const group of classics) {
+    const selected = result.papers.filter(paper => paper.groupId === group.id);
+    assert.deepEqual(selected.map(paper => paper.citations.count), [31, 30]);
+  }
 });
 
 test('new grouped editions validate while legacy five-paper editions remain readable', () => {

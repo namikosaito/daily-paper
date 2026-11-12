@@ -5,7 +5,7 @@
   "lookbackDays": 7,
   "maxCandidates": 300,
   "classicCandidatesPerCategory": 100,
-  "minimumCitations": 100,
+  "minimumCitations": 30,
   "query": "(cat:cs.RO OR cat:cs.LG OR cat:cs.AI) AND (all:robot OR all:robotics OR all:manipulation OR all:\"vision language action\" OR all:VLA OR all:\"sim-to-real\" OR all:tactile OR all:haptic)",
   "aiQuery": "cat:cs.AI OR cat:cs.LG OR cat:cs.CV OR cat:cs.CL OR cat:cs.NE OR cat:stat.ML",
   "topics": [

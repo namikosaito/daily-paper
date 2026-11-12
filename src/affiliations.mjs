@@ -7,9 +7,10 @@ export function extractHtmlAffiliations(html) {
   const $ = load(html);
   const institutions = [];
   for (const node of $('.ltx_role_affiliation, [itemprop="affiliation"]').toArray()) {
-    const text = $(node).text().replace(/^[†‡\s]*(?:affiliation\s*:\s*)/i, '');
+    const text = $(node).text().replace(/https?:\/\/\S+/gi, '')
+      .replace(/^[†‡\s]*(?:affiliation\s*:\s*)/i, '');
     for (const part of text.split(/\\affilnum\s*[\d*,]+/)) {
-      const name = clean(part).replace(/^[\d*†‡,\s]+/, '').replace(/[.;]+$/, '');
+      const name = clean(part).replace(/^[\d*†‡,\s]+/, '').replace(/[.;/|]+$/, '').trim();
       if (name.length >= 4 && name.length <= 350 && !/^(?:joint first author|equal contribution|corresponding author)$/i.test(name)) institutions.push(name);
     }
   }

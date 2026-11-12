@@ -141,8 +141,7 @@
           "affiliations": {
             "status": "available",
             "institutions": [
-              "Toyota Research Institute",
-              "https://annieyaj.github.io/tactile-vs-vision/"
+              "Toyota Research Institute"
             ],
             "sourceUrl": "https://arxiv.org/html/2611.10490v1",
             "method": "arxiv-html"

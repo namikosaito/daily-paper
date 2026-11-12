@@ -19,3 +19,10 @@ test('PDF affiliation parsing uses explicit institution-like lines, not email do
   assert.deepEqual(result, ['Carnegie Mellon University', 'Microsoft Research', 'Department of Computer Science, Stanford University']);
   assert.deepEqual(extractPdfAffiliations(['Nothing about an institution.']), []);
 });
+
+test('HTML project URLs are not treated as institutions', () => {
+  const html = `<span class="ltx_role_affiliation">Toyota Research Institute</span>
+    <span class="ltx_role_affiliation"><a href="https://example.org/project/">https://example.org/project/</a></span>
+    <span class="ltx_role_affiliation">Toyota Research Institute / https://example.org/project/</span>`;
+  assert.deepEqual(extractHtmlAffiliations(html), ['Toyota Research Institute']);
+});

@@ -6,6 +6,15 @@ on:
   schedule:
     - cron: '0 21 * * *'
   workflow_dispatch:
+    inputs:
+      refresh:
+        description: Reselect today's edition (reuses existing summaries)
+        type: boolean
+        default: false
+      verify_copilot:
+        description: Verify Copilot with one real summary request (uses quota)
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -38,12 +47,23 @@ jobs:
             echo "::error::Set the COPILOT_GITHUB_TOKEN repository secret before running daily updates."
             exit 1
           fi
+      - name: Verify Copilot authentication
+        if: github.event_name == 'workflow_dispatch' && inputs.verify_copilot
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+        run: npm run digest -- --check-copilot
       - name: Select and summarize papers
         if: github.event_name != 'push'
         env:
           COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
           SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
-        run: npm run digest
+          REFRESH_TODAY: ${{ inputs.refresh }}
+        run: |
+          if [ "$REFRESH_TODAY" = "true" ]; then
+            npm run digest -- --refresh
+          else
+            npm run digest
+          fi
       - name: Save updated public data
         if: github.event_name != 'push'
         run: |

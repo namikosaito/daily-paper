@@ -94,6 +94,8 @@ Semantic Scholar APIはキーなしでも試せますが、制限時は429応答
 4. 必要に応じて **SEMANTIC_SCHOLAR_API_KEY** も登録する。
 5. **Actions → Publish daily papers → Run workflow** で確認する。既に当日分があれば追加要約はしません。
 
+初回確認では `verify_copilot` を有効にすると、1本分の実要約リクエストで認証・利用枠を検証します（利用枠を消費）。`refresh` を有効にすると当日分を再選定し、クラウドからのarXiv・引用数・画像・所属取得も確認できます。通常の定期実行では、これらの手動確認用オプションは使いません。
+
 Copilot Secretがなくてもpushによるサイト公開はできますが、毎日の更新・手動実行は認証不足として失敗します。Secretsの登録とクラウド実行の成功確認が済むまでは、自動更新が完成したとは扱わないでください。
 
 公開するのはHTML/CSS/JS・`data/archive.json`・参照中の `figures/` だけです。`.tools/`・`.run/`・`node_modules/`・環境変数・ソース設定はPagesの公開物に含めません。GitHub Actions自体は公開リポジトリ内のコードを実行するため、外部PRのコードにSecretsを渡すトリガーは用意していません。

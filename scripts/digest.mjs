@@ -16,10 +16,11 @@ const run = promisify(execFile);
 const preview = process.argv.includes('--preview');
 const figuresOnly = process.argv.includes('--figures');
 const refresh = process.argv.includes('--refresh');
-const unknown = process.argv.slice(2).filter(arg => !['--preview', '--figures', '--refresh'].includes(arg));
+const checkCopilot = process.argv.includes('--check-copilot');
+const unknown = process.argv.slice(2).filter(arg => !['--preview', '--figures', '--refresh', '--check-copilot'].includes(arg));
 if (unknown.length) throw new Error(`不明な引数です: ${unknown.join(' ')}`);
-if ([preview, figuresOnly, refresh].filter(Boolean).length > 1) {
-  throw new Error('--preview、--figures、--refresh は同時に使用できません。');
+if ([preview, figuresOnly, refresh, checkCopilot].filter(Boolean).length > 1) {
+  throw new Error('--preview、--figures、--refresh、--check-copilot は同時に使用できません。');
 }
 
 async function atomicJson(filename, data) {
@@ -73,6 +74,13 @@ async function main() {
   const config = validateConfig(JSON.parse(await readFile(path.join(root, 'config.json'), 'utf8')));
   const archivePath = path.join(root, 'data/archive.json');
   const archive = validateArchive(JSON.parse(await readFile(archivePath, 'utf8')));
+  if (checkCopilot) {
+    const sample = archive.issues[0]?.papers[0];
+    if (!sample) throw new Error('認証確認に使用できる掲載済み論文がありません。');
+    await summarize([sample]);
+    console.log('Copilotの実リクエストと日本語要約の検証に成功しました。アーカイブは変更しません。');
+    return;
+  }
   if (figuresOnly) {
     for (const issue of archive.issues) issue.papers = await attachFigures(issue.papers, root);
     await atomicJson(archivePath, archive);

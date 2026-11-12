@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  dayInTimezone, makePrompt, parseCopilotEvents, parseSummaries,
+  dayInTimezone, hasCurrentSummary, makePrompt, parseCopilotEvents, parseSummaries,
   selectDailyGroups, validateArchive, validateConfig,
 } from '../src/digest.mjs';
 import { attachFigures } from '../src/figures.mjs';
@@ -70,6 +70,14 @@ async function summarize(papers) {
   }
 }
 
+async function summarizeBatches(papers) {
+  const summarized = [];
+  for (let offset = 0; offset < papers.length; offset += 3) {
+    summarized.push(...await summarize(papers.slice(offset, offset + 3)));
+  }
+  return summarized;
+}
+
 async function main() {
   const config = validateConfig(JSON.parse(await readFile(path.join(root, 'config.json'), 'utf8')));
   const archivePath = path.join(root, 'data/archive.json');
@@ -89,8 +97,19 @@ async function main() {
   }
   const now = new Date();
   const date = dayInTimezone(now, config.timezone);
-  if (!preview && !refresh && archive.issues.some(issue => issue.date === date)) {
-    console.log(`${date} 号は発行済みです。追加のCopilotリクエストは行いません。`);
+  const existing = archive.issues.find(issue => issue.date === date);
+  if (!preview && !refresh && existing) {
+    const outdated = existing.papers.filter(paper => !hasCurrentSummary(paper));
+    if (!outdated.length) {
+      console.log(`${date} 号は発行済みです。追加のCopilotリクエストは行いません。`);
+      return;
+    }
+    const rewritten = new Map((await summarizeBatches(outdated)).map(paper => [paper.id, paper]));
+    existing.papers = existing.papers.map(paper => rewritten.get(paper.id) ?? paper);
+    existing.generatedAt = now.toISOString();
+    validateArchive(archive);
+    await atomicJson(archivePath, archive);
+    console.log(`${date} 号の${outdated.length}件を5項目の要約へ更新しました。選定・図・所属は保持します。`);
     return;
   }
   const selectionArchive = refresh
@@ -102,11 +121,9 @@ async function main() {
   let contentPapers = papers;
   if (!preview) {
     const previous = refresh ? archive.issues.find(item => item.date === date)?.papers ?? [] : [];
-    const cached = new Map(previous.map(paper => [paper.id, paper]));
+    const cached = new Map(previous.filter(hasCurrentSummary).map(paper => [paper.id, paper]));
     const missing = papers.filter(paper => !cached.has(paper.id));
-    for (let offset = 0; offset < missing.length; offset += 3) {
-      for (const paper of await summarize(missing.slice(offset, offset + 3))) cached.set(paper.id, paper);
-    }
+    for (const paper of await summarizeBatches(missing)) cached.set(paper.id, paper);
     contentPapers = papers.map(paper => ({ ...cached.get(paper.id), ...paper }));
   }
   const issue = {

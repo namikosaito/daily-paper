@@ -72,12 +72,13 @@ code { display: inline-block; background: var(--surface); border-radius: 5px; pa
 .paper-figure img { width: 100%; max-height: 520px; object-fit: contain; border: 1px solid var(--line); border-radius: 8px; padding: 18px; }
 .paper-figure figcaption { color: var(--muted); font-size: 11px; line-height: 1.7; margin-top: 10px; overflow-wrap: anywhere; }
 .figure-credit { display: block; margin-top: 7px; }
-.summary { font-size: 15px; line-height: 2; margin: 26px 0; white-space: pre-line; }
+.summary { font-size: 15px; line-height: 2; margin: 0; white-space: pre-line; }
 .detail-section { margin: 28px 0; }
 .detail-section h2 { font-size: 14px; margin: 0 0 10px; }
 .takeaways { padding-left: 20px; font-size: 14px; }
 .takeaways li { padding-left: 4px; margin: 10px 0; }
 .relevance, .caveat { font-size: 14px; line-height: 1.9; }
+.detail-text { font-size: 14px; line-height: 2; white-space: pre-line; overflow-wrap: anywhere; }
 .detail-page details { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line); }
 summary { cursor: pointer; color: var(--muted); font-size: 13px; }
 .abstract { font-size: 14px; line-height: 1.9; overflow-wrap: anywhere; }

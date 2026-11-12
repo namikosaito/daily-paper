@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import {
   buildQueryUrl, dayInTimezone, parseCopilotEvents, parseFeed, parseSummaries,
-  GROUPS, scorePaper, selectDailyGroups, validateArchive, validateConfig, makePrompt,
+  GROUPS, hasCurrentSummary, scorePaper, selectDailyGroups, validateArchive, validateConfig, makePrompt,
 } from '../src/digest.mjs';
 
 const config = JSON.parse(await readFile(new URL('../config.json', import.meta.url), 'utf8'));
@@ -20,8 +20,10 @@ const papers = Array.from({ length: 5 }, (_, i) => paper(`2611.${10000 + i}`));
 const summary = id => ({
   id, headline: 'ロボットの新しい学習方法',
   summary: 'ロボットによる物体操作のための新しい方策学習手法を提案しています。抄録を根拠に研究の狙いと結果をまとめています。',
-  takeaways: ['学習手法の提案です', '操作への応用を示す', '実機での評価が必要'],
-  relevance: '実機のロボット学習に関連します', caveat: '詳細な実験条件は本文の確認が必要です',
+  advantages: '従来の手法との違いを説明します。比較実験の条件は抄録だけでは確認できません。',
+  method: '画像などの観測を入力にして、ロボットの動作を出力する方策を学習します。',
+  evaluation: '評価対象や比較条件の詳細は抄録だけでは確認できません。',
+  futureWork: '抄録には今後の課題の記載がありません。実機での詳細な評価は本文の確認が必要です。',
 });
 
 test('JST date changes at UTC 15:00, independent of host timezone', () => {
@@ -183,6 +185,10 @@ test('Copilot output is matched by ID, never by order, and cannot replace source
   assert.deepEqual(parsed.map(item => item.id), papers.map(item => item.id));
   assert.ok(parsed.every(item => item.url.startsWith('https://arxiv.org/')));
   assert.equal(parseSummaries(`\`\`\`json\n${JSON.stringify({ papers: results })}\n\`\`\``, papers).length, 5);
+  assert.ok(parsed.every(hasCurrentSummary));
+  const legacy = { ...papers[0], takeaways: ['以前の要点'], relevance: '以前の関連', caveat: '以前の注記' };
+  const rewritten = parseSummaries(JSON.stringify({ papers: [summary(legacy.id)] }), [legacy])[0];
+  assert.ok(!['takeaways', 'relevance', 'caveat'].some(key => key in rewritten));
 });
 
 test('Copilot JSONL preserves raw Japanese strings without terminal line-wrapping', () => {
@@ -208,7 +214,11 @@ test('invalid count, duplicate IDs, wrong IDs, incomplete/non-Japanese summaries
     JSON.stringify({ papers: [good[0], ...good.slice(0, 4)] }),
     JSON.stringify({ papers: [{ ...good[0], id: 'unknown' }, ...good.slice(1)] }),
     JSON.stringify({ papers: [{ ...good[0], headline: 'English only' }, ...good.slice(1)] }),
-    JSON.stringify({ papers: [{ ...good[0], takeaways: ['要点だけです'] }, ...good.slice(1)] }),
+    ...['advantages', 'method', 'evaluation', 'futureWork'].map(key =>
+      JSON.stringify({ papers: [{ ...good[0], [key]: undefined }, ...good.slice(1)] })),
+    JSON.stringify({ papers: [null, ...good.slice(1)] }),
+    JSON.stringify({ papers: [{ ...good[0], summary: '要'.repeat(241) }, ...good.slice(1)] }),
+    JSON.stringify({ papers: [{ ...good[0], headline: '題'.repeat(81) }, ...good.slice(1)] }),
   ]) assert.throws(() => parseSummaries(invalid, papers));
 });
 
@@ -228,4 +238,20 @@ test('prompt delimits external metadata, forbids tools and full-text claims', ()
   assert.match(prompt, /外部ツール、ファイル、ウェブ検索は使わない/);
   assert.match(prompt, /本文を読んだふりをしない/);
   assert.match(makePrompt([papers[0]]), /入力と同じ1件/);
+  for (const label of ['要約', '優位点・独自点', '技術や手法のキモ', '検証方法', '今後の課題']) {
+    assert.ok(prompt.includes(label));
+  }
+  assert.match(prompt, /専門用語や略語は初出で簡潔に言い換え/);
+  assert.match(prompt, /実機実験やベンチマークの実施を推測しない/);
+  assert.match(prompt, /抄録には今後の課題の記載がありません/);
+});
+
+test('legacy summaries remain readable but cannot be reused as the current five-section format', () => {
+  const legacy = { ...papers[0], headline: '以前の日本語見出し', summary: '以前の日本語要約です。',
+    takeaways: ['以前の要点'], relevance: '研究との関連です', caveat: '以前の未確認事項です' };
+  assert.equal(hasCurrentSummary(legacy), false);
+  const issue = { date: '2026-11-13', papers: papers.map(item => ({ ...legacy, id: item.id })) };
+  assert.equal(validateArchive({ version: 1, issues: [issue] }).issues[0].papers.length, 5);
+  const partial = { ...legacy, advantages: '新しい優位点の説明です' };
+  assert.throws(() => validateArchive({ version: 1, issues: [{ ...issue, papers: [partial, ...issue.papers.slice(1)] }] }));
 });

@@ -125,7 +125,8 @@ function renderList() {
   const issues = state.issues.filter(issue => issue.date === state.date);
   const matches = issues.flatMap(issue => issue.papers
     .filter(paper => (state.topic === 'すべて' || paper.topics.includes(state.topic))
-      && [paper.id, paper.title, paper.headline, paper.summary, ...paper.authors, ...paper.topics]
+      && [paper.id, paper.title, paper.headline, paper.summary, paper.advantages, paper.method,
+        paper.evaluation, paper.futureWork, ...paper.authors, ...paper.topics]
         .filter(Boolean).join(' ').toLowerCase().includes(state.search.toLowerCase()))
     .map(paper => ({ paper, issue })));
   $('#empty').hidden = state.issues.length > 0;
@@ -198,8 +199,14 @@ function renderDetail() {
     figure.append(image, caption);
     container.append(figure);
   }
-  container.append(element('p', 'summary', paper.summary ?? '日本語要約はまだ生成していません。以下の原文抄録をご確認ください。'));
-  if (paper.takeaways) {
+  container.append(detailSection('要約', element('p', 'summary',
+    paper.summary ?? '日本語要約はまだ生成していません。以下の原文抄録をご確認ください。')));
+  if (paper.advantages && paper.method && paper.evaluation && paper.futureWork) {
+    for (const [key, title] of [
+      ['advantages', '優位点・独自点'], ['method', '技術や手法のキモ'],
+      ['evaluation', '検証方法'], ['futureWork', '今後の課題'],
+    ]) container.append(detailSection(title, element('p', 'detail-text', paper[key])));
+  } else if (paper.takeaways) {
     const points = element('ul', 'takeaways');
     points.append(...paper.takeaways.map(point => element('li', '', point)));
     container.append(

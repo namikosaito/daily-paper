@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { renderPdfPreview } from '../src/pdf.mjs';
+import { readPdfTextPages, renderPdfPreview } from '../src/pdf.mjs';
 import { imageExtension } from '../src/figures.mjs';
 
 function examplePdf() {
@@ -34,4 +34,11 @@ test('PDF fallback selects a page mentioning Figure 1 and renders a labeled PNG 
   assert.equal(imageExtension(preview.bytes), 'png');
   assert.ok(preview.bytes.length > 1000);
   assert.match(preview.caption, /切り抜きではありません/);
+});
+
+test('robot evidence extraction retains PDF page numbers and respects its page limit', async () => {
+  const pages = await readPdfTextPages(examplePdf());
+  assert.deepEqual(pages.map(page => page.pageNumber), [1, 2]);
+  assert.match(pages[1].text, /Figure 1/);
+  assert.equal((await readPdfTextPages(examplePdf(), 1)).length, 1);
 });

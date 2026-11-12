@@ -92,7 +92,7 @@ async function main() {
   if (figuresOnly) {
     for (const issue of archive.issues) issue.papers = await attachFigures(issue.papers, root);
     await atomicJson(archivePath, archive);
-    console.log('掲載済み論文の図を更新しました。Copilotリクエストは行いません。');
+    console.log('掲載済み論文の図・ロボット参考写真・キーワードを更新しました。Copilotリクエストは行いません。');
     return;
   }
   const now = new Date();

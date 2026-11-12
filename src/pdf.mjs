@@ -4,6 +4,24 @@ globalThis.DOMMatrix ??= DOMMatrix;
 globalThis.ImageData ??= ImageData;
 globalThis.Path2D ??= Path2D;
 
+export async function readPdfTextPages(bytes, maximumPages = 12) {
+  const { getDocument } = await import('pdfjs-dist/legacy/build/pdf.mjs');
+  const document = await getDocument({
+    data: new Uint8Array(bytes), useSystemFonts: true, isEvalSupported: false,
+  }).promise;
+  try {
+    const pages = [];
+    for (let pageNumber = 1; pageNumber <= Math.min(document.numPages, maximumPages); pageNumber++) {
+      const page = await document.getPage(pageNumber);
+      const content = await page.getTextContent();
+      pages.push({ pageNumber, text: content.items.filter(item => 'str' in item).map(item => item.str).join(' ') });
+    }
+    return pages;
+  } finally {
+    await document.destroy();
+  }
+}
+
 export async function readPdfFirstPageLines(bytes) {
   const { getDocument } = await import('pdfjs-dist/legacy/build/pdf.mjs');
   const document = await getDocument({

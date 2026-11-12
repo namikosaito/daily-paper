@@ -13,7 +13,8 @@ function externalLink(label, url, license = false) {
   const link = element('a', '', label);
   const parsed = new URL(url);
   if (parsed.protocol !== 'https:' || !['arxiv.org', 'ar5iv.labs.arxiv.org', 'aclanthology.org',
-    'www.semanticscholar.org', ...(license ? ['creativecommons.org'] : [])].includes(parsed.hostname)) {
+    'github.com', 'robots.ros.org', 'commons.wikimedia.org', 'www.semanticscholar.org',
+    ...(license ? ['creativecommons.org'] : [])].includes(parsed.hostname)) {
     throw new Error('出典リンクが許可されたHTTPS URLではありません。');
   }
   link.href = parsed.href;
@@ -65,20 +66,35 @@ function affiliationLine(paper, detailed = false) {
   return container;
 }
 
+function displayFigure(paper) {
+  if (paper.figure?.status === 'available') return paper.figure;
+  return paper.robotPhoto?.status === 'available' ? paper.robotPhoto : null;
+}
+
+function keywordMedia(paper) {
+  const container = element('div', 'keyword-visual');
+  container.append(element('span', 'keyword-label', '関連キーワード'));
+  const words = element('div', 'keyword-words');
+  words.append(...(paper.visualKeywords ?? paper.topics).map(word => element('span', '', word)));
+  container.append(words);
+  return container;
+}
+
 function figureImage(paper, lazy = true) {
-  if (paper.figure?.status !== 'available') return null;
-  if (!/^figures\/[A-Za-z0-9._-]+\.(png|jpg|webp)$/.test(paper.figure.src)) {
+  const figure = displayFigure(paper);
+  if (!figure) return null;
+  if (!/^figures\/[A-Za-z0-9._-]+\.(png|jpg|webp)$/.test(figure.src)) {
     throw new Error('図の保存先が不正です。');
   }
   const image = element('img');
-  image.src = `./${paper.figure.src}`;
-  image.alt = `${paper.title} — ${paper.figure.caption || '代表図'}`;
+  image.src = `./${figure.src}`;
+  image.alt = `${paper.title} — ${figure.caption || '代表図'}`;
   image.loading = lazy ? 'lazy' : 'eager';
   image.decoding = 'async';
   image.addEventListener('error', () => {
     const message = element('p', 'figure-error', '図を読み込めませんでした。原論文をご確認ください。');
     image.replaceWith(message);
-    console.error(`図を読み込めません: ${paper.figure.src}`);
+    console.error(`図を読み込めません: ${figure.src}`);
   }, { once: true });
   return image;
 }
@@ -93,10 +109,14 @@ function paperCard(paper, issue) {
     link.setAttribute('aria-label', `${paper.headline ?? paper.title}のまとめを読む`);
     link.append(image);
     media.append(link);
+    if (displayFigure(paper).method === 'robot-photo') {
+      media.classList.add('reference-photo');
+      media.append(element('span', 'media-label', '使用ロボットの参考写真・論文の実験写真ではありません'));
+    }
   } else {
-    media.classList.add('no-figure');
+    media.classList.add('keyword-media');
     media.title = paper.figure?.reason ?? '代表図はまだ取得されていません。';
-    media.append(element('span', '', '図なし'), externalLink('原論文を見る ↗', paper.url));
+    media.append(keywordMedia(paper));
   }
   const content = element('div', 'paper-content');
   const title = element(issue.groups ? 'h3' : 'h2');
@@ -127,7 +147,8 @@ function renderList() {
   const matches = issues.flatMap(issue => issue.papers
     .filter(paper => (state.topic === 'すべて' || paper.topics.includes(state.topic))
       && [paper.id, paper.title, paper.headline, paper.summary, paper.advantages, paper.method,
-        paper.evaluation, paper.futureWork, ...paper.authors, ...paper.topics]
+        paper.evaluation, paper.futureWork, ...(paper.visualKeywords ?? []),
+        paper.robotEvidence?.name, ...paper.authors, ...paper.topics]
         .filter(Boolean).join(' ').toLowerCase().includes(state.search.toLowerCase()))
     .map(paper => ({ paper, issue })));
   $('#empty').hidden = state.issues.length > 0;
@@ -191,27 +212,38 @@ function renderDetail() {
   container.append(links);
   const image = figureImage(paper, false);
   if (image) {
+    const source = displayFigure(paper);
     const figure = element('figure', 'paper-figure');
-    const caption = element('figcaption', '', paper.figure.caption);
-    const credit = element('span', 'figure-credit', `${paper.figure.credit} · `);
-    credit.append(externalLink('出典', paper.figure.sourceUrl), document.createTextNode(' · '));
-    if (paper.figure.licenseUrl) {
-      credit.append(externalLink(paper.figure.licenseUrl.includes('/zero/') ? 'CC0' : paper.figure.licenseUrl.includes('/by-sa/') ? 'CC BY-SA' : 'CC BY', paper.figure.licenseUrl, true));
-      if (paper.figure.licenseEvidenceUrl) credit.append(document.createTextNode(' · '),
-        externalLink('ライセンス確認元', paper.figure.licenseEvidenceUrl));
-    } else if (paper.figure.permission?.kind === 'scholarly-figures') {
-      const permission = externalLink('学術紹介での図の転載許可', paper.figure.permission.sourceUrl);
-      permission.title = paper.figure.permission.statement;
+    const caption = element('figcaption', '', source.caption);
+    const credit = element('span', 'figure-credit', `${source.credit} · `);
+    credit.append(externalLink('出典', source.sourceUrl), document.createTextNode(' · '));
+    if (source.licenseUrl) {
+      credit.append(externalLink(source.licenseUrl.includes('/zero/') ? 'CC0' : source.licenseUrl.includes('/by-sa/') ? 'CC BY-SA' : 'CC BY', source.licenseUrl, true));
+      if (source.licenseEvidenceUrl) credit.append(document.createTextNode(' · '),
+        externalLink('ライセンス確認元', source.licenseEvidenceUrl));
+    } else if (source.permission?.kind === 'scholarly-figures') {
+      const permission = externalLink('学術紹介での図の転載許可', source.permission.sourceUrl);
+      permission.title = source.permission.statement;
       credit.append(permission);
+    } else if (source.permission?.kind === 'mit-documentation') {
+      credit.append(externalLink('MITライセンス（公式実装の資料）', source.permission.sourceUrl));
+      const notice = element('details', 'license-notice');
+      notice.append(element('summary', '', '著作権表示・許諾条件'), element('pre', '', source.permission.notice));
+      caption.append(notice);
     } else {
       throw new Error('図の再利用条件が記録されていません。');
     }
     caption.append(credit);
+    if (source.method === 'robot-photo' && paper.robotEvidence) {
+      const evidence = element('p', 'robot-evidence', `使用機種の根拠：PDF ${paper.robotEvidence.pageNumber}ページ · `);
+      evidence.append(externalLink('論文で確認', paper.robotEvidence.sourceUrl));
+      caption.append(evidence);
+    }
     figure.append(image, caption);
     container.append(figure);
-  }
+  } else container.append(keywordMedia(paper));
   container.append(detailSection('要約', element('p', 'summary',
-    paper.summary ?? '日本語要約はまだ生成していません。以下の原文arXivの概要をご確認ください。')));
+    paper.summary ?? '日本語要約はまだ生成していません。以下のarXivの概要（原文）をご確認ください。')));
   if (paper.advantages && paper.method && paper.evaluation && paper.futureWork) {
     for (const [key, title] of [
       ['advantages', '優位点・独自点'], ['method', '技術や手法のキモ'],

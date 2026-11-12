@@ -7,7 +7,8 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const destination = path.join(root, 'dist');
 const archive = validateArchive(JSON.parse(await readFile(path.join(root, 'data/archive.json'), 'utf8')));
 const figures = new Set(archive.issues.flatMap(issue => issue.papers)
-  .filter(paper => paper.figure?.status === 'available').map(paper => paper.figure.src));
+  .flatMap(paper => [paper.figure, paper.robotPhoto])
+  .filter(figure => figure?.status === 'available').map(figure => figure.src));
 for (const filename of figures) {
   if (!/^figures\/[A-Za-z0-9._-]+\.(png|jpg|webp)$/.test(filename)) throw new Error(`公開画像のパスが不正です: ${filename}`);
 }

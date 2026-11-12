@@ -3,7 +3,7 @@
   "issues": [
     {
       "date": "2026-11-13",
-      "generatedAt": "2026-11-12T17:39:48.852Z",
+      "generatedAt": "2026-11-12T18:02:41.458Z",
       "title": "Physical AI Daily",
       "timezone": "Asia/Tokyo",
       "source": "arXiv abstract",
@@ -418,7 +418,7 @@
           "citations": {
             "count": 5146,
             "source": "Semantic Scholar",
-            "checkedAt": "2026-11-12T17:40:11.495Z",
+            "checkedAt": "2026-11-12T18:03:18.719Z",
             "url": "https://www.semanticscholar.org/paper/bdba3bd30a49ea4c5b20b43dbd8f0eb59e9d80e2"
           },
           "topics": [
@@ -502,7 +502,7 @@
           "citations": {
             "count": 4446,
             "source": "Semantic Scholar",
-            "checkedAt": "2026-11-12T17:40:11.495Z",
+            "checkedAt": "2026-11-12T18:03:18.719Z",
             "url": "https://www.semanticscholar.org/paper/32ceb28e45a445df4d89df281bb0e3ab5aab1a2a"
           },
           "topics": [
@@ -646,7 +646,7 @@
           "citations": {
             "count": 4423,
             "source": "Semantic Scholar",
-            "checkedAt": "2026-11-12T17:40:11.495Z",
+            "checkedAt": "2026-11-12T18:03:18.719Z",
             "url": "https://www.semanticscholar.org/paper/8f9ceb5ffad8e7a066dfc9d9aaa5153b714740ee"
           },
           "topics": [
@@ -728,9 +728,9 @@
           "url": "https://arxiv.org/abs/1707.06347",
           "pdfUrl": "https://arxiv.org/pdf/1707.06347",
           "citations": {
-            "count": 33491,
+            "count": 33493,
             "source": "Semantic Scholar",
-            "checkedAt": "2026-11-12T17:40:15.200Z",
+            "checkedAt": "2026-11-12T18:03:21.754Z",
             "url": "https://www.semanticscholar.org/paper/dce6f9d4017b1785979e7520fd0834ef8cf02f4b"
           },
           "topics": [
@@ -798,7 +798,7 @@
           "citations": {
             "count": 7623,
             "source": "Semantic Scholar",
-            "checkedAt": "2026-11-12T17:40:15.200Z",
+            "checkedAt": "2026-11-12T18:03:21.754Z",
             "url": "https://www.semanticscholar.org/paper/6933c70c747e6a8103f68f1a1db80185401d537b"
           },
           "topics": [
@@ -854,7 +854,7 @@
           "citations": {
             "count": 6729,
             "source": "Semantic Scholar",
-            "checkedAt": "2026-11-12T17:40:15.200Z",
+            "checkedAt": "2026-11-12T18:03:21.754Z",
             "url": "https://www.semanticscholar.org/paper/877a0ce8bc0457837e7c43dd0eb99e11ba4d84d6"
           },
           "topics": [
@@ -1113,9 +1113,9 @@
           "url": "https://arxiv.org/abs/1512.03385",
           "pdfUrl": "https://arxiv.org/pdf/1512.03385",
           "citations": {
-            "count": 247263,
+            "count": 247284,
             "source": "Semantic Scholar",
-            "checkedAt": "2026-11-12T17:40:27.627Z",
+            "checkedAt": "2026-11-12T18:03:25.080Z",
             "url": "https://www.semanticscholar.org/paper/2c03df8b48bf3fa39054345bafabfeff15bfd11d"
           },
           "topics": [
@@ -1204,9 +1204,9 @@
           "url": "https://arxiv.org/abs/1706.03762",
           "pdfUrl": "https://arxiv.org/pdf/1706.03762",
           "citations": {
-            "count": 202786,
+            "count": 202795,
             "source": "Semantic Scholar",
-            "checkedAt": "2026-11-12T17:40:27.627Z",
+            "checkedAt": "2026-11-12T18:03:25.080Z",
             "url": "https://www.semanticscholar.org/paper/204e3073870fae3d05bcbc2f6a8e263d9b72e776"
           },
           "topics": [
@@ -1275,9 +1275,9 @@
           "url": "https://arxiv.org/abs/1810.04805",
           "pdfUrl": "https://arxiv.org/pdf/1810.04805",
           "citations": {
-            "count": 125604,
+            "count": 125610,
             "source": "Semantic Scholar",
-            "checkedAt": "2026-11-12T17:40:27.627Z",
+            "checkedAt": "2026-11-12T18:03:25.080Z",
             "url": "https://www.semanticscholar.org/paper/df2b0e26d0599ce3e70df8a9da02e51594e0e992"
           },
           "topics": [

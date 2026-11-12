@@ -19,11 +19,11 @@ const paper = (id, extra = {}) => ({
 const papers = Array.from({ length: 5 }, (_, i) => paper(`2611.${10000 + i}`));
 const summary = id => ({
   id, headline: 'ロボットの新しい学習方法',
-  summary: 'ロボットによる物体操作のための新しい方策学習手法を提案しています。抄録を根拠に研究の狙いと結果をまとめています。',
-  advantages: '従来の手法との違いを説明します。比較実験の条件は抄録だけでは確認できません。',
+  summary: 'ロボットによる物体操作のための新しい方策学習手法を提案しています。arXivの概要を根拠に研究の狙いと結果をまとめています。',
+  advantages: '従来の手法との違いを説明します。比較実験の条件はarXivの概要だけでは確認できません。',
   method: '画像などの観測を入力にして、ロボットの動作を出力する方策を学習します。',
-  evaluation: '評価対象や比較条件の詳細は抄録だけでは確認できません。',
-  futureWork: '抄録には今後の課題の記載がありません。実機での詳細な評価は本文の確認が必要です。',
+  evaluation: '評価対象や比較条件の詳細はarXivの概要だけでは確認できません。',
+  futureWork: 'arXivの概要には今後の課題の記載がありません。実機での詳細な評価は本文の確認が必要です。',
 });
 
 test('JST date changes at UTC 15:00, independent of host timezone', () => {
@@ -225,6 +225,15 @@ test('Copilot JSONL preserves raw Japanese strings without terminal line-wrappin
   ]) assert.throws(() => parseCopilotEvents(invalid));
 });
 
+test('generated summaries consistently call the source arXiv without changing original metadata', () => {
+  const entry = { ...summary(papers[0].id), evaluation: '\u6284\u9332には評価条件の記載がありません。' };
+  assert.equal(hasCurrentSummary(entry), false);
+  const result = parseSummaries(JSON.stringify({ papers: [entry] }), [papers[0]])[0];
+  assert.equal(result.evaluation, 'arXivの概要には評価条件の記載がありません。');
+  assert.equal(result.abstract, papers[0].abstract);
+  assert.equal(hasCurrentSummary(result), true);
+});
+
 test('invalid count, duplicate IDs, wrong IDs, incomplete/non-Japanese summaries fail', () => {
   const good = papers.map(item => summary(item.id));
   for (const invalid of [
@@ -261,7 +270,7 @@ test('prompt delimits external metadata, forbids tools and full-text claims', ()
   }
   assert.match(prompt, /専門用語や略語は初出で簡潔に言い換え/);
   assert.match(prompt, /実機実験やベンチマークの実施を推測しない/);
-  assert.match(prompt, /抄録には今後の課題の記載がありません/);
+  assert.match(prompt, /arXivの概要には今後の課題の記載がありません/);
 });
 
 test('legacy summaries remain readable but cannot be reused as the current five-section format', () => {

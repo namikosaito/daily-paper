@@ -137,7 +137,7 @@ function renderList() {
     button.setAttribute('aria-pressed', String(button.textContent === state.topic));
   }
   $('#status').textContent = state.preview ? '選定プレビュー · 日本語要約は未生成'
-    : state.issues.length ? `最新 ${state.issues[0].date} · 抄録に基づくAI要約` : '未掲載';
+    : state.issues.length ? `最新 ${state.issues[0].date} · arXivに基づくAI要約` : '未掲載';
   if (state.issues.length && !matches.length) $('#status').textContent = '条件に一致する論文はありません。';
   const container = $('#papers');
   container.replaceChildren();
@@ -182,7 +182,7 @@ function renderDetail() {
   const container = $('#paper-detail');
   document.title = `${paper.headline ?? paper.title} — Physical AI Daily`;
   $('#back-link').href = state.preview ? './?preview=1' : './';
-  $('#status').textContent = state.preview ? '選定プレビュー · 日本語要約は未生成' : '抄録に基づくAI要約';
+  $('#status').textContent = state.preview ? '選定プレビュー · 日本語要約は未生成' : 'arXivに基づくAI要約';
   container.append(metadata(paper, issue), element('h1', 'detail-title', paper.headline ?? paper.title));
   if (paper.headline) container.append(element('p', 'english-title', paper.title));
   container.append(element('p', 'authors', paper.authors.join(', ')), affiliationLine(paper, true), tags(paper));
@@ -211,7 +211,7 @@ function renderDetail() {
     container.append(figure);
   }
   container.append(detailSection('要約', element('p', 'summary',
-    paper.summary ?? '日本語要約はまだ生成していません。以下の原文抄録をご確認ください。')));
+    paper.summary ?? '日本語要約はまだ生成していません。以下の原文arXivの概要をご確認ください。')));
   if (paper.advantages && paper.method && paper.evaluation && paper.futureWork) {
     for (const [key, title] of [
       ['advantages', '優位点・独自点'], ['method', '技術や手法のキモ'],
@@ -228,7 +228,7 @@ function renderDetail() {
   }
   const abstract = element('details');
   abstract.open = state.preview;
-  abstract.append(element('summary', '', '原文の抄録'), element('p', 'abstract', paper.abstract));
+  abstract.append(element('summary', '', 'arXivの概要（原文）'), element('p', 'abstract', paper.abstract));
   container.append(abstract);
 }
 

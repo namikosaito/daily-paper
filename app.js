@@ -12,7 +12,8 @@ function element(tag, className, value) {
 function externalLink(label, url, license = false) {
   const link = element('a', '', label);
   const parsed = new URL(url);
-  if (parsed.protocol !== 'https:' || !['arxiv.org', 'www.semanticscholar.org', ...(license ? ['creativecommons.org'] : [])].includes(parsed.hostname)) {
+  if (parsed.protocol !== 'https:' || !['arxiv.org', 'ar5iv.labs.arxiv.org', 'aclanthology.org',
+    'www.semanticscholar.org', ...(license ? ['creativecommons.org'] : [])].includes(parsed.hostname)) {
     throw new Error('出典リンクが許可されたHTTPS URLではありません。');
   }
   link.href = parsed.href;
@@ -193,8 +194,18 @@ function renderDetail() {
     const figure = element('figure', 'paper-figure');
     const caption = element('figcaption', '', paper.figure.caption);
     const credit = element('span', 'figure-credit', `${paper.figure.credit} · `);
-    credit.append(externalLink('出典', paper.figure.sourceUrl), document.createTextNode(' · '),
-      externalLink(paper.figure.licenseUrl.includes('/zero/') ? 'CC0' : paper.figure.licenseUrl.includes('/by-sa/') ? 'CC BY-SA' : 'CC BY', paper.figure.licenseUrl, true));
+    credit.append(externalLink('出典', paper.figure.sourceUrl), document.createTextNode(' · '));
+    if (paper.figure.licenseUrl) {
+      credit.append(externalLink(paper.figure.licenseUrl.includes('/zero/') ? 'CC0' : paper.figure.licenseUrl.includes('/by-sa/') ? 'CC BY-SA' : 'CC BY', paper.figure.licenseUrl, true));
+      if (paper.figure.licenseEvidenceUrl) credit.append(document.createTextNode(' · '),
+        externalLink('ライセンス確認元', paper.figure.licenseEvidenceUrl));
+    } else if (paper.figure.permission?.kind === 'scholarly-figures') {
+      const permission = externalLink('学術紹介での図の転載許可', paper.figure.permission.sourceUrl);
+      permission.title = paper.figure.permission.statement;
+      credit.append(permission);
+    } else {
+      throw new Error('図の再利用条件が記録されていません。');
+    }
     caption.append(credit);
     figure.append(image, caption);
     container.append(figure);

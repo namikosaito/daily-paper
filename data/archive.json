@@ -1178,8 +1178,18 @@
           "headline": "注意機構だけで系列を処理するTransformer、翻訳品質と学習効率を向上",
           "summary": "翻訳などの系列変換に対し、系列内の情報の関連性に応じて参照先を重み付けする「注意機構」だけで構成したTransformerを提案します。従来の再帰処理や畳み込みを使わず、並列処理しやすい構造にします。二つの翻訳課題で、翻訳品質の向上と学習時間の短縮を報告しています。",
           "figure": {
-            "status": "unavailable",
-            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+            "status": "available",
+            "src": "figures/1706.03762.png",
+            "caption": "Figure 1: The Transformer - model architecture.",
+            "sourceUrl": "https://ar5iv.labs.arxiv.org/html/1706.03762",
+            "originalUrl": "https://ar5iv.labs.arxiv.org/html/1706.03762/assets/Figures/ModalNet-21.png",
+            "permission": {
+              "kind": "scholarly-figures",
+              "statement": "Provided proper attribution is provided, Google hereby grants permission to reproduce the tables and figures in this paper solely for use in journalistic or scholarly works.",
+              "sourceUrl": "https://arxiv.org/pdf/1706.03762"
+            },
+            "method": "html-figure",
+            "credit": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin · arXiv:1706.03762"
           },
           "affiliations": {
             "status": "available",
@@ -1246,8 +1256,16 @@
           "headline": "左右の文脈を同時に学ぶBERT、多様な言語理解課題へ少ない変更で適応",
           "summary": "質問応答や文の意味関係の判定に広く使える言語表現を得るため、文脈を処理するニューラルネットワークTransformerを用いたBERTを提案します。正解ラベルのない文章から左右両方の文脈を全層で同時に学びます。事前学習後は出力層を一つ追加して課題別に調整し、11の自然言語処理課題で当時の最高性能を報告しています。",
           "figure": {
-            "status": "unavailable",
-            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+            "status": "available",
+            "src": "figures/1810.04805.png",
+            "caption": "PDF 3ページのプレビュー（図の切り抜きではありません）。",
+            "sourceUrl": "https://aclanthology.org/N19-1423.pdf",
+            "originalUrl": "https://aclanthology.org/N19-1423.pdf",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "licenseEvidenceUrl": "https://aclanthology.org/N19-1423/",
+            "method": "pdf-page",
+            "pageNumber": 3,
+            "credit": "Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova · arXiv:1810.04805"
           },
           "affiliations": {
             "status": "available",

@@ -2,6 +2,1911 @@
   "version": 1,
   "issues": [
     {
+      "date": "2026-11-14",
+      "generatedAt": "2026-11-14T01:18:35.729Z",
+      "title": "Physical AI Daily",
+      "timezone": "Asia/Tokyo",
+      "source": "arXiv abstract",
+      "preview": false,
+      "groups": [
+        {
+          "id": "recent-personal",
+          "title": "最新 · 関心に近いRobot Learning",
+          "kind": "recent",
+          "scope": "personal",
+          "requestedCount": 3,
+          "paperIds": [
+            "2611.17163",
+            "2611.17159",
+            "2611.17005"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "classic-personal",
+          "title": "高引用 · 関心に近いRobot Learning",
+          "kind": "classic",
+          "scope": "personal",
+          "requestedCount": 3,
+          "paperIds": [
+            "2410.24164",
+            "2304.13705",
+            "2504.16054"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "classic-robotics",
+          "title": "高引用 · ロボティクス全般",
+          "kind": "classic",
+          "scope": "robotics",
+          "requestedCount": 3,
+          "paperIds": [
+            "1506.02438",
+            "2307.15818",
+            "2007.11898"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "recent-ai",
+          "title": "最新 · AI / ML / Computer Vision",
+          "kind": "recent",
+          "scope": "ai",
+          "requestedCount": 3,
+          "paperIds": [
+            "2611.17336",
+            "2611.17334",
+            "2611.17331"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "classic-ai",
+          "title": "高引用 · AI / ML / Computer Vision",
+          "kind": "classic",
+          "scope": "ai",
+          "requestedCount": 3,
+          "paperIds": [
+            "1409.1556",
+            "1201.0490",
+            "1506.01497"
+          ],
+          "warnings": []
+        }
+      ],
+      "papers": [
+        {
+          "id": "2611.17163",
+          "title": "UAV-Flow++: A Unified Suite for Benchmarking and Learning Language-Guided UAV Flight",
+          "abstract": "Language-guided UAV navigation has largely focused on long-horizon route planning, leaving short-range, object-relative flight maneuvers underexplored. To address this gap, we formulate Flying-on-a-Word (Flow), a task requiring a UAV to convert concise natural-language instruction, egocentric visual observation, and current state dynamics into continuous flight actions. Flow encompasses both primitive motion commands and complex object-interactive behaviors, assessing motion intent comprehension and spatial context grounding. To enable policy learning and closed-loop evaluation, we introduce UAV-Flow, a comprehensive dataset comprising 30,692 expert-piloted real-world trajectories across eight distinct motion categories, alongside 10,109 simulation trajectories in the UAV-Flow-Sim environment equipped with task-specific completion criteria. Furthermore, we develop FlowVLA, which undergoes imitation pretraining on mixed real-sim demonstrations and online post-training via Tail-Aware GRPO (TGRPO). By leveraging group reward distributions, TGRPO effectively reinforces high-reward action sequences. Evaluated on 273 held-out UAV-Flow-Sim episodes, pretrained FlowVLA achieves a mean success rate of 75.58%, outperforming the strongest baseline by 6.72 percentage points, which TGRPO post-training further elevates to 93.16% with superior sample efficiency. Physical UAV experiments demonstrate robust execution of object-relative commands in both indoor and outdoor real-world scenes. Together, Flow establishes a novel benchmark and learning framework for language-conditioned flight maneuvers.",
+          "authors": [
+            "Donglin Yang",
+            "Xiangyu Wang",
+            "Yantong Zhong",
+            "Wenhao Zheng",
+            "Zihan Ding",
+            "Yue Liao",
+            "Hongsheng Li",
+            "Ke Xu",
+            "Si Liu"
+          ],
+          "published": "2026-11-12T17:39:43Z",
+          "updated": "2026-11-12T17:39:43Z",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Donglin Yang",
+              "institutions": []
+            },
+            {
+              "name": "Xiangyu Wang",
+              "institutions": []
+            },
+            {
+              "name": "Yantong Zhong",
+              "institutions": []
+            },
+            {
+              "name": "Wenhao Zheng",
+              "institutions": []
+            },
+            {
+              "name": "Zihan Ding",
+              "institutions": []
+            },
+            {
+              "name": "Yue Liao",
+              "institutions": []
+            },
+            {
+              "name": "Hongsheng Li",
+              "institutions": []
+            },
+            {
+              "name": "Ke Xu",
+              "institutions": []
+            },
+            {
+              "name": "Si Liu",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.17163",
+          "pdfUrl": "https://arxiv.org/pdf/2611.17163",
+          "topics": [
+            "Long-horizon",
+            "Computer Vision"
+          ],
+          "score": 5,
+          "personalScore": 5,
+          "freshness": "yesterday-today",
+          "groupId": "recent-personal",
+          "headline": "短い言葉でドローンを動かす、物体との位置関係に基づく飛行学習",
+          "summary": "短い自然言語の指示に従い、物体との位置関係を踏まえてドローンを操縦する研究です。機体視点の画像と現在の運動状態から、連続的な飛行操作を生成します。実世界とシミュレーションの飛行データ、評価環境、学習手法を整備し、長距離の経路計画に比べて研究が少なかった近距離の飛行操作を扱います。",
+          "advantages": "著者は、基本的な移動から物体に関わる複雑な操作までを扱う、共通の学習・評価基盤を提案しています。比較実験では、事前学習したFlowVLAの平均成功率が最も強い比較手法を6.72ポイント上回りました。追加学習による成功率向上と優れたサンプル効率も報告されています。ただし、比較手法の名前やサンプル効率の具体的な差は、arXivの概要には記載されていません。",
+          "method": "言語指示、機体視点の画像、現在の運動状態を入力し、FlowVLAが連続的な飛行操作を出力します。まず実世界とシミュレーションの操縦例を混ぜ、手本の操作をまねる模倣学習を行います。その後、オンラインで追加学習するTGRPOを適用します。TGRPOは複数の行動列から得られる報酬の分布を利用し、高い報酬を得た行動列を重点的に強化する仕組みです。",
+          "evaluation": "データは8種類の動作を含む実世界の熟練操縦軌跡30,692件と、シミュレーション軌跡10,109件です。タスク別の完了条件を備えたUAV-Flow-Simで、学習に使わない273エピソードを評価しました。平均成功率は事前学習後に75.58%、TGRPOによる追加学習後に93.16%でした。屋内外の実機でも物体との位置関係に基づく指示の実行を示していますが、実機の試行数や成功率は記載されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。未経験の指示や物体、環境にどこまで対応できるか、実機でどのような失敗が起きるかは、arXivの概要だけでは確認できません。これらは追加で確認すべき点であり、著者が明示した課題ではありません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.17163.png",
+            "caption": "Figure 1: Overview of UAV-Flow++. UAV-Flow++ comprises real-world flight demonstrations, an interactive simulation suite, and a vision-language-action policy for language-conditioned UAV maneuvers. The real-world dataset pairs language instructions with onboard observations, UAV states, and expert actions across primitive motion and object-interactive tasks. UAV-Flow-Sim supports closed-loop policy training and evaluation. FlowVLA predicts position-yaw action chunks from language instructions, initial and current images, and UAV states, using imitation pretraining on mixed real and simulated demonstrations followed by reinforcement learning with trajectory-level rewards.",
+            "sourceUrl": "https://arxiv.org/html/2611.17163v1",
+            "originalUrl": "https://arxiv.org/html/2611.17163v1/banner.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Donglin Yang, Xiangyu Wang, Yantong Zhong, Wenhao Zheng, Zihan Ding, Yue Liao, Hongsheng Li, Ke Xu, Si Liu · arXiv:2611.17163"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Beihang University, Beijing, China 100191",
+              "National University of Singapore, Singapore 119077",
+              "MMLab, The Chinese University of Hong Kong, Shatin, New Territories, Hong Kong, China*Corresponding author: Si Liu ()"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.17163v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "UAV-Flow++"
+          ]
+        },
+        {
+          "id": "2611.17159",
+          "title": "Inner Product Regularization for Imitation Learning",
+          "abstract": "Robots that learn from demonstrations should extrapolate their policy despite state perturbations such as sensor noise, scene variation, and compounding errors. One approach to this robustness is regularization. Prior regularizers consider each state on its own and limit how sensitive the policy is to any perturbation at that state. By contrast, we explore how the policy's output shifts when given the same perturbation at different states. Our insight is that, locally, the robot should respond to state perturbations in a consistent manner: e.g., if changing an irrelevant object position does not impact the policy at one state, that same change should not shift the policy output at a nearby state. Applying this insight, we develop inner product regularization (InneR). We show that the inner product on action space induces an inner product on state space through the policy Jacobian (the Fisher information for stochastic policies), and that the null space of this inner product governs which state perturbations have a first-order effect on the policy. By clustering states whose inner products are aligned, averaging the inner products within each cluster, and minimizing the smallest eigenvalues of that average, InneR shapes the learned policy so that nearby states share a common null space. InneR enforces consistent responses to perturbations without limiting policy expressiveness, and can be appended to existing imitation learning pipelines for deterministic or stochastic policies. In simulated experiments, InneR makes learned policies more robust to irrelevant state dimensions and shifts between training and test distributions, whereas norm penalties often perform worse than behavior cloning. On a real robot arm performing three manipulation tasks, InneR raises the average success rate of a diffusion policy from 18% to 57% without additional data.",
+          "authors": [
+            "Benjamin A. Christie",
+            "Tianyu Qiu",
+            "Amy H. Choi",
+            "David Fridovich-Keil",
+            "Dylan P. Losey"
+          ],
+          "published": "2026-11-12T17:38:48Z",
+          "updated": "2026-11-12T17:38:48Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Benjamin A. Christie",
+              "institutions": []
+            },
+            {
+              "name": "Tianyu Qiu",
+              "institutions": []
+            },
+            {
+              "name": "Amy H. Choi",
+              "institutions": []
+            },
+            {
+              "name": "David Fridovich-Keil",
+              "institutions": []
+            },
+            {
+              "name": "Dylan P. Losey",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.17159",
+          "pdfUrl": "https://arxiv.org/pdf/2611.17159",
+          "topics": [
+            "Long-horizon",
+            "Robotics"
+          ],
+          "score": 6,
+          "personalScore": 5,
+          "freshness": "yesterday-today",
+          "groupId": "recent-personal",
+          "headline": "状態の変化への反応をそろえ、模倣学習ロボットの頑健性を高める",
+          "summary": "手本から動作を学ぶロボットが、センサー雑音や場面の変化で失敗しにくくなるようにする研究です。各状態で出力の変化を抑えるだけでなく、近い状態同士で同じ変化に一貫して反応するよう学習を調整します。提案手法InneRは、動作に無関係な状態の変化を共通して無視できる方策を目指します。",
+          "advantages": "従来の正則化が各状態での変化への敏感さを個別に抑えるのに対し、InneRは状態間で反応をそろえます。著者は、行動を決める方策の表現力を制限せず、確定的・確率的な既存の模倣学習に追加できると主張しています。実験では、シミュレーションで頑健性が向上し、実機では追加データなしで平均成功率が18%から57%に上がったと報告されています。",
+          "method": "方策の出力が状態の微小変化にどう反応するかを、ヤコビ行列という局所的な変化率で表します。これを用い、状態の変化同士の関係を測る内積を構成します。その内積が似た状態をまとめ、各群の内積を平均して小さい固有値を最小化します。これにより、出力に一次の影響を与えない変化の方向を近い状態間で共通化し、無関係な変化への一貫した反応を促します。",
+          "evaluation": "シミュレーションでは、動作に無関係な状態成分と、学習時・評価時のデータ分布の違いに対する頑健性を検証しています。変化の大きさを抑えるノルム罰則は、手本の行動を直接まねる行動クローニングより悪い場合が多かったと報告されています。実機のロボットアームでは3種類の操作課題を実施し、ノイズ除去を利用して行動を生成する拡散方策の平均成功率が18%から57%に向上しました。試行数や課題名は記載されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。状態をまとめる際の設定への依存性、学習に必要な計算量、より多様な実機課題への適用範囲は、arXivの概要だけでは確認できません。これらは追加の確認事項であり、著者が述べた限界や今後の計画ではありません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.17159.png",
+            "caption": "Figure 10: Our real-world tasks. Each task is shown at the start, middle, and end of a successful InneR rollout with the three distractors (apple, orange and banana). (Left) in close, the robot pulls the handle down to latch the lid of the coffee maker. (Middle) In stack, the robot picks up the black cube and places it on the tan cube (teal and orange segmentations, respectively). (Right) In push, the robot pushes the pot into the target region. Tracked objects are tinted by the segmentation masks that our perception pipeline uses to estimate their poses, and the background is faded for clarity.",
+            "sourceUrl": "https://arxiv.org/html/2611.17159v1",
+            "originalUrl": "https://arxiv.org/html/2611.17159v1/hardware_tasks.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Benjamin A. Christie, Tianyu Qiu, Amy H. Choi, David Fridovich-Keil, Dylan P. Losey · arXiv:2611.17159"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Virginia Tech, Department of Mechanical Engineering",
+              "The University of Texas at Austin, Department of Aerospace Engineering and Engineering Mechanics",
+              "Korea Advanced Institute of Science and Technology, Department of Industrial and Systems Engineering"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.17159v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Inner Product Regularization for Imitation Learning"
+          ]
+        },
+        {
+          "id": "2611.17005",
+          "title": "An Integrated Architecture for Data-Efficient Real-Time Neural Imitation of Nonlinear Time-Optimal Model Predictive Control",
+          "abstract": "Nonlinear time-optimal model predictive control (TOMPC) enables highly performant control of constrained systems, but its computational cost prohibits real-time use on fast dynamical systems. Neural network imitation of the TOMPC control law can reduce online computational costs, yet existing work mostly targets quadratic cost formulations in simulation and addresses the challenges of neural controllers in isolation. This work imitates a long-horizon nonconvex TOMPC with hard terminal constraints, whose high computational cost limits training-data generation. We present (i) \\emph{self-informed sampling (SIFS)}, a data-efficient expert-sampling strategy that uses a learned time-to-go to query the expert only where the policy deviates from time-optimal behavior, (ii) a complete training and control architecture that jointly addresses dataset correlation, suboptimal expert labels, covariate shift, constraint satisfaction and model mismatch, and (iii) real-world validation on a Furuta pendulum. SIFS matches standard dataset aggregation performance in roughly one-third of the training time and with less than half the training data. The resulting controller matches the region of attraction of the expert TOMPC while raising the control frequency from 1.4~Hz to 1~kHz. On hardware, the controller swings up and stabilizes the pendulum along trajectories closely matching the expert TOMPC solution.",
+          "authors": [
+            "Maarten De Baecke",
+            "Flavia Sofia Acerbo",
+            "Andrea Giusti",
+            "Wilm Decré"
+          ],
+          "published": "2026-11-12T16:04:44Z",
+          "updated": "2026-11-12T16:04:44Z",
+          "categories": [
+            "eess.SY",
+            "cs.LG",
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Maarten De Baecke",
+              "institutions": []
+            },
+            {
+              "name": "Flavia Sofia Acerbo",
+              "institutions": []
+            },
+            {
+              "name": "Andrea Giusti",
+              "institutions": []
+            },
+            {
+              "name": "Wilm Decré",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.17005",
+          "pdfUrl": "https://arxiv.org/pdf/2611.17005",
+          "topics": [
+            "Long-horizon",
+            "Machine Learning"
+          ],
+          "score": 5,
+          "personalScore": 5,
+          "freshness": "yesterday-today",
+          "groupId": "recent-personal",
+          "headline": "時間最適制御を少ない手本で学び、振り子の実時間制御を高速化",
+          "summary": "制約を守りながら最短時間で目標に到達する制御は、計算が重く、高速な装置への適用が難しいという問題があります。本研究は、その制御をニューラルネットワークで模倣します。最適な動作から外れる場所を選んで手本を集める仕組みと、学習・制御を統合した構成により、少ないデータで高速な制御を実現します。",
+          "advantages": "著者は、従来研究が主に二次形式の評価関数を用いたシミュレーションを扱い、学習制御の課題を個別に検討していたと位置づけています。本研究は、長い予測区間と厳密な終端制約を持つ、最適化が難しい時間最適制御を対象にします。比較では、標準的なデータ集約法と同等の性能を約3分の1の学習時間、半分未満の学習データで達成したと報告されています。",
+          "method": "時間最適モデル予測制御は、先の動きを予測し、制約の下で到達時間を最小にする操作を計算します。提案するSIFSは、目標までの残り時間を学習して利用し、方策が時間最適な動作から外れる場所に限って、この計算で手本を取得します。高価な手本の生成を必要な場所に集中させる工夫です。さらに、データ間の相関、不十分な手本、状態分布のずれ、制約の順守、モデルと実機のずれを統合的に扱いますが、個別の対処方法は記載されていません。",
+          "evaluation": "SIFSを標準的なデータ集約法と比較し、学習時間と学習データ量を評価しています。得られた制御器は、元の時間最適制御と同じ吸引領域、つまり目標状態へ導ける初期状態の範囲を保ち、制御周波数を1.4Hzから1kHzへ高めたと報告されています。回転アームで振り子を動かすフルタ振り子の実機では、元の制御の解に近い軌道で振り上げと安定化を示しました。試行数や軌道誤差の数値は記載されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。別の装置への適用範囲、モデルと実機のずれが大きい場合の性能、制約順守をどの範囲で保証できるかは、arXivの概要だけでは確認できません。これらは追加で確認すべき点であり、著者が明示した課題とは区別する必要があります。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Maarten De Baecke, Flavia Sofia Acerbo, and Wilm Decré are with the Department of Mechanical Engineering, MECO Research Team and Flanders Make@KU Leuven, Leuven, Belgium ({maarten.debaecke, flaviasofia.acerbo, wilm.decre}@kuleuven.be)",
+              "Andrea Giusti is with Flanders Make vzw, Lommel, Belgium (}"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.17005v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "An Integrated Architecture for Data-Efficient Real-Time Neural I"
+          ]
+        },
+        {
+          "id": "2410.24164",
+          "title": "$π_0$: A Vision-Language-Action Flow Model for General Robot Control",
+          "abstract": "Robot learning holds tremendous promise to unlock the full potential of flexible, general, and dexterous robot systems, as well as to address some of the deepest questions in artificial intelligence. However, bringing robot learning to the level of generality required for effective real-world systems faces major obstacles in terms of data, generalization, and robustness. In this paper, we discuss how generalist robot policies (i.e., robot foundation models) can address these challenges, and how we can design effective generalist robot policies for complex and highly dexterous tasks. We propose a novel flow matching architecture built on top of a pre-trained vision-language model (VLM) to inherit Internet-scale semantic knowledge. We then discuss how this model can be trained on a large and diverse dataset from multiple dexterous robot platforms, including single-arm robots, dual-arm robots, and mobile manipulators. We evaluate our model in terms of its ability to perform tasks in zero shot after pre-training, follow language instructions from people and from a high-level VLM policy, and its ability to acquire new skills via fine-tuning. Our results cover a wide variety of tasks, such as laundry folding, table cleaning, and assembling boxes.",
+          "authors": [
+            "Kevin Black",
+            "Noah Brown",
+            "Danny Driess",
+            "Adnan Esmail",
+            "Michael Equi",
+            "Chelsea Finn",
+            "Niccolo Fusai",
+            "Lachy Groom",
+            "Karol Hausman",
+            "Brian Ichter",
+            "Szymon Jakubczak",
+            "Tim Jones",
+            "Liyiming Ke",
+            "Sergey Levine",
+            "Adrian Li-Bell",
+            "Mohith Mothukuri",
+            "Suraj Nair",
+            "Karl Pertsch",
+            "Lucy Xiaoyang Shi",
+            "James Tanner",
+            "Quan Vuong",
+            "Anna Walling",
+            "Haohuan Wang",
+            "Ury Zhilinsky"
+          ],
+          "published": "2024-10-31T17:22:30Z",
+          "updated": "2026-01-08T17:01:05Z",
+          "categories": [
+            "cs.LG",
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Kevin Black",
+              "institutions": []
+            },
+            {
+              "name": "Noah Brown",
+              "institutions": []
+            },
+            {
+              "name": "Danny Driess",
+              "institutions": []
+            },
+            {
+              "name": "Adnan Esmail",
+              "institutions": []
+            },
+            {
+              "name": "Michael Equi",
+              "institutions": []
+            },
+            {
+              "name": "Chelsea Finn",
+              "institutions": []
+            },
+            {
+              "name": "Niccolo Fusai",
+              "institutions": []
+            },
+            {
+              "name": "Lachy Groom",
+              "institutions": []
+            },
+            {
+              "name": "Karol Hausman",
+              "institutions": []
+            },
+            {
+              "name": "Brian Ichter",
+              "institutions": []
+            },
+            {
+              "name": "Szymon Jakubczak",
+              "institutions": []
+            },
+            {
+              "name": "Tim Jones",
+              "institutions": []
+            },
+            {
+              "name": "Liyiming Ke",
+              "institutions": []
+            },
+            {
+              "name": "Sergey Levine",
+              "institutions": []
+            },
+            {
+              "name": "Adrian Li-Bell",
+              "institutions": []
+            },
+            {
+              "name": "Mohith Mothukuri",
+              "institutions": []
+            },
+            {
+              "name": "Suraj Nair",
+              "institutions": []
+            },
+            {
+              "name": "Karl Pertsch",
+              "institutions": []
+            },
+            {
+              "name": "Lucy Xiaoyang Shi",
+              "institutions": []
+            },
+            {
+              "name": "James Tanner",
+              "institutions": []
+            },
+            {
+              "name": "Quan Vuong",
+              "institutions": []
+            },
+            {
+              "name": "Anna Walling",
+              "institutions": []
+            },
+            {
+              "name": "Haohuan Wang",
+              "institutions": []
+            },
+            {
+              "name": "Ury Zhilinsky",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2410.24164",
+          "pdfUrl": "https://arxiv.org/pdf/2410.24164",
+          "citations": {
+            "count": 3583,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-14T01:18:44.958Z",
+            "url": "https://www.semanticscholar.org/paper/7e7e59d2e247d99954081080ddd5aae93d10b9e0"
+          },
+          "topics": [
+            "VLA",
+            "Physical AI",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 9,
+          "personalScore": 6,
+          "groupId": "classic-personal",
+          "headline": "π₀：画像と言葉の知識を、多様なロボットの器用な操作へ",
+          "summary": "多様な作業に対応するロボット学習で、データ不足や未知の状況への対応、動作の安定性が課題です。π₀は、事前学習済みの画像と言葉を扱うモデルを土台に、動作を生成する仕組みを組み合わせます。複数種類のロボットのデータで学び、洗濯物たたみなどの作業や、追加学習による新技能の獲得を評価します。",
+          "advantages": "著者が狙う利点は、インターネット規模の学習で得た意味の知識を、ロボットの操作に生かすことです。単腕、双腕、移動しながら物を扱うロボットの多様なデータを利用する構成も示しています。ただし、arXivの概要には既存手法との比較条件や数値がなく、どの手法よりどれだけ優れるかは確認できません。",
+          "method": "画像と言葉を扱う事前学習済みモデルの上に、フローマッチングという生成モデルの学習手法を使う構造を設けます。視覚と言語の情報をロボットの動作へ結び付け、複数のロボットから集めた大規模で多様なデータで学習します。既存の意味の知識を操作に活用する狙いです。入力の詳しい構成や動作の表現形式は、arXivの概要では説明されていません。",
+          "evaluation": "事前学習後に対象作業の追加学習なしで動く能力、人や上位の画像・言語モデルによる方策からの言語指示に従う能力、追加学習で新技能を獲得する能力を評価しています。対象には洗濯物たたみ、テーブル清掃、箱の組み立てが含まれます。arXivの概要には、試行回数、成功率、比較手法、詳しい実験環境の記載はありません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。データ、未知の状況への対応、動作の安定性は研究の背景として挙げられていますが、提案手法に残る具体的な限界や今後の計画は示されていません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Kevin Black, Noah Brown, Danny Driess, Adnan Esmail, Michael Equi, Chelsea Finn, Niccolo Fusai,",
+              "Lachy Groom, Karol Hausman, Brian Ichter, Szymon Jakubczak, Tim Jones, Liyiming Ke, Sergey Levine,",
+              "Adrian Li-Bell, Mohith Mothukuri, Suraj Nair, Karl Pertsch, Lucy Xiaoyang Shi, James Tanner, Quan Vuong,",
+              "Anna Walling, Haohuan Wang, Ury Zhilinsky"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2410.24164v4",
+            "method": "arxiv-html"
+          },
+          "robotEvidence": {
+            "name": "UR5e",
+            "evidence": "7: Out-of-box evaluation results : We evaluate π 0 trained for the full 700k steps, a version trained for 160k steps that matches the number of updates for baseline models, π 0 -small, and three baselines: OpenVLA and Octo trained on all of our data, and OpenVLA trained only on the UR5e tasks (which we found to work better on UR5e tasks).",
+            "sourceUrl": "https://arxiv.org/pdf/2410.24164",
+            "pageNumber": 8
+          },
+          "visualKeywords": [
+            "UR5e"
+          ]
+        },
+        {
+          "id": "2304.13705",
+          "title": "Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware",
+          "abstract": "Fine manipulation tasks, such as threading cable ties or slotting a battery, are notoriously difficult for robots because they require precision, careful coordination of contact forces, and closed-loop visual feedback. Performing these tasks typically requires high-end robots, accurate sensors, or careful calibration, which can be expensive and difficult to set up. Can learning enable low-cost and imprecise hardware to perform these fine manipulation tasks? We present a low-cost system that performs end-to-end imitation learning directly from real demonstrations, collected with a custom teleoperation interface. Imitation learning, however, presents its own challenges, particularly in high-precision domains: errors in the policy can compound over time, and human demonstrations can be non-stationary. To address these challenges, we develop a simple yet novel algorithm, Action Chunking with Transformers (ACT), which learns a generative model over action sequences. ACT allows the robot to learn 6 difficult tasks in the real world, such as opening a translucent condiment cup and slotting a battery with 80-90% success, with only 10 minutes worth of demonstrations. Project website: https://tonyzhaozh.github.io/aloha/",
+          "authors": [
+            "Tony Z. Zhao",
+            "Vikash Kumar",
+            "Sergey Levine",
+            "Chelsea Finn"
+          ],
+          "published": "2023-04-23T19:10:53Z",
+          "updated": "2023-04-23T19:10:53Z",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Tony Z. Zhao",
+              "institutions": []
+            },
+            {
+              "name": "Vikash Kumar",
+              "institutions": []
+            },
+            {
+              "name": "Sergey Levine",
+              "institutions": []
+            },
+            {
+              "name": "Chelsea Finn",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2304.13705",
+          "pdfUrl": "https://arxiv.org/pdf/2304.13705",
+          "citations": {
+            "count": 2961,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-14T01:18:44.958Z",
+            "url": "https://www.semanticscholar.org/paper/91eb20f923ea3b0246868902aef4e9bea572b800"
+          },
+          "topics": [
+            "Long-horizon",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 6,
+          "personalScore": 5,
+          "groupId": "classic-personal",
+          "headline": "低価格の双腕ロボットで精密操作を学ぶ、動作列の模倣学習ACT",
+          "summary": "精密な操作には高価なロボットやセンサーが必要になりがちです。この研究は、低価格の機器と独自の遠隔操作装置で集めた実演から、ロボットの動作を直接学びます。動作をひとまとまりの列として学ぶACTを提案し、少量の実演で電池の差し込みなどの実世界の作業に取り組みます。",
+          "advantages": "著者が示す利点は、低価格で精度に限りのある機器でも、人の実演から細かな操作を学べることです。動作の誤差が時間とともに積み重なる問題や、実演の振る舞いが一定でない問題に対処するため、動作列を学びます。arXivの概要には実世界での成功率が示されていますが、既存手法との比較結果や機器の具体的な価格はありません。",
+          "method": "独自の遠隔操作装置で実際の作業の実演を集め、実演から動作をまねる模倣学習を行います。中心となるACTは、系列データを扱うニューラルネットワークのTransformerを使い、複数の動作をひとまとまりにした動作列の生成モデルを学びます。この工夫で誤差の蓄積などに対処します。観測入力の詳しい構成や、生成した動作列の実行方法はarXivの概要では確認できません。",
+          "evaluation": "実世界の難しい操作6課題で検証しています。例として、半透明の調味料容器を開ける作業と、電池を差し込む作業が挙げられています。arXivの概要は、10分相当の実演で80〜90％の成功率を報告しています。ただし、課題別の成功率、試行回数、実演時間の課題ごとの配分、比較手法の結果は明記されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。誤差の蓄積や実演の振る舞いの変化は、提案手法が対処する問題として説明されていますが、導入後にどの程度残るかや、失敗する条件、今後の改善計画は示されていません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Stanford University",
+              "Meta",
+              "UC Berkeley"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2304.13705v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "ACT"
+          ]
+        },
+        {
+          "id": "2504.16054",
+          "title": "$π_{0.5}$: a Vision-Language-Action Model with Open-World Generalization",
+          "abstract": "In order for robots to be useful, they must perform practically relevant tasks in the real world, outside of the lab. While vision-language-action (VLA) models have demonstrated impressive results for end-to-end robot control, it remains an open question how far such models can generalize in the wild. We describe $π_{0.5}$, a new model based on $π_{0}$ that uses co-training on heterogeneous tasks to enable broad generalization. $π_{0.5}$\\ uses data from multiple robots, high-level semantic prediction, web data, and other sources to enable broadly generalizable real-world robotic manipulation. Our system uses a combination of co-training and hybrid multi-modal examples that combine image observations, language commands, object detections, semantic subtask prediction, and low-level actions. Our experiments show that this kind of knowledge transfer is essential for effective generalization, and we demonstrate for the first time that an end-to-end learning-enabled robotic system can perform long-horizon and dexterous manipulation skills, such as cleaning a kitchen or bedroom, in entirely new homes.",
+          "authors": [
+            "Physical Intelligence",
+            "Kevin Black",
+            "Noah Brown",
+            "James Darpinian",
+            "Karan Dhabalia",
+            "Danny Driess",
+            "Adnan Esmail",
+            "Michael Equi",
+            "Chelsea Finn",
+            "Niccolo Fusai",
+            "Manuel Y. Galliker",
+            "Dibya Ghosh",
+            "Lachy Groom",
+            "Karol Hausman",
+            "Brian Ichter",
+            "Szymon Jakubczak",
+            "Tim Jones",
+            "Liyiming Ke",
+            "Devin LeBlanc",
+            "Sergey Levine",
+            "Adrian Li-Bell",
+            "Mohith Mothukuri",
+            "Suraj Nair",
+            "Karl Pertsch",
+            "Allen Z. Ren",
+            "Lucy Xiaoyang Shi",
+            "Laura Smith",
+            "Jost Tobias Springenberg",
+            "Kyle Stachowicz",
+            "James Tanner",
+            "Quan Vuong",
+            "Homer Walke",
+            "Anna Walling",
+            "Haohuan Wang",
+            "Lili Yu",
+            "Ury Zhilinsky"
+          ],
+          "published": "2025-04-22T17:31:29Z",
+          "updated": "2025-04-22T17:31:29Z",
+          "categories": [
+            "cs.LG",
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Physical Intelligence",
+              "institutions": []
+            },
+            {
+              "name": "Kevin Black",
+              "institutions": []
+            },
+            {
+              "name": "Noah Brown",
+              "institutions": []
+            },
+            {
+              "name": "James Darpinian",
+              "institutions": []
+            },
+            {
+              "name": "Karan Dhabalia",
+              "institutions": []
+            },
+            {
+              "name": "Danny Driess",
+              "institutions": []
+            },
+            {
+              "name": "Adnan Esmail",
+              "institutions": []
+            },
+            {
+              "name": "Michael Equi",
+              "institutions": []
+            },
+            {
+              "name": "Chelsea Finn",
+              "institutions": []
+            },
+            {
+              "name": "Niccolo Fusai",
+              "institutions": []
+            },
+            {
+              "name": "Manuel Y. Galliker",
+              "institutions": []
+            },
+            {
+              "name": "Dibya Ghosh",
+              "institutions": []
+            },
+            {
+              "name": "Lachy Groom",
+              "institutions": []
+            },
+            {
+              "name": "Karol Hausman",
+              "institutions": []
+            },
+            {
+              "name": "Brian Ichter",
+              "institutions": []
+            },
+            {
+              "name": "Szymon Jakubczak",
+              "institutions": []
+            },
+            {
+              "name": "Tim Jones",
+              "institutions": []
+            },
+            {
+              "name": "Liyiming Ke",
+              "institutions": []
+            },
+            {
+              "name": "Devin LeBlanc",
+              "institutions": []
+            },
+            {
+              "name": "Sergey Levine",
+              "institutions": []
+            },
+            {
+              "name": "Adrian Li-Bell",
+              "institutions": []
+            },
+            {
+              "name": "Mohith Mothukuri",
+              "institutions": []
+            },
+            {
+              "name": "Suraj Nair",
+              "institutions": []
+            },
+            {
+              "name": "Karl Pertsch",
+              "institutions": []
+            },
+            {
+              "name": "Allen Z. Ren",
+              "institutions": []
+            },
+            {
+              "name": "Lucy Xiaoyang Shi",
+              "institutions": []
+            },
+            {
+              "name": "Laura Smith",
+              "institutions": []
+            },
+            {
+              "name": "Jost Tobias Springenberg",
+              "institutions": []
+            },
+            {
+              "name": "Kyle Stachowicz",
+              "institutions": []
+            },
+            {
+              "name": "James Tanner",
+              "institutions": []
+            },
+            {
+              "name": "Quan Vuong",
+              "institutions": []
+            },
+            {
+              "name": "Homer Walke",
+              "institutions": []
+            },
+            {
+              "name": "Anna Walling",
+              "institutions": []
+            },
+            {
+              "name": "Haohuan Wang",
+              "institutions": []
+            },
+            {
+              "name": "Lili Yu",
+              "institutions": []
+            },
+            {
+              "name": "Ury Zhilinsky",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2504.16054",
+          "pdfUrl": "https://arxiv.org/pdf/2504.16054",
+          "citations": {
+            "count": 2767,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-14T01:18:44.958Z",
+            "url": "https://www.semanticscholar.org/paper/1e2a82ef5e0325a26ca0344c4f8c256c52fae7ec"
+          },
+          "topics": [
+            "Touch & Multimodal",
+            "Long-horizon",
+            "VLA",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 21,
+          "personalScore": 20,
+          "groupId": "classic-personal",
+          "headline": "π₀.₅：異なるデータを一緒に学び、初めての家でも長い作業へ",
+          "summary": "実験室の外や未知の家でも役立つロボットを目指し、π₀を基にしたπ₀.₅を提案します。画像・言語・動作を結び付けるモデルに、複数ロボットのデータやウェブ由来の情報などを共同で学習させます。異なる情報源の知識を操作に生かし、初めての家で台所や寝室を片付けるような長い作業を実演します。",
+          "advantages": "異なる課題や情報源を共同で学習し、そこで得た知識を未知の環境での操作に生かす点が中心です。著者は、こうした知識の転用が有効な汎化、つまり未経験の状況への対応に不可欠だと実験から述べています。また、未知の家で長く器用な操作を行う一貫した学習型システムとして初の実証だと主張しています。ただし、arXivの概要には比較条件や数値の記載はありません。",
+          "method": "π₀を土台に、複数ロボットのデータ、作業の意味を大まかに予測する課題、ウェブデータなどを共同で学習します。画像、言語指示、物体検出、作業を構成する小さな手順の意味予測、具体的な動作を組み合わせた学習例も使います。操作以外から得た知識を動作学習へつなぐ仕組みです。ただし、各情報の組み合わせ方や実行時の詳しい処理順序はarXivの概要では不明です。",
+          "evaluation": "まったく新しい家で、台所や寝室の片付けなど、複数の手順にわたる器用な操作を実演しています。また、異なる課題や情報源からの知識の転用が、未知の状況への対応に不可欠だったと報告しています。arXivの概要には、家や試行の数、学習環境との具体的な違い、成功率、作業時間、比較実験の詳しい条件は記載されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。実環境でどこまで未知の状況に対応できるかは研究の問いとして示されていますが、提案手法が対応できない環境や作業、具体的な失敗例、今後の改善計画は説明されていません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Kevin Black, Noah Brown, James Darpinian, Karan Dhabalia, Danny Driess, Adnan Esmail, Michael Equi,",
+              "Chelsea Finn, Niccolo Fusai, Manuel Y. Galliker, Dibya Ghosh, Lachy Groom, Karol Hausman, Brian Ichter,",
+              "Szymon Jakubczak, Tim Jones, Liyiming Ke, Devin LeBlanc, Sergey Levine, Adrian Li-Bell, Mohith Mothukuri,",
+              "Suraj Nair, Karl Pertsch, Allen Z. Ren, Lucy Xiaoyang Shi, Laura Smith, Jost Tobias Springenberg, Kyle Stachowicz",
+              "James Tanner, Quan Vuong, Homer Walke, Anna Walling, Haohuan Wang, Lili Yu, Ury Zhilinsky"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2504.16054v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "$π_{0.5}$"
+          ]
+        },
+        {
+          "id": "1506.02438",
+          "title": "High-Dimensional Continuous Control Using Generalized Advantage Estimation",
+          "abstract": "Policy gradient methods are an appealing approach in reinforcement learning because they directly optimize the cumulative reward and can straightforwardly be used with nonlinear function approximators such as neural networks. The two main challenges are the large number of samples typically required, and the difficulty of obtaining stable and steady improvement despite the nonstationarity of the incoming data. We address the first challenge by using value functions to substantially reduce the variance of policy gradient estimates at the cost of some bias, with an exponentially-weighted estimator of the advantage function that is analogous to TD(lambda). We address the second challenge by using trust region optimization procedure for both the policy and the value function, which are represented by neural networks. Our approach yields strong empirical results on highly challenging 3D locomotion tasks, learning running gaits for bipedal and quadrupedal simulated robots, and learning a policy for getting the biped to stand up from starting out lying on the ground. In contrast to a body of prior work that uses hand-crafted policy representations, our neural network policies map directly from raw kinematics to joint torques. Our algorithm is fully model-free, and the amount of simulated experience required for the learning tasks on 3D bipeds corresponds to 1-2 weeks of real time.",
+          "authors": [
+            "John Schulman",
+            "Philipp Moritz",
+            "Sergey Levine",
+            "Michael Jordan",
+            "Pieter Abbeel"
+          ],
+          "published": "2015-06-08T11:12:48Z",
+          "updated": "2018-10-20T18:55:07Z",
+          "categories": [
+            "cs.LG",
+            "cs.RO",
+            "eess.SY"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "John Schulman",
+              "institutions": []
+            },
+            {
+              "name": "Philipp Moritz",
+              "institutions": []
+            },
+            {
+              "name": "Sergey Levine",
+              "institutions": []
+            },
+            {
+              "name": "Michael Jordan",
+              "institutions": []
+            },
+            {
+              "name": "Pieter Abbeel",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1506.02438",
+          "pdfUrl": "https://arxiv.org/pdf/1506.02438",
+          "citations": {
+            "count": 5323,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-14T01:19:18.373Z",
+            "url": "https://www.semanticscholar.org/paper/d316c82c12cf4c45f9e85211ef3d1fa62497bff8"
+          },
+          "topics": [
+            "RL",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 4,
+          "personalScore": 3,
+          "groupId": "classic-robotics",
+          "headline": "行動の良さの推定を安定させ、複雑な歩行制御を学ぶ",
+          "summary": "報酬を増やす行動方針を直接学ぶ強化学習では、大量の経験が必要で、改善も不安定になりがちです。本研究は、行動の良さを測る推定値のばらつきを抑え、更新幅を制限する最適化を組み合わせます。シミュレーション内の二足・四足ロボットで、走行や起き上がりを学習します。",
+          "advantages": "著者は、推定に一定の偏りを許す代わりにばらつきを大きく減らし、学習を安定させる方法を提案しています。手作りの行動方針表現を使う先行研究と異なり、ニューラルネットワークが運動学的な状態から関節トルクを直接出力します。難しい運動課題で良好な結果が報告されていますが、比較手法ごとの成績や改善率はarXivの概要にはありません。",
+          "method": "状態から将来得られる報酬を予測する価値関数を使い、選んだ行動が基準よりどれだけ良いかを推定します。これがアドバンテージです。異なる時間範囲の推定を指数的な重みで組み合わせ、偏りとばらつきを調整します。行動方針と価値関数の両方には、更新を一定範囲に抑える信頼領域最適化を適用します。環境の動力学モデルを学習に必要としない方式です。",
+          "evaluation": "三次元のシミュレーションで、二足・四足ロボットの走行と、地面に横たわった二足ロボットの起き上がりを検証しています。三次元の二足ロボットの課題で必要だった模擬経験量は、実時間換算で1〜2週間とされています。これは実機での学習時間ではありません。報酬値、成功率、試行回数、比較条件の詳細はarXivの概要だけでは確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。推定のばらつきを減らす代償として偏りが生じることは明記されています。ただし、その偏りが課題ごとに与える影響や、実機への適用可能性はarXivの概要だけでは確認できません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Department of Electrical Engineering and Computer Science",
+              "University of California, Berkeley"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1506.02438v6",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "High-Dimensional Continuous Control Using Generalized Advantage "
+          ]
+        },
+        {
+          "id": "2307.15818",
+          "title": "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control",
+          "abstract": "We study how vision-language models trained on Internet-scale data can be incorporated directly into end-to-end robotic control to boost generalization and enable emergent semantic reasoning. Our goal is to enable a single end-to-end trained model to both learn to map robot observations to actions and enjoy the benefits of large-scale pretraining on language and vision-language data from the web. To this end, we propose to co-fine-tune state-of-the-art vision-language models on both robotic trajectory data and Internet-scale vision-language tasks, such as visual question answering. In contrast to other approaches, we propose a simple, general recipe to achieve this goal: in order to fit both natural language responses and robotic actions into the same format, we express the actions as text tokens and incorporate them directly into the training set of the model in the same way as natural language tokens. We refer to such category of models as vision-language-action models (VLA) and instantiate an example of such a model, which we call RT-2. Our extensive evaluation (6k evaluation trials) shows that our approach leads to performant robotic policies and enables RT-2 to obtain a range of emergent capabilities from Internet-scale training. This includes significantly improved generalization to novel objects, the ability to interpret commands not present in the robot training data (such as placing an object onto a particular number or icon), and the ability to perform rudimentary reasoning in response to user commands (such as picking up the smallest or largest object, or the one closest to another object). We further show that incorporating chain of thought reasoning allows RT-2 to perform multi-stage semantic reasoning, for example figuring out which object to pick up for use as an improvised hammer (a rock), or which type of drink is best suited for someone who is tired (an energy drink).",
+          "authors": [
+            "Anthony Brohan",
+            "Noah Brown",
+            "Justice Carbajal",
+            "Yevgen Chebotar",
+            "Xi Chen",
+            "Krzysztof Choromanski",
+            "Tianli Ding",
+            "Danny Driess",
+            "Avinava Dubey",
+            "Chelsea Finn",
+            "Pete Florence",
+            "Chuyuan Fu",
+            "Montse Gonzalez Arenas",
+            "Keerthana Gopalakrishnan",
+            "Kehang Han",
+            "Karol Hausman",
+            "Alexander Herzog",
+            "Jasmine Hsu",
+            "Brian Ichter",
+            "Alex Irpan",
+            "Nikhil Joshi",
+            "Ryan Julian",
+            "Dmitry Kalashnikov",
+            "Yuheng Kuang",
+            "Isabel Leal",
+            "Lisa Lee",
+            "Tsang-Wei Edward Lee",
+            "Sergey Levine",
+            "Yao Lu",
+            "Henryk Michalewski",
+            "Igor Mordatch",
+            "Karl Pertsch",
+            "Kanishka Rao",
+            "Krista Reymann",
+            "Michael Ryoo",
+            "Grecia Salazar",
+            "Pannag Sanketi",
+            "Pierre Sermanet",
+            "Jaspiar Singh",
+            "Anikait Singh",
+            "Radu Soricut",
+            "Huong Tran",
+            "Vincent Vanhoucke",
+            "Quan Vuong",
+            "Ayzaan Wahid",
+            "Stefan Welker",
+            "Paul Wohlhart",
+            "Jialin Wu",
+            "Fei Xia",
+            "Ted Xiao",
+            "Peng Xu",
+            "Sichun Xu",
+            "Tianhe Yu",
+            "Brianna Zitkovich"
+          ],
+          "published": "2023-07-28T21:18:02Z",
+          "updated": "2023-07-28T21:18:02Z",
+          "categories": [
+            "cs.RO",
+            "cs.CL",
+            "cs.CV",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Anthony Brohan",
+              "institutions": []
+            },
+            {
+              "name": "Noah Brown",
+              "institutions": []
+            },
+            {
+              "name": "Justice Carbajal",
+              "institutions": []
+            },
+            {
+              "name": "Yevgen Chebotar",
+              "institutions": []
+            },
+            {
+              "name": "Xi Chen",
+              "institutions": []
+            },
+            {
+              "name": "Krzysztof Choromanski",
+              "institutions": []
+            },
+            {
+              "name": "Tianli Ding",
+              "institutions": []
+            },
+            {
+              "name": "Danny Driess",
+              "institutions": []
+            },
+            {
+              "name": "Avinava Dubey",
+              "institutions": []
+            },
+            {
+              "name": "Chelsea Finn",
+              "institutions": []
+            },
+            {
+              "name": "Pete Florence",
+              "institutions": []
+            },
+            {
+              "name": "Chuyuan Fu",
+              "institutions": []
+            },
+            {
+              "name": "Montse Gonzalez Arenas",
+              "institutions": []
+            },
+            {
+              "name": "Keerthana Gopalakrishnan",
+              "institutions": []
+            },
+            {
+              "name": "Kehang Han",
+              "institutions": []
+            },
+            {
+              "name": "Karol Hausman",
+              "institutions": []
+            },
+            {
+              "name": "Alexander Herzog",
+              "institutions": []
+            },
+            {
+              "name": "Jasmine Hsu",
+              "institutions": []
+            },
+            {
+              "name": "Brian Ichter",
+              "institutions": []
+            },
+            {
+              "name": "Alex Irpan",
+              "institutions": []
+            },
+            {
+              "name": "Nikhil Joshi",
+              "institutions": []
+            },
+            {
+              "name": "Ryan Julian",
+              "institutions": []
+            },
+            {
+              "name": "Dmitry Kalashnikov",
+              "institutions": []
+            },
+            {
+              "name": "Yuheng Kuang",
+              "institutions": []
+            },
+            {
+              "name": "Isabel Leal",
+              "institutions": []
+            },
+            {
+              "name": "Lisa Lee",
+              "institutions": []
+            },
+            {
+              "name": "Tsang-Wei Edward Lee",
+              "institutions": []
+            },
+            {
+              "name": "Sergey Levine",
+              "institutions": []
+            },
+            {
+              "name": "Yao Lu",
+              "institutions": []
+            },
+            {
+              "name": "Henryk Michalewski",
+              "institutions": []
+            },
+            {
+              "name": "Igor Mordatch",
+              "institutions": []
+            },
+            {
+              "name": "Karl Pertsch",
+              "institutions": []
+            },
+            {
+              "name": "Kanishka Rao",
+              "institutions": []
+            },
+            {
+              "name": "Krista Reymann",
+              "institutions": []
+            },
+            {
+              "name": "Michael Ryoo",
+              "institutions": []
+            },
+            {
+              "name": "Grecia Salazar",
+              "institutions": []
+            },
+            {
+              "name": "Pannag Sanketi",
+              "institutions": []
+            },
+            {
+              "name": "Pierre Sermanet",
+              "institutions": []
+            },
+            {
+              "name": "Jaspiar Singh",
+              "institutions": []
+            },
+            {
+              "name": "Anikait Singh",
+              "institutions": []
+            },
+            {
+              "name": "Radu Soricut",
+              "institutions": []
+            },
+            {
+              "name": "Huong Tran",
+              "institutions": []
+            },
+            {
+              "name": "Vincent Vanhoucke",
+              "institutions": []
+            },
+            {
+              "name": "Quan Vuong",
+              "institutions": []
+            },
+            {
+              "name": "Ayzaan Wahid",
+              "institutions": []
+            },
+            {
+              "name": "Stefan Welker",
+              "institutions": []
+            },
+            {
+              "name": "Paul Wohlhart",
+              "institutions": []
+            },
+            {
+              "name": "Jialin Wu",
+              "institutions": []
+            },
+            {
+              "name": "Fei Xia",
+              "institutions": []
+            },
+            {
+              "name": "Ted Xiao",
+              "institutions": []
+            },
+            {
+              "name": "Peng Xu",
+              "institutions": []
+            },
+            {
+              "name": "Sichun Xu",
+              "institutions": []
+            },
+            {
+              "name": "Tianhe Yu",
+              "institutions": []
+            },
+            {
+              "name": "Brianna Zitkovich",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2307.15818",
+          "pdfUrl": "https://arxiv.org/pdf/2307.15818",
+          "citations": {
+            "count": 5139,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-14T01:19:18.373Z",
+            "url": "https://www.semanticscholar.org/paper/38939304bb760473141c2aca0305e44fbe04e6e8"
+          },
+          "topics": [
+            "VLA",
+            "Robotics",
+            "Computer Vision",
+            "Machine Learning"
+          ],
+          "score": 7,
+          "personalScore": 6,
+          "groupId": "classic-robotics",
+          "headline": "RT-2：画像と言語の知識を、文字列で表したロボット行動につなぐ",
+          "summary": "ウェブ上の画像と言語から学んだ知識を、ロボットの行動に直接生かす研究です。画像と言語を扱うモデルに、ロボットの動作系列とウェブ由来の課題を併せて追加学習させます。行動を文字列の単位で表すことで、観測から行動を出力し、未知の物体や学習時にない指示への対応を目指します。",
+          "advantages": "著者が提案する中心的な工夫は、自然言語の返答とロボットの行動を同じ形式で扱い、一つのモデルで学ぶことです。評価では、未知の物体への対応が大きく改善し、ロボットの学習データにない指示の解釈や、大小・近さに基づく選択も示されたと報告しています。ただし、比較対象の名称や改善幅の数値はarXivの概要にはありません。",
+          "method": "画像と言語を扱う事前学習済みモデルに、ロボットの動作系列と、画像について質問に答える課題などを併せて追加学習させます。行動は、文章と同様に処理できるトークンという文字列の単位で表します。これにより、観測から行動までを一つのモデルで結びます。この視覚・言語・行動モデルをVLAと呼び、RT-2として具体化しています。推論の途中段階を言語化する方法も取り入れています。",
+          "evaluation": "6,000回の評価試行を実施したと記されています。未知の物体への対応、指定された数字や図柄への物体の配置、最大・最小の物体や別の物体に最も近い物体の選択などを評価しています。途中段階を言語化する推論では、即席のハンマーに石を選ぶなど、多段階の意味判断も示しています。成功率、比較手法、試行の内訳、使用機体や実施環境の詳細はarXivの概要だけでは確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。どの種類の未知の指示で失敗するか、複雑な作業でも性能を保てるか、推論を加えた際の処理時間などは、arXivの概要だけでは確認できません。これらは追加で確認すべき点であり、著者が明記した限界ではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Google DeepMind. Authors listed in alphabetical order, with contributions listed in Appendix A"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2307.15818v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "RT-2"
+          ]
+        },
+        {
+          "id": "2007.11898",
+          "title": "ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual-Inertial and Multi-Map SLAM",
+          "abstract": "This paper presents ORB-SLAM3, the first system able to perform visual, visual-inertial and multi-map SLAM with monocular, stereo and RGB-D cameras, using pin-hole and fisheye lens models. The first main novelty is a feature-based tightly-integrated visual-inertial SLAM system that fully relies on Maximum-a-Posteriori (MAP) estimation, even during the IMU initialization phase. The result is a system that operates robustly in real-time, in small and large, indoor and outdoor environments, and is 2 to 5 times more accurate than previous approaches. The second main novelty is a multiple map system that relies on a new place recognition method with improved recall. Thanks to it, ORB-SLAM3 is able to survive to long periods of poor visual information: when it gets lost, it starts a new map that will be seamlessly merged with previous maps when revisiting mapped areas. Compared with visual odometry systems that only use information from the last few seconds, ORB-SLAM3 is the first system able to reuse in all the algorithm stages all previous information. This allows to include in bundle adjustment co-visible keyframes, that provide high parallax observations boosting accuracy, even if they are widely separated in time or if they come from a previous mapping session. Our experiments show that, in all sensor configurations, ORB-SLAM3 is as robust as the best systems available in the literature, and significantly more accurate. Notably, our stereo-inertial SLAM achieves an average accuracy of 3.6 cm on the EuRoC drone and 9 mm under quick hand-held motions in the room of TUM-VI dataset, a setting representative of AR/VR scenarios. For the benefit of the community we make public the source code.",
+          "authors": [
+            "Carlos Campos",
+            "Richard Elvira",
+            "Juan J. Gómez Rodríguez",
+            "José M. M. Montiel",
+            "Juan D. Tardós"
+          ],
+          "published": "2020-07-23T10:09:54Z",
+          "updated": "2021-04-23T13:17:58Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Carlos Campos",
+              "institutions": []
+            },
+            {
+              "name": "Richard Elvira",
+              "institutions": []
+            },
+            {
+              "name": "Juan J. Gómez Rodríguez",
+              "institutions": []
+            },
+            {
+              "name": "José M. M. Montiel",
+              "institutions": []
+            },
+            {
+              "name": "Juan D. Tardós",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2007.11898",
+          "pdfUrl": "https://arxiv.org/pdf/2007.11898",
+          "citations": {
+            "count": 4898,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-14T01:19:18.373Z",
+            "url": "https://www.semanticscholar.org/paper/77d7e439b3368875199a1327515a3ba212f0a359"
+          },
+          "topics": [
+            "AI"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-robotics",
+          "headline": "ORB-SLAM3：映像と慣性情報を統合し、見失っても地図をつなぎ直す",
+          "summary": "自己位置の推定と地図作成を同時に行うSLAMのシステムです。映像と慣性センサーの情報を統合し、視覚情報が乏しくなった際には新しい地図を作ります。既知の場所への再訪時に地図を統合し、過去の観測も再利用することで、頑健で高精度な推定を目指します。",
+          "advantages": "著者は、映像のみ、映像と慣性情報の併用、複数地図の管理を幅広いカメラ構成で扱える初のシステムと位置付けています。直近数秒だけを使う視覚的な移動推定に対し、過去の観測を処理の全段階で再利用する点が特徴です。実験では既存の優良システムと同等の頑健性、より高い精度を報告し、従来手法に対して2〜5倍高精度としています。個別の比較条件はarXivの概要にはありません。",
+          "method": "画像の特徴点を使い、映像と慣性センサーの観測を密接に統合します。センサーの初期化時から、観測と事前情報に最も整合する状態を選ぶ最大事後確率推定を使います。位置を見失うと新しい地図を作り、場所の再認識で以前の地図につなぎます。異なる時刻や過去の計測で同じ場所を写した重要画像も使い、カメラ位置と地図をまとめて調整することで精度を高めます。",
+          "evaluation": "単眼、左右2台のステレオ、画像と奥行きを得るRGB-Dカメラに対応し、通常の透視投影と魚眼のレンズモデルを扱います。実験では全センサー構成で頑健性と精度を比較したとしています。ステレオ映像と慣性情報の併用では、EuRoCのドローンデータで平均精度3.6cm、TUM-VIの室内で素早く手持ち移動したデータで9mmと報告されています。誤差指標の厳密な定義や集計条件はarXivの概要にはありません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。視覚情報が乏しい期間への対処は説明されていますが、耐えられる時間や条件の限界は示されていません。また、実時間動作に必要な計算機の条件や、大規模な地図での資源使用量も、arXivの概要だけでは確認できません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "unavailable",
+            "reason": "論文から所属を確認できませんでした。"
+          },
+          "visualKeywords": [
+            "Bundle Adjustment"
+          ]
+        },
+        {
+          "id": "2611.17336",
+          "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
+          "abstract": "Frontier video generation models work in a VAE latent space that compresses video in both space and time. This compression made training tractable, but now limits high-resolution, controllable, and interactive generation -- doubling resolution quadruples token count, conditions apply to groups of frames rather than individual ones, and each response must wait for the rest of its multi-frame block. We present PixVid, a simple yet effective method that lifts a pretrained latent video model to directly generate every frame in pixel space. PixVid keeps the diffusion transformer and replaces the VAE decoder with a convolutional head that renders its outputs into pixels. We find that predicting clean video rather than velocity, together with a larger noise shift, is key to quality. Finetuned from Wan2.1-14B, PixVid is competitive with the latent baseline within $\\sim 1.3$M training clips. Working framewise in pixels, it generates at $2\\times$ higher resolution with the same per-frame token count, keeps depth-conditioned video editing aligned under fast motion, and responds to each action at the next frame. Project page: https://chenshuo20.github.io/PixVid/",
+          "authors": [
+            "Yanke Song",
+            "Shuo Chen",
+            "Chris Rockwell",
+            "Guande He",
+            "Nan Liu",
+            "Desai Xie",
+            "Tianpei Gu",
+            "Yong-Hyun Park",
+            "Aryan V S",
+            "Dennis Yuren Menn",
+            "Ming-Hsuan Yang",
+            "Xun Huang"
+          ],
+          "published": "2026-11-12T18:59:55Z",
+          "updated": "2026-11-12T18:59:55Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Yanke Song",
+              "institutions": []
+            },
+            {
+              "name": "Shuo Chen",
+              "institutions": []
+            },
+            {
+              "name": "Chris Rockwell",
+              "institutions": []
+            },
+            {
+              "name": "Guande He",
+              "institutions": []
+            },
+            {
+              "name": "Nan Liu",
+              "institutions": []
+            },
+            {
+              "name": "Desai Xie",
+              "institutions": []
+            },
+            {
+              "name": "Tianpei Gu",
+              "institutions": []
+            },
+            {
+              "name": "Yong-Hyun Park",
+              "institutions": []
+            },
+            {
+              "name": "Aryan V S",
+              "institutions": []
+            },
+            {
+              "name": "Dennis Yuren Menn",
+              "institutions": []
+            },
+            {
+              "name": "Ming-Hsuan Yang",
+              "institutions": []
+            },
+            {
+              "name": "Xun Huang",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.17336",
+          "pdfUrl": "https://arxiv.org/pdf/2611.17336",
+          "topics": [
+            "Computer Vision"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "yesterday-today",
+          "groupId": "recent-ai",
+          "headline": "動画生成を圧縮表現から画素空間へ移し、高解像度化とフレーム単位の制御を両立",
+          "summary": "動画を時空間方向に圧縮して生成する方式では、高解像度化や各フレームへの指示、操作への即時応答に制約があります。PixVidは学習済み動画生成モデルを調整し、各フレームの画素を直接生成します。既存の主要構造を維持しながら、解像度の向上、動きの速い動画の編集、次フレームでの操作反映を目指す研究です。",
+          "advantages": "独自点は、学習済みモデルの主要構造を残し、圧縮表現から動画を復元する部分を置き換えることです。arXivの概要では、約130万本の学習クリップで圧縮表現を使う比較モデルと競争力のある品質を得たと報告しています。また、フレーム当たりの処理単位であるトークン数を変えずに解像度を2倍にし、速い動きでの編集の整合性や、次フレームでの操作反映も報告しています。ただし、各効果の詳細な比較条件は示されていません。",
+          "method": "拡散モデルは、ノイズから段階的に動画を生成する仕組みです。PixVidはその中核のTransformerを維持し、変分オートエンコーダー（VAE）の復元器を、画素を出力する畳み込み型の出力部に置き換えます。ノイズ除去の更新方向を表す速度ではなく、ノイズのない動画そのものを予測し、ノイズシフトも大きくすることが品質に重要としています。画素をフレーム単位で扱うため、複数フレームのまとまりに縛られない制御につながります。",
+          "evaluation": "Wan2.1-14Bを出発点に追加学習し、約130万本の学習クリップで圧縮表現を使う比較モデルとの品質を確認しています。さらに、同じフレーム当たりトークン数での2倍の解像度、奥行き情報を条件にした高速動作中の動画編集、操作に対する次フレームでの応答を報告しています。arXivの概要だけでは、評価データ、品質指標、実行環境、応答時間の実測値は確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。高解像度化に伴う計算時間やメモリ使用量、長い動画での一貫性、制御が難しくなる条件なども、arXivの概要だけでは確認できません。これらは追加で確認すべき点であり、著者が明示した限界ではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Roblox University of California, Merced University of Pennsylvania University of Texas at Austin"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.17336v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Back to Pixels"
+          ]
+        },
+        {
+          "id": "2611.17334",
+          "title": "Unbundling Multimodal Vision Encoding",
+          "abstract": "How multimodal language models should encode visual input remains up for debate. Most models use a pretrained vision encoder, while some recent recipes train the encoder from scratch with the language model or remove it entirely. Vision encoders bundle together three design choices: a visual prior from upstream pretraining, dedicated vision capacity, and pre-fusion placement of that capacity (i.e., before the multimodal backbone). Because published models also differ in data, architecture, and compute, comparing them cannot isolate the effect of each choice. We disentangle these choices via a controlled framework where we pretrain all models from scratch on common data and compare them on visual question answering and language benchmarks at matched lifetime compute. We find that the visual prior is not necessary; an encoder trained jointly from scratch is on par with a pretrained one, without a separate training stage. What matters instead is dedicated vision capacity: an encoder-free model trails on visual understanding even when its backbone is enlarged by the encoder's parameter count. Yet that capacity need not precede multimodal fusion, as vision-only modules added in-fusion to early backbone layers perform comparably to a pre-fusion encoder and can lower time to first token. These results also hold across backbone sizes, when encoder pretraining is treated as free, and when starting from a pretrained language model. Overall, our findings favor dedicated vision capacity trained jointly with the backbone and placed early within it.",
+          "authors": [
+            "Ellis Brown",
+            "Chris Hoang",
+            "Shengyi Qian",
+            "Shang-Wen Li",
+            "Mike Lewis",
+            "Marjan Ghazvininejad",
+            "Luke Zettlemoyer",
+            "Lucas Beyer",
+            "Mengye Ren",
+            "Jakob Verbeek",
+            "Saining Xie",
+            "Hu Xu"
+          ],
+          "published": "2026-11-12T18:59:54Z",
+          "updated": "2026-11-12T18:59:54Z",
+          "categories": [
+            "cs.CV",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Ellis Brown",
+              "institutions": []
+            },
+            {
+              "name": "Chris Hoang",
+              "institutions": []
+            },
+            {
+              "name": "Shengyi Qian",
+              "institutions": []
+            },
+            {
+              "name": "Shang-Wen Li",
+              "institutions": []
+            },
+            {
+              "name": "Mike Lewis",
+              "institutions": []
+            },
+            {
+              "name": "Marjan Ghazvininejad",
+              "institutions": []
+            },
+            {
+              "name": "Luke Zettlemoyer",
+              "institutions": []
+            },
+            {
+              "name": "Lucas Beyer",
+              "institutions": []
+            },
+            {
+              "name": "Mengye Ren",
+              "institutions": []
+            },
+            {
+              "name": "Jakob Verbeek",
+              "institutions": []
+            },
+            {
+              "name": "Saining Xie",
+              "institutions": []
+            },
+            {
+              "name": "Hu Xu",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.17334",
+          "pdfUrl": "https://arxiv.org/pdf/2611.17334",
+          "topics": [
+            "Touch & Multimodal",
+            "Computer Vision",
+            "Machine Learning"
+          ],
+          "score": 9,
+          "personalScore": 9,
+          "freshness": "yesterday-today",
+          "groupId": "recent-ai",
+          "headline": "画像理解に重要なのは事前学習か専用処理か、条件をそろえて切り分ける",
+          "summary": "画像と言語を扱うモデルで、画像専用の変換器がなぜ必要なのかを検証する研究です。画像の事前学習、画像専用の処理能力、その配置場所を切り分け、共通データと総学習計算量をそろえて比較します。結果は、事前学習そのものより画像専用の処理能力が重要で、それをモデル内部の早い段階に置く構成も有効だと示しています。",
+          "advantages": "独自点は、既存モデル同士の比較で混ざりやすいデータ、構造、計算量の影響を抑え、画像処理の設計要素を個別に調べることです。比較では、画像変換器を最初から言語側と共同学習しても、事前学習済みのものと同等でした。一方、変換器をなくし、その分だけ中核モデルのパラメーターを増やしても画像理解は劣りました。画像専用処理を融合後の初期層に置く構成は、融合前の変換器と同程度の性能を示し、最初の出力までの時間も短縮できると報告しています。",
+          "method": "画像変換器の役割を、事前学習で得る画像の知識、画像専用の処理能力、画像と言語を混ぜる前への配置、という三つに分解します。共通データで各モデルを最初から学習し、学習全体の計算量をそろえて比較します。画像専用処理を省く構成に加え、画像と言語を扱う中核モデルの初期層に画像専用モジュールを置く構成も調べます。これにより、画像専用処理の必要性と、その配置の必要性を区別できます。",
+          "evaluation": "画像への質問に答える課題と、言語能力を測るベンチマークで評価しています。標準の比較では共通データと総学習計算量をそろえ、変換器を省いたモデルは中核部分のパラメーターを増やして比較しました。中核モデルの規模を変えた場合、画像側の事前学習コストを除外した場合、事前学習済み言語モデルから始めた場合にも結論が成り立つとしています。arXivの概要には、データセット名、具体的な得点、時間短縮幅はありません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。どの種類の画像や質問で構成間の差が大きくなるか、学習規模をさらに広げても結論が維持されるかは、arXivの概要だけでは確認できません。これらは追加の確認事項であり、著者が述べた課題ではありません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.17334.png",
+            "caption": "PDF 1ページのプレビュー（図の切り抜きではありません）。",
+            "sourceUrl": "https://arxiv.org/pdf/2611.17334",
+            "originalUrl": "https://arxiv.org/pdf/2611.17334",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "pdf-page",
+            "pageNumber": 1,
+            "credit": "Ellis Brown, Chris Hoang, Shengyi Qian, Shang-Wen Li, Mike Lewis, Marjan Ghazvininejad, Luke Zettlemoyer, Lucas Beyer, Mengye Ren, Jakob Verbeek, Saining Xie, Hu Xu · arXiv:2611.17334"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "New York University",
+              "Meta FAIR"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.17334v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Unbundling Multimodal Vision Encoding"
+          ]
+        },
+        {
+          "id": "2611.17331",
+          "title": "TTB: Test-time Baking for Efficient Rendering of Decoder-only View Synthesis Models",
+          "abstract": "Decoder-only Large View Synthesis Models (LVSMs) with KV-cache have recently achieved state-of-the-art quality by regressing novel views from neural networks without reconstructing 3D geometry, while Test-Time Training (TTT) layers save computation but sacrifice quality. We propose Test-Time Baking (TTB), a strategy that learns to bake global scene information from cross-view attention into a lightweight MLP, enabling fast and high-fidelity novel-view decoding. The first key is to repurpose the fast-weight MLP of TTT to learn the cross-view attention mapping explicitly from its input-output pairs, rather than replacing attention entirely, achieving the same rendering efficiency as TTT while delivering substantially higher quality. The second key addresses a modality misalignment between context prefilling and novel-view rendering: we disentangle context tokens into camera-only context rendering tokens to serve as TTB input, and context ground-truth tokens with image content to serve as the TTB mapping target, ensuring the baked MLPs are relieved of the modality generalization challenge between context and novel-view processing. Our method achieves up to **23x** rendering speedup with quality on par with the state-of-the-art across several benchmarks. Project page: https://test-time-baking.github.io",
+          "authors": [
+            "Chin-Yang Lin",
+            "Ryo Hachiuma",
+            "Jaesung Choe",
+            "Min-Hung Chen",
+            "Yu-Chiang Frank Wang",
+            "Yen-Yu Lin",
+            "Wei-Chen Chiu",
+            "Yu-Lun Liu",
+            "Cheng Sun"
+          ],
+          "published": "2026-11-12T18:59:52Z",
+          "updated": "2026-11-12T18:59:52Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Chin-Yang Lin",
+              "institutions": []
+            },
+            {
+              "name": "Ryo Hachiuma",
+              "institutions": []
+            },
+            {
+              "name": "Jaesung Choe",
+              "institutions": []
+            },
+            {
+              "name": "Min-Hung Chen",
+              "institutions": []
+            },
+            {
+              "name": "Yu-Chiang Frank Wang",
+              "institutions": []
+            },
+            {
+              "name": "Yen-Yu Lin",
+              "institutions": []
+            },
+            {
+              "name": "Wei-Chen Chiu",
+              "institutions": []
+            },
+            {
+              "name": "Yu-Lun Liu",
+              "institutions": []
+            },
+            {
+              "name": "Cheng Sun",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.17331",
+          "pdfUrl": "https://arxiv.org/pdf/2611.17331",
+          "topics": [
+            "Computer Vision"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "yesterday-today",
+          "groupId": "recent-ai",
+          "headline": "複数視点の情報を小型ネットワークに学習させ、新しい視点の画像生成を高速化",
+          "summary": "複数の画像から別の視点の画像を生成するモデルでは、高品質な処理の計算負担が課題です。TTBは、視点間の情報を参照する処理を小型ネットワークに学習させ、生成時に利用します。参照画像を処理するときと新しい視点を描くときの入力の違いにも対処し、品質を保ちながら描画を高速化する研究です。",
+          "advantages": "比較対象のテスト時学習（TTT）は計算を減らす一方、品質を犠牲にするとされています。TTBの違いは、視点間の情報を参照する注意機構を単純に置き換えるのではなく、その入出力の対応を明示的に学習する点です。arXivの概要では、TTTと同じ描画効率で大幅に高い品質を得たと報告しています。また、複数のベンチマークで最先端手法と同程度の品質と最大23倍の描画高速化を報告していますが、倍率の比較対象は明記されていません。",
+          "method": "参照画像間で情報をやり取りする注意機構の入出力を使い、場面全体の情報を小型の多層パーセプトロン（MLP）に学習させます。参照画像の処理では、情報を表す単位であるトークンを、カメラ情報だけを持つものと、画像内容を含む正解情報に分けます。前者をTTBへの入力にし、後者を写像の学習目標に用います。参照画像と新しい視点で入力情報の種類が異なる問題を抑え、学習したMLPによる効率的な描画につなげます。",
+          "evaluation": "複数のベンチマークで新しい視点の画像生成を評価し、描画速度と品質を確認しています。arXivの概要では、TTTとの比較で同じ描画効率と大幅な品質改善、最先端手法と同程度の品質で最大23倍の高速化を報告しています。ただし、ベンチマーク名、画質指標、計算機環境、速度倍率の基準は確認できません。場面情報をMLPへ学習させる準備時間を高速化の計測に含めたかも不明です。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。場面ごとの学習に必要な時間や、参照視点の数・場面の複雑さによる性能変化、動く対象への適用範囲は、arXivの概要だけでは確認できません。これらは追加で確認すべき点であり、著者が示した限界ではありません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.17331.png",
+            "caption": "Figure 3: Pipeline. Our model stacks LL identical blocks of Intra-view Attention, FFN, Test-Time Baking, and FFN. In the reconstruction stage, each context view is duplicated into a context pair, where the context ground-truth token X(ctx-gt)X^{(\\text{ctx-gt})} carries RGB and pose while the context rendering token X(ctx-rend)X^{(\\text{ctx-rend})} is pose-only and matches the modality of the novel rendering token X(nv)X^{(\\text{nv})}. At each TTB layer, the inner-loop update bakes the fast-weight MLP via MSE loss to map X(ctx-rend)X^{(\\text{ctx-rend})} toward the cross-view attention output of X(ctx-gt)X^{(\\text{ctx-gt})}. The baked MLP is applied to serve three token streams: it propagates both X(ctx-rend)X^{(\\text{ctx-rend})} and X(nv)X^{(\\text{nv})} to the next layer, and provides feedback to X(ctx-gt)X^{(\\text{ctx-gt})} as an auxiliary signal. In the novel-view rendering stage, each token retrieves global scene information in O⁡(1)O(1) from the baked MLP, instead of O⁡(N)O(N) via cross-attention. The rendering loss is backpropagated through the inner-loop baking process to train the model end-to-end.",
+            "sourceUrl": "https://arxiv.org/html/2611.17331v1",
+            "originalUrl": "https://arxiv.org/html/2611.17331v1/pipeline.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Chin-Yang Lin, Ryo Hachiuma, Jaesung Choe, Min-Hung Chen, Yu-Chiang Frank Wang, Yen-Yu Lin, Wei-Chen Chiu, Yu-Lun Liu, Cheng Sun · arXiv:2611.17331"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "NVIDIA",
+              "Department of Computer Science, National Yang Ming Chiao Tung University"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.17331v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "TTB"
+          ]
+        },
+        {
+          "id": "1409.1556",
+          "title": "Very Deep Convolutional Networks for Large-Scale Image Recognition",
+          "abstract": "In this work we investigate the effect of the convolutional network depth on its accuracy in the large-scale image recognition setting. Our main contribution is a thorough evaluation of networks of increasing depth using an architecture with very small (3x3) convolution filters, which shows that a significant improvement on the prior-art configurations can be achieved by pushing the depth to 16-19 weight layers. These findings were the basis of our ImageNet Challenge 2014 submission, where our team secured the first and the second places in the localisation and classification tracks respectively. We also show that our representations generalise well to other datasets, where they achieve state-of-the-art results. We have made our two best-performing ConvNet models publicly available to facilitate further research on the use of deep visual representations in computer vision.",
+          "authors": [
+            "Karen Simonyan",
+            "Andrew Zisserman"
+          ],
+          "published": "2014-09-04T19:48:04Z",
+          "updated": "2015-04-10T16:25:04Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Karen Simonyan",
+              "institutions": []
+            },
+            {
+              "name": "Andrew Zisserman",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1409.1556",
+          "pdfUrl": "https://arxiv.org/pdf/1409.1556",
+          "citations": {
+            "count": 116469,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-14T01:19:51.727Z",
+            "url": "https://www.semanticscholar.org/paper/eb42cf88027de515750f230b23b1a057dc782108"
+          },
+          "topics": [
+            "Computer Vision"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-ai",
+          "headline": "小さな畳み込みフィルターで層を深め、大規模画像認識の精度を向上",
+          "summary": "画像の特徴を段階的に抽出する畳み込みニューラルネットワークで、層の深さが大規模画像認識の精度に与える影響を調べた研究です。3×3の小さなフィルターを使い、重みを持つ層を16〜19層まで深めることで、従来の構成より認識精度が大きく向上すると報告しています。",
+          "advantages": "比較評価では、16〜19層まで深めた構成が従来の構成より高い精度を示したと報告されています。中心となる貢献は、小さなフィルターを使う構成で、深さを増やした効果を詳しく評価した点です。他のデータセットでも当時の最高水準の結果を得たとしています。ただし、arXivの概要には比較対象の名前や精度差の数値はありません。",
+          "method": "画像を入力し、3×3の小さな畳み込みフィルターで特徴を抽出する層を重ね、画像認識に用います。中心となる工夫は、この構成でネットワークを深くし、深さと精度の関係を調べることです。得られた特徴表現は、別のデータセットの認識にも有効だったと報告されています。層の詳しい配置や学習条件、認識結果を出す部分の設計は、arXivの概要だけでは確認できません。",
+          "evaluation": "深さを増やした複数のネットワークを、大規模画像認識で評価しています。この知見に基づくImageNet Challenge 2014への提出で、物体の位置を求める部門は1位、画像分類部門は2位でした。他のデータセットへの特徴表現の汎用性も評価したとしています。ただし、そのデータセット名、具体的な評価指標、精度の数値、比較条件はarXivの概要には記載されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。今後の研究を促すため、最も性能の高かった二つのモデルを公開したとしています。追加で確認すべき点は、深くすることで増える計算量や、他のデータセットでも有効となる条件です。これらは概要からは確認できず、著者が明記した限界や課題ではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "unavailable",
+            "reason": "論文から所属を確認できませんでした。"
+          },
+          "visualKeywords": [
+            "ImageNet"
+          ]
+        },
+        {
+          "id": "1201.0490",
+          "title": "Scikit-learn: Machine Learning in Python",
+          "abstract": "Scikit-learn is a Python module integrating a wide range of state-of-the-art machine learning algorithms for medium-scale supervised and unsupervised problems. This package focuses on bringing machine learning to non-specialists using a general-purpose high-level language. Emphasis is put on ease of use, performance, documentation, and API consistency. It has minimal dependencies and is distributed under the simplified BSD license, encouraging its use in both academic and commercial settings. Source code, binaries, and documentation can be downloaded from http://scikit-learn.org.",
+          "authors": [
+            "Fabian Pedregosa",
+            "Gaël Varoquaux",
+            "Alexandre Gramfort",
+            "Vincent Michel",
+            "Bertrand Thirion",
+            "Olivier Grisel",
+            "Mathieu Blondel",
+            "Andreas Müller",
+            "Joel Nothman",
+            "Gilles Louppe",
+            "Peter Prettenhofer",
+            "Ron Weiss",
+            "Vincent Dubourg",
+            "Jake Vanderplas",
+            "Alexandre Passos",
+            "David Cournapeau",
+            "Matthieu Brucher",
+            "Matthieu Perrot",
+            "Édouard Duchesnay"
+          ],
+          "published": "2012-01-02T16:42:40Z",
+          "updated": "2018-06-05T13:41:07Z",
+          "categories": [
+            "cs.LG",
+            "cs.MS"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Fabian Pedregosa",
+              "institutions": []
+            },
+            {
+              "name": "Gaël Varoquaux",
+              "institutions": []
+            },
+            {
+              "name": "Alexandre Gramfort",
+              "institutions": []
+            },
+            {
+              "name": "Vincent Michel",
+              "institutions": []
+            },
+            {
+              "name": "Bertrand Thirion",
+              "institutions": []
+            },
+            {
+              "name": "Olivier Grisel",
+              "institutions": []
+            },
+            {
+              "name": "Mathieu Blondel",
+              "institutions": []
+            },
+            {
+              "name": "Andreas Müller",
+              "institutions": []
+            },
+            {
+              "name": "Joel Nothman",
+              "institutions": []
+            },
+            {
+              "name": "Gilles Louppe",
+              "institutions": []
+            },
+            {
+              "name": "Peter Prettenhofer",
+              "institutions": []
+            },
+            {
+              "name": "Ron Weiss",
+              "institutions": []
+            },
+            {
+              "name": "Vincent Dubourg",
+              "institutions": []
+            },
+            {
+              "name": "Jake Vanderplas",
+              "institutions": []
+            },
+            {
+              "name": "Alexandre Passos",
+              "institutions": []
+            },
+            {
+              "name": "David Cournapeau",
+              "institutions": []
+            },
+            {
+              "name": "Matthieu Brucher",
+              "institutions": []
+            },
+            {
+              "name": "Matthieu Perrot",
+              "institutions": []
+            },
+            {
+              "name": "Édouard Duchesnay",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1201.0490",
+          "pdfUrl": "https://arxiv.org/pdf/1201.0490",
+          "citations": {
+            "count": 98473,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-14T01:19:51.727Z",
+            "url": "https://www.semanticscholar.org/paper/ad4fd2c149f220a62441576af92a8a669fe81246"
+          },
+          "topics": [
+            "Machine Learning"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-ai",
+          "headline": "機械学習を使いやすくするPythonライブラリ、Scikit-learn",
+          "summary": "機械学習の非専門家が、汎用プログラミング言語Pythonで多様な手法を使えるようにするライブラリの紹介です。正解付きデータから学ぶ教師あり学習と、正解なしで構造を探る教師なし学習の中規模問題を対象に、使いやすさ、性能、文書、操作方法の一貫性を重視しています。",
+          "advantages": "多様な機械学習手法をまとめ、使いやすさ、性能、文書の充実、APIというプログラムから呼び出す操作方法の一貫性を重視する点が、設計上の特徴です。依存する別のソフトウェアが少なく、簡易BSDライセンスで学術・商用の両方に使いやすいとしています。ただし、これらは紹介されている特徴であり、比較実験で他のライブラリへの優位性が示されたとは、arXivの概要からは確認できません。",
+          "method": "Pythonのモジュールとして、中規模の教師あり・教師なし学習向けに幅広い手法を提供します。利用者が目的に合う手法を、一貫した操作方法で扱えるようにする設計です。手法ごとに使い方を学び直す負担を抑える方向性ですが、具体的なデータの入力形式、前処理、学習や予測の呼び出し方、出力形式はarXivの概要にはありません。単一の新しい学習手法を提案する概要ではありません。",
+          "evaluation": "対象として示されているのは、中規模の教師あり学習と教師なし学習の問題です。性能を重視すると述べていますが、arXivの概要には、実験に使ったデータセット、比較したソフトウェア、実行環境、評価指標や測定値の記載がありません。そのため、予測精度、処理速度、使いやすさについて、どの条件でどの程度の効果を確認したかは判断できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。追加で確認すべき点は、対象とする「中規模」の具体的な範囲や、データ量が増えた際の処理時間・メモリ使用量です。ただし、これは利用条件を判断するための確認事項であり、著者が概要で述べた限界や将来計画ではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Gaël Varoquaux",
+              "Alexandre Gramfort",
+              "Vincent Michel",
+              "Bertrand Thirion",
+              "Parietal, INRIA Saclay",
+              "Neurospin, Bât 145, CEA Saclay",
+              "Gif sur Yvette, France",
+              "Nuxeo",
+              "Paris, France",
+              "Kobe University",
+              "Kobe, Japan",
+              "Department of Computer Science & Data Science Institute",
+              "Columbia University",
+              "New York, USA",
+              "Sydney Informatics Hub",
+              "University of Sydney, NSW, Australia",
+              "Dept. of EE & CS",
+              "University of Liège",
+              "Liège, Belgium",
+              "Bauhaus-Universität Weimar",
+              "Weimar, Germany",
+              "Google Inc",
+              "New York, NY, USA",
+              "Clermont Université, IFMA, EA 3867, LaMI",
+              "Clermont-Ferrand, France",
+              "Astronomy Department",
+              "University of Washington, Box 351580",
+              "Seattle, WA, USA",
+              "IESL Lab",
+              "UMass Amherst",
+              "Amherst, USA"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1201.0490v4",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Scikit-learn"
+          ]
+        },
+        {
+          "id": "1506.01497",
+          "title": "Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
+          "abstract": "State-of-the-art object detection networks depend on region proposal algorithms to hypothesize object locations. Advances like SPPnet and Fast R-CNN have reduced the running time of these detection networks, exposing region proposal computation as a bottleneck. In this work, we introduce a Region Proposal Network (RPN) that shares full-image convolutional features with the detection network, thus enabling nearly cost-free region proposals. An RPN is a fully convolutional network that simultaneously predicts object bounds and objectness scores at each position. The RPN is trained end-to-end to generate high-quality region proposals, which are used by Fast R-CNN for detection. We further merge RPN and Fast R-CNN into a single network by sharing their convolutional features---using the recently popular terminology of neural networks with 'attention' mechanisms, the RPN component tells the unified network where to look. For the very deep VGG-16 model, our detection system has a frame rate of 5fps (including all steps) on a GPU, while achieving state-of-the-art object detection accuracy on PASCAL VOC 2007, 2012, and MS COCO datasets with only 300 proposals per image. In ILSVRC and COCO 2015 competitions, Faster R-CNN and RPN are the foundations of the 1st-place winning entries in several tracks. Code has been made publicly available.",
+          "authors": [
+            "Shaoqing Ren",
+            "Kaiming He",
+            "Ross Girshick",
+            "Jian Sun"
+          ],
+          "published": "2015-06-04T07:58:34Z",
+          "updated": "2016-01-06T06:30:17Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Shaoqing Ren",
+              "institutions": []
+            },
+            {
+              "name": "Kaiming He",
+              "institutions": []
+            },
+            {
+              "name": "Ross Girshick",
+              "institutions": []
+            },
+            {
+              "name": "Jian Sun",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1506.01497",
+          "pdfUrl": "https://arxiv.org/pdf/1506.01497",
+          "citations": {
+            "count": 77502,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-14T01:19:51.727Z",
+            "url": "https://www.semanticscholar.org/paper/424561d8585ff8ebce7d5d07de8dbf7aae5e7270"
+          },
+          "topics": [
+            "Computer Vision"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-ai",
+          "headline": "物体候補の生成と検出で特徴を共有し、Faster R-CNNを高速化",
+          "summary": "画像内の物体を検出する際、物体がありそうな領域を探す処理が速度の足かせになる問題に取り組みます。領域候補ネットワーク（RPN）を導入し、検出処理と画像の特徴を共有します。候補生成の追加計算を抑え、物体の位置と種類を求める仕組みです。",
+          "advantages": "SPPnetやFast R-CNNで検出処理が高速化した一方、領域候補の計算が足かせになったことが出発点です。著者は、RPNと検出側で特徴を共有し、候補生成の追加計算をほぼ不要にできると主張しています。結果として、複数のデータセットで当時の最高水準の検出精度を報告しています。ただし、従来手法との具体的な速度差や精度差は、arXivの概要にはありません。",
+          "method": "入力画像全体から、畳み込み処理で特徴を抽出します。RPNはその特徴を使い、各位置で物体を囲む枠と、物体らしさのスコアを同時に予測します。生成した領域候補をFast R-CNNという検出手法に渡し、物体検出を行います。両者が特徴を共有するため、候補生成のために画像特徴を別途計算する負担を抑えられます。RPNは、入力から候補出力まで一体として学習させます。",
+          "evaluation": "VGG-16という深い画像認識モデルを使う構成で、GPU上で全処理を含めて毎秒5画像を処理したと報告しています。画像1枚あたりの候補数は300で、PASCAL VOC 2007、2012、MS COCOで当時の最高水準の検出精度を得たとしています。また、ILSVRCとCOCOの2015年大会の複数部門で、1位のシステムの基盤になりました。精度の数値、評価指標、GPUの機種はarXivの概要にはありません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。追加で確認すべき点は、毎秒5画像という処理速度の測定条件や、候補数を変えた場合の速度と精度の関係です。ただし、これらは結果の適用範囲を理解するための確認事項であり、著者が概要に記載した限界や今後の計画ではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Research",
+              "Research. { kahe,jiansun } @microsoft.com"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/1506.01497",
+            "method": "arxiv-pdf"
+          },
+          "visualKeywords": [
+            "Faster R-CNN"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-11-13",
       "generatedAt": "2026-11-12T20:20:01.903Z",
       "title": "Physical AI Daily",

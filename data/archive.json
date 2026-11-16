@@ -2,6 +2,1485 @@
   "version": 1,
   "issues": [
     {
+      "date": "2026-11-16",
+      "generatedAt": "2026-11-16T00:48:01.581Z",
+      "title": "Physical AI Daily",
+      "timezone": "Asia/Tokyo",
+      "source": "arXiv abstract",
+      "preview": false,
+      "groups": [
+        {
+          "id": "recent-personal",
+          "title": "最新 · 関心に近いRobot Learning",
+          "kind": "recent",
+          "scope": "personal",
+          "requestedCount": 3,
+          "paperIds": [
+            "2611.13499",
+            "2611.15651",
+            "2611.16422"
+          ],
+          "warnings": [
+            "昨日・今日の候補不足のため、直近7日から補充しています。"
+          ]
+        },
+        {
+          "id": "classic-personal",
+          "title": "高引用 · 関心に近いRobot Learning",
+          "kind": "classic",
+          "scope": "personal",
+          "requestedCount": 3,
+          "paperIds": [
+            "1910.07113",
+            "1710.02410",
+            "2307.05973"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "classic-robotics",
+          "title": "高引用 · ロボティクス全般",
+          "kind": "classic",
+          "scope": "robotics",
+          "requestedCount": 3,
+          "paperIds": [
+            "1606.05830",
+            "2303.03378",
+            "1812.05905"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "recent-ai",
+          "title": "最新 · AI / ML / Computer Vision",
+          "kind": "recent",
+          "scope": "ai",
+          "requestedCount": 3,
+          "paperIds": [
+            "2611.17324",
+            "2611.17323",
+            "2611.17321"
+          ],
+          "warnings": [
+            "昨日・今日の候補不足のため、直近7日から補充しています。"
+          ]
+        },
+        {
+          "id": "classic-ai",
+          "title": "高引用 · AI / ML / Computer Vision",
+          "kind": "classic",
+          "scope": "ai",
+          "requestedCount": 3,
+          "paperIds": [
+            "1912.01703",
+            "1506.02640",
+            "1409.4842"
+          ],
+          "warnings": []
+        }
+      ],
+      "papers": [
+        {
+          "id": "2611.13499",
+          "title": "DeRep: Learning Depth Representations for End-to-End Navigation in Cluttered Environments",
+          "abstract": "End-to-end navigation in cluttered environments relies on compact visual representations to support collision avoidance and goal-directed motion. Existing methods typically learn these representations jointly with the policy or through observation reconstruction, which does not explicitly specify what information the representation should preserve. Moreover, they are usually evaluated with a single downstream policy learner, although the benefit of a representation may depend on how the policy is learned. It therefore remains unclear how different representation-learning objectives affect downstream navigation performance and robustness. This work proposes DeRep, a navigation-oriented representation-learning method that combines local bird's-eye-view reachability supervision with depth reconstruction. To compare representation objectives under controlled conditions, we pretrain encoders with a common architecture and freeze them during downstream learning. We evaluate the representations using a linear policy probe, flow-matching imitation learning, and reinforcement learning with PPO. DeRep achieves the lowest linear policy probe prediction error and outperforms reconstruction alone across all six tested PPO conditions. In imitation learning, both reachability-based objectives achieve higher mean success rates than reconstruction alone, with similar mean success rates between the reachability-only and joint objectives. These results demonstrate consistent benefits of incorporating reachability supervision into depth representation pretraining across different downstream learning methods and evaluation conditions. We further deploy the PPO policy with the frozen DeRep encoder in Gazebo and on a physical quadrotor without fine-tuning, demonstrating its capability for zero-shot sim-to-sim and sim-to-real transfer.",
+          "authors": [
+            "Hanyu Jin",
+            "Kenji Shimada"
+          ],
+          "published": "2026-11-10T03:11:47Z",
+          "updated": "2026-11-10T03:11:47Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Hanyu Jin",
+              "institutions": []
+            },
+            {
+              "name": "Kenji Shimada",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.13499",
+          "pdfUrl": "https://arxiv.org/pdf/2611.13499",
+          "topics": [
+            "Long-horizon",
+            "RL",
+            "Sim-to-real"
+          ],
+          "score": 16,
+          "personalScore": 16,
+          "freshness": "last-7-days",
+          "groupId": "recent-personal",
+          "headline": "奥行き表現に「到達できる場所」を学ばせ、障害物の多い環境での移動を支援",
+          "summary": "障害物の多い環境で、衝突回避と目的地への移動に役立つ視覚情報を学ぶ研究です。提案手法DeRepは、奥行き画像の復元に加え、周囲のどこへ到達できるかを上から見た局所的な地図で学習します。学習した表現を固定し、異なる行動学習法で比較することで、到達可能性を教える効果を検証しています。",
+          "advantages": "従来の行動方策との同時学習や画像復元だけでは、表現に残すべき情報が明示されない点に着目しています。著者は、到達可能性を教えることで移動に役立つ表現を得られると主張しています。比較では、DeRepが線形モデルによる行動予測で最小の誤差を示し、強化学習の全6条件で復元のみを上回りました。一方、模倣学習では、到達可能性のみと復元を併用した手法の平均成功率は同程度でした。",
+          "method": "奥行き画像を、情報を圧縮するエンコーダーに入力します。周辺を上から見た局所地図での到達可能性と、元の奥行き情報の復元を学習の目標にします。これにより、形状情報だけでなく、移動に必要な情報を表現に残す狙いです。その後はエンコーダーを固定し、得られた表現から行動を決める方策を学習します。比較するエンコーダーの構造を共通にし、学習目標の違いを調べています。",
+          "evaluation": "線形モデルによる行動予測、フローマッチングを用いた模倣学習、方策の更新幅を抑える強化学習法PPOで評価しています。指標は予測誤差や成功率です。PPOの6条件の詳細や具体的な成功率は、arXivの概要では確認できません。また、固定したDeRepとPPO方策を追加調整なしでシミュレーターGazeboと実機の四回転翼機に導入し、別のシミュレーション環境や実環境への転用を示しています。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。実機での試行数、障害物やセンサー条件、転用時の定量的な性能は確認できません。どの範囲の環境で有効かを判断するには、これらの情報を追加で確認する必要があります。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "The authors are with the Department of Mechanical Engineering, Carnegie Mellon University, Pittsburgh, PA 15213, USA"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.13499v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "PPO",
+            "Sim-to-real"
+          ]
+        },
+        {
+          "id": "2611.15651",
+          "title": "Recover, Don't Just Continue: Learning from Feedback for Physical Failure Understanding and Correction",
+          "abstract": "Multimodal large language models are regarded as the cognitive foundation of embodied intelligence, but planning from instructions alone cannot make them reliable. During execution, actions deviate from intended effects, constrained by the embodiment and environment. An embodied brain must understand why execution deviates, identify what can be reliably realized, and revise decisions using interaction experience. These correspond to causal failure localization, capability-constrained adaptation, and experience-driven revision. Current embodied foundation models largely lack these capabilities. To address this, we introduce Embodied-Corrector. We construct failure-recovery data by injecting perturbations at subtask boundaries of successful trajectories, replaying affected subtasks, and keeping failures that are observable from public evidence and recoverable from the current state. We align actions, consequences, failure causes, and recoveries into Judge-Cause-Sub-Fine supervision. Training uses evaluation-first SFT: the model learns Judge and Cause first, then Sub and Fine conditioned on accurate prefixes. Since deployment uses self-generated prefixes, evaluation errors propagate into recovery planning, and response-level rewards are too coarse to locate affected planning tokens. We therefore use OPD to internalize the planning distribution under accurate prefixes into that under self-generated ones: the model generates plans from self-generated prefixes, while a contrastive forward pass with accurate prefixes compares token probabilities to reinforce or suppress planning tokens. At deployment, this branch is removed. Experiments show stronger failure analysis and corrective planning: with a frozen VLA, composite task success improves by 6.1 percentage points; with fixed GPT-5.5 execution, manipulation and navigation tasks improve by 13.9 percentage points.",
+          "authors": [
+            "Miao Pan",
+            "Kaixiang Yao",
+            "Xiaohe Zhou",
+            "Xu Wang",
+            "Qinfeng Li",
+            "Wenqi Zhang",
+            "Xuhong Zhang"
+          ],
+          "published": "2026-11-11T16:01:28Z",
+          "updated": "2026-11-11T16:01:28Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Miao Pan",
+              "institutions": []
+            },
+            {
+              "name": "Kaixiang Yao",
+              "institutions": []
+            },
+            {
+              "name": "Xiaohe Zhou",
+              "institutions": []
+            },
+            {
+              "name": "Xu Wang",
+              "institutions": []
+            },
+            {
+              "name": "Qinfeng Li",
+              "institutions": []
+            },
+            {
+              "name": "Wenqi Zhang",
+              "institutions": []
+            },
+            {
+              "name": "Xuhong Zhang",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.15651",
+          "pdfUrl": "https://arxiv.org/pdf/2611.15651",
+          "topics": [
+            "Touch & Multimodal",
+            "VLA",
+            "Physical AI",
+            "Robotics"
+          ],
+          "score": 18,
+          "personalScore": 15,
+          "freshness": "last-7-days",
+          "groupId": "recent-personal",
+          "headline": "実行失敗の原因を理解し、立て直す計画を学ぶEmbodied-Corrector",
+          "summary": "ロボットなどが指示どおりに動けなかった際、単に作業を続けず、原因を理解して計画を修正する研究です。Embodied-Correctorは、成功した作業に乱れを加えて作った失敗・回復データから学びます。失敗判断や原因分析の誤りが修正計画に伝わる問題にも対処し、実行側のモデルを固定した条件で作業成功率の向上を示しています。",
+          "advantages": "著者は、既存の身体を持つAI向け基盤モデルでは、失敗原因の特定、実行能力に合わせた適応、経験に基づく判断修正が不足していると指摘しています。提案は、失敗分析と回復計画を一体で学ぶ点に重点があります。比較実験では、画像・言語から行動を出すVLAを固定した条件で複合作業の成功率が6.1ポイント向上しました。GPT-5.5による実行を固定した条件では、物体操作と移動の作業で13.9ポイント向上したと報告しています。",
+          "method": "成功した作業の小課題の境目に乱れを加え、その小課題を再実行します。外部から確認できる証拠で判断でき、現在の状態から回復可能な失敗を残します。行動、結果、原因、回復を対応づけ、教師例から学ぶSFTで判断・原因分析を先に学習します。次に、自分の判断を前提にした計画と、正しい判断を前提にした計画の各トークンの確率を比較するOPDを使い、判断誤りの影響を抑えます。この比較用の処理は運用時に除きます。",
+          "evaluation": "失敗分析と修正計画の能力を実験で評価しています。VLAを固定した複合作業と、GPT-5.5による実行を固定した物体操作・移動作業で、成功率の改善を報告しています。ただし、比較対象の詳細、作業数、元の成功率、失敗分析そのものの評価指標はarXivの概要では確認できません。また、実機とシミュレーションのどちらで評価したかも明記されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。ただし、運用時にモデル自身が出す判断の誤りが回復計画へ伝わる問題は明示され、提案手法で対処しています。対処後に誤りがどの程度残るかは確認できません。また、学習データの対象外である、観測から判断しにくい失敗や現在の状態から回復できない失敗への対応も、追加で確認すべき点です。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.15651.png",
+            "caption": "Figure 3: Overview of Embodied-Corrector training. Training proceeds from execution evaluation to recovery planning, followed by NEPO optimization that reduces the mismatch between verified evaluation prefixes used during training and model-generated prefixes used at deployment.",
+            "sourceUrl": "https://arxiv.org/html/2611.15651v1",
+            "originalUrl": "https://arxiv.org/html/2611.15651v1/fig3.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "method": "html-figure",
+            "credit": "Miao Pan, Kaixiang Yao, Xiaohe Zhou, Xu Wang, Qinfeng Li, Wenqi Zhang, Xuhong Zhang · arXiv:2611.15651"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Zhejiang University"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.15651v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Recover, Don't Just Continue"
+          ]
+        },
+        {
+          "id": "2611.16422",
+          "title": "BlinkMimic: Training a Humanoid Motion Tracker in Minutes on a Single GPU",
+          "abstract": "Whole-body motion tracking lets a humanoid robot follow reference motions, but training a tracking policy for a library of motions has usually taken hours of GPU time. SuperMimic showed that the policy can instead be trained by backpropagating through a world model learned from parallel simulation, and InstantTrack added Muon updates, a residual policy around the reference and an averaged deployed policy. We build on both and present BlinkMimic, a recipe that makes this training faster. On a simulated Unitree G1, BlinkMimic trains one policy for all 40 LAFAN1 clips in 3.4 minutes on a single RTX 4090, measured until three consecutive checkpoints reach a normalized return of at least 0.82 with no failed clip (mean of three seeds). We split training time into the cost of an iteration, the iterations needed to fit the motions, and the iterations needed to remove the last failures, and assign each component, inherited or new, to one of these terms. The new components are a step size that decreases once training has progressed, resets directed by failures of the deployed policy under deployment conditions, and GPU graph capture of the whole iteration. A leave-one-out ablation with three seeds per component shows which term each component affects, and further measurements of the gradient, the update rule and the failure cases explain these effects. Code and per-seed results are available at https://github.com/fuyichen0725/blinkmimic.",
+          "authors": [
+            "Fuyi Chen"
+          ],
+          "published": "2026-11-12T07:31:42Z",
+          "updated": "2026-11-12T07:31:42Z",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Fuyi Chen",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.16422",
+          "pdfUrl": "https://arxiv.org/pdf/2611.16422",
+          "topics": [
+            "Residual RL",
+            "Physical AI",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 15,
+          "personalScore": 12,
+          "freshness": "last-7-days",
+          "groupId": "recent-personal",
+          "headline": "人型ロボットの40種類の動作追従を、単一GPUで3.4分で学習",
+          "summary": "人型ロボットが手本の全身動作を追う制御方策の学習を、短時間で終える研究です。BlinkMimicは、シミュレーションから学んだ動作予測モデルを使う既存手法を基に、更新幅の調整、失敗に応じたリセット、GPU上の処理の効率化を組み合わせます。シミュレーション上のUnitree G1で、40種類の動作を追う一つの方策を単一GPUで3.4分で学習したと報告しています。",
+          "advantages": "著者は、従来は数時間を要した動作追従の学習を高速化する手順を提案しています。SuperMimicの動作予測モデルを通した学習と、InstantTrackの更新方法や手本との差分を出す方策などを引き継ぎ、新たな3要素を加えています。3.4分という結果は明確な到達基準で測定されています。ただし、arXivの概要には既存手法それぞれの所要時間や速度向上倍率はなく、それらとの定量的な差は確認できません。",
+          "method": "並列シミュレーションで動作の結果を予測するモデルを学び、そのモデルを通して誤差を逆向きに伝え、手本に追従する方策を更新します。新たな工夫は、学習が進んだ後に更新幅を下げること、運用条件での方策の失敗に基づくリセット、反復処理全体をGPUグラフにまとめることです。学習時間を、1反復の処理時間、動作を覚える反復数、最後の失敗をなくす反復数に分け、各工夫がどこに効くかを整理しています。",
+          "evaluation": "シミュレーション上のUnitree G1で、動作データ集LAFAN1の全40クリップを対象に、RTX 4090を1台使って評価しています。失敗クリップがなく、正規化した累積報酬が0.82以上となる保存時点が3回連続するまでを測り、乱数設定3通りの平均が3.4分でした。各構成要素を一つずつ除く比較も、それぞれ3通りの乱数設定で実施しています。勾配、更新方法、失敗例も調べていますが、実機評価の記載はありません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。報告された学習時間は、特定のロボットのシミュレーション、40クリップ、RTX 4090という条件での結果です。実機での動作追従、別の機体や動作集合での学習時間、異なるGPUでの性能は確認できません。適用範囲を判断するには、これらを追加で確認する必要があります。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "unavailable",
+            "reason": "論文から所属を確認できませんでした。"
+          },
+          "visualKeywords": [
+            "BlinkMimic"
+          ]
+        },
+        {
+          "id": "1910.07113",
+          "title": "Solving Rubik's Cube with a Robot Hand",
+          "abstract": "We demonstrate that models trained only in simulation can be used to solve a manipulation problem of unprecedented complexity on a real robot. This is made possible by two key components: a novel algorithm, which we call automatic domain randomization (ADR) and a robot platform built for machine learning. ADR automatically generates a distribution over randomized environments of ever-increasing difficulty. Control policies and vision state estimators trained with ADR exhibit vastly improved sim2real transfer. For control policies, memory-augmented models trained on an ADR-generated distribution of environments show clear signs of emergent meta-learning at test time. The combination of ADR with our custom robot platform allows us to solve a Rubik's cube with a humanoid robot hand, which involves both control and state estimation problems. Videos summarizing our results are available: https://openai.com/blog/solving-rubiks-cube/",
+          "authors": [
+            "OpenAI",
+            "Ilge Akkaya",
+            "Marcin Andrychowicz",
+            "Maciek Chociej",
+            "Mateusz Litwin",
+            "Bob McGrew",
+            "Arthur Petron",
+            "Alex Paino",
+            "Matthias Plappert",
+            "Glenn Powell",
+            "Raphael Ribas",
+            "Jonas Schneider",
+            "Nikolas Tezak",
+            "Jerry Tworek",
+            "Peter Welinder",
+            "Lilian Weng",
+            "Qiming Yuan",
+            "Wojciech Zaremba",
+            "Lei Zhang"
+          ],
+          "published": "2019-10-16T00:59:05Z",
+          "updated": "2019-10-16T00:59:05Z",
+          "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.CV",
+            "cs.RO",
+            "stat.ML"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "OpenAI",
+              "institutions": []
+            },
+            {
+              "name": "Ilge Akkaya",
+              "institutions": []
+            },
+            {
+              "name": "Marcin Andrychowicz",
+              "institutions": []
+            },
+            {
+              "name": "Maciek Chociej",
+              "institutions": []
+            },
+            {
+              "name": "Mateusz Litwin",
+              "institutions": []
+            },
+            {
+              "name": "Bob McGrew",
+              "institutions": []
+            },
+            {
+              "name": "Arthur Petron",
+              "institutions": []
+            },
+            {
+              "name": "Alex Paino",
+              "institutions": []
+            },
+            {
+              "name": "Matthias Plappert",
+              "institutions": []
+            },
+            {
+              "name": "Glenn Powell",
+              "institutions": []
+            },
+            {
+              "name": "Raphael Ribas",
+              "institutions": []
+            },
+            {
+              "name": "Jonas Schneider",
+              "institutions": []
+            },
+            {
+              "name": "Nikolas Tezak",
+              "institutions": []
+            },
+            {
+              "name": "Jerry Tworek",
+              "institutions": []
+            },
+            {
+              "name": "Peter Welinder",
+              "institutions": []
+            },
+            {
+              "name": "Lilian Weng",
+              "institutions": []
+            },
+            {
+              "name": "Qiming Yuan",
+              "institutions": []
+            },
+            {
+              "name": "Wojciech Zaremba",
+              "institutions": []
+            },
+            {
+              "name": "Lei Zhang",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1910.07113",
+          "pdfUrl": "https://arxiv.org/pdf/1910.07113",
+          "citations": {
+            "count": 1596,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-16T00:48:31.292Z",
+            "url": "https://www.semanticscholar.org/paper/320b227027030fc291de2896fc3c6da49d7614be"
+          },
+          "topics": [
+            "Sim-to-real",
+            "Robotics",
+            "Computer Vision",
+            "Machine Learning"
+          ],
+          "score": 9,
+          "personalScore": 8,
+          "groupId": "classic-personal",
+          "headline": "シミュレーションで学び、実物のロボットハンドでルービックキューブを解く",
+          "summary": "シミュレーションで学んだ制御を実物のロボットへ移す難しさに取り組む研究です。環境のばらつきと難しさを自動で増やす「自動ドメインランダム化」で、動作制御と画像からの状態推定を学習します。機械学習向けに設計したロボット基盤と組み合わせ、人型のロボットハンドでルービックキューブを解きます。",
+          "advantages": "独自の工夫として、難しさを増しながら学習環境を自動生成する手法と、機械学習向けのロボット基盤を組み合わせています。著者は、シミュレーションから実物への移行が大幅に改善したと述べています。また、記憶を持つ制御モデルが、試験時に経験から適応する兆候も報告しています。ただし、arXivの概要には比較対象や改善量がなく、比較実験の条件までは確認できません。",
+          "method": "自動ドメインランダム化は、条件にばらつきを持たせた環境を生成し、その難しさを段階的に高めます。その環境で、ロボットの動きを決める制御モデルと、画像からキューブなどの状態を推定するモデルを学習します。多様な条件を経験させることが、実物との違いへの対応につながるという仕組みです。記憶を持つ制御モデルも用いますが、観測情報や動作出力の詳しい仕様はarXivの概要では確認できません。",
+          "evaluation": "シミュレーションだけで学習したモデルを、実物の人型ロボットハンドによるルービックキューブ操作に適用しています。動作制御と状態推定の両方を含む課題で、キューブを解けたと報告しています。また、記憶を持つ制御モデルについて、試験時の適応を示す兆候を述べています。成功率、試行数、キューブの初期状態、比較手法、適応の評価指標はarXivの概要に記載されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。実物への移行が難しくなる条件や、別の操作課題への適用範囲も、arXivの概要だけでは確認できません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Ilge Akkaya, Marcin Andrychowicz††footnotemark: , Maciek Chociej††footnotemark: , Mateusz Litwin††footnotemark: , Bob McGrew††footnotemark: , Arthur Petron††footnotemark: ,",
+              "Alex Paino††footnotemark: , Matthias Plappert††footnotemark: , Glenn Powell††footnotemark: , Raphael Ribas††footnotemark: , Jonas Schneider††footnotemark: , Nikolas Tezak††footnotemark: ,",
+              "Jerry Tworek††footnotemark: , Peter Welinder††footnotemark: , Lilian Weng††footnotemark: , Qiming Yuan††footnotemark: , Wojciech Zaremba††footnotemark: , Lei Zhang††footnotemark:"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1910.07113v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Domain Randomization"
+          ]
+        },
+        {
+          "id": "1710.02410",
+          "title": "End-to-end Driving via Conditional Imitation Learning",
+          "abstract": "Deep networks trained on demonstrations of human driving have learned to follow roads and avoid obstacles. However, driving policies trained via imitation learning cannot be controlled at test time. A vehicle trained end-to-end to imitate an expert cannot be guided to take a specific turn at an upcoming intersection. This limits the utility of such systems. We propose to condition imitation learning on high-level command input. At test time, the learned driving policy functions as a chauffeur that handles sensorimotor coordination but continues to respond to navigational commands. We evaluate different architectures for conditional imitation learning in vision-based driving. We conduct experiments in realistic three-dimensional simulations of urban driving and on a 1/5 scale robotic truck that is trained to drive in a residential area. Both systems drive based on visual input yet remain responsive to high-level navigational commands. The supplementary video can be viewed at https://youtu.be/cFtnflNe5fM",
+          "authors": [
+            "Felipe Codevilla",
+            "Matthias Müller",
+            "Antonio López",
+            "Vladlen Koltun",
+            "Alexey Dosovitskiy"
+          ],
+          "published": "2017-10-06T14:00:31Z",
+          "updated": "2018-03-02T16:43:34Z",
+          "categories": [
+            "cs.RO",
+            "cs.CV",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Felipe Codevilla",
+              "institutions": []
+            },
+            {
+              "name": "Matthias Müller",
+              "institutions": []
+            },
+            {
+              "name": "Antonio López",
+              "institutions": []
+            },
+            {
+              "name": "Vladlen Koltun",
+              "institutions": []
+            },
+            {
+              "name": "Alexey Dosovitskiy",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1710.02410",
+          "pdfUrl": "https://arxiv.org/pdf/1710.02410",
+          "citations": {
+            "count": 1412,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-16T00:48:31.292Z",
+            "url": "https://www.semanticscholar.org/paper/880a018f1e0a587b39a4ca9a5c9f6ba4029e2ea1"
+          },
+          "topics": [
+            "Long-horizon",
+            "Robotics",
+            "Computer Vision",
+            "Machine Learning"
+          ],
+          "score": 6,
+          "personalScore": 5,
+          "groupId": "classic-personal",
+          "headline": "「次を曲がって」に応える、指示付きの模倣学習による運転",
+          "summary": "人の運転をまねて学んだモデルに、交差点で進む方向などを指定できない問題を扱います。人の実演から学ぶ「模倣学習」に、進路を示す上位の指示を条件として加えます。画像に基づく運転操作と指示への応答を両立させ、都市走行のシミュレーションと縮尺ロボットトラックで確かめています。",
+          "advantages": "arXivの概要が挙げる従来の問題は、実演をまねるだけの運転モデルでは、利用時に特定の曲がり方を指示できないことです。本研究は進路指示を学習の条件に加え、運転操作を任せながら行き先を案内できるようにします。実験では、画像で走行する二つのシステムが上位の進路指示にも応答したと報告しています。ただし、従来手法に対する成功率などの数値的な優位性は示されていません。",
+          "method": "入力は走行環境の画像と、進路を指定する上位の指示です。人の運転実演から、指示を条件にして運転操作を出すモデルを学びます。画像だけで行動を決めるのではなく、指示も判断材料にすることで、同じ交差点でも目的に応じた操作を選べるようにする考え方です。著者は複数のモデル構造を評価していますが、指示の形式、画像との統合方法、具体的な操作出力はarXivの概要に記載されていません。",
+          "evaluation": "画像に基づく運転を対象に、指示を条件とする模倣学習の異なるモデル構造を評価しています。実験環境は、現実的な都市走行の三次元シミュレーションと、住宅地で走行するよう学習した縮尺1／5のロボットトラックです。両方で、視覚入力による走行と上位の進路指示への応答を報告しています。モデルごとの結果、走行距離、試行数、介入回数などの評価指標はarXivの概要では確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。未経験の道路や指示での性能、実物大の車両への適用、安全性の評価についても、arXivの概要だけでは確認できません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "King Abdullah University of Science & Technology the network can be given corresponding commands, which"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/1710.02410",
+            "method": "arxiv-pdf"
+          },
+          "visualKeywords": [
+            "End-to-end Driving via Conditional Imitation Learning"
+          ]
+        },
+        {
+          "id": "2307.05973",
+          "title": "VoxPoser: Composable 3D Value Maps for Robotic Manipulation with Language Models",
+          "abstract": "Large language models (LLMs) are shown to possess a wealth of actionable knowledge that can be extracted for robot manipulation in the form of reasoning and planning. Despite the progress, most still rely on pre-defined motion primitives to carry out the physical interactions with the environment, which remains a major bottleneck. In this work, we aim to synthesize robot trajectories, i.e., a dense sequence of 6-DoF end-effector waypoints, for a large variety of manipulation tasks given an open-set of instructions and an open-set of objects. We achieve this by first observing that LLMs excel at inferring affordances and constraints given a free-form language instruction. More importantly, by leveraging their code-writing capabilities, they can interact with a vision-language model (VLM) to compose 3D value maps to ground the knowledge into the observation space of the agent. The composed value maps are then used in a model-based planning framework to zero-shot synthesize closed-loop robot trajectories with robustness to dynamic perturbations. We further demonstrate how the proposed framework can benefit from online experiences by efficiently learning a dynamics model for scenes that involve contact-rich interactions. We present a large-scale study of the proposed method in both simulated and real-robot environments, showcasing the ability to perform a large variety of everyday manipulation tasks specified in free-form natural language. Videos and code at https://voxposer.github.io",
+          "authors": [
+            "Wenlong Huang",
+            "Chen Wang",
+            "Ruohan Zhang",
+            "Yunzhu Li",
+            "Jiajun Wu",
+            "Li Fei-Fei"
+          ],
+          "published": "2023-07-12T07:40:48Z",
+          "updated": "2023-11-02T06:53:37Z",
+          "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.CL",
+            "cs.CV",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Wenlong Huang",
+              "institutions": []
+            },
+            {
+              "name": "Chen Wang",
+              "institutions": []
+            },
+            {
+              "name": "Ruohan Zhang",
+              "institutions": []
+            },
+            {
+              "name": "Yunzhu Li",
+              "institutions": []
+            },
+            {
+              "name": "Jiajun Wu",
+              "institutions": []
+            },
+            {
+              "name": "Li Fei-Fei",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2307.05973",
+          "pdfUrl": "https://arxiv.org/pdf/2307.05973",
+          "citations": {
+            "count": 1351,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-16T00:48:31.292Z",
+            "url": "https://www.semanticscholar.org/paper/1cd8373490efc2d74c2796f4b2aa27c7d4415ec9"
+          },
+          "topics": [
+            "Contact Manipulation",
+            "Robotics",
+            "Computer Vision",
+            "Machine Learning"
+          ],
+          "score": 9,
+          "personalScore": 8,
+          "groupId": "classic-personal",
+          "headline": "VoxPoser：言葉の指示を三次元の評価マップに変え、ロボットの動きを計画",
+          "summary": "決められた基本動作への依存を減らし、自由な言葉の指示からロボットの動きを作る研究です。大規模言語モデルと、画像と言葉を扱うモデルを連携させ、望ましい動きや制約を三次元の評価マップに表します。このマップを使い、手先の位置と向きを連続的に計画します。シミュレーションと実機で日常的な操作課題を検証しています。",
+          "advantages": "著者は、既存の多くの手法が事前定義された基本動作に依存することを課題としています。本研究は、それに代わって手先の位置と向きの密な点列を直接計画し、幅広い指示や物体を扱うことを目指します。対象課題の追加学習なしで軌道を生成し、途中の外乱にも対応できると述べています。多様な操作課題の実行を報告していますが、比較手法や定量的な優位性はarXivの概要には記載されていません。",
+          "method": "言語モデルが自由な指示から、物体に対して可能な操作と守るべき制約を推論します。さらにコード生成を通じて画像と言葉を扱うモデルと連携し、観測空間に三次元の評価マップを構成します。環境の変化をモデルで予測する計画手法が、そのマップから手先の位置と向きの点列を作り、観測に応じて動きを更新します。接触が多い場面では、実行中の経験から動きの変化を予測するモデルを学ぶ仕組みも示しています。",
+          "evaluation": "シミュレーションと実物のロボット環境で、大規模な検証を行ったと報告しています。対象は、自由な自然言語で指定する多様な日常操作です。途中で環境に加わる変化への対応や、接触を伴う場面で実行経験から予測モデルを学ぶ効果も述べています。ただし、課題数、物体の種類、外乱の具体的な条件、比較手法、成功率などの評価指標はarXivの概要に記載されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。対応できない指示や物体、計画に必要な時間、接触場面で必要な経験量についても、arXivの概要だけでは確認できません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Stanford University",
+              "University of Illinois Urbana-Champaign"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2307.05973v2",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Contact-rich Manipulation"
+          ]
+        },
+        {
+          "id": "1606.05830",
+          "title": "Past, Present, and Future of Simultaneous Localization And Mapping: Towards the Robust-Perception Age",
+          "abstract": "Simultaneous Localization and Mapping (SLAM)consists in the concurrent construction of a model of the environment (the map), and the estimation of the state of the robot moving within it. The SLAM community has made astonishing progress over the last 30 years, enabling large-scale real-world applications, and witnessing a steady transition of this technology to industry. We survey the current state of SLAM. We start by presenting what is now the de-facto standard formulation for SLAM. We then review related work, covering a broad set of topics including robustness and scalability in long-term mapping, metric and semantic representations for mapping, theoretical performance guarantees, active SLAM and exploration, and other new frontiers. This paper simultaneously serves as a position paper and tutorial to those who are users of SLAM. By looking at the published research with a critical eye, we delineate open challenges and new research issues, that still deserve careful scientific investigation. The paper also contains the authors' take on two questions that often animate discussions during robotics conferences: Do robots need SLAM? and Is SLAM solved?",
+          "authors": [
+            "Cesar Cadena",
+            "Luca Carlone",
+            "Henry Carrillo",
+            "Yasir Latif",
+            "Davide Scaramuzza",
+            "Jose Neira",
+            "Ian Reid",
+            "John J. Leonard"
+          ],
+          "published": "2016-06-19T03:23:53Z",
+          "updated": "2017-01-30T12:05:48Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Cesar Cadena",
+              "institutions": []
+            },
+            {
+              "name": "Luca Carlone",
+              "institutions": []
+            },
+            {
+              "name": "Henry Carrillo",
+              "institutions": []
+            },
+            {
+              "name": "Yasir Latif",
+              "institutions": []
+            },
+            {
+              "name": "Davide Scaramuzza",
+              "institutions": []
+            },
+            {
+              "name": "Jose Neira",
+              "institutions": []
+            },
+            {
+              "name": "Ian Reid",
+              "institutions": []
+            },
+            {
+              "name": "John J. Leonard",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1606.05830",
+          "pdfUrl": "https://arxiv.org/pdf/1606.05830",
+          "citations": {
+            "count": 3755,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-16T00:48:34.204Z",
+            "url": "https://www.semanticscholar.org/paper/368132f8dfcbd6e857dfc1b7dce2ab91bd9648ad"
+          },
+          "topics": [
+            "Robotics"
+          ],
+          "score": 1,
+          "personalScore": 0,
+          "groupId": "classic-robotics",
+          "headline": "自己位置推定と地図作成の30年を整理し、SLAMの未解決課題を示す",
+          "summary": "ロボットが地図を作りながら自身の位置や状態を推定するSLAM（自己位置推定と地図作成の同時実行）を整理した総説です。標準的な問題の定式化から、長期間の地図作成、環境の表現、探索までを幅広く解説します。既存研究を批判的に検討し、未解決の課題と今後の研究論点を示します。",
+          "advantages": "個別の新手法を提案するのではなく、SLAMの現状を幅広く整理し、解説と著者の見解を併せて提供する点が特徴です。実用化の進展だけでなく、未解決の問題にも目を向けています。「ロボットにSLAMは必要か」「SLAMは解決済みか」という問いも扱います。比較実験による性能上の優位性は、arXivの概要には記載されていません。",
+          "method": "既存の研究文献を対象に、まずSLAMの事実上の標準となっている問題の定式化を説明します。続いて、長期運用での頑健性と規模への対応、距離・形状や意味を使う地図表現、性能の理論的保証、位置推定や地図作成のための行動選択と探索を整理します。研究を批判的に検討し、残る課題を示す構成です。特定の処理系を実装する手法ではありません。",
+          "evaluation": "arXivの概要で示されているのは、既存研究のレビューと批判的な検討です。新しいアルゴリズムを共通条件で比較した実験や、実機での性能測定は記載されていません。対象文献の選定基準、文献数、定量的な評価指標も確認できないため、この総説自体の検証範囲を詳しく判断することはできません。",
+          "futureWork": "arXivの概要では、なお科学的な検討が必要な未解決課題や新たな研究論点を示すとされています。関連する領域として、長期の地図作成における頑健性と規模への対応、地図表現、性能の理論的保証、行動選択と探索などを挙げています。ただし、各領域の具体的な未解決問題や、著者が提案する解決の方向性までは概要だけでは確認できません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Davide Scaramuzza, José Neira, Ian Reid, John J. Leonard"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1606.05830v4",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Visual SLAM"
+          ]
+        },
+        {
+          "id": "2303.03378",
+          "title": "PaLM-E: An Embodied Multimodal Language Model",
+          "abstract": "Large language models excel at a wide range of complex tasks. However, enabling general inference in the real world, e.g., for robotics problems, raises the challenge of grounding. We propose embodied language models to directly incorporate real-world continuous sensor modalities into language models and thereby establish the link between words and percepts. Input to our embodied language model are multi-modal sentences that interleave visual, continuous state estimation, and textual input encodings. We train these encodings end-to-end, in conjunction with a pre-trained large language model, for multiple embodied tasks including sequential robotic manipulation planning, visual question answering, and captioning. Our evaluations show that PaLM-E, a single large embodied multimodal model, can address a variety of embodied reasoning tasks, from a variety of observation modalities, on multiple embodiments, and further, exhibits positive transfer: the model benefits from diverse joint training across internet-scale language, vision, and visual-language domains. Our largest model, PaLM-E-562B with 562B parameters, in addition to being trained on robotics tasks, is a visual-language generalist with state-of-the-art performance on OK-VQA, and retains generalist language capabilities with increasing scale.",
+          "authors": [
+            "Danny Driess",
+            "Fei Xia",
+            "Mehdi S. M. Sajjadi",
+            "Corey Lynch",
+            "Aakanksha Chowdhery",
+            "Brian Ichter",
+            "Ayzaan Wahid",
+            "Jonathan Tompson",
+            "Quan Vuong",
+            "Tianhe Yu",
+            "Wenlong Huang",
+            "Yevgen Chebotar",
+            "Pierre Sermanet",
+            "Daniel Duckworth",
+            "Sergey Levine",
+            "Vincent Vanhoucke",
+            "Karol Hausman",
+            "Marc Toussaint",
+            "Klaus Greff",
+            "Andy Zeng",
+            "Igor Mordatch",
+            "Pete Florence"
+          ],
+          "published": "2023-03-06T18:58:06Z",
+          "updated": "2023-03-06T18:58:06Z",
+          "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Danny Driess",
+              "institutions": []
+            },
+            {
+              "name": "Fei Xia",
+              "institutions": []
+            },
+            {
+              "name": "Mehdi S. M. Sajjadi",
+              "institutions": []
+            },
+            {
+              "name": "Corey Lynch",
+              "institutions": []
+            },
+            {
+              "name": "Aakanksha Chowdhery",
+              "institutions": []
+            },
+            {
+              "name": "Brian Ichter",
+              "institutions": []
+            },
+            {
+              "name": "Ayzaan Wahid",
+              "institutions": []
+            },
+            {
+              "name": "Jonathan Tompson",
+              "institutions": []
+            },
+            {
+              "name": "Quan Vuong",
+              "institutions": []
+            },
+            {
+              "name": "Tianhe Yu",
+              "institutions": []
+            },
+            {
+              "name": "Wenlong Huang",
+              "institutions": []
+            },
+            {
+              "name": "Yevgen Chebotar",
+              "institutions": []
+            },
+            {
+              "name": "Pierre Sermanet",
+              "institutions": []
+            },
+            {
+              "name": "Daniel Duckworth",
+              "institutions": []
+            },
+            {
+              "name": "Sergey Levine",
+              "institutions": []
+            },
+            {
+              "name": "Vincent Vanhoucke",
+              "institutions": []
+            },
+            {
+              "name": "Karol Hausman",
+              "institutions": []
+            },
+            {
+              "name": "Marc Toussaint",
+              "institutions": []
+            },
+            {
+              "name": "Klaus Greff",
+              "institutions": []
+            },
+            {
+              "name": "Andy Zeng",
+              "institutions": []
+            },
+            {
+              "name": "Igor Mordatch",
+              "institutions": []
+            },
+            {
+              "name": "Pete Florence",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2303.03378",
+          "pdfUrl": "https://arxiv.org/pdf/2303.03378",
+          "citations": {
+            "count": 3479,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-16T00:48:34.204Z",
+            "url": "https://www.semanticscholar.org/paper/38fe8f324d2162e63a967a9ac6648974fc4c66f3"
+          },
+          "topics": [
+            "Touch & Multimodal",
+            "Physical AI",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 12,
+          "personalScore": 9,
+          "groupId": "classic-robotics",
+          "headline": "PaLM-E：画像・状態情報・言葉を統合し、現実世界の推論を支える言語モデル",
+          "summary": "言語モデルの言葉を、現実世界の知覚情報と結び付ける研究です。PaLM-Eは、画像、連続値の状態推定情報、文章を一つの入力に組み込みます。ロボットの操作計画や画像への質問応答などを共同学習し、単一モデルで多様な課題に対応します。異なる分野の学習が互いに役立つ効果も報告されています。",
+          "advantages": "著者が提案する特徴は、現実世界のセンサー情報を言語モデルへ直接取り込み、言葉と知覚を結び付けることです。評価では、多様な観測形式や複数の身体構成での推論課題への対応と、異なる分野の共同学習が役立つ効果を報告しています。最大モデルはOK-VQAという画像質問応答の評価課題で当時の最高水準の性能を示したとしていますが、比較対象や改善幅は概要にありません。",
+          "method": "画像、連続値の状態推定情報、文章を数値表現に変換し、それらを交互に含む入力を作ります。この表現と事前学習済みの大規模言語モデルを、入力から出力まで一体として学習します。出力課題は、一連のロボット操作の計画、画像に関する質問への回答、画像の説明文生成です。知覚情報を言葉と同じ処理に組み込むことで、現実の状況に結び付いた推論を目指します。",
+          "evaluation": "複数の身体構成と観測形式にまたがる推論課題を評価し、言語・画像・画像と言語を組み合わせた分野の共同学習が役立つと報告しています。最大モデルは5620億個のパラメータを持ち、OK-VQAで当時の最高水準の性能を示したとしています。ただし、具体的な得点、比較モデル、試行条件は記載されていません。ロボット課題での実機実験の有無も、概要だけでは確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。追加で確認すべき点として、未知の環境や課題への対応範囲、失敗時の挙動、計算資源の要件があります。これらは概要に示された著者の限界認識や研究計画ではなく、適用可能性を判断するために必要な確認事項です。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "unavailable",
+            "reason": "論文から所属を確認できませんでした。"
+          },
+          "visualKeywords": [
+            "PaLM-E"
+          ]
+        },
+        {
+          "id": "1812.05905",
+          "title": "Soft Actor-Critic Algorithms and Applications",
+          "abstract": "Model-free deep reinforcement learning (RL) algorithms have been successfully applied to a range of challenging sequential decision making and control tasks. However, these methods typically suffer from two major challenges: high sample complexity and brittleness to hyperparameters. Both of these challenges limit the applicability of such methods to real-world domains. In this paper, we describe Soft Actor-Critic (SAC), our recently introduced off-policy actor-critic algorithm based on the maximum entropy RL framework. In this framework, the actor aims to simultaneously maximize expected return and entropy. That is, to succeed at the task while acting as randomly as possible. We extend SAC to incorporate a number of modifications that accelerate training and improve stability with respect to the hyperparameters, including a constrained formulation that automatically tunes the temperature hyperparameter. We systematically evaluate SAC on a range of benchmark tasks, as well as real-world challenging tasks such as locomotion for a quadrupedal robot and robotic manipulation with a dexterous hand. With these improvements, SAC achieves state-of-the-art performance, outperforming prior on-policy and off-policy methods in sample-efficiency and asymptotic performance. Furthermore, we demonstrate that, in contrast to other off-policy algorithms, our approach is very stable, achieving similar performance across different random seeds. These results suggest that SAC is a promising candidate for learning in real-world robotics tasks.",
+          "authors": [
+            "Tuomas Haarnoja",
+            "Aurick Zhou",
+            "Kristian Hartikainen",
+            "George Tucker",
+            "Sehoon Ha",
+            "Jie Tan",
+            "Vikash Kumar",
+            "Henry Zhu",
+            "Abhishek Gupta",
+            "Pieter Abbeel",
+            "Sergey Levine"
+          ],
+          "published": "2018-12-13T04:44:29Z",
+          "updated": "2019-01-29T12:10:47Z",
+          "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.RO",
+            "stat.ML"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Tuomas Haarnoja",
+              "institutions": []
+            },
+            {
+              "name": "Aurick Zhou",
+              "institutions": []
+            },
+            {
+              "name": "Kristian Hartikainen",
+              "institutions": []
+            },
+            {
+              "name": "George Tucker",
+              "institutions": []
+            },
+            {
+              "name": "Sehoon Ha",
+              "institutions": []
+            },
+            {
+              "name": "Jie Tan",
+              "institutions": []
+            },
+            {
+              "name": "Vikash Kumar",
+              "institutions": []
+            },
+            {
+              "name": "Henry Zhu",
+              "institutions": []
+            },
+            {
+              "name": "Abhishek Gupta",
+              "institutions": []
+            },
+            {
+              "name": "Pieter Abbeel",
+              "institutions": []
+            },
+            {
+              "name": "Sergey Levine",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1812.05905",
+          "pdfUrl": "https://arxiv.org/pdf/1812.05905",
+          "citations": {
+            "count": 3426,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-16T00:48:34.204Z",
+            "url": "https://www.semanticscholar.org/paper/12c0751b4f51ed833172a713b7e32390032ead93"
+          },
+          "topics": [
+            "RL",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 4,
+          "personalScore": 3,
+          "groupId": "classic-robotics",
+          "headline": "SAC：行動の多様性を自動調整し、効率と安定性を高める強化学習",
+          "summary": "試行経験の多さと設定値への敏感さが課題となる深層強化学習を改善する研究です。SACは、課題の報酬と行動の多様性を同時に高める学習法です。その釣り合いを自動調整する仕組みなどを加え、学習の効率と安定性を改善します。標準的な評価課題に加え、四足ロボットの移動や器用なロボットハンドの操作でも検証しています。",
+          "advantages": "著者は、追加した改良によって学習を速め、設定値に対する安定性を高めると主張しています。比較実験では、従来のオンポリシー手法（現在の行動規則の経験で学ぶ方法）とオフポリシー手法（別の行動規則の経験も使う方法）を、必要な経験量と十分な学習後の性能で上回ったと報告しています。他のオフポリシー手法と比べ、乱数の初期値が異なっても近い性能を得たとしています。",
+          "method": "SAC（Soft Actor-Critic）は、行動を選ぶ役割と、その行動を評価する役割を組み合わせた強化学習法です。行動選択では、期待される累積報酬とエントロピー（行動のランダムさの尺度）を同時に高めます。課題の達成と多様な行動の両立を狙う仕組みです。両者の釣り合いを決める温度という設定値を、制約付きの定式化で自動調整します。具体的な入力形式や更新手順は概要にありません。",
+          "evaluation": "複数の標準的な評価課題と、現実世界の四足ロボットの移動、器用なロボットハンドによる操作を対象に検証しています。従来のオンポリシー・オフポリシー手法と、必要な経験量に対する学習効率と十分な学習後の性能を比較しています。乱数の初期値を変えた際の安定性も評価しています。ただし、課題名、比較手法名、試行回数、具体的な測定値は概要に記載されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。著者は、結果からSACを現実世界のロボット学習に有望な候補と位置付けていますが、あらゆる課題での有効性を保証する主張ではありません。追加で確認すべき点は、適用できる課題の範囲、失敗例、実験条件による性能差です。これらは著者が概要で明示した今後の課題ではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "unavailable",
+            "reason": "論文から所属を確認できませんでした。"
+          },
+          "visualKeywords": [
+            "On-policy RL"
+          ]
+        },
+        {
+          "id": "2611.17324",
+          "title": "K2V: Generative Keyframing For Physically Plausible Video Generation",
+          "abstract": "Video diffusion models are able to generate samples with high-quality appearance and textural qualities. However, content produced by these methods is known to exhibit significant physical errors. This is because, in a classical video generation setting, all physical reasoning must take place simultaneously and exclusively within the diffusion process.We propose to resolve these issues by redistributing the task of physical reasoning onto a language model-backed keyframe generation module, which allows for explicit reasoning in language, and fine-grained control over the appearance of the video at important moments in the video. We then condition a video generation model with these keyframes, reducing the role of the diffusion model to the simpler task of interpolating between physically-correct intermediate states, rather than inferring an entire sequence with diffusion. Results demonstrate that our approach significantly outperforms existing approaches, achieving state-of-the-art performance on the Physics-IQ Verified benchmark and PhyGenBench.",
+          "authors": [
+            "Felix O'Mahony",
+            "Daniel Olmeda Reino",
+            "Roberto Cipolla",
+            "Ayush Tewari"
+          ],
+          "published": "2026-11-12T18:59:09Z",
+          "updated": "2026-11-12T18:59:09Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Felix O'Mahony",
+              "institutions": []
+            },
+            {
+              "name": "Daniel Olmeda Reino",
+              "institutions": []
+            },
+            {
+              "name": "Roberto Cipolla",
+              "institutions": []
+            },
+            {
+              "name": "Ayush Tewari",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.17324",
+          "pdfUrl": "https://arxiv.org/pdf/2611.17324",
+          "topics": [
+            "Computer Vision"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "last-7-days",
+          "groupId": "recent-ai",
+          "headline": "重要な場面を先に設計し、物理的な誤りを抑える動画生成",
+          "summary": "見た目は高品質でも、物理的に不自然な動きを生む動画生成の問題に取り組む研究です。言語モデルで物理的な整合性を考え、動きの節目となる画像を先に生成します。その画像を条件に動画を作り、動画生成モデルが全体の物理的な動きを一度に推論する負担を減らします。",
+          "advantages": "従来の動画生成では、物理的な推論を、ノイズを段階的に取り除く拡散モデルの処理内でまとめて行うと説明されています。本研究は、その一部を言語モデルによる画像生成へ分担させます。著者は、言葉での明示的な推論と重要場面の見た目の細かな制御を利点に挙げています。比較結果として、二つの評価用データセットで既存手法を上回る最高水準の性能を報告していますが、比較手法名や数値は示されていません。",
+          "method": "まず、言語モデルを使う生成部が物理的な整合性を推論し、キーフレームと呼ばれる動きの節目の画像を作ります。次に、それらの画像を条件として動画生成モデルへ渡します。動画生成モデルには、物理的に正しい中間状態の間を補う役割を担わせます。全場面の物理的な動きを一度に推論するより、処理を単純化する狙いです。最初に与える入力の形式や、生成画像の物理的な正しさを確認する仕組みは、arXivの概要では不明です。",
+          "evaluation": "物理的な整合性を評価するPhysics-IQ VerifiedとPhyGenBenchで検証しています。arXivの概要では、既存手法を大きく上回り、両方で最高水準の性能を達成したと報告されています。ただし、評価指標、具体的な得点、比較対象の名称、生成条件や試行数は記載されていません。そのため、改善幅や、どの種類の物理現象で効果が大きいかは確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。生成した節目の画像に誤りがある場合の影響や、画像間の動きまで物理的に整合するか、追加の処理コストは確認できません。これらは追加で確認すべき点であり、著者が明示した限界ではありません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.17324.png",
+            "caption": "Figure 2. Overview of the proposed method. We design a keyframe module which reasons about the physical evolution of a given scene and produces keyframes with timestamps and an expanded caption. These are then used as the conditioning signal for Wan2.2, resulting in videos with more accurate physical plausibility.",
+            "sourceUrl": "https://arxiv.org/html/2611.17324v1",
+            "originalUrl": "https://arxiv.org/html/2611.17324v1/overview.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Felix O'Mahony, Daniel Olmeda Reino, Roberto Cipolla, Ayush Tewari · arXiv:2611.17324"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "University of Cambridge, Cambridge, UK",
+              "Toyota Motor Europe, Brussels, Belgium"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.17324v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "K2V"
+          ]
+        },
+        {
+          "id": "2611.17323",
+          "title": "AgentSSL: Can MLE Agents Leverage Unlabeled Data?",
+          "abstract": "Applying machine learning systems to new domains introduces bottlenecks in both labeled data acquisition and manual pipeline engineering. While recent MLE agents show promise in automating pipeline design, they have been studied almost exclusively in fully supervised settings, leaving them untested in realistic regimes where labeled data is scarce but unlabeled data is abundant. In this work, we introduce Agentic Semi-Supervised Learning (AgentSSL), framing SSL as a program search problem and studying how agents navigate this space under limited supervision. We find that even under weak feedback and matched compute, agents can synthesize code that combines and adapts established SSL techniques, exceeding the strongest human-engineered baselines in 8 of 12 settings by up to +21.8%. However, our results identify program selection as a critical bottleneck in AgentSSL, where performance drops by as much as 47% when selecting based on the agent's feedback metric. To systematically study this bottleneck, we introduce ProgramSelectBench, a large-scale benchmark with a combined total of 16,977 agent-generated and human-engineered SSL programs, and evaluate both unsupervised and active program selection methods. We further evaluate AgentSSL on real-world ecology detection tasks, highlighting the opportunities and challenges of transferring agent-discovered strategies beyond controlled benchmarks.",
+          "authors": [
+            "Ethan Lin",
+            "Akanksha Sarkar",
+            "Ziang Liu",
+            "Kristin Branson",
+            "Jennifer J. Sun"
+          ],
+          "published": "2026-11-12T18:59:06Z",
+          "updated": "2026-11-12T18:59:06Z",
+          "categories": [
+            "cs.AI",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Ethan Lin",
+              "institutions": []
+            },
+            {
+              "name": "Akanksha Sarkar",
+              "institutions": []
+            },
+            {
+              "name": "Ziang Liu",
+              "institutions": []
+            },
+            {
+              "name": "Kristin Branson",
+              "institutions": []
+            },
+            {
+              "name": "Jennifer J. Sun",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.17323",
+          "pdfUrl": "https://arxiv.org/pdf/2611.17323",
+          "topics": [
+            "Machine Learning"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "last-7-days",
+          "groupId": "recent-ai",
+          "headline": "ラベルなしデータを活用するAIエージェント、学習プログラムの選択が課題",
+          "summary": "正解ラベルが少なく、ラベルなしデータが多い環境で、機械学習の処理を自動設計する研究です。両方のデータを使う半教師あり学習を、プログラム探索として扱います。AIエージェントが既存手法を組み合わせてコードを作る一方、良いプログラムを選ぶ段階が性能を左右することを示しています。",
+          "advantages": "従来の機械学習開発エージェントの研究が、ほぼ正解ラベルのそろった条件に限られていた点に着目しています。本研究は、ラベルが少ない条件で既存の半教師あり学習手法を組み合わせ、調整できるかを調べます。計算資源をそろえ、性能を判断する情報が乏しい条件でも、12設定中8設定で最も強い人手設計の比較手法を上回り、最大＋21.8％の改善を報告しています。ただし、この割合の具体的な算出方法はarXivの概要では不明です。",
+          "method": "少数のラベル付きデータと豊富なラベルなしデータを扱う学習方法を、コードとして探索します。エージェントが既存手法を組み合わせ、調整したプログラムを生成し、その中から採用するものを選びます。人手による処理設計の負担を減らす狙いです。ただし、エージェントへ返す評価指標に基づく選択では性能が最大47％低下したと報告されています。生成能力だけでなく、候補の良し悪しを見極める仕組みが重要です。",
+          "evaluation": "計算資源をそろえた12設定で、人手設計の強い比較手法と性能を比較しています。さらに、エージェント生成と人手設計を合わせた16,977件の学習プログラムを含むProgramSelectBenchを構築しました。候補選択について、正解情報に頼らない方法と、追加の情報取得を伴う能動的な方法を評価しています。実世界の生態学分野の検出課題でも検証していますが、個別の指標、データの内訳、選択手法や実世界課題の結果はarXivの概要では不明です。",
+          "futureWork": "著者は、生成した学習プログラムの選択を主要な障害として挙げています。エージェントへ返す評価指標で候補を選ぶと、性能が最大47％低下する結果が、その課題を示しています。また、管理された評価環境で見つけた戦略を実世界へ移す際の可能性と課題にも言及しています。ただし、移行時の具体的な失敗要因や、今後採用する改善策はarXivの概要に記載されていません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.17323.png",
+            "caption": "Figure 2: Overview of AgentSSL. Given a small labeled set and a larger unlabeled corpus, an LLM-based agent generates SSL programs that are evaluated using either unsupervised SSL metrics or noisy validation feedback, with the resulting fitness score guiding iterative refinement. Following search, we must select the best program either using unsupervised metrics or active model selection. We evaluate AgentSSL on both image classification SSL benchmarks and real-world ecological detection tasks.",
+            "sourceUrl": "https://arxiv.org/html/2611.17323v1",
+            "originalUrl": "https://arxiv.org/html/2611.17323v1/2_main.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Ethan Lin, Akanksha Sarkar, Ziang Liu, Kristin Branson, Jennifer J. Sun · arXiv:2611.17323"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Cornell University",
+              "Howard Hughes Medical Institute"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.17323v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "AgentSSL"
+          ]
+        },
+        {
+          "id": "2611.17321",
+          "title": "BrickFlow: Connectivity-Guided Brick Reconstruction",
+          "abstract": "Given a set of LEGO parts and an image of an assembled object, our task is to infer the pose of each part to assemble the object. In contrast with traditional 3D reconstruction, doing so requires satisfying discrete physical constraints, which provide structure but render the problem combinatorial and highly sensitive to small pose errors. To learn a prior over how parts fit together, we train a set-conditioned SE(3) flow model on procedurally generated assemblies. We then finetune this model to inject image conditioning, using 1% as much data. However, while the learned flow captures global structure, it does not enforce connectivity. To address this, we introduce an analytic connectivity-field guidance to pull predictions toward connected assemblies at test time. Through this, we demonstrate improved build quality with model size, pretraining, and guidance. We make our models and data available for research purposes at https://kulits.github.io/BrickFlow/",
+          "authors": [
+            "Peter Kulits",
+            "Cordelia Schmid"
+          ],
+          "published": "2026-11-12T18:58:51Z",
+          "updated": "2026-11-12T18:58:51Z",
+          "categories": [
+            "cs.CV",
+            "cs.GR"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Peter Kulits",
+              "institutions": []
+            },
+            {
+              "name": "Cordelia Schmid",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.17321",
+          "pdfUrl": "https://arxiv.org/pdf/2611.17321",
+          "topics": [
+            "Computer Vision"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "last-7-days",
+          "groupId": "recent-ai",
+          "headline": "部品同士の接続を手掛かりに、画像からLEGOの組み立て配置を推定",
+          "summary": "LEGO部品の集合と完成物の画像から、各部品の位置と向きを推定する研究です。見た目を再現するだけでなく、部品が実際につながる配置を目指します。自動生成した組み立て例で配置を学び、画像に対応するよう追加学習した後、推定時に接続を促す補正を加えます。",
+          "advantages": "通常の立体形状の復元とは異なり、部品の組み合わせに関する離散的な物理制約を満たす必要がある課題を扱います。独自の工夫は、学習で得た全体構造の推定に、部品の接続を促す計算上の誘導を加える点です。著者は、モデルの大型化、事前学習、この誘導によって組み立て品質が向上したと報告しています。ただし、既存手法との具体的な比較や、各要素による改善幅はarXivの概要では確認できません。",
+          "method": "入力は部品の集合と完成物の画像です。まず、自動生成した組み立て例を使い、部品集合を条件に位置と向きを生成するモデルを学習します。位置と回転をまとめて扱う数学的な表現であるSE(3)上で、配置を変換していく仕組みです。次に、事前学習の1％の量のデータで画像の条件を取り入れる追加学習を行います。最後に、接続状態に基づく解析的な誘導で配置を補正します。全体形状の学習だけでは保証できない接続を促すためです。",
+          "evaluation": "モデルの大きさ、事前学習、推定時の接続誘導による組み立て品質の改善を検証したと報告されています。arXivの概要には、評価対象の部品数や形状、画像の条件、品質の評価指標、比較手法名、改善の数値は記載されていません。また、実物を組み立てた実験の実施も確認できません。研究用のモデルとデータの公開先として、https://kulits.github.io/BrickFlow/ が示されています。",
+          "futureWork": "学習したモデルは全体構造を捉えるものの、部品同士の接続を保証しないと明記されています。本研究の誘導は、その問題への対策です。ただし、補正後に接続が必ず成立するか、部品の重なりなど他の物理制約も満たすかは、arXivの概要では確認できません。arXivの概要には今後の課題の記載がありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Inria, École Normale Supérieure, CNRS, PSL Research University",
+              "Max Planck Institute for Intelligent Systems, Tübingen"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.17321v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "BrickFlow"
+          ]
+        },
+        {
+          "id": "1912.01703",
+          "title": "PyTorch: An Imperative Style, High-Performance Deep Learning Library",
+          "abstract": "Deep learning frameworks have often focused on either usability or speed, but not both. PyTorch is a machine learning library that shows that these two goals are in fact compatible: it provides an imperative and Pythonic programming style that supports code as a model, makes debugging easy and is consistent with other popular scientific computing libraries, while remaining efficient and supporting hardware accelerators such as GPUs. In this paper, we detail the principles that drove the implementation of PyTorch and how they are reflected in its architecture. We emphasize that every aspect of PyTorch is a regular Python program under the full control of its user. We also explain how the careful and pragmatic implementation of the key components of its runtime enables them to work together to achieve compelling performance. We demonstrate the efficiency of individual subsystems, as well as the overall speed of PyTorch on several common benchmarks.",
+          "authors": [
+            "Adam Paszke",
+            "Sam Gross",
+            "Francisco Massa",
+            "Adam Lerer",
+            "James Bradbury",
+            "Gregory Chanan",
+            "Trevor Killeen",
+            "Zeming Lin",
+            "Natalia Gimelshein",
+            "Luca Antiga",
+            "Alban Desmaison",
+            "Andreas Köpf",
+            "Edward Yang",
+            "Zach DeVito",
+            "Martin Raison",
+            "Alykhan Tejani",
+            "Sasank Chilamkurthy",
+            "Benoit Steiner",
+            "Lu Fang",
+            "Junjie Bai",
+            "Soumith Chintala"
+          ],
+          "published": "2019-12-03T22:06:05Z",
+          "updated": "2019-12-03T22:06:05Z",
+          "categories": [
+            "cs.LG",
+            "cs.MS",
+            "stat.ML"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Adam Paszke",
+              "institutions": []
+            },
+            {
+              "name": "Sam Gross",
+              "institutions": []
+            },
+            {
+              "name": "Francisco Massa",
+              "institutions": []
+            },
+            {
+              "name": "Adam Lerer",
+              "institutions": []
+            },
+            {
+              "name": "James Bradbury",
+              "institutions": []
+            },
+            {
+              "name": "Gregory Chanan",
+              "institutions": []
+            },
+            {
+              "name": "Trevor Killeen",
+              "institutions": []
+            },
+            {
+              "name": "Zeming Lin",
+              "institutions": []
+            },
+            {
+              "name": "Natalia Gimelshein",
+              "institutions": []
+            },
+            {
+              "name": "Luca Antiga",
+              "institutions": []
+            },
+            {
+              "name": "Alban Desmaison",
+              "institutions": []
+            },
+            {
+              "name": "Andreas Köpf",
+              "institutions": []
+            },
+            {
+              "name": "Edward Yang",
+              "institutions": []
+            },
+            {
+              "name": "Zach DeVito",
+              "institutions": []
+            },
+            {
+              "name": "Martin Raison",
+              "institutions": []
+            },
+            {
+              "name": "Alykhan Tejani",
+              "institutions": []
+            },
+            {
+              "name": "Sasank Chilamkurthy",
+              "institutions": []
+            },
+            {
+              "name": "Benoit Steiner",
+              "institutions": []
+            },
+            {
+              "name": "Lu Fang",
+              "institutions": []
+            },
+            {
+              "name": "Junjie Bai",
+              "institutions": []
+            },
+            {
+              "name": "Soumith Chintala",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1912.01703",
+          "pdfUrl": "https://arxiv.org/pdf/1912.01703",
+          "citations": {
+            "count": 58268,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-16T00:48:47.722Z",
+            "url": "https://www.semanticscholar.org/paper/3c8a456509e6c0805354bd40a35e3f2dbf8069b1"
+          },
+          "topics": [
+            "Machine Learning"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-ai",
+          "headline": "PyTorch：使いやすいPythonの記述と深層学習の高速実行を両立",
+          "summary": "深層学習の開発環境では、使いやすさと実行速度の両立が課題でした。PyTorchは、処理を順に記述するPythonらしい書き方と、効率的な実行基盤を組み合わせるライブラリです。モデルの記述やデバッグを容易にしながら、GPUなどの計算用ハードウェアも活用します。",
+          "advantages": "著者は、使いやすさか速度のどちらかを重視しがちだった深層学習の開発環境に対し、両者は両立できると主張しています。通常のPythonプログラムとして利用者が制御でき、ほかの科学計算ライブラリと整合する点も特徴です。arXivの概要は各構成要素の効率と全体の速度を示したと述べていますが、比較対象や数値はなく、特定のライブラリに対する優位性は確認できません。",
+          "method": "利用者は、モデルや処理を通常のPythonコードとして記述します。それを支える実行基盤の主要な構成要素を丁寧に実装し、互いに連携させることで効率的に動作させます。GPUなどの計算を高速化するハードウェアにも対応します。特別な記述形式ではなくPythonのまま扱えることが、処理の制御やデバッグに役立つという説明です。個々の構成要素の仕組みや入出力の詳細は、arXivの概要では確認できません。",
+          "evaluation": "個々の構成要素の効率に加え、複数の一般的なベンチマーク、つまり共通の課題を使う性能試験で、PyTorch全体の速度を評価しています。ただし、arXivの概要には試験名、対象モデル、比較対象、使用ハードウェア、具体的な評価指標や測定値がありません。どの条件でどの程度高速だったか、使いやすさも定量的に評価したかは確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。具体的な制約や性能が低下する条件も示されていません。追加で確認すべき点として、モデルやハードウェアが変わった場合の性能、使いやすさを評価した方法が挙げられます。これらは著者が述べた今後の課題ではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "University of Warsaw Facebook AI Research Facebook AI Research",
+              "Facebook AI Research Google Facebook AI Research",
+              "Self Employed Facebook AI Research NVIDIA",
+              "Orobix Oxford University Xamla",
+              "Facebook AI Research Facebook AI Research Nabla",
+              "Twitter Qure.ai Facebook AI Research",
+              "Facebook Facebook Facebook AI Research"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/1912.01703",
+            "method": "arxiv-pdf"
+          },
+          "visualKeywords": [
+            "PyTorch"
+          ]
+        },
+        {
+          "id": "1506.02640",
+          "title": "You Only Look Once: Unified, Real-Time Object Detection",
+          "abstract": "We present YOLO, a new approach to object detection. Prior work on object detection repurposes classifiers to perform detection. Instead, we frame object detection as a regression problem to spatially separated bounding boxes and associated class probabilities. A single neural network predicts bounding boxes and class probabilities directly from full images in one evaluation. Since the whole detection pipeline is a single network, it can be optimized end-to-end directly on detection performance. Our unified architecture is extremely fast. Our base YOLO model processes images in real-time at 45 frames per second. A smaller version of the network, Fast YOLO, processes an astounding 155 frames per second while still achieving double the mAP of other real-time detectors. Compared to state-of-the-art detection systems, YOLO makes more localization errors but is far less likely to predict false detections where nothing exists. Finally, YOLO learns very general representations of objects. It outperforms all other detection methods, including DPM and R-CNN, by a wide margin when generalizing from natural images to artwork on both the Picasso Dataset and the People-Art Dataset.",
+          "authors": [
+            "Joseph Redmon",
+            "Santosh Divvala",
+            "Ross Girshick",
+            "Ali Farhadi"
+          ],
+          "published": "2015-06-08T19:52:52Z",
+          "updated": "2016-05-09T22:22:11Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Joseph Redmon",
+              "institutions": []
+            },
+            {
+              "name": "Santosh Divvala",
+              "institutions": []
+            },
+            {
+              "name": "Ross Girshick",
+              "institutions": []
+            },
+            {
+              "name": "Ali Farhadi",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1506.02640",
+          "pdfUrl": "https://arxiv.org/pdf/1506.02640",
+          "citations": {
+            "count": 49913,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-16T00:48:47.722Z",
+            "url": "https://www.semanticscholar.org/paper/f8e79ac0ea341056ef20f2616628b3e964764cfd"
+          },
+          "topics": [
+            "Computer Vision"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-ai",
+          "headline": "YOLO：画像を一度処理するだけで物体の位置と種類を検出",
+          "summary": "YOLOは、画像内の物体の位置と種類を高速に検出する手法です。画像全体を単一のニューラルネットワークに一度入力し、物体を囲む矩形と種類ごとの確率を直接予測します。検出処理を一体化し、検出性能を目標に全体をまとめて学習できる設計です。",
+          "advantages": "分類器を検出に転用する従来手法と異なり、位置と種類の確率を直接予測します。著者は、この一体化が高速化と処理全体の学習を可能にすると説明しています。結果として基本モデルは毎秒45画像、小型版は毎秒155画像を処理すると報告されています。小型版のmAP、つまりクラスごとの平均適合率を平均した検出精度指標は、ほかのリアルタイム検出器の2倍です。ただし、その比較対象の名前はarXivの概要にありません。",
+          "method": "入力は画像全体です。単一のニューラルネットワークが一度の処理で、異なる位置にある物体を囲む矩形と、それぞれの種類の確率を出力します。物体検出を、位置などの値を直接予測する回帰問題として扱うのが中心的な工夫です。検出の一連の処理が一つのネットワークに収まるため、最終的な検出性能を目標に全体をまとめて最適化できます。内部の構造や学習条件は、arXivの概要には示されていません。",
+          "evaluation": "処理速度とmAPを報告し、最先端の検出システムに比べ、位置の誤りは多い一方、何もない場所での誤検出は少ないとしています。また、自然画像から絵画への応用をPicasso DatasetとPeople-Art Datasetで評価し、DPMやR-CNNを含むほかの検出手法を大きく上回ったと報告しています。arXivの概要には、速度測定時のハードウェア、画像サイズ、各比較の詳細な数値はありません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。ただし、最先端の検出システムと比べて、物体の位置を捉える誤りが多いという限界は明記されています。位置の誤りの内訳や改善方法は、追加で確認すべき点です。著者が具体的な改善計画を示しているとは、arXivの概要だけでは言えません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "University of Washington , Allen Institute for AI , Facebook AI Research"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/1506.02640",
+            "method": "arxiv-pdf"
+          },
+          "visualKeywords": [
+            "You Only Look Once"
+          ]
+        },
+        {
+          "id": "1409.4842",
+          "title": "Going Deeper with Convolutions",
+          "abstract": "We propose a deep convolutional neural network architecture codenamed \"Inception\", which was responsible for setting the new state of the art for classification and detection in the ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC 2014). The main hallmark of this architecture is the improved utilization of the computing resources inside the network. This was achieved by a carefully crafted design that allows for increasing the depth and width of the network while keeping the computational budget constant. To optimize quality, the architectural decisions were based on the Hebbian principle and the intuition of multi-scale processing. One particular incarnation used in our submission for ILSVRC 2014 is called GoogLeNet, a 22 layers deep network, the quality of which is assessed in the context of classification and detection.",
+          "authors": [
+            "Christian Szegedy",
+            "Wei Liu",
+            "Yangqing Jia",
+            "Pierre Sermanet",
+            "Scott Reed",
+            "Dragomir Anguelov",
+            "Dumitru Erhan",
+            "Vincent Vanhoucke",
+            "Andrew Rabinovich"
+          ],
+          "published": "2014-09-17T01:03:11Z",
+          "updated": "2014-09-17T01:03:11Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Christian Szegedy",
+              "institutions": []
+            },
+            {
+              "name": "Wei Liu",
+              "institutions": []
+            },
+            {
+              "name": "Yangqing Jia",
+              "institutions": []
+            },
+            {
+              "name": "Pierre Sermanet",
+              "institutions": []
+            },
+            {
+              "name": "Scott Reed",
+              "institutions": []
+            },
+            {
+              "name": "Dragomir Anguelov",
+              "institutions": []
+            },
+            {
+              "name": "Dumitru Erhan",
+              "institutions": []
+            },
+            {
+              "name": "Vincent Vanhoucke",
+              "institutions": []
+            },
+            {
+              "name": "Andrew Rabinovich",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1409.4842",
+          "pdfUrl": "https://arxiv.org/pdf/1409.4842",
+          "citations": {
+            "count": 49303,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-16T00:48:47.722Z",
+            "url": "https://www.semanticscholar.org/paper/e15cf50aa89fee8535703b9f9512fca5bfc43327"
+          },
+          "topics": [
+            "Computer Vision"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-ai",
+          "headline": "Inception：計算量を抑えながら深さと幅を増やす画像認識ネットワーク",
+          "summary": "画像認識の性能を高めるため、計算資源を効率よく使う深い畳み込みニューラルネットワーク「Inception」を提案します。画像の局所的な特徴を捉える処理を重ね、計算量の予算を一定に保ちながら層数と各層の幅を増やす設計です。その一例が22層のGoogLeNetです。",
+          "advantages": "特徴は、単にネットワークを大きくするのではなく、内部の計算資源の利用効率を改善する点です。著者は、計算量の予算を一定に保ちながら、ネットワークを深く、幅広くできると説明しています。arXivの概要では、大規模画像認識競技ILSVRC 2014の画像分類と物体検出で、それまでの最高性能を更新したと報告されています。ただし、比較した構成や改善幅、計算量の具体値は確認できません。",
+          "method": "画像の局所的な特徴を捉える畳み込み処理を重ね、分類や検出に用いるネットワークです。設計は、同時に活動する要素の結び付きに着目するヘッブ則と、複数の大きさで特徴を捉える考え方を参考にしています。中心的な工夫は、計算資源を有効に使い、一定の計算量で深さと幅を増やすことです。競技への提出には22層のGoogLeNetを用いています。層の具体的な接続や出力形式は、arXivの概要にはありません。",
+          "evaluation": "ILSVRC 2014で、画像の種類を判定する分類と、物体を見つける検出を対象に性能を評価しています。提出に使ったGoogLeNetは22層で、Inceptionの設計を具体化したネットワークです。arXivの概要は両課題で最高性能を更新したと述べていますが、評価指標名、得点、比較対象、学習条件は示していません。計算資源の利用効率をどのように測定したかも確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。適用上の限界や、分類と検出以外への展開も示されていません。追加で確認すべき点は、計算量を一定に保つ条件、性能改善に寄与した設計要素、異なる画像データでの有効性です。これらは確認事項であり、著者が挙げた今後の課題ではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Google Inc",
+              "University of North Carolina, Chapel Hill",
+              "University of Michigan"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1409.4842v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "ImageNet"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-11-15",
       "generatedAt": "2026-11-15T00:48:08.086Z",
       "title": "Physical AI Daily",

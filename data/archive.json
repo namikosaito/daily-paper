@@ -2,6 +2,1569 @@
   "version": 1,
   "issues": [
     {
+      "date": "2026-11-17",
+      "generatedAt": "2026-11-17T03:26:23.400Z",
+      "title": "Physical AI Daily",
+      "timezone": "Asia/Tokyo",
+      "source": "arXiv abstract",
+      "preview": false,
+      "groups": [
+        {
+          "id": "recent-personal",
+          "title": "最新 · 関心に近いRobot Learning",
+          "kind": "recent",
+          "scope": "personal",
+          "requestedCount": 3,
+          "paperIds": [
+            "2611.19318",
+            "2611.19559",
+            "2611.18976"
+          ],
+          "warnings": [
+            "昨日・今日の候補不足のため、直近7日から補充しています。"
+          ]
+        },
+        {
+          "id": "classic-personal",
+          "title": "高引用 · 関心に近いRobot Learning",
+          "kind": "classic",
+          "scope": "personal",
+          "requestedCount": 3,
+          "paperIds": [
+            "1909.12271",
+            "2502.19645",
+            "2108.03298"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "classic-robotics",
+          "title": "高引用 · ロボティクス全般",
+          "kind": "classic",
+          "scope": "robotics",
+          "requestedCount": 3,
+          "paperIds": [
+            "2212.06817",
+            "1904.08405",
+            "1707.01495"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "recent-ai",
+          "title": "最新 · AI / ML / Computer Vision",
+          "kind": "recent",
+          "scope": "ai",
+          "requestedCount": 3,
+          "paperIds": [
+            "2611.19719",
+            "2611.19716",
+            "2611.19714"
+          ],
+          "warnings": [
+            "昨日・今日の候補不足のため、直近7日から補充しています。"
+          ]
+        },
+        {
+          "id": "classic-ai",
+          "title": "高引用 · AI / ML / Computer Vision",
+          "kind": "classic",
+          "scope": "ai",
+          "requestedCount": 3,
+          "paperIds": [
+            "1502.03167",
+            "1705.07874",
+            "1409.0575"
+          ],
+          "warnings": []
+        }
+      ],
+      "papers": [
+        {
+          "id": "2611.19318",
+          "title": "Residual Reinforcement Learning for Visual Servo Control with Zero-Shot Sim-to-Real Transfer",
+          "abstract": "We address tracking a moving object on a conveyor with a Franka Emika Panda robot arm, despite an imprecise digital twin, measurement errors, and noise. Our novel approach augments a loop-shaped inverse-Jacobian PI controller with a residual policy learned via Soft Actor-Critic in the digital twin. A delay-compensated Kalman filter fuses out-of-sequence camera measurements to provide latency-aware moving target position estimates. We compare the achieved performance to a performance bound for a class of model-based controllers derived from a frequency-domain sensitivity analysis, quantifying the minimum achievable error imposed by uncertain kinematic model mismatch. Simulation and hardware experiments indicate that our residual policy drives tracking error below the bound. Across conveyor speeds (27.9-41.8 mm/s), our method reduces mean tracking errors from 1.1-1.4 mm (baseline inverse-Jacobian PI) to 0.3-0.7 mm. These results show that learning residual corrections in a limited-fidelity simulator, combined with delay compensation, can substantially improve model-based control under modeling and measurement uncertainties while maintaining reliable sim-to-real transfer.",
+          "authors": [
+            "Mahdi Nobar",
+            "Alisa Rupenyan",
+            "John Lygeros",
+            "Jürg Keller"
+          ],
+          "published": "2026-11-14T10:25:03Z",
+          "updated": "2026-11-14T10:25:03Z",
+          "categories": [
+            "cs.RO",
+            "eess.SY"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Mahdi Nobar",
+              "institutions": []
+            },
+            {
+              "name": "Alisa Rupenyan",
+              "institutions": []
+            },
+            {
+              "name": "John Lygeros",
+              "institutions": []
+            },
+            {
+              "name": "Jürg Keller",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.19318",
+          "pdfUrl": "https://arxiv.org/pdf/2611.19318",
+          "topics": [
+            "Residual RL",
+            "RL",
+            "Sim-to-real",
+            "Robotics"
+          ],
+          "score": 24,
+          "personalScore": 23,
+          "freshness": "last-7-days",
+          "groupId": "recent-personal",
+          "headline": "学習した補正と遅延対策で、コンベヤ上の物体を高精度に追うロボット制御",
+          "summary": "コンベヤ上の移動物体をロボットアームで追う際の、モデルのずれや観測遅延による誤差を抑える研究です。従来の制御器にシミュレーションで学んだ補正を加え、カメラ観測の遅延も補償します。シミュレーションと実機で検証し、平均追従誤差の低減を報告しています。",
+          "advantages": "モデルに基づく制御を置き換えず、強化学習による補正を加える点が特徴です。著者らは、不完全なシミュレータでも有効な補正を学べると主張しています。比較実験では、補正前の制御器より平均追従誤差が小さくなりました。また、特定のモデルベース制御器群について導いた誤差の下限も下回ったと報告しています。あらゆる制御方式の限界を超えたという意味ではありません。",
+          "method": "カメラから届く、取得順と到着順が異なる観測を、遅延補償付きカルマンフィルタで統合します。これにより移動物体の位置を遅延を考慮して推定します。位置誤差に応じて動くPI制御と、手先の動きを関節の動きへ変換する逆ヤコビアンに、学習済みの補正を追加します。補正は実機を模したシミュレータ内で、強化学習手法Soft Actor-Criticを使って学びます。",
+          "evaluation": "Franka Emika Pandaアームによるコンベヤ上の移動物体の追従を、シミュレーションと実機で検証しています。搬送速度27.9〜41.8 mm/sで、平均追従誤差は従来の逆ヤコビアンPI制御の1.1〜1.4 mmから、提案手法の0.3〜0.7 mmへ低減しました。周波数ごとの応答を調べる感度解析から導いた誤差下限とも比較しています。試行数やばらつきはarXivの概要では確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。別のロボットや対象物、報告された範囲外の搬送速度でも同様の精度を保てるかは、arXivの概要だけでは確認できません。これらは追加で確認すべき点であり、著者が明記した限界ではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Laboratory, ETH Z¨ urich, Zurich, Switzerland ("
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/2611.19318",
+            "method": "arxiv-pdf"
+          },
+          "visualKeywords": [
+            "Sim-to-real"
+          ]
+        },
+        {
+          "id": "2611.19559",
+          "title": "ResWAM: Learning What Changes, Not What Stays, for World-Action Models",
+          "abstract": "World-action models (WAMs) augment vision-language-action policies (VLAs) with future prediction so that the policy can anticipate how its actions will affect the physical world. Existing WAMs supervise complete future observations. However, observations typically change little over an action chunk, so the future loss is dominated by copying static background content rather than learning task-relevant robot and object motion, limiting policy learning. Moreover, existing WAMs rely on large video generation models or separate world models, incurring heavy training and inference compute that hinders closed-loop deployment. To improve policy performance, we propose visual residual learning, supervising only the feature change from the current frame to the future frame in a frozen DINOv3 space. Compared with complete future features, this residual learning target yields a higher feature rank with richer and more diverse representations of scene changes, and spatially concentrates on the robot arm and manipulated objects rather than the background. To further improve computational efficiency, we present ResWAM, a residual world-action model with 2.3B parameters in total, including a lightweight 0.5B dual-branch DiT that jointly trains an action branch and a residual branch via conditional flow matching. Without robot pretraining (i.e., pretraining on external robot action trajectories beyond the benchmark demonstrations), ResWAM achieves top average success rates on LIBERO-Plus (81.1%), RoboTwin 2.0 (93.8%), and RoboDojo (9.40% success, 13.41 score) at the lowest training (2.7-4.0 TFLOPs) and inference compute (1.0-1.4 TFLOPs), and leads real-robot Open, Put, and Stack (80.0% average, +10.0% over $π_{0.5}$) at 92.7 ms latency.",
+          "authors": [
+            "Chongyu Fan",
+            "Gaowen Liu",
+            "Ramana Rao Kompella",
+            "Jason Corso",
+            "Sijia Liu"
+          ],
+          "published": "2026-11-14T18:42:57Z",
+          "updated": "2026-11-14T18:42:57Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Chongyu Fan",
+              "institutions": []
+            },
+            {
+              "name": "Gaowen Liu",
+              "institutions": []
+            },
+            {
+              "name": "Ramana Rao Kompella",
+              "institutions": []
+            },
+            {
+              "name": "Jason Corso",
+              "institutions": []
+            },
+            {
+              "name": "Sijia Liu",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.19559",
+          "pdfUrl": "https://arxiv.org/pdf/2611.19559",
+          "topics": [
+            "Residual RL",
+            "VLA",
+            "Robotics"
+          ],
+          "score": 19,
+          "personalScore": 18,
+          "freshness": "last-7-days",
+          "groupId": "recent-personal",
+          "headline": "未来の景色全体ではなく「変化」を学び、ロボットの行動予測を効率化するResWAM",
+          "summary": "画像と言語から行動を決めるロボット方策に、未来予測を組み込む研究です。未来の画像全体ではなく、現在から変わる特徴だけを学びます。動かない背景の再現に学習が偏るのを抑え、行動と変化を軽量なモデルで同時に学ぶことで、操作の成功率と計算効率の両立を目指します。",
+          "advantages": "著者らは、未来全体の特徴を学ぶよりも、特徴の差分を学ぶ方が多様な変化を表現でき、ロボットアームや操作対象に学習を集中できると説明しています。また、大規模な動画生成モデルなどに伴う計算負担の軽減を狙います。実験では、記載された比較で最高の平均成功率と最小の計算量を報告しています。ただし、比較した全手法や条件の詳細はarXivの概要にはありません。",
+          "method": "画像の特徴を取り出すDINOv3の重みを固定し、現在と未来のフレームの特徴差分を学習目標にします。背景など変わらない部分を目標から減らすことで、操作に関わる動きを捉えやすくします。全体で23億パラメータのモデルに、行動用と差分用の二つの枝を持つ5億パラメータの拡散Transformerを組み込みます。条件付きフローマッチングという生成学習法で、行動と特徴変化を同時に学びます。",
+          "evaluation": "ベンチマークの実演データ以外のロボット行動軌跡による事前学習なしで評価しています。成功率はLIBERO-Plusで81.1%、RoboTwin 2.0で93.8%、RoboDojoで9.40%、同スコアは13.41です。計算量は学習時2.7〜4.0 TFLOPs、推論時1.0〜1.4 TFLOPsと報告しています。実機の開く・置く・積む課題では平均成功率80.0%、遅延92.7 msでした。試行数はarXivの概要では確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。失敗しやすい操作や環境条件、背景自体が大きく動く場合の性能、計算量と遅延を測定した機器や測定範囲は、arXivの概要だけでは確認できません。これらは追加の確認事項であり、著者が示した限界ではありません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.19559.png",
+            "caption": "Figure 4: ResWAM architecture overview. A VLM encodes the current images 𝐨t\\mathbf{o}_{t} and instruction cc. The action and residual branches denoise the predicted action chunk 𝐀^t\\hat{\\mathbf{A}}_{t} and residual 𝚫^t\\hat{\\bm{\\Delta}}_{t} by cross-attending to the VLM output and the current DINOv3 tokens 𝐙t\\mathbf{Z}_{t}, exchanging information via joint attention. Here ℒa\\mathcal{L}_{a} and ℒr\\mathcal{L}_{r} are the flow-matching losses supervised by 𝐀t\\mathbf{A}_{t} and 𝚫t=𝐙t+H−𝐙t\\bm{\\Delta}_{t}=\\mathbf{Z}_{t+H}-\\mathbf{Z}_{t}, and ❄ marks the frozen encoder.",
+            "sourceUrl": "https://arxiv.org/html/2611.19559v1",
+            "originalUrl": "https://arxiv.org/html/2611.19559v1/reswam_overview.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Chongyu Fan, Gaowen Liu, Ramana Rao Kompella, Jason Corso, Sijia Liu · arXiv:2611.19559"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Michigan State University Cisco ¶University of Michigan §IBM Research"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.19559v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Residual Learning"
+          ]
+        },
+        {
+          "id": "2611.18976",
+          "title": "TMA: Sim-to-Real Forceful Humanoid Manipulation via Tactile-Driven Motor Adaptation",
+          "abstract": "Recent humanoid loco-manipulation in articulated environments has largely focused on geometry-dominant interactions, where success is primarily determined by geometric alignment and motion execution. In contrast, forceful multi-finger manipulation requires the robot to adapt to real-world uncertainties in contact and interaction dynamics. We present Tactile-Driven Motor Adaptation (TMA) and an integrated whole-body system for zero-shot sim-to-real forceful humanoid manipulation, and study round-doorknob opening as a challenging benchmark requiring stable multi-finger frictional grasping, sufficient torque generation without slip, force-regulated pushing, and whole-body stability. TMA structures policy learning around interactions observable through tactile feedback, uses cone geometry as an inductive bias for multi-finger contact representation, and adapts motor behavior online from tactile history. An upper-body manipulation policy is trained alongside a pretrained general locomotion controller to coordinate dexterous interaction and whole-body stabilization. Trained entirely in simulation, TMA transfers zero-shot to a Unitree G1 humanoid with BrainCo Revo2 multi-fingered hands and substantially outperforms standard Rapid Motor Adaptation (RMA) and reactive tactile policy baselines across four commercial round doorknobs in the real world.",
+          "authors": [
+            "Yiting Chen",
+            "Kelin Yu",
+            "Sarthak Kaingade",
+            "Bryan Trinh",
+            "Kaiyu Hang",
+            "Roberto Martin-martin",
+            "Nima Fazeli",
+            "X. Alice Wu"
+          ],
+          "published": "2026-11-13T22:13:04Z",
+          "updated": "2026-11-13T22:13:04Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Yiting Chen",
+              "institutions": []
+            },
+            {
+              "name": "Kelin Yu",
+              "institutions": []
+            },
+            {
+              "name": "Sarthak Kaingade",
+              "institutions": []
+            },
+            {
+              "name": "Bryan Trinh",
+              "institutions": []
+            },
+            {
+              "name": "Kaiyu Hang",
+              "institutions": []
+            },
+            {
+              "name": "Roberto Martin-martin",
+              "institutions": []
+            },
+            {
+              "name": "Nima Fazeli",
+              "institutions": []
+            },
+            {
+              "name": "X. Alice Wu",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.18976",
+          "pdfUrl": "https://arxiv.org/pdf/2611.18976",
+          "topics": [
+            "Touch & Multimodal",
+            "Sim-to-real",
+            "Robotics"
+          ],
+          "score": 18,
+          "personalScore": 17,
+          "freshness": "last-7-days",
+          "groupId": "recent-personal",
+          "headline": "触覚の履歴で動きを調整し、人型ロボットが丸いドアノブを開けるTMA",
+          "summary": "人型ロボットが丸いドアノブを握って回し、押して開ける際に、接触や摩擦の不確かさへ対応する研究です。触覚の履歴から操作動作をその場で調整し、全身の安定化とも組み合わせます。シミュレーションだけで学習し、実機の4種類の市販ドアノブで既存手法を上回ったと報告しています。",
+          "advantages": "位置合わせや軌道の実行だけでなく、滑らずに握ることや十分な回転力を出すことなど、力が重要な操作を対象にしています。特徴は、現在の触覚への反応にとどまらず、触覚の履歴から動作を適応させる点です。実機では、標準的なRapid Motor Adaptationという動作適応手法と、反応型の触覚方策を大きく上回ったと報告しています。ただし、改善幅の数値はarXivの概要にはありません。",
+          "method": "触覚で観測できる相互作用を中心に操作方策を学習し、触覚の履歴に応じて実行中の動作を調整します。複数の指の接触を表す際には、円錐の幾何形状を学習の手がかりとして組み込みます。ただし、その具体的な表現方法はarXivの概要では確認できません。上半身の操作方策は、事前学習済みの汎用移動制御器と組み合わせて学習し、細かな操作と全身の安定化を連携させます。",
+          "evaluation": "シミュレーション内だけで学習し、BrainCo Revo2の多指ハンドを備えたUnitree G1へ、実機での追加学習なしに移しています。実環境にある4種類の市販の丸いドアノブを対象に、標準的な動作適応手法と反応型触覚方策を比較しました。課題には、摩擦を使った把持、滑らない回転、力を調整した押し動作、全身の安定が必要です。成功率、試行数、具体的な評価指標はarXivの概要にはありません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。丸いドアノブ以外の物体や機構への適用、接触条件の変化に対応できる範囲、失敗時の挙動は、arXivの概要だけでは確認できません。これらは追加で確認すべき点であり、著者が課題として明記したものではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Amazon Rice University University of Maryland",
+              "The University of Texas at Austin University of MichiganProject page: humanoid-tma.github.io"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.18976v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Tactile Sensing",
+            "Sim-to-real"
+          ]
+        },
+        {
+          "id": "1909.12271",
+          "title": "RLBench: The Robot Learning Benchmark & Learning Environment",
+          "abstract": "We present a challenging new benchmark and learning-environment for robot learning: RLBench. The benchmark features 100 completely unique, hand-designed tasks ranging in difficulty, from simple target reaching and door opening, to longer multi-stage tasks, such as opening an oven and placing a tray in it. We provide an array of both proprioceptive observations and visual observations, which include rgb, depth, and segmentation masks from an over-the-shoulder stereo camera and an eye-in-hand monocular camera. Uniquely, each task comes with an infinite supply of demos through the use of motion planners operating on a series of waypoints given during task creation time; enabling an exciting flurry of demonstration-based learning. RLBench has been designed with scalability in mind; new tasks, along with their motion-planned demos, can be easily created and then verified by a series of tools, allowing users to submit their own tasks to the RLBench task repository. This large-scale benchmark aims to accelerate progress in a number of vision-guided manipulation research areas, including: reinforcement learning, imitation learning, multi-task learning, geometric computer vision, and in particular, few-shot learning. With the benchmark's breadth of tasks and demonstrations, we propose the first large-scale few-shot challenge in robotics. We hope that the scale and diversity of RLBench offers unparalleled research opportunities in the robot learning community and beyond.",
+          "authors": [
+            "Stephen James",
+            "Zicong Ma",
+            "David Rovick Arrojo",
+            "Andrew J. Davison"
+          ],
+          "published": "2019-09-26T17:26:18Z",
+          "updated": "2019-09-26T17:26:18Z",
+          "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.CV",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Stephen James",
+              "institutions": []
+            },
+            {
+              "name": "Zicong Ma",
+              "institutions": []
+            },
+            {
+              "name": "David Rovick Arrojo",
+              "institutions": []
+            },
+            {
+              "name": "Andrew J. Davison",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1909.12271",
+          "pdfUrl": "https://arxiv.org/pdf/1909.12271",
+          "citations": {
+            "count": 1224,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-17T03:26:32.422Z",
+            "url": "https://www.semanticscholar.org/paper/a2fdfda785b3a2a0178d174daa515377c531f222"
+          },
+          "topics": [
+            "Long-horizon",
+            "RL",
+            "Robotics",
+            "Computer Vision",
+            "Machine Learning"
+          ],
+          "score": 9,
+          "personalScore": 8,
+          "groupId": "classic-personal",
+          "headline": "100種類の操作課題と自動生成のお手本を備えたロボット学習環境RLBench",
+          "summary": "ロボットの視覚に基づく操作学習を、幅広い課題で研究するための評価・学習環境RLBenchを提案します。目標への到達から複数段階の操作まで、手作業で設計した100種類の課題を収録。画像やロボット自身の状態に加え、動作計画で継続的に生成できるお手本を提供し、少数の例から学ぶ研究などを支えます。",
+          "advantages": "著者が特徴として挙げるのは、課題の多様さ、各課題でお手本を際限なく生成できる仕組み、課題を追加しやすい設計です。また、少数の例から新しい課題を学ぶ「少数例学習」について、ロボティクス初の大規模チャレンジを提案したと主張しています。ただし、既存環境との比較実験や、学習性能の改善を示す数値はarXivの概要にはありません。",
+          "method": "課題の作成時に、動作の経由点を指定します。動作計画器がその経由点に沿う動きを計画し、学習用のお手本を生成します。観測には、ロボット自身の状態、カラー画像、奥行き、物体領域を示すマスクを用意します。肩越しのステレオカメラと手先の単眼カメラからの視覚情報も扱います。課題の作成・検証ツールにより、新しい課題とお手本を追加しやすくしています。",
+          "evaluation": "評価用の課題群として、目標への到達やドア開けから、オーブンを開けてトレーを入れる複数段階の操作まで、難易度の異なる100種類を用意しています。ただし、これは環境の構成の説明です。どの学習手法を比較したか、どの指標で性能を測ったか、どのような結果が得られたかは、arXivの概要だけでは確認できません。実機実験の実施も記載されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。課題の追加や研究分野への広い活用は構想として述べられていますが、具体的な限界や改善計画は示されていません。生成したお手本の品質や、実際のロボットへの応用可能性についても、この概要だけでは判断できません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Dyson Robotics Lab, Imperial College London",
+              "UROP, Imperial College London"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1909.12271v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "RLBench"
+          ]
+        },
+        {
+          "id": "2502.19645",
+          "title": "Fine-Tuning Vision-Language-Action Models: Optimizing Speed and Success",
+          "abstract": "Recent vision-language-action models (VLAs) build upon pretrained vision-language models and leverage diverse robot datasets to demonstrate strong task execution, language following ability, and semantic generalization. Despite these successes, VLAs struggle with novel robot setups and require fine-tuning to achieve good performance, yet how to most effectively fine-tune them is unclear given many possible strategies. In this work, we study key VLA adaptation design choices such as different action decoding schemes, action representations, and learning objectives for fine-tuning, using OpenVLA as our representative base model. Our empirical analysis informs an Optimized Fine-Tuning (OFT) recipe that integrates parallel decoding, action chunking, a continuous action representation, and a simple L1 regression-based learning objective to altogether improve inference efficiency, policy performance, and flexibility in the model's input-output specifications. We propose OpenVLA-OFT, an instantiation of this recipe, which sets a new state of the art on the LIBERO simulation benchmark, significantly boosting OpenVLA's average success rate across four task suites from 76.5% to 97.1% while increasing action generation throughput by 26$\\times$. In real-world evaluations, our fine-tuning recipe enables OpenVLA to successfully execute dexterous, high-frequency control tasks on a bimanual ALOHA robot and outperform other VLAs ($π_0$ and RDT-1B) fine-tuned using their default recipes, as well as strong imitation learning policies trained from scratch (Diffusion Policy and ACT) by up to 15% (absolute) in average success rate. We release code for OFT and pretrained model checkpoints at https://openvla-oft.github.io/.",
+          "authors": [
+            "Moo Jin Kim",
+            "Chelsea Finn",
+            "Percy Liang"
+          ],
+          "published": "2025-02-27T00:30:29Z",
+          "updated": "2025-04-28T07:49:39Z",
+          "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.CV",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Moo Jin Kim",
+              "institutions": []
+            },
+            {
+              "name": "Chelsea Finn",
+              "institutions": []
+            },
+            {
+              "name": "Percy Liang",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2502.19645",
+          "pdfUrl": "https://arxiv.org/pdf/2502.19645",
+          "citations": {
+            "count": 1209,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-17T03:26:32.422Z",
+            "url": "https://www.semanticscholar.org/paper/5088b84507462bf725bb4898623d1dead4c6a206"
+          },
+          "topics": [
+            "Long-horizon",
+            "VLA",
+            "Robotics",
+            "Computer Vision",
+            "Machine Learning"
+          ],
+          "score": 12,
+          "personalScore": 11,
+          "groupId": "classic-personal",
+          "headline": "OpenVLAの追加学習を見直し、動作生成の速度と成功率を改善",
+          "summary": "画像と言語からロボットの行動を出力する視覚・言語・行動モデルを、新しいロボット構成に適応させる追加学習を研究します。OpenVLAを対象に、行動の生成方法や表現、学習目標を比較。並列生成や複数時点の行動の一括出力を組み合わせ、シミュレーションと実機で速度や成功率の改善を報告しています。",
+          "advantages": "著者は、提案する追加学習法により、推論効率、行動方策の性能、入出力仕様の柔軟性が向上すると主張しています。比較実験では、LIBEROの4課題群でOpenVLAの平均成功率が76.5%から97.1%に上がり、行動生成の処理量が26倍になったと報告しています。柔軟性については、arXivの概要に具体的な評価値はありません。",
+          "method": "OpenVLAを基礎モデルとして、行動の生成方式、行動の表現、学習目標を調べます。その結果から、行動を並列に生成し、複数時点分をまとめて出力する構成を採用します。行動は連続値で表し、予測値と目標値の絶対誤差を小さくするL1回帰で学習します。この組み合わせをOFTと呼びます。逐次生成を減らす構成で効率を高めますが、各工夫の個別の寄与はarXivの概要では示されていません。",
+          "evaluation": "LIBEROシミュレーションの4課題群で、平均成功率と行動生成の処理量を評価しています。実機では、双腕ロボットALOHAを使い、器用さと高頻度の制御を要する課題を検証しています。既定の方法で追加学習したπ₀、RDT-1B、および一から学習した模倣学習手法Diffusion Policy、ACTと比べ、平均成功率が最大15パーセントポイント高かったと報告しています。試行数や個別課題の成績は概要にはありません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。新しいロボット構成への適応が研究の動機として示されていますが、提案法が苦手とする構成や失敗条件は記載されていません。追加学習に必要なデータ量や計算資源、他の基礎モデルでも同様の効果が得られるかは、この概要だけでは確認できません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2502.19645.jpg",
+            "caption": "Fig. 1: OpenVLA-OFT+ on the bimanual ALOHA robot. Our Optimized Fine-Tuning (OFT) recipe enhances fine-tuned OpenVLA policies through improved inference efficiency, model quality, and input-output flexibility. The resulting OpenVLA-OFT+ policies execute diverse dexterous manipulation tasks on a real-world bimanual robot at high control frequencies (25 Hz). The “+” suffix indicates the integration of feature-wise linear modulation (FiLM) [37], which strengthens language grounding in tasks where accurate language understanding is critical for success.",
+            "sourceUrl": "https://arxiv.org/html/2502.19645v2",
+            "originalUrl": "https://arxiv.org/html/2502.19645v2/fig/figure_1_openvla_aloha.001.jpeg",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Moo Jin Kim, Chelsea Finn, Percy Liang · arXiv:2502.19645"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Stanford University. Correspondence to: Moo Jin Kim <moojink@cs"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/2502.19645",
+            "method": "arxiv-pdf"
+          },
+          "visualKeywords": [
+            "ACT"
+          ]
+        },
+        {
+          "id": "2108.03298",
+          "title": "What Matters in Learning from Offline Human Demonstrations for Robot Manipulation",
+          "abstract": "Imitating human demonstrations is a promising approach to endow robots with various manipulation capabilities. While recent advances have been made in imitation learning and batch (offline) reinforcement learning, a lack of open-source human datasets and reproducible learning methods make assessing the state of the field difficult. In this paper, we conduct an extensive study of six offline learning algorithms for robot manipulation on five simulated and three real-world multi-stage manipulation tasks of varying complexity, and with datasets of varying quality. Our study analyzes the most critical challenges when learning from offline human data for manipulation. Based on the study, we derive a series of lessons including the sensitivity to different algorithmic design choices, the dependence on the quality of the demonstrations, and the variability based on the stopping criteria due to the different objectives in training and evaluation. We also highlight opportunities for learning from human datasets, such as the ability to learn proficient policies on challenging, multi-stage tasks beyond the scope of current reinforcement learning methods, and the ability to easily scale to natural, real-world manipulation scenarios where only raw sensory signals are available. We have open-sourced our datasets and all algorithm implementations to facilitate future research and fair comparisons in learning from human demonstration data. Codebase, datasets, trained models, and more available at https://arise-initiative.github.io/robomimic-web/",
+          "authors": [
+            "Ajay Mandlekar",
+            "Danfei Xu",
+            "Josiah Wong",
+            "Soroush Nasiriany",
+            "Chen Wang",
+            "Rohun Kulkarni",
+            "Li Fei-Fei",
+            "Silvio Savarese",
+            "Yuke Zhu",
+            "Roberto Martín-Martín"
+          ],
+          "published": "2021-08-06T20:48:30Z",
+          "updated": "2021-09-25T00:37:01Z",
+          "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Ajay Mandlekar",
+              "institutions": []
+            },
+            {
+              "name": "Danfei Xu",
+              "institutions": []
+            },
+            {
+              "name": "Josiah Wong",
+              "institutions": []
+            },
+            {
+              "name": "Soroush Nasiriany",
+              "institutions": []
+            },
+            {
+              "name": "Chen Wang",
+              "institutions": []
+            },
+            {
+              "name": "Rohun Kulkarni",
+              "institutions": []
+            },
+            {
+              "name": "Li Fei-Fei",
+              "institutions": []
+            },
+            {
+              "name": "Silvio Savarese",
+              "institutions": []
+            },
+            {
+              "name": "Yuke Zhu",
+              "institutions": []
+            },
+            {
+              "name": "Roberto Martín-Martín",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2108.03298",
+          "pdfUrl": "https://arxiv.org/pdf/2108.03298",
+          "citations": {
+            "count": 1199,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-17T03:26:32.422Z",
+            "url": "https://www.semanticscholar.org/paper/3032844d6ac6882ccb03e7a2c22a0026b210ac05"
+          },
+          "topics": [
+            "Long-horizon",
+            "RL",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 9,
+          "personalScore": 8,
+          "groupId": "classic-personal",
+          "headline": "人のお手本からロボット操作を学ぶ際に、何が性能を左右するかを調査",
+          "summary": "事前に集めた人の操作実演だけからロボットを学習させる際に、何が性能を左右するかを調べます。6種類の学習アルゴリズムを、シミュレーション5課題と実世界3課題、品質の異なるデータで検証。手法の設計、実演の品質、学習を止める基準の影響を整理し、再現や比較のためにデータと実装を公開しています。",
+          "advantages": "公開された人の実演データや再現可能な手法の不足に対し、複数の学習アルゴリズムを共通の研究枠組みで調べ、データと全実装を公開する点が特徴です。著者は、当時の強化学習手法では扱いにくい複数段階の課題でも、熟練した動作を学べる可能性を強調しています。ただし、特定手法に対する成功率の差など、定量的な優位性はarXivの概要に示されていません。",
+          "method": "入力は、事前に収集した人の操作実演データです。お手本の行動を学ぶ模倣学習や、固定済みのデータから報酬を高める行動を学ぶオフライン強化学習を含む研究領域を対象に、6種類のアルゴリズムで操作方策を学習します。設計や実演品質、学習の停止基準による違いを分析し、性能を左右する要因を整理します。個々のアルゴリズム名やモデル構造は、arXivの概要には記載されていません。",
+          "evaluation": "複雑さの異なる複数段階の操作について、シミュレーション5課題と実世界3課題で6種類のアルゴリズムを調べています。品質の異なる実演データを使い、設計上の選択、実演品質への依存、学習を止める基準による結果の変動を分析しています。ただし、具体的な課題名、データ量、評価指標の定義、試行回数、成績の数値はarXivの概要だけでは確認できません。",
+          "futureWork": "arXivの概要には、実演の品質やアルゴリズムの設計に結果が左右されること、学習時と評価時の目的の違いにより停止基準が結果を変えることが、課題として示されています。一方、具体的な改善策や今後の実験計画は記載されていません。データと実装の公開は、今後の研究と公平な比較を促すための取り組みとして位置づけられています。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Stanford University",
+              "The University of Texas at Austin"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2108.03298v2",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "What Matters in Learning from Offline Human Demonstrations for R"
+          ]
+        },
+        {
+          "id": "2212.06817",
+          "title": "RT-1: Robotics Transformer for Real-World Control at Scale",
+          "abstract": "By transferring knowledge from large, diverse, task-agnostic datasets, modern machine learning models can solve specific downstream tasks either zero-shot or with small task-specific datasets to a high level of performance. While this capability has been demonstrated in other fields such as computer vision, natural language processing or speech recognition, it remains to be shown in robotics, where the generalization capabilities of the models are particularly critical due to the difficulty of collecting real-world robotic data. We argue that one of the keys to the success of such general robotic models lies with open-ended task-agnostic training, combined with high-capacity architectures that can absorb all of the diverse, robotic data. In this paper, we present a model class, dubbed Robotics Transformer, that exhibits promising scalable model properties. We verify our conclusions in a study of different model classes and their ability to generalize as a function of the data size, model size, and data diversity based on a large-scale data collection on real robots performing real-world tasks. The project's website and videos can be found at robotics-transformer1.github.io",
+          "authors": [
+            "Anthony Brohan",
+            "Noah Brown",
+            "Justice Carbajal",
+            "Yevgen Chebotar",
+            "Joseph Dabis",
+            "Chelsea Finn",
+            "Keerthana Gopalakrishnan",
+            "Karol Hausman",
+            "Alex Herzog",
+            "Jasmine Hsu",
+            "Julian Ibarz",
+            "Brian Ichter",
+            "Alex Irpan",
+            "Tomas Jackson",
+            "Sally Jesmonth",
+            "Nikhil J Joshi",
+            "Ryan Julian",
+            "Dmitry Kalashnikov",
+            "Yuheng Kuang",
+            "Isabel Leal",
+            "Kuang-Huei Lee",
+            "Sergey Levine",
+            "Yao Lu",
+            "Utsav Malla",
+            "Deeksha Manjunath",
+            "Igor Mordatch",
+            "Ofir Nachum",
+            "Carolina Parada",
+            "Jodilyn Peralta",
+            "Emily Perez",
+            "Karl Pertsch",
+            "Jornell Quiambao",
+            "Kanishka Rao",
+            "Michael Ryoo",
+            "Grecia Salazar",
+            "Pannag Sanketi",
+            "Kevin Sayed",
+            "Jaspiar Singh",
+            "Sumedh Sontakke",
+            "Austin Stone",
+            "Clayton Tan",
+            "Huong Tran",
+            "Vincent Vanhoucke",
+            "Steve Vega",
+            "Quan Vuong",
+            "Fei Xia",
+            "Ted Xiao",
+            "Peng Xu",
+            "Sichun Xu",
+            "Tianhe Yu",
+            "Brianna Zitkovich"
+          ],
+          "published": "2022-12-13T18:55:15Z",
+          "updated": "2023-08-11T17:45:27Z",
+          "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.CL",
+            "cs.CV",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Anthony Brohan",
+              "institutions": []
+            },
+            {
+              "name": "Noah Brown",
+              "institutions": []
+            },
+            {
+              "name": "Justice Carbajal",
+              "institutions": []
+            },
+            {
+              "name": "Yevgen Chebotar",
+              "institutions": []
+            },
+            {
+              "name": "Joseph Dabis",
+              "institutions": []
+            },
+            {
+              "name": "Chelsea Finn",
+              "institutions": []
+            },
+            {
+              "name": "Keerthana Gopalakrishnan",
+              "institutions": []
+            },
+            {
+              "name": "Karol Hausman",
+              "institutions": []
+            },
+            {
+              "name": "Alex Herzog",
+              "institutions": []
+            },
+            {
+              "name": "Jasmine Hsu",
+              "institutions": []
+            },
+            {
+              "name": "Julian Ibarz",
+              "institutions": []
+            },
+            {
+              "name": "Brian Ichter",
+              "institutions": []
+            },
+            {
+              "name": "Alex Irpan",
+              "institutions": []
+            },
+            {
+              "name": "Tomas Jackson",
+              "institutions": []
+            },
+            {
+              "name": "Sally Jesmonth",
+              "institutions": []
+            },
+            {
+              "name": "Nikhil J Joshi",
+              "institutions": []
+            },
+            {
+              "name": "Ryan Julian",
+              "institutions": []
+            },
+            {
+              "name": "Dmitry Kalashnikov",
+              "institutions": []
+            },
+            {
+              "name": "Yuheng Kuang",
+              "institutions": []
+            },
+            {
+              "name": "Isabel Leal",
+              "institutions": []
+            },
+            {
+              "name": "Kuang-Huei Lee",
+              "institutions": []
+            },
+            {
+              "name": "Sergey Levine",
+              "institutions": []
+            },
+            {
+              "name": "Yao Lu",
+              "institutions": []
+            },
+            {
+              "name": "Utsav Malla",
+              "institutions": []
+            },
+            {
+              "name": "Deeksha Manjunath",
+              "institutions": []
+            },
+            {
+              "name": "Igor Mordatch",
+              "institutions": []
+            },
+            {
+              "name": "Ofir Nachum",
+              "institutions": []
+            },
+            {
+              "name": "Carolina Parada",
+              "institutions": []
+            },
+            {
+              "name": "Jodilyn Peralta",
+              "institutions": []
+            },
+            {
+              "name": "Emily Perez",
+              "institutions": []
+            },
+            {
+              "name": "Karl Pertsch",
+              "institutions": []
+            },
+            {
+              "name": "Jornell Quiambao",
+              "institutions": []
+            },
+            {
+              "name": "Kanishka Rao",
+              "institutions": []
+            },
+            {
+              "name": "Michael Ryoo",
+              "institutions": []
+            },
+            {
+              "name": "Grecia Salazar",
+              "institutions": []
+            },
+            {
+              "name": "Pannag Sanketi",
+              "institutions": []
+            },
+            {
+              "name": "Kevin Sayed",
+              "institutions": []
+            },
+            {
+              "name": "Jaspiar Singh",
+              "institutions": []
+            },
+            {
+              "name": "Sumedh Sontakke",
+              "institutions": []
+            },
+            {
+              "name": "Austin Stone",
+              "institutions": []
+            },
+            {
+              "name": "Clayton Tan",
+              "institutions": []
+            },
+            {
+              "name": "Huong Tran",
+              "institutions": []
+            },
+            {
+              "name": "Vincent Vanhoucke",
+              "institutions": []
+            },
+            {
+              "name": "Steve Vega",
+              "institutions": []
+            },
+            {
+              "name": "Quan Vuong",
+              "institutions": []
+            },
+            {
+              "name": "Fei Xia",
+              "institutions": []
+            },
+            {
+              "name": "Ted Xiao",
+              "institutions": []
+            },
+            {
+              "name": "Peng Xu",
+              "institutions": []
+            },
+            {
+              "name": "Sichun Xu",
+              "institutions": []
+            },
+            {
+              "name": "Tianhe Yu",
+              "institutions": []
+            },
+            {
+              "name": "Brianna Zitkovich",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2212.06817",
+          "pdfUrl": "https://arxiv.org/pdf/2212.06817",
+          "citations": {
+            "count": 3223,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-17T03:26:35.495Z",
+            "url": "https://www.semanticscholar.org/paper/fd1cf28a2b8caf2fe29af5e7fa9191cecfedf84d"
+          },
+          "topics": [
+            "Robotics",
+            "Computer Vision",
+            "Machine Learning"
+          ],
+          "score": 1,
+          "personalScore": 0,
+          "groupId": "classic-robotics",
+          "headline": "多様な実機データから幅広い作業を学ぶRobotics Transformer",
+          "summary": "実世界のロボットデータは収集が難しく、学んだ動作を別の状況へ応用する能力が重要です。本研究は、特定の作業に限定しない多様なデータと、大量のデータを学べるモデルを組み合わせます。Robotics Transformerを提案し、データ量や多様性、モデル規模と汎化能力の関係を調べています。",
+          "advantages": "著者は、特定の作業に限定しない学習と、多様なデータを取り込める大容量モデルの組み合わせが、汎用的なロボットに重要だと主張しています。提案モデルには規模拡大に伴う性能向上の可能性があるとしています。ただし、arXivの概要には比較したモデル名や改善幅がなく、どの条件で従来手法を上回ったかは確認できません。",
+          "method": "中心となる工夫は、学習対象を単一の作業に絞らず、多様なロボットデータを高い学習容量を持つモデルに取り込むことです。幅広い経験を学ばせ、学習済みの状況以外にも対応する能力を目指します。ただし、arXivの概要には、入力となる観測や指示の形式、内部の処理構造、出力する制御信号の詳細は記載されていません。",
+          "evaluation": "実世界の作業を行う実機ロボットから大規模に収集したデータを基に、異なるモデル群の汎化能力、つまり学習した内容を別の状況へ応用する力を調べています。データ量、モデル規模、データの多様性を変えた際の関係が検証対象です。arXivの概要には、作業の内訳、データ件数、評価指標、具体的な成績は記載されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。実世界のロボットデータを集める難しさは研究の背景として挙げられていますが、提案手法に残る限界として具体化されてはいません。未経験のどのような作業や環境まで対応できるか、規模拡大に必要な計算量はどの程度かも、arXivの概要だけでは確認できません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "unavailable",
+            "reason": "論文から所属を確認できませんでした。"
+          },
+          "visualKeywords": [
+            "RT-1"
+          ]
+        },
+        {
+          "id": "1904.08405",
+          "title": "Event-based Vision: A Survey",
+          "abstract": "Event cameras are bio-inspired sensors that differ from conventional frame cameras: Instead of capturing images at a fixed rate, they asynchronously measure per-pixel brightness changes, and output a stream of events that encode the time, location and sign of the brightness changes. Event cameras offer attractive properties compared to traditional cameras: high temporal resolution (in the order of microseconds), very high dynamic range (140 dB vs. 60 dB), low power consumption, and high pixel bandwidth (on the order of kHz) resulting in reduced motion blur. Hence, event cameras have a large potential for robotics and computer vision in challenging scenarios for traditional cameras, such as low-latency, high speed, and high dynamic range. However, novel methods are required to process the unconventional output of these sensors in order to unlock their potential. This paper provides a comprehensive overview of the emerging field of event-based vision, with a focus on the applications and the algorithms developed to unlock the outstanding properties of event cameras. We present event cameras from their working principle, the actual sensors that are available and the tasks that they have been used for, from low-level vision (feature detection and tracking, optic flow, etc.) to high-level vision (reconstruction, segmentation, recognition). We also discuss the techniques developed to process events, including learning-based techniques, as well as specialized processors for these novel sensors, such as spiking neural networks. Additionally, we highlight the challenges that remain to be tackled and the opportunities that lie ahead in the search for a more efficient, bio-inspired way for machines to perceive and interact with the world.",
+          "authors": [
+            "Guillermo Gallego",
+            "Tobi Delbruck",
+            "Garrick Orchard",
+            "Chiara Bartolozzi",
+            "Brian Taba",
+            "Andrea Censi",
+            "Stefan Leutenegger",
+            "Andrew Davison",
+            "Joerg Conradt",
+            "Kostas Daniilidis",
+            "Davide Scaramuzza"
+          ],
+          "published": "2019-04-17T17:59:34Z",
+          "updated": "2020-08-08T10:55:56Z",
+          "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG",
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Guillermo Gallego",
+              "institutions": []
+            },
+            {
+              "name": "Tobi Delbruck",
+              "institutions": []
+            },
+            {
+              "name": "Garrick Orchard",
+              "institutions": []
+            },
+            {
+              "name": "Chiara Bartolozzi",
+              "institutions": []
+            },
+            {
+              "name": "Brian Taba",
+              "institutions": []
+            },
+            {
+              "name": "Andrea Censi",
+              "institutions": []
+            },
+            {
+              "name": "Stefan Leutenegger",
+              "institutions": []
+            },
+            {
+              "name": "Andrew Davison",
+              "institutions": []
+            },
+            {
+              "name": "Joerg Conradt",
+              "institutions": []
+            },
+            {
+              "name": "Kostas Daniilidis",
+              "institutions": []
+            },
+            {
+              "name": "Davide Scaramuzza",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1904.08405",
+          "pdfUrl": "https://arxiv.org/pdf/1904.08405",
+          "citations": {
+            "count": 3067,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-17T03:26:35.495Z",
+            "url": "https://www.semanticscholar.org/paper/dd971c07879e1ce12b06991319528c06280eeb9b"
+          },
+          "topics": [
+            "Robotics",
+            "Computer Vision",
+            "Machine Learning"
+          ],
+          "score": 1,
+          "personalScore": 0,
+          "groupId": "classic-robotics",
+          "headline": "明るさの変化を捉えるイベントカメラ、その仕組みと活用を整理",
+          "summary": "一定間隔で画像を撮る代わりに、各画素の明るさの変化を逐次記録するイベントカメラを扱う総説です。高速な動きや明暗差の大きい場面に適した特性を紹介し、センサーの原理から認識への応用までを整理します。通常の画像とは異なる出力を生かす処理方法も概観しています。",
+          "advantages": "arXivの概要は、従来のカメラに対する特性として、マイクロ秒程度の時間分解能、広い明暗差への対応、低消費電力、動きによるぼけの低減を挙げています。明暗差への対応範囲は140 dB対60 dBと紹介されています。ただし、これらは総説で示されたセンサー特性であり、この論文独自の比較実験で得た優位性とは区別する必要があります。",
+          "method": "センサーは各画素の明るさの変化を、発生時刻、位置、明るくなったか暗くなったかを含むデータとして非同期に出力します。画像全体の次の撮影を待たずに変化を捉えられるため、高速な現象の観測に役立ちます。総説では、このデータを処理する学習手法や、神経細胞の発火を模したスパイキングニューラルネットワークなどを整理しています。",
+          "evaluation": "対象は、利用可能なセンサー、処理アルゴリズム、応用分野を整理する総説です。特徴点の検出・追跡、画像内の動きの推定から、再構成、領域分割、認識までを扱っています。arXivの概要には、総説のために独自の実機実験や統一条件での比較評価を行ったとの記載はありません。文献の選定基準や手法別の評価結果も確認できません。",
+          "futureWork": "arXivの概要は、従来の画像とは異なる出力の可能性を引き出すには、新たな処理手法が必要だと述べています。また、より効率的で生物の知覚に着想を得た機械の実現に向け、残る課題と機会を論じるとしています。ただし、個々の未解決課題や、その解決に向けた具体的な優先順位は、arXivの概要には列挙されていません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "College London, London, UK. J¨ org Conradt is with KTH Royal Institute a large potential for robotics and wearable applications in",
+              "University of Zurich and Dept. of Neuroinformatics, University of Zurich",
+              "Center of Competence in Research (NCCR) Robotics"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/1904.08405",
+            "method": "arxiv-pdf"
+          },
+          "visualKeywords": [
+            "Event-based Vision"
+          ]
+        },
+        {
+          "id": "1707.01495",
+          "title": "Hindsight Experience Replay",
+          "abstract": "Dealing with sparse rewards is one of the biggest challenges in Reinforcement Learning (RL). We present a novel technique called Hindsight Experience Replay which allows sample-efficient learning from rewards which are sparse and binary and therefore avoid the need for complicated reward engineering. It can be combined with an arbitrary off-policy RL algorithm and may be seen as a form of implicit curriculum. We demonstrate our approach on the task of manipulating objects with a robotic arm. In particular, we run experiments on three different tasks: pushing, sliding, and pick-and-place, in each case using only binary rewards indicating whether or not the task is completed. Our ablation studies show that Hindsight Experience Replay is a crucial ingredient which makes training possible in these challenging environments. We show that our policies trained on a physics simulation can be deployed on a physical robot and successfully complete the task.",
+          "authors": [
+            "Marcin Andrychowicz",
+            "Filip Wolski",
+            "Alex Ray",
+            "Jonas Schneider",
+            "Rachel Fong",
+            "Peter Welinder",
+            "Bob McGrew",
+            "Josh Tobin",
+            "Pieter Abbeel",
+            "Wojciech Zaremba"
+          ],
+          "published": "2017-07-05T17:55:53Z",
+          "updated": "2018-02-23T10:04:20Z",
+          "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.NE",
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Marcin Andrychowicz",
+              "institutions": []
+            },
+            {
+              "name": "Filip Wolski",
+              "institutions": []
+            },
+            {
+              "name": "Alex Ray",
+              "institutions": []
+            },
+            {
+              "name": "Jonas Schneider",
+              "institutions": []
+            },
+            {
+              "name": "Rachel Fong",
+              "institutions": []
+            },
+            {
+              "name": "Peter Welinder",
+              "institutions": []
+            },
+            {
+              "name": "Bob McGrew",
+              "institutions": []
+            },
+            {
+              "name": "Josh Tobin",
+              "institutions": []
+            },
+            {
+              "name": "Pieter Abbeel",
+              "institutions": []
+            },
+            {
+              "name": "Wojciech Zaremba",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1707.01495",
+          "pdfUrl": "https://arxiv.org/pdf/1707.01495",
+          "citations": {
+            "count": 3021,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-17T03:26:35.495Z",
+            "url": "https://www.semanticscholar.org/paper/429ed4c9845d0abd1f8204e1d7705919559bc2a2"
+          },
+          "topics": [
+            "RL",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 4,
+          "personalScore": 3,
+          "groupId": "classic-robotics",
+          "headline": "成功・失敗だけの報酬からロボット操作を学ぶHindsight Experience Replay",
+          "summary": "行動の結果に与える報酬を手がかりに学ぶ強化学習では、成功時にしか報酬が得られないと学習が難しくなります。本研究はHindsight Experience Replayを提案し、成功・失敗だけを示す報酬から効率よく学ぶことを目指します。ロボットアームの物体操作で検証し、シミュレーションで学んだ方策の実機での成功も示しています。",
+          "advantages": "著者は、報酬がまばらで成功・失敗の二値しかない場合でも、少ない経験で学べ、複雑な報酬設計を避けられると主張しています。過去の経験を使って現在の行動方針を学ぶオフポリシー型の強化学習に組み合わせられる点も特徴です。構成要素を除いて影響を調べる実験では、本手法が対象環境で学習を成立させる重要な要素だったと報告しています。",
+          "method": "物体操作の経験と、課題が完了したかどうかだけを表す報酬を用い、Hindsight Experience Replayをオフポリシー型の学習に組み合わせて行動方針を学びます。著者は、学びやすい課題から段階的に学ぶ仕組みが暗黙に働くものと捉えています。ただし、経験をどう加工・再利用するのかという核心的な手順は、arXivの概要には記載されていません。",
+          "evaluation": "ロボットアームによる押す、滑らせる、つかんで置くという三つの物体操作を対象に、各課題の完了を示す二値報酬だけで実験しています。構成要素を除く比較で、本手法が学習に果たす役割を調べています。物理シミュレーションで学んだ行動方針を実機へ移し、課題に成功したとも報告していますが、成功率や試行数、実機で扱った課題の内訳は記載されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。三つの操作課題での検証と実機への適用は述べられていますが、適用が難しい環境や失敗条件は確認できません。他の課題への広がりや、シミュレーションと実機の違いにどの程度対応できるかは追加で確認すべき点であり、著者が明示した限界ではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "OpenAI"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/1707.01495",
+            "method": "arxiv-pdf"
+          },
+          "visualKeywords": [
+            "Hindsight Experience Replay"
+          ]
+        },
+        {
+          "id": "2611.19719",
+          "title": "Found, but Not Fixed : From Software Vulnerability Discovery to Fixes with Iterative LLM Pipelines",
+          "abstract": "Software vulnerabilities persist as a critical threat despite the deployment of sophisticated detection tools and AI assistants. While detection has advanced, the subsequent code repair phase remains a primary bottleneck; manual intervention is inherently slow, costly, and prone to introducing secondary regressions and issues. In this paper, we investigate whether an iterative, LLM-based pipeline can provide a robust solution for the automated repair of vulnerable functions in real-world code. We propose a generalized framework that leverages the reasoning capabilities of Large Language Models (LLMs) through a multi-stage feedback loop. We benchmark this approach against state-of-the-art models, including GPT-4o, GPT-5.1, and Gemini 3 Flash, demonstrating that such a pipeline can achieve high-quality code repair. To support the broader security community, we provide our evaluation framework, fine-tuned weights, and comprehensive experimental dataset on our website: https://sites.google.com/view/llm4cve",
+          "authors": [
+            "Youssef Gamal",
+            "Mohamad Fakih",
+            "Halima Bouzidi",
+            "Rahul Dharmaji",
+            "Gustavo Quiros Araya",
+            "Oluwatosin Ogundare",
+            "Mst Ayesha Siddika",
+            "Mohammad Abdullah Al Faruque"
+          ],
+          "published": "2026-11-15T02:02:33Z",
+          "updated": "2026-11-15T02:02:33Z",
+          "categories": [
+            "cs.SE",
+            "cs.CR",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Youssef Gamal",
+              "institutions": []
+            },
+            {
+              "name": "Mohamad Fakih",
+              "institutions": []
+            },
+            {
+              "name": "Halima Bouzidi",
+              "institutions": []
+            },
+            {
+              "name": "Rahul Dharmaji",
+              "institutions": []
+            },
+            {
+              "name": "Gustavo Quiros Araya",
+              "institutions": []
+            },
+            {
+              "name": "Oluwatosin Ogundare",
+              "institutions": []
+            },
+            {
+              "name": "Mst Ayesha Siddika",
+              "institutions": []
+            },
+            {
+              "name": "Mohammad Abdullah Al Faruque",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.19719",
+          "pdfUrl": "https://arxiv.org/pdf/2611.19719",
+          "topics": [
+            "Machine Learning"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "last-7-days",
+          "groupId": "recent-ai",
+          "headline": "脆弱性の発見から修正へ、大規模言語モデルの反復処理を検証",
+          "summary": "ソフトウェアの脆弱性を見つけた後のコード修正は、時間や費用がかかり、別の不具合を招く恐れもあります。本研究は、大規模言語モデルの推論と多段階のフィードバックを組み合わせ、実際のコードに含まれる脆弱な関数を自動修正する枠組みを提案します。複数のモデルとの比較評価で、その有効性を検討しています。",
+          "advantages": "著者は、検出後の修正工程に着目し、反復的なフィードバックによって高品質な自動修正を目指しています。比較評価から高品質な修正が可能だと報告していますが、arXivの概要には成功率や改善幅がありません。比較対象のすべてを上回ったか、人手による修正より速く安全かは確認できません。評価の枠組み、追加学習済みモデルの重み、実験データを提供するとも述べています。",
+          "method": "入力となるのは、実際のコードに含まれる脆弱な関数です。大規模言語モデル、つまり大量の文章やコードを学習したモデルを、多段階のフィードバックループに組み込み、修正を反復する構成です。フィードバックを修正に反映できることが中心的な工夫です。ただし、各段階の処理、フィードバックの生成方法、修正を終了する条件は、arXivの概要には示されていません。",
+          "evaluation": "実際のコードにある脆弱な関数の自動修正を対象に、GPT-4o、GPT-5.1、Gemini 3 Flashなどのモデルと比較したと記載されています。高品質なコード修正が可能だと報告されていますが、対象の言語、脆弱性の種類、データ件数、評価指標、具体的な数値は不明です。修正後に別の不具合が生じないことを、どのように確認したかもarXivの概要だけでは分かりません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。追加で確認すべき点として、修正の正しさや新たな不具合の検証方法、反復に必要な時間と費用があります。これらはarXivの概要では確認できない点であり、著者が今後の課題として挙げたものではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "University of California, Irvine, Irvine, CA, USA",
+              "Siemens Technology, Princeton, NJ, USA",
+              "Jahangirnagar University, Dhaka, Bangladesh"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.19719v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Found, but Not Fixed "
+          ]
+        },
+        {
+          "id": "2611.19716",
+          "title": "Set-based State Estimation for Unknown Dynamical Systems from Noisy Output Data with Probabilistic Guarantees",
+          "abstract": "We develop a methodology for set-based state estimation from noisy input-output trajectories, without a predefined model structure for the unknown state dynamics or access to training state measurements. We derive a bound on the state set diameter that depends on the sensor map and leverage it as a surrogate to formulate a tractable linear program balancing state set tightness against output trajectory coverage. Combining this certificate with deterministic or probabilistically certified measurement noise sets and leveraging the results from scenario optimization with relaxation, we provide joint a posteriori probabilistic guarantees for state inclusion and state set diameter. Numerical simulations corroborate our developed theoretical guarantees.",
+          "authors": [
+            "Georgios Pantazis",
+            "Michelle S. Chong"
+          ],
+          "published": "2026-11-15T01:58:15Z",
+          "updated": "2026-11-15T01:58:15Z",
+          "categories": [
+            "math.OC",
+            "cs.LG",
+            "eess.SY"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Georgios Pantazis",
+              "institutions": []
+            },
+            {
+              "name": "Michelle S. Chong",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.19716",
+          "pdfUrl": "https://arxiv.org/pdf/2611.19716",
+          "topics": [
+            "Machine Learning"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "last-7-days",
+          "groupId": "recent-ai",
+          "headline": "未知の動的システムの状態を、確率的な保証付きの集合として推定",
+          "summary": "内部の変化を表すモデルが不明で、学習時に内部状態も測れないシステムを対象に、ノイズを含む入出力の時系列から状態の候補集合を推定します。集合の広がりに対する上限を使い、候補を絞ることと観測を広く説明することを両立させます。真の状態を含むことと集合の大きさについて、確率的な保証を与えます。",
+          "advantages": "状態の変化を表すモデルの形を事前に決めず、学習用の内部状態の測定値も使わない点が特徴です。さらに、真の状態を集合に含められることと、集合の広がりを同時に確率的に保証します。著者は数値シミュレーションが理論的保証を裏付けると述べています。ただし、既存手法との精度、計算時間、必要データ量の比較結果は、arXivの概要にはありません。",
+          "method": "ノイズを含む入力と出力の時系列を使い、内部状態が取り得る集合を推定します。状態から観測値への対応であるセンサ写像に基づき、集合内の最大距離を表す「直径」の上限を導きます。その上限を代理の尺度として、集合の小ささと観測系列を説明できる範囲のバランスを、線形計画問題として扱います。さらに、測定ノイズの集合と、制約の緩和を伴うシナリオ最適化の理論を組み合わせ、保証を導きます。",
+          "evaluation": "数値シミュレーションによって、導出した理論的保証を裏付けたと報告されています。保証の対象は、真の状態が推定集合に含まれることと、集合の直径の両方です。ただし、シミュレーション対象のシステム、データ量、ノイズ条件、比較手法、具体的な指標値は、arXivの概要にはありません。実機による検証の実施も記載されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。追加で確認すべき点は、センサ写像やノイズ集合に必要な前提、保証を得るためのデータ量、大規模な問題での計算負荷です。これらはarXivの概要だけでは分からない点であり、著者が述べた限界や研究計画ではありません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.19716.png",
+            "caption": "PDF 1ページのプレビュー（図の切り抜きではありません）。",
+            "sourceUrl": "https://arxiv.org/pdf/2611.19716",
+            "originalUrl": "https://arxiv.org/pdf/2611.19716",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "pdf-page",
+            "pageNumber": 1,
+            "credit": "Georgios Pantazis, Michelle S. Chong · arXiv:2611.19716"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Proceedings of Machine Learning Research vol vvv:1–12, 2027",
+              "Department of Mechanical Engineering, Eindhoven University of Technology"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/2611.19716",
+            "method": "arxiv-pdf"
+          },
+          "visualKeywords": [
+            "Set-based State Estimation for Unknown Dynamical Systems from No"
+          ]
+        },
+        {
+          "id": "2611.19714",
+          "title": "An Interpretable Acoustic Coordinate System for Japanese Consonant Morae in Dysarthric Speech",
+          "abstract": "Dysarthria reduces speech intelligibility, requiring self-directed rehabilitation based on fine-grained feedback to capture gradual articulatory changes. For Japanese speakers, such feedback is naturally provided in mora units due to its distinct moraic timing and consonant-vowel structure. While recent visualization methods have explored distance-based feedback, most are limited to vowels. Extending them to consonants is challenging, as generative embeddings often smooth transient spectral structures. We propose a visualization system for Japanese consonant morae that maps articulatory deviations onto a two-dimensional space defined by temporal and spectral distances from healthy reference speech. Experiments show consistent geometric separation of consonant categories, with Silhouette Coefficients exceeding 0.5 and origin-based ROC-AUC scores above 0.86. Furthermore, evaluations using real dysarthric speech achieved a high ROC-AUC of 0.897 in screening for unclear pronunciations. Perturbation tests confirm orthogonal temporal and spectral shifts, yielding a physically interpretable mapping for rehabilitation.",
+          "authors": [
+            "Yuma Enomoto",
+            "Misa Yamaguchi",
+            "Hiroki Nishikawa",
+            "Ittetsu Taniguchi",
+            "Kazuhide Matsunaga",
+            "Narikazu Uzawa",
+            "Takao Onoye"
+          ],
+          "published": "2026-11-15T01:51:55Z",
+          "updated": "2026-11-15T01:51:55Z",
+          "categories": [
+            "cs.SD",
+            "cs.AI"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Yuma Enomoto",
+              "institutions": []
+            },
+            {
+              "name": "Misa Yamaguchi",
+              "institutions": []
+            },
+            {
+              "name": "Hiroki Nishikawa",
+              "institutions": []
+            },
+            {
+              "name": "Ittetsu Taniguchi",
+              "institutions": []
+            },
+            {
+              "name": "Kazuhide Matsunaga",
+              "institutions": []
+            },
+            {
+              "name": "Narikazu Uzawa",
+              "institutions": []
+            },
+            {
+              "name": "Takao Onoye",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.19714",
+          "pdfUrl": "https://arxiv.org/pdf/2611.19714",
+          "topics": [
+            "AI"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "last-7-days",
+          "groupId": "recent-ai",
+          "headline": "日本語の子音を含む拍の発音を、時間と周波数のずれで見える化",
+          "summary": "構音障害による発音の変化を、自主的なリハビリで把握しやすくする可視化手法です。日本語のリズムを区切る単位であるモーラに着目し、子音を含む発音と健常な参照音声との違いを、時間と周波数成分の二つの距離で表示します。子音の種類の分離や、不明瞭な発音の識別を実験で評価しています。",
+          "advantages": "arXivの概要では、従来の距離に基づく可視化の多くは母音に限られ、生成モデルによる表現では子音の短時間の特徴が平滑化されやすいと説明しています。本手法は子音を含むモーラを対象に、時間と周波数成分の違いを解釈しやすい二軸で示します。子音の種類の分離や不明瞭発音の識別結果は報告されていますが、既存手法を上回る比較結果やリハビリ効果は記載されていません。",
+          "method": "入力音声を健常な参照音声と比べ、時間的な違いと、音に含まれる周波数成分の違いを距離として求めます。この二つを座標軸にして、発音のずれを二次元空間に配置します。異なる種類のずれを別の方向として表すことで、変化の内容を読み取りやすくする仕組みです。意図的に音声を変化させる試験では、時間と周波数成分の変更が互いに直交する方向へ対応したと報告されています。",
+          "evaluation": "子音の種類がどれだけまとまって分離するかを測るシルエット係数は0.5超、原点を基準にした識別のROC-AUCは0.86超と報告されています。ROC-AUCは識別性能を表し、1に近いほど高性能です。実際の構音障害音声による不明瞭発音の判別では0.897でした。意図的な音声変更による座標の応答も検証していますが、人数、音声件数、データ分割の条件はarXivの概要にはありません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。追加で確認すべき点として、対象話者や障害の程度が変わった場合の性能、長期的な発音の変化を捉える能力、リハビリでの実際の有用性があります。これらはarXivの概要では確認できない点であり、著者が課題として述べたものではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Graduate School of Information Science and Technology, The University of Osaka, Japan",
+              "Graduate School of Dentistry, The University of Osaka, Japan",
+              "{enomoto.yuma, nishikawa.hiroki, i-tanigu, onoye}@ist.osaka-u.ac.jp, {u558580a@ecs., matsunaga.kazuhide.dent@, uzawa.narikazu.dent@}osaka-u.ac.jp"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.19714v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "An Interpretable Acoustic Coordinate System for Japanese Consona"
+          ]
+        },
+        {
+          "id": "1502.03167",
+          "title": "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift",
+          "abstract": "Training Deep Neural Networks is complicated by the fact that the distribution of each layer's inputs changes during training, as the parameters of the previous layers change. This slows down the training by requiring lower learning rates and careful parameter initialization, and makes it notoriously hard to train models with saturating nonlinearities. We refer to this phenomenon as internal covariate shift, and address the problem by normalizing layer inputs. Our method draws its strength from making normalization a part of the model architecture and performing the normalization for each training mini-batch. Batch Normalization allows us to use much higher learning rates and be less careful about initialization. It also acts as a regularizer, in some cases eliminating the need for Dropout. Applied to a state-of-the-art image classification model, Batch Normalization achieves the same accuracy with 14 times fewer training steps, and beats the original model by a significant margin. Using an ensemble of batch-normalized networks, we improve upon the best published result on ImageNet classification: reaching 4.9% top-5 validation error (and 4.8% test error), exceeding the accuracy of human raters.",
+          "authors": [
+            "Sergey Ioffe",
+            "Christian Szegedy"
+          ],
+          "published": "2015-02-11T01:44:18Z",
+          "updated": "2015-03-02T20:44:12Z",
+          "categories": [
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Sergey Ioffe",
+              "institutions": []
+            },
+            {
+              "name": "Christian Szegedy",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1502.03167",
+          "pdfUrl": "https://arxiv.org/pdf/1502.03167",
+          "citations": {
+            "count": 48751,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-17T03:26:38.884Z",
+            "url": "https://www.semanticscholar.org/paper/995c5f5e62614fcb4d2796ad2faab969da51713e"
+          },
+          "topics": [
+            "Machine Learning"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-ai",
+          "headline": "層への入力を正規化し、深いニューラルネットワークの学習を高速化",
+          "summary": "深いニューラルネットワークでは、学習中に各層へ入るデータの分布が変わり、学習が難しくなります。本研究は、少量ずつまとめた学習データごとに層の入力を正規化する「バッチ正規化」を提案します。正規化をモデルの構造に組み込み、大きな学習率で効率よく学習できるようにする手法です。",
+          "advantages": "著者は、学習時の更新幅を決める学習率を大きくでき、初期パラメータの設定にも神経質になる必要が減ると主張しています。過学習を抑える効果もあり、場合によっては、一部の計算を学習中に無効化するDropoutが不要になるとしています。比較実験では、適用前の画像分類モデルと同じ精度に、14分の1の学習ステップ数で到達したと報告しています。これは実行時間が14分の1という意味ではありません。",
+          "method": "学習中に前の層のパラメータが変わると、次の層への入力分布も変わります。著者はこれを「内部共変量シフト」と呼びます。提案手法は、学習データを小分けにしたミニバッチごとに層の入力を正規化し、その処理をモデルの一部として組み込みます。入力分布の変動への対処が、学習を進めやすくするという考え方です。正規化の具体的な計算式や、予測時の処理はarXivの概要には記載されていません。",
+          "evaluation": "当時の最先端の画像分類モデルに適用し、元のモデルとの精度と学習ステップ数を比較しています。さらに、複数のモデルの予測を組み合わせるアンサンブルをImageNetの画像分類で評価しています。正解が予測上位5候補に入らない割合であるトップ5誤り率は、検証用で4.9%、テスト用で4.8%と報告しています。人間の評価者を上回ったとも述べていますが、その比較条件の詳細はarXivの概要だけでは確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。ミニバッチの大きさによる影響や、Dropoutが不要になる条件の詳細は、arXivの概要だけでは確認できません。これらは追加で確認すべき点であり、著者が明示した限界や今後の課題ではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Google Inc.,"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1502.03167v3",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "ImageNet"
+          ]
+        },
+        {
+          "id": "1705.07874",
+          "title": "A Unified Approach to Interpreting Model Predictions",
+          "abstract": "Understanding why a model makes a certain prediction can be as crucial as the prediction's accuracy in many applications. However, the highest accuracy for large modern datasets is often achieved by complex models that even experts struggle to interpret, such as ensemble or deep learning models, creating a tension between accuracy and interpretability. In response, various methods have recently been proposed to help users interpret the predictions of complex models, but it is often unclear how these methods are related and when one method is preferable over another. To address this problem, we present a unified framework for interpreting predictions, SHAP (SHapley Additive exPlanations). SHAP assigns each feature an importance value for a particular prediction. Its novel components include: (1) the identification of a new class of additive feature importance measures, and (2) theoretical results showing there is a unique solution in this class with a set of desirable properties. The new class unifies six existing methods, notable because several recent methods in the class lack the proposed desirable properties. Based on insights from this unification, we present new methods that show improved computational performance and/or better consistency with human intuition than previous approaches.",
+          "authors": [
+            "Scott Lundberg",
+            "Su-In Lee"
+          ],
+          "published": "2017-05-22T17:38:10Z",
+          "updated": "2017-11-25T03:53:32Z",
+          "categories": [
+            "cs.AI",
+            "cs.LG",
+            "stat.ML"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Scott Lundberg",
+              "institutions": []
+            },
+            {
+              "name": "Su-In Lee",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1705.07874",
+          "pdfUrl": "https://arxiv.org/pdf/1705.07874",
+          "citations": {
+            "count": 46320,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-17T03:26:38.884Z",
+            "url": "https://www.semanticscholar.org/paper/442e10a3c6640ded9408622005e3c2a8906ce4c2"
+          },
+          "topics": [
+            "Machine Learning"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-ai",
+          "headline": "予測の理由を特徴量の重要度で説明する統一的な枠組みSHAP",
+          "summary": "複雑な機械学習モデルでは、高い予測精度が得られても判断理由を理解しにくいことがあります。本研究は、個々の予測に対して各入力特徴の重要度を割り当てるSHAPを提案します。既存の説明手法を共通の枠組みで整理し、説明が満たすべき性質を理論的に検討するとともに、新たな手法を示します。",
+          "advantages": "独自点は、特徴ごとの重要度を足し合わせる形の説明手法を一つのクラスとして整理し、既存の6手法を統合したことです。そのクラスで、著者が望ましいとする性質を満たす解が一意に定まるという理論結果も示しています。新たな手法については、従来手法より計算性能、または人間の直感との整合性が改善したと報告しています。ただし、具体的な比較対象や改善量はarXivの概要には記載されていません。",
+          "method": "SHAPは、モデルによる個々の予測に対し、各特徴量、つまり入力を構成する項目の重要度を割り当てる枠組みです。重要度を加算する形式に着目することで、異なる説明手法を同じ観点から整理します。さらに、説明に求める性質と解の一意性を理論的に結び付けます。これは手法ごとの性質の違いを理解するために役立ちます。重要度の具体的な計算手順や、求める性質の内容はarXivの概要だけでは確認できません。",
+          "evaluation": "検証として、説明手法のクラスを定め、望ましい性質を満たす解の一意性を示す理論結果が述べられています。また、統一的な整理から得た知見に基づく新手法について、従来手法に対する計算性能や人間の直感との整合性の改善を報告しています。ただし、使用したデータ、対象モデル、比較手法名、測定指標、数値結果はarXivの概要には記載されていません。人間の直感との整合性をどう測ったかも確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。計算性能の改善が得られる条件や、人間の直感との整合性を評価した対象・手順は、追加で確認すべき点です。これらを著者が認めた限界や、今後取り組むと表明した課題として扱うことはできません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Paul G. Allen School of Computer Science",
+              "University of Washington",
+              "Seattle, WA 98105",
+              "Department of Genome Sciences"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1705.07874v2",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "A Unified Approach to Interpreting Model Predictions"
+          ]
+        },
+        {
+          "id": "1409.0575",
+          "title": "ImageNet Large Scale Visual Recognition Challenge",
+          "abstract": "The ImageNet Large Scale Visual Recognition Challenge is a benchmark in object category classification and detection on hundreds of object categories and millions of images. The challenge has been run annually from 2010 to present, attracting participation from more than fifty institutions. This paper describes the creation of this benchmark dataset and the advances in object recognition that have been possible as a result. We discuss the challenges of collecting large-scale ground truth annotation, highlight key breakthroughs in categorical object recognition, provide a detailed analysis of the current state of the field of large-scale image classification and object detection, and compare the state-of-the-art computer vision accuracy with human accuracy. We conclude with lessons learned in the five years of the challenge, and propose future directions and improvements.",
+          "authors": [
+            "Olga Russakovsky",
+            "Jia Deng",
+            "Hao Su",
+            "Jonathan Krause",
+            "Sanjeev Satheesh",
+            "Sean Ma",
+            "Zhiheng Huang",
+            "Andrej Karpathy",
+            "Aditya Khosla",
+            "Michael Bernstein",
+            "Alexander C. Berg",
+            "Li Fei-Fei"
+          ],
+          "published": "2014-09-01T22:29:38Z",
+          "updated": "2015-01-30T01:23:59Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Olga Russakovsky",
+              "institutions": []
+            },
+            {
+              "name": "Jia Deng",
+              "institutions": []
+            },
+            {
+              "name": "Hao Su",
+              "institutions": []
+            },
+            {
+              "name": "Jonathan Krause",
+              "institutions": []
+            },
+            {
+              "name": "Sanjeev Satheesh",
+              "institutions": []
+            },
+            {
+              "name": "Sean Ma",
+              "institutions": []
+            },
+            {
+              "name": "Zhiheng Huang",
+              "institutions": []
+            },
+            {
+              "name": "Andrej Karpathy",
+              "institutions": []
+            },
+            {
+              "name": "Aditya Khosla",
+              "institutions": []
+            },
+            {
+              "name": "Michael Bernstein",
+              "institutions": []
+            },
+            {
+              "name": "Alexander C. Berg",
+              "institutions": []
+            },
+            {
+              "name": "Li Fei-Fei",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1409.0575",
+          "pdfUrl": "https://arxiv.org/pdf/1409.0575",
+          "citations": {
+            "count": 44640,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-17T03:26:38.884Z",
+            "url": "https://www.semanticscholar.org/paper/e74f9b7f8eec6ba4704c206b93bc8079af3da4bd"
+          },
+          "topics": [
+            "Computer Vision"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-ai",
+          "headline": "ImageNetの大規模画像認識チャレンジを支えるデータと進歩を整理",
+          "summary": "画像中の物体の種類や位置を認識する技術を、共通の条件で比較するための大規模な評価基盤を扱う研究です。数百の物体カテゴリと数百万枚の画像を用いるImageNetのチャレンジについて、データセットの構築、正解情報の収集、画像認識技術の進歩を整理します。さらに、最先端手法と人間の精度を比較します。",
+          "advantages": "本研究の中心は、単独の認識手法の提案ではなく、多数の画像と物体カテゴリを使って手法を比較するベンチマーク、つまり共通の評価基盤の構築と分析です。arXivの概要では、2010年から毎年開催され、50を超える機関が参加したと説明しています。幅広い参加を伴う評価基盤である点は示されていますが、他のベンチマークに対する優位性や、特定手法の改善量はarXivの概要には記載されていません。",
+          "method": "画像の物体カテゴリを判定する分類と、物体の位置も見つける検出を対象に、大規模なデータセットと評価の場を整備します。本研究では、その構築過程と、評価の基準となる正解ラベルや位置情報を大量に集める際の難しさを説明します。加えて、認識技術の重要な進歩と到達点を分析します。共通の対象で技術を比較できることが、この仕組みの役割です。収集・注釈付与の具体的手順はarXivの概要だけでは確認できません。",
+          "evaluation": "対象は、数百の物体カテゴリと数百万枚の画像からなる、大規模な画像分類・物体検出のチャレンジです。本研究は、5年間の開催から得た知見を整理し、当時の最先端のコンピュータビジョン技術と人間の認識精度を比較するとしています。ただし、評価用データの分割、具体的な指標、比較した手法名、精度の数値や人間との優劣はarXivの概要には記載されていません。",
+          "futureWork": "arXivの概要では、5年間のチャレンジから得た教訓をまとめ、今後の方向性と改善案を提案すると述べています。ただし、その具体的な内容は記載されていません。大規模な正解情報の収集が難しいことには触れていますが、それに対する改善策や優先順位も、arXivの概要だけでは確認できません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Stanford University, Stanford, CA, USA",
+              "University of Michigan, Ann Arbor, MI, USA (* = authors contributed equally)",
+              "Massachusetts Institute of Technology, Cambridge, MA, USA",
+              "UNC Chapel Hill, Chapel Hill, NC, USA"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1409.0575v3",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "ImageNet"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-11-16",
       "generatedAt": "2026-11-16T00:48:01.581Z",
       "title": "Physical AI Daily",

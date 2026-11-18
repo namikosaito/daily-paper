@@ -2,6 +2,1284 @@
   "version": 1,
   "issues": [
     {
+      "date": "2026-11-18",
+      "generatedAt": "2026-11-18T02:44:31.780Z",
+      "title": "Physical AI Daily",
+      "timezone": "Asia/Tokyo",
+      "source": "arXiv abstract",
+      "preview": false,
+      "groups": [
+        {
+          "id": "recent-personal",
+          "title": "最新 · 関心に近いRobot Learning",
+          "kind": "recent",
+          "scope": "personal",
+          "requestedCount": 3,
+          "paperIds": [
+            "2611.22001",
+            "2611.21806",
+            "2611.21908"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "classic-personal",
+          "title": "高引用 · 関心に近いRobot Learning",
+          "kind": "classic",
+          "scope": "personal",
+          "requestedCount": 3,
+          "paperIds": [
+            "2009.13303",
+            "1811.06711",
+            "1804.10332"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "classic-robotics",
+          "title": "高引用 · ロボティクス全般",
+          "kind": "classic",
+          "scope": "robotics",
+          "requestedCount": 3,
+          "paperIds": [
+            "2001.06782",
+            "1912.12033",
+            "1711.00199"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "recent-ai",
+          "title": "最新 · AI / ML / Computer Vision",
+          "kind": "recent",
+          "scope": "ai",
+          "requestedCount": 3,
+          "paperIds": [
+            "2611.22219",
+            "2611.22218",
+            "2611.22215"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "classic-ai",
+          "title": "高引用 · AI / ML / Computer Vision",
+          "kind": "classic",
+          "scope": "ai",
+          "requestedCount": 3,
+          "paperIds": [
+            "1609.02907",
+            "1709.01507",
+            "2103.14030"
+          ],
+          "warnings": []
+        }
+      ],
+      "papers": [
+        {
+          "id": "2611.22001",
+          "title": "DreamFAR: Real-Time and Long-Horizon Interaction with Diverse Objects",
+          "abstract": "World models have shown great potential in serving as a simulator for robot manipulation. However, existing models are either fit to a single environment or lack ability to simulate long-horizon contact-rich events. We present DreamFAR, a world model whose dynamics model is trained from scratch on a large robot-native teleoperation dataset, with no internet-video pretraining. We present an architecture and learning recipe designed for training on robot-native data. DreamFAR is significantly smaller than the high-performance video generation models, yet shows better understanding of contact and causality, and runs 10 FPS on a commercial GPU. Experimentally, DreamFAR significantly outperforms existing models in predicting the long-horizon future. We further demonstrate various applications where DreamFAR can be used, including policy evaluation and mixed-data co-training. Project page: https://www.yimingdou.com/DreamFAR/",
+          "authors": [
+            "Yiming Dou",
+            "Botao He",
+            "Antonio Loquercio",
+            "Andrew Owens",
+            "Jitendra Malik",
+            "Sumedh Anand Sontakke",
+            "Ruoshi Liu"
+          ],
+          "published": "2026-11-16T23:31:41Z",
+          "updated": "2026-11-16T23:31:41Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Yiming Dou",
+              "institutions": []
+            },
+            {
+              "name": "Botao He",
+              "institutions": []
+            },
+            {
+              "name": "Antonio Loquercio",
+              "institutions": []
+            },
+            {
+              "name": "Andrew Owens",
+              "institutions": []
+            },
+            {
+              "name": "Jitendra Malik",
+              "institutions": []
+            },
+            {
+              "name": "Sumedh Anand Sontakke",
+              "institutions": []
+            },
+            {
+              "name": "Ruoshi Liu",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.22001",
+          "pdfUrl": "https://arxiv.org/pdf/2611.22001",
+          "topics": [
+            "Contact Manipulation",
+            "Long-horizon",
+            "Physical AI",
+            "Robotics"
+          ],
+          "score": 16,
+          "personalScore": 13,
+          "freshness": "yesterday-today",
+          "groupId": "recent-personal",
+          "headline": "DreamFAR：ロボットの遠隔操作データから、接触を伴う長時間の動作を予測",
+          "summary": "ロボット操作の結果を予測する世界モデルの研究です。環境が限定されることや、接触を伴う長時間の動作を再現しにくいことに取り組みます。DreamFARは、大規模なロボット遠隔操作データだけで一から学習します。arXivの概要では、長時間先の予測で既存モデルを上回り、市販GPUで毎秒10フレーム動作すると報告しています。",
+          "advantages": "インターネット動画で事前学習せず、ロボットの遠隔操作データに合わせた構成と学習方法を採用しています。著者は、高性能な動画生成モデルより大幅に小さく、接触や因果関係をよりよく捉えると述べています。比較実験については、長時間先の予測で既存モデルを大きく上回ったと報告しています。ただし、比較モデル名や改善幅はarXivの概要にはありません。",
+          "method": "ロボットの遠隔操作データから、操作に伴う状態変化を予測するモデルを一から学習します。ロボット由来のデータに適したモデル構成と学習手順が中心です。接触が繰り返される長い動作の予測を目指しており、行動方策、つまりロボットの動き方を決める仕組みの評価などへの利用も示しています。入力の形式、モデル内部の構造、学習目標の詳細はarXivの概要だけでは確認できません。",
+          "evaluation": "長時間先の未来を予測する性能を既存モデルと比較し、大きく上回ったと報告しています。また、市販GPUで毎秒10フレーム動作するとしています。行動方策の評価と、複数種類のデータを混ぜた共同学習への応用も示しています。ただし、予測の評価指標、対象物や環境の内訳、GPUの機種、実機実験の有無はarXivの概要には明記されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。既存モデルの問題として環境への依存と長時間の接触動作の再現が挙げられていますが、DreamFARに残る限界として明示されているわけではありません。未学習の物体や環境への対応範囲、予測が崩れる条件は、arXivの概要だけでは確認できません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.22001.png",
+            "caption": "Figure 2: Overview of DreamFAR: (a) Each view is encoded as per-position latents projected onto the unit sphere and decoded by a flow decoder. (b) When the robot makes or breaks contact with an object, we insert the corresponding keyframe into contact memory, which are index by end effector pose. (c) We use a transformer that has a number of design decisions that make it well suited to streaming and long-horizon generation.",
+            "sourceUrl": "https://arxiv.org/html/2611.22001v1",
+            "originalUrl": "https://arxiv.org/html/2611.22001v1/method.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Yiming Dou, Botao He, Antonio Loquercio, Andrew Owens, Jitendra Malik, Sumedh Anand Sontakke, Ruoshi Liu · arXiv:2611.22001"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Amazon FAR Cornell University University of Maryland, College Park University of Pennsylvania"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.22001v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Contact-rich Manipulation"
+          ]
+        },
+        {
+          "id": "2611.21806",
+          "title": "A Probabilistic Lateral Motion Prediction Model with Improved Response Fidelity for Vehicle-in-the-Loop Simulation",
+          "abstract": "Vehicle-in-the-loop (VIL) simulation requires a lateral dynamics model that accurately reproduces vehicle responses and reliably generates horizontal lateral-position and heading commands through recursive integration. This paper presents a probabilistic lateral motion prediction model with improved response fidelity. A two-degree-of-freedom vehicle model provides the physical prior, while a recurrent neural network learns correlated residual corrections to lateral acceleration and yaw rate. To maintain prediction fidelity during recursive motion generation, multistep rollout training feeds corrected responses into subsequent states and histories and directly penalizes accumulated lateral-velocity error. A conditional Gaussian characterizes response uncertainty, which is propagated to lateral-response, position, and heading predictions through augmented-state linearization. Evaluation results demonstrate improved lateral-response and integrated-motion prediction. Compared with the Deep Dynamics lateral adaptation, the proposed model reduces mean lateral-position root-mean-square error (RMSE) from 0.596 m to 0.483 m, an improvement of 19.0%, while reducing mean lateral-velocity RMSE from 0.0469 m/s to 0.0441 m/s. These results demonstrate the effectiveness of combining physical priors, probabilistic residual learning, and multistep rollout training for response-faithful lateral motion prediction.",
+          "authors": [
+            "Xiangyang Ye",
+            "Chaosheng Huang",
+            "Jinwen Yang",
+            "Zhengxian Chen",
+            "Jun Li"
+          ],
+          "published": "2026-11-16T19:21:35Z",
+          "updated": "2026-11-16T19:21:35Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Xiangyang Ye",
+              "institutions": []
+            },
+            {
+              "name": "Chaosheng Huang",
+              "institutions": []
+            },
+            {
+              "name": "Jinwen Yang",
+              "institutions": []
+            },
+            {
+              "name": "Zhengxian Chen",
+              "institutions": []
+            },
+            {
+              "name": "Jun Li",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.21806",
+          "pdfUrl": "https://arxiv.org/pdf/2611.21806",
+          "topics": [
+            "Residual RL"
+          ],
+          "score": 12,
+          "personalScore": 12,
+          "freshness": "yesterday-today",
+          "groupId": "recent-personal",
+          "headline": "物理モデルと確率的な誤差補正で、車両の横方向の動きをより正確に予測",
+          "summary": "車両を組み込むシミュレーションで、横方向の応答と、それを積み上げた位置・向きを正確に予測する研究です。物理モデルの予測誤差をニューラルネットワークで補正し、複数ステップ先まで学習します。arXivの概要では、比較手法に対して横位置の平均予測誤差を19.0％削減したと報告しています。",
+          "advantages": "物理モデルを土台に、横加速度と車体の旋回速度に生じる誤差を、両者の関連も含めて学習します。著者は、補正後の応答を次の予測へ戻す学習と、不確かさの推定を組み合わせる点を重視しています。比較実験では、Deep Dynamicsの横運動向け適応版より、横位置と横速度の平均予測誤差が小さくなっています。個々の工夫の寄与はarXivの概要だけでは確認できません。",
+          "method": "横方向の移動と車体の旋回を扱う2自由度の物理モデルに、時系列の履歴を扱う再帰型ニューラルネットワークで誤差補正を加えます。補正した応答を次の状態と履歴へ戻し、複数ステップで蓄積する横速度の誤差を直接抑えます。また、条件付きガウス分布で応答の不確かさを表し、関連する状態をまとめて近似計算することで、横方向の応答・位置・向きの予測へ伝えます。",
+          "evaluation": "横方向の応答と、その応答を時間方向に積み上げた運動の予測を評価しています。誤差の大きさを表す平方平均二乗誤差（RMSE）の平均は、Deep Dynamicsの横運動向け適応版との比較で、横位置が0.596 mから0.483 mへ19.0％減少しました。横速度も0.0469 m/sから0.0441 m/sへ減少しています。車種、走行条件、データ規模、実車を組み込んだ検証の実施状況はarXivの概要には明記されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。異なる車種や走行条件での性能、推定した不確かさが実際の誤差とどの程度対応するかは、arXivの概要だけでは確認できません。これらは追加で確認すべき点であり、著者が明示した限界や今後の計画ではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "College of Automotive Engineering, Jilin University, Changchun, China",
+              "School of Vehicle and Mobility, Tsinghua University, Beijing, China",
+              "College of Mechanical Engineering, Tianjin University of Science and Technology, Tianjin, China"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.21806v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Residual Learning"
+          ]
+        },
+        {
+          "id": "2611.21908",
+          "title": "From Human Videos to Bimanual Dexterous Manipulation Data: Confidence-Guided RL Refinement of Video Priors",
+          "abstract": "Collecting demonstrations for bimanual dexterous manipulation is costly, motivating the use of human videos as a source of robot training data. However, uncertainty in video-derived motion estimates and differences between human and robot embodiments make direct motion transfer challenging. In this work, we introduce PriDex, a framework that transforms human-video Priors into executable robot Dexterous manipulation demonstrations through reinforcement learning in simulation. PriDex preserves task-relevant interaction structure while allowing embodiment-specific behavior to be regenerated for the robot. Human-object interactions provide affordance cues for selecting task-relevant, robot-specific grasps from geometry-based candidates. For motion refinement, object trajectories provide a task-level reference, while relative bimanual wrist trajectories offer complementary guidance for coordinated motion. Since object-motion estimates can become unreliable under occlusion or visual ambiguity, PriDex uses object-motion confidence to adaptively balance these two priors, emphasizing object-level guidance when confidence is high and increasing the contribution of wrist-level guidance as confidence decreases. Reinforcement learning refines these video-derived priors under the robot's kinematic and physical constraints, and the resulting policies are rolled out to generate robot demonstrations for training a vision-based diffusion policy. We evaluate PriDex on four bimanual dexterous manipulation tasks, including pouring, sweeping into a dustpan, bottle-cap unscrewing, and plate cleaning, assessing both simulation-based robot data generation and downstream visuomotor policy learning.",
+          "authors": [
+            "Yanghong Liu",
+            "Yang Chen",
+            "Kailang Xu",
+            "Bang Du",
+            "Feiyang Yang",
+            "Jiawei Xia",
+            "Zhengtao Yao",
+            "Yubiao Zhang",
+            "Masayoshi Tomizuka",
+            "Ruihai Wu",
+            "Wei Zhan"
+          ],
+          "published": "2026-11-16T21:23:58Z",
+          "updated": "2026-11-16T21:23:58Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Yanghong Liu",
+              "institutions": []
+            },
+            {
+              "name": "Yang Chen",
+              "institutions": []
+            },
+            {
+              "name": "Kailang Xu",
+              "institutions": []
+            },
+            {
+              "name": "Bang Du",
+              "institutions": []
+            },
+            {
+              "name": "Feiyang Yang",
+              "institutions": []
+            },
+            {
+              "name": "Jiawei Xia",
+              "institutions": []
+            },
+            {
+              "name": "Zhengtao Yao",
+              "institutions": []
+            },
+            {
+              "name": "Yubiao Zhang",
+              "institutions": []
+            },
+            {
+              "name": "Masayoshi Tomizuka",
+              "institutions": []
+            },
+            {
+              "name": "Ruihai Wu",
+              "institutions": []
+            },
+            {
+              "name": "Wei Zhan",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.21908",
+          "pdfUrl": "https://arxiv.org/pdf/2611.21908",
+          "topics": [
+            "Deformable & Tools",
+            "RL",
+            "Robotics"
+          ],
+          "score": 11,
+          "personalScore": 10,
+          "freshness": "yesterday-today",
+          "groupId": "recent-personal",
+          "headline": "PriDex：人の動画を、信頼度に応じた学習で両手ロボットの動作データへ変換",
+          "summary": "人の動画から、両手で細かな作業を行うロボットの訓練データを作る研究です。PriDexは、動画から推定した物体と手首の動きを手がかりに、シミュレーション内の強化学習で実行可能な動作へ調整します。物体の動きの推定が不確かな場面では、手首の動きをより重視します。生成データは画像に基づく行動モデルの学習に使います。",
+          "advantages": "人とロボットの身体構造の違いを踏まえ、動画の動きをそのまま移すのではなく、作業に重要な相互作用を保ちながらロボット向けに動作を作り直します。特に、物体の動きの推定信頼度に応じて、物体と両手首の手がかりの重みを変える点が工夫です。ただし、arXivの概要には比較手法や数値結果がなく、従来手法に対する性能上の優位性は確認できません。",
+          "method": "人と物体の関わり方を手がかりに、形状から作った候補の中からロボット向けの把持を選びます。動作調整では、物体の軌跡を作業の目標に、左右の手首の相対軌跡を両手の協調の手がかりにします。物体推定の信頼度が下がると手首側を重視します。報酬を通じて動作を学ぶ強化学習で、関節の動かし方や物理的制約に合わせて調整し、生成した実演データで画像から行動を生成する拡散方策を学習します。",
+          "evaluation": "注ぐ、ちり取りへ掃き入れる、ボトルのふたを回して外す、皿を清掃する、という4種類の両手作業を対象にしています。シミュレーション内でのロボット実演データ生成と、そのデータを使った視覚に基づく行動方策の学習を評価しています。ただし、成功率などの評価指標、比較対象、試行回数、数値結果はarXivの概要にはありません。実機評価の有無も確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。遮蔽や見た目の曖昧さによって物体の動きの推定が不確かになる点は、提案手法が対処する問題として述べられています。ただし、対処後に残る限界や失敗条件は示されていません。実環境への適用範囲や未知の作業への対応は追加の確認事項であり、著者の今後の計画としては述べられていません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "University of California, Berkeley General Motors"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.21908v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "From Human Videos to Bimanual Dexterous Manipulation Data"
+          ]
+        },
+        {
+          "id": "2009.13303",
+          "title": "Sim-to-Real Transfer in Deep Reinforcement Learning for Robotics: a Survey",
+          "abstract": "Deep reinforcement learning has recently seen huge success across multiple areas in the robotics domain. Owing to the limitations of gathering real-world data, i.e., sample inefficiency and the cost of collecting it, simulation environments are utilized for training the different agents. This not only aids in providing a potentially infinite data source, but also alleviates safety concerns with real robots. Nonetheless, the gap between the simulated and real worlds degrades the performance of the policies once the models are transferred into real robots. Multiple research efforts are therefore now being directed towards closing this sim-to-real gap and accomplish more efficient policy transfer. Recent years have seen the emergence of multiple methods applicable to different domains, but there is a lack, to the best of our knowledge, of a comprehensive review summarizing and putting into context the different methods. In this survey paper, we cover the fundamental background behind sim-to-real transfer in deep reinforcement learning and overview the main methods being utilized at the moment: domain randomization, domain adaptation, imitation learning, meta-learning and knowledge distillation. We categorize some of the most relevant recent works, and outline the main application scenarios. Finally, we discuss the main opportunities and challenges of the different approaches and point to the most promising directions.",
+          "authors": [
+            "Wenshuai Zhao",
+            "Jorge Peña Queralta",
+            "Tomi Westerlund"
+          ],
+          "published": "2020-09-24T21:05:46Z",
+          "updated": "2021-07-08T09:00:05Z",
+          "categories": [
+            "cs.LG",
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Wenshuai Zhao",
+              "institutions": []
+            },
+            {
+              "name": "Jorge Peña Queralta",
+              "institutions": []
+            },
+            {
+              "name": "Tomi Westerlund",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2009.13303",
+          "pdfUrl": "https://arxiv.org/pdf/2009.13303",
+          "citations": {
+            "count": 1191,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-18T02:44:38.129Z",
+            "url": "https://www.semanticscholar.org/paper/5a1b92aa50797a7c1e99b8840ff01aad66038596"
+          },
+          "topics": [
+            "Long-horizon",
+            "RL",
+            "Sim-to-real",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 17,
+          "personalScore": 16,
+          "groupId": "classic-personal",
+          "headline": "シミュレーションで学んだロボット制御を現実へ移す手法を整理",
+          "summary": "報酬を手掛かりにニューラルネットワークで行動を学ぶ深層強化学習では、シミュレーションと現実の違いが実機での性能低下を招きます。本論文は、この差を埋める主要な手法の背景、分類、用途を整理するサーベイです。実機データ収集の費用や安全面を背景に、学習した制御方法を現実へ移す研究を俯瞰します。",
+          "advantages": "著者は、既存手法を背景とともに整理した包括的なレビューが不足していると述べ、その整理を本論文の役割に位置付けています。主要な手法群と応用場面をまとめて把握できる点が特徴です。ただし、これは文献を整理する意義であり、特定の制御手法が比較実験で他手法を上回ったという主張ではありません。arXivの概要には、性能の順位付けや定量比較の結果はありません。",
+          "method": "研究文献を対象に、シミュレーションから現実への移行に必要な基礎を説明し、関連研究を分類します。扱うのは、学習環境の条件を変えるドメインランダム化、環境間の違いに対応するドメイン適応、手本から学ぶ模倣学習です。さらに、学び方自体を学ぶメタ学習、別のモデルへ知識を移す知識蒸留も整理します。用途や課題と併せて示す構成ですが、分類の具体的な基準はarXivの概要では確認できません。",
+          "evaluation": "arXivの概要で確認できる対象は、近年の関連研究と、その主な応用場面です。新たなロボット制御手法の実験ではなく、文献を分類して整理する研究として説明されています。文献の検索方法、採用・除外基準、対象件数は記載されていません。また、著者自身による実機実験や共通条件での比較実験、評価指標、数値結果の記載もなく、概要だけからそれらの実施は確認できません。",
+          "futureWork": "arXivの概要には、各手法の主な機会と課題を議論し、有望な研究方向を示すと記載されています。ただし、具体的にどの限界を挙げ、どの方向を有望と判断したのかは説明されていません。そのため、個別の未解決問題や改善策を著者の提案として紹介することはできません。各手法に共通する課題と、手法ごとに異なる課題の内訳も、概要だけでは確認できません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Turku Intelligent Embedded and Robotic Systems Lab, University of Turku, Finland Emails: 1{wezhao, jopequ, tovewe}@utu.fi"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2009.13303v2",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Domain Randomization",
+            "Sim-to-real"
+          ]
+        },
+        {
+          "id": "1811.06711",
+          "title": "An Algorithmic Perspective on Imitation Learning",
+          "abstract": "As robots and other intelligent agents move from simple environments and problems to more complex, unstructured settings, manually programming their behavior has become increasingly challenging and expensive. Often, it is easier for a teacher to demonstrate a desired behavior rather than attempt to manually engineer it. This process of learning from demonstrations, and the study of algorithms to do so, is called imitation learning. This work provides an introduction to imitation learning. It covers the underlying assumptions, approaches, and how they relate; the rich set of algorithms developed to tackle the problem; and advice on effective tools and implementation. We intend this paper to serve two audiences. First, we want to familiarize machine learning experts with the challenges of imitation learning, particularly those arising in robotics, and the interesting theoretical and practical distinctions between it and more familiar frameworks like statistical supervised learning theory and reinforcement learning. Second, we want to give roboticists and experts in applied artificial intelligence a broader appreciation for the frameworks and tools available for imitation learning.",
+          "authors": [
+            "Takayuki Osa",
+            "Joni Pajarinen",
+            "Gerhard Neumann",
+            "J. Andrew Bagnell",
+            "Pieter Abbeel",
+            "Jan Peters"
+          ],
+          "published": "2018-11-16T09:06:54Z",
+          "updated": "2018-11-16T09:06:54Z",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Takayuki Osa",
+              "institutions": []
+            },
+            {
+              "name": "Joni Pajarinen",
+              "institutions": []
+            },
+            {
+              "name": "Gerhard Neumann",
+              "institutions": []
+            },
+            {
+              "name": "J. Andrew Bagnell",
+              "institutions": []
+            },
+            {
+              "name": "Pieter Abbeel",
+              "institutions": []
+            },
+            {
+              "name": "Jan Peters",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1811.06711",
+          "pdfUrl": "https://arxiv.org/pdf/1811.06711",
+          "citations": {
+            "count": 1109,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-18T02:44:38.129Z",
+            "url": "https://www.semanticscholar.org/paper/8d6adaa16ed0af9935a1130a305c85e8bdf8780d"
+          },
+          "topics": [
+            "Long-horizon",
+            "RL",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 9,
+          "personalScore": 8,
+          "groupId": "classic-personal",
+          "headline": "手本から行動を学ぶ「模倣学習」をアルゴリズムの視点で解説",
+          "summary": "複雑で整っていない環境では、ロボットなどの行動を人手で設計する負担が大きくなります。本論文は、人が示す手本から行動を学ぶ模倣学習の入門です。前提、主要な考え方、それらの関係、アルゴリズム、実装上の助言を整理し、機械学習とロボティクスの双方の読者に全体像を伝えます。",
+          "advantages": "特徴は、機械学習の専門家と、ロボティクス・応用人工知能の専門家という二つの読者層を意識している点です。前者には、正解付きデータで学ぶ教師あり学習や、報酬から学ぶ強化学習との理論・実践上の違いを伝えます。後者には、利用できる枠組みや道具を広く紹介します。これは著者が意図する解説上の価値であり、新しい手法の性能優位性を比較実験で示したとの記載はありません。",
+          "method": "手本から望ましい行動を学ぶという問題を出発点に、各手法が置く前提、取り組み方、その相互関係を解説します。さらに、多様なアルゴリズムと、道具の選択や実装に関する助言を扱います。前提と手法を結び付けて説明することで、利用可能な選択肢の理解を助ける構成です。ただし、個々のアルゴリズム名、手本データの形式、学習処理や出力の詳細は、arXivの概要には記載されていません。",
+          "evaluation": "arXivの概要では、模倣学習の前提、手法、アルゴリズム、実装上の知見を扱う入門として位置付けられています。ロボティクスに特有の課題も対象ですが、特定のロボット、作業、データセットを用いた検証の説明はありません。比較対象、実験条件、評価指標、数値結果も記載されていません。したがって、実機実験や性能比較の有無、紹介する道具の有効性をどのように確かめたかは、概要だけでは確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。模倣学習の理論面・実践面の課題を読者に紹介する意図は示されていますが、具体的な未解決問題や今後の研究計画は挙げられていません。扱う手法の限界や適用範囲の詳細も、概要だけでは確認できません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "University of Tokyo Technische Universität Darmstadt",
+              "University of Lincoln Carnegie Mellon University",
+              "University of California, Berkeley"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/1811.06711",
+            "method": "arxiv-pdf"
+          },
+          "visualKeywords": [
+            "An Algorithmic Perspective on Imitation Learning"
+          ]
+        },
+        {
+          "id": "1804.10332",
+          "title": "Sim-to-Real: Learning Agile Locomotion For Quadruped Robots",
+          "abstract": "Designing agile locomotion for quadruped robots often requires extensive expertise and tedious manual tuning. In this paper, we present a system to automate this process by leveraging deep reinforcement learning techniques. Our system can learn quadruped locomotion from scratch using simple reward signals. In addition, users can provide an open loop reference to guide the learning process when more control over the learned gait is needed. The control policies are learned in a physics simulator and then deployed on real robots. In robotics, policies trained in simulation often do not transfer to the real world. We narrow this reality gap by improving the physics simulator and learning robust policies. We improve the simulation using system identification, developing an accurate actuator model and simulating latency. We learn robust controllers by randomizing the physical environments, adding perturbations and designing a compact observation space. We evaluate our system on two agile locomotion gaits: trotting and galloping. After learning in simulation, a quadruped robot can successfully perform both gaits in the real world.",
+          "authors": [
+            "Jie Tan",
+            "Tingnan Zhang",
+            "Erwin Coumans",
+            "Atil Iscen",
+            "Yunfei Bai",
+            "Danijar Hafner",
+            "Steven Bohez",
+            "Vincent Vanhoucke"
+          ],
+          "published": "2018-04-27T03:42:55Z",
+          "updated": "2018-05-16T20:35:34Z",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Jie Tan",
+              "institutions": []
+            },
+            {
+              "name": "Tingnan Zhang",
+              "institutions": []
+            },
+            {
+              "name": "Erwin Coumans",
+              "institutions": []
+            },
+            {
+              "name": "Atil Iscen",
+              "institutions": []
+            },
+            {
+              "name": "Yunfei Bai",
+              "institutions": []
+            },
+            {
+              "name": "Danijar Hafner",
+              "institutions": []
+            },
+            {
+              "name": "Steven Bohez",
+              "institutions": []
+            },
+            {
+              "name": "Vincent Vanhoucke",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1804.10332",
+          "pdfUrl": "https://arxiv.org/pdf/1804.10332",
+          "citations": {
+            "count": 1080,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-18T02:44:38.129Z",
+            "url": "https://www.semanticscholar.org/paper/4d3b69bdcd1d325d29badc6a38f2d6cc504fe7d1"
+          },
+          "topics": [
+            "RL",
+            "Sim-to-real",
+            "Robotics"
+          ],
+          "score": 12,
+          "personalScore": 11,
+          "groupId": "classic-personal",
+          "headline": "シミュレーションで学んだ四脚ロボットの速歩・襲歩を実機で実現",
+          "summary": "四脚ロボットの機敏な移動には、専門知識や細かな手動調整が必要です。本研究は、報酬から行動を学ぶ深層強化学習で制御方法を獲得し、実機へ移す仕組みを提案します。シミュレーションの精度向上と、条件の変化に強い制御の学習を組み合わせ、実機で速歩と襲歩を実現したと報告しています。",
+          "advantages": "著者は、単純な報酬だけで移動動作を一から学び、専門家による設計や手動調整を自動化する仕組みとして提案しています。歩き方をより指定したい場合は、事前に与える動作の手本も利用できます。arXivの概要では、学習後に実機で二つの歩き方を実行できたと報告されています。一方、従来手法との比較結果や調整時間の削減量は記載されておらず、それらの優位性が実験で確認されたとはいえません。",
+          "method": "物理シミュレーション内で、観測情報と報酬を使って行動の決め方を学習し、実機へ移します。実際の挙動から物理特性を推定するシステム同定、駆動装置の精密なモデル化、遅延の再現で現実との差を縮めます。さらに、物理条件のランダム化、外乱の追加、観測情報を絞った設計で条件変化に強い制御を学びます。必要に応じ、動作中の状態に合わせて修正しない事前の手本を与え、学習する歩き方を誘導できます。",
+          "evaluation": "評価対象は、四脚ロボットのトロット（対角の脚を組にして動かす速歩）と、ギャロップ（跳躍を伴う襲歩）の二つです。シミュレーションで学習した後、実機で両方を実行できたと報告されています。ただし、比較手法、移動速度、成功率、試行回数、路面条件などはarXivの概要に記載されていません。シミュレーションの改善や学習時の各工夫が、それぞれどれだけ貢献したかも確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。シミュレーションと現実の差は研究の動機として示されていますが、提案手法を適用した後に残る限界は具体的に説明されていません。ほかの歩き方、路面、ロボットへの適用範囲も、概要だけでは確認できません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Google Brain",
+              "Google DeepMind"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1804.10332v2",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Sim-to-real"
+          ]
+        },
+        {
+          "id": "2001.06782",
+          "title": "Gradient Surgery for Multi-Task Learning",
+          "abstract": "While deep learning and deep reinforcement learning (RL) systems have demonstrated impressive results in domains such as image classification, game playing, and robotic control, data efficiency remains a major challenge. Multi-task learning has emerged as a promising approach for sharing structure across multiple tasks to enable more efficient learning. However, the multi-task setting presents a number of optimization challenges, making it difficult to realize large efficiency gains compared to learning tasks independently. The reasons why multi-task learning is so challenging compared to single-task learning are not fully understood. In this work, we identify a set of three conditions of the multi-task optimization landscape that cause detrimental gradient interference, and develop a simple yet general approach for avoiding such interference between task gradients. We propose a form of gradient surgery that projects a task's gradient onto the normal plane of the gradient of any other task that has a conflicting gradient. On a series of challenging multi-task supervised and multi-task RL problems, this approach leads to substantial gains in efficiency and performance. Further, it is model-agnostic and can be combined with previously-proposed multi-task architectures for enhanced performance.",
+          "authors": [
+            "Tianhe Yu",
+            "Saurabh Kumar",
+            "Abhishek Gupta",
+            "Sergey Levine",
+            "Karol Hausman",
+            "Chelsea Finn"
+          ],
+          "published": "2020-01-19T06:33:47Z",
+          "updated": "2020-12-22T00:35:46Z",
+          "categories": [
+            "cs.LG",
+            "cs.CV",
+            "cs.RO",
+            "stat.ML"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Tianhe Yu",
+              "institutions": []
+            },
+            {
+              "name": "Saurabh Kumar",
+              "institutions": []
+            },
+            {
+              "name": "Abhishek Gupta",
+              "institutions": []
+            },
+            {
+              "name": "Sergey Levine",
+              "institutions": []
+            },
+            {
+              "name": "Karol Hausman",
+              "institutions": []
+            },
+            {
+              "name": "Chelsea Finn",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2001.06782",
+          "pdfUrl": "https://arxiv.org/pdf/2001.06782",
+          "citations": {
+            "count": 2509,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-18T02:44:51.219Z",
+            "url": "https://www.semanticscholar.org/paper/449c5660d637741f7aa7ff42549c32b43c9968bf"
+          },
+          "topics": [
+            "RL",
+            "Robotics",
+            "Computer Vision",
+            "Machine Learning"
+          ],
+          "score": 4,
+          "personalScore": 3,
+          "groupId": "classic-robotics",
+          "headline": "複数タスクの学習で衝突する勾配を調整し、学習効率を改善",
+          "summary": "複数の課題を同時に学ぶマルチタスク学習では、課題ごとの勾配、つまり学習を進める更新方向が干渉し、効率が下がることがあります。本研究は有害な干渉を生む三つの条件を特定し、衝突する勾配を幾何学的に調整する方法を提案します。教師あり学習と強化学習で、効率と性能の改善を報告しています。",
+          "advantages": "中心となる工夫は、課題間で衝突する勾配そのものを調整する点です。著者は、モデル構造に依存せず、既存のマルチタスク向け構造とも組み合わせられるとしています。また、複数の教師あり学習と強化学習の問題で、効率と性能の大幅な改善を報告しています。ただし、arXivの概要には比較手法の名前や改善幅がなく、どの条件でどれほど優位かは確認できません。",
+          "method": "各課題の学習から得られる勾配を使い、別の課題の勾配と衝突する場合に、その相手の勾配に直交する平面へ射影します。射影とは、特定の方向の成分を取り除く幾何学的な操作です。これにより、相手の課題の学習を妨げる成分を抑え、課題間の有害な干渉を避けます。arXivの概要では、特定した三つの条件の内容や、調整後の勾配をまとめる具体的な手順までは説明されていません。",
+          "evaluation": "複数の課題を同時に扱う教師あり学習と、行動への報酬から学ぶ強化学習の問題群で検証しています。arXivの概要は、難しい問題群で学習効率と性能が大幅に改善したと報告しています。一方、使用したデータや環境、比較対象、評価指標の定義、試行回数、具体的な数値は記載されていません。冒頭にロボット制御への言及はありますが、実機実験の実施は確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。手法が効果を発揮しにくい条件や、適用上の限界も示されていません。これらを判断するには追加の情報が必要ですが、著者が今後の課題として挙げているものとは区別する必要があります。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Stanford University , UC Berkeley , Robotics at Google"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/2001.06782",
+            "method": "arxiv-pdf"
+          },
+          "visualKeywords": [
+            "Gradient Surgery for Multi-Task Learning"
+          ]
+        },
+        {
+          "id": "1912.12033",
+          "title": "Deep Learning for 3D Point Clouds: A Survey",
+          "abstract": "Point cloud learning has lately attracted increasing attention due to its wide applications in many areas, such as computer vision, autonomous driving, and robotics. As a dominating technique in AI, deep learning has been successfully used to solve various 2D vision problems. However, deep learning on point clouds is still in its infancy due to the unique challenges faced by the processing of point clouds with deep neural networks. Recently, deep learning on point clouds has become even thriving, with numerous methods being proposed to address different problems in this area. To stimulate future research, this paper presents a comprehensive review of recent progress in deep learning methods for point clouds. It covers three major tasks, including 3D shape classification, 3D object detection and tracking, and 3D point cloud segmentation. It also presents comparative results on several publicly available datasets, together with insightful observations and inspiring future research directions.",
+          "authors": [
+            "Yulan Guo",
+            "Hanyun Wang",
+            "Qingyong Hu",
+            "Hao Liu",
+            "Li Liu",
+            "Mohammed Bennamoun"
+          ],
+          "published": "2019-12-27T09:15:54Z",
+          "updated": "2020-06-23T10:54:36Z",
+          "categories": [
+            "cs.CV",
+            "cs.LG",
+            "cs.RO",
+            "eess.IV"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Yulan Guo",
+              "institutions": []
+            },
+            {
+              "name": "Hanyun Wang",
+              "institutions": []
+            },
+            {
+              "name": "Qingyong Hu",
+              "institutions": []
+            },
+            {
+              "name": "Hao Liu",
+              "institutions": []
+            },
+            {
+              "name": "Li Liu",
+              "institutions": []
+            },
+            {
+              "name": "Mohammed Bennamoun",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1912.12033",
+          "pdfUrl": "https://arxiv.org/pdf/1912.12033",
+          "citations": {
+            "count": 2479,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-18T02:44:51.219Z",
+            "url": "https://www.semanticscholar.org/paper/0311ace1d499cadd1cc0c515a625d1d045f60d25"
+          },
+          "topics": [
+            "Robotics",
+            "Computer Vision",
+            "Machine Learning"
+          ],
+          "score": 1,
+          "personalScore": 0,
+          "groupId": "classic-robotics",
+          "headline": "3次元点群の深層学習を、分類・検出と追跡・領域分割から整理",
+          "summary": "物体や空間を3次元の点の集まりで表す「点群」を、深層学習で扱う研究を整理した総説です。点群処理には2次元画像とは異なる難しさがあることを背景に、形状分類、物体検出と追跡、領域分割の三つの主要課題を概観します。公開データでの比較結果と、今後の研究方向も紹介します。",
+          "advantages": "単一の新手法を提案するのではなく、点群に対する深層学習の進展を、三つの主要課題にわたって包括的に整理する点が特徴です。複数の公開データでの比較結果に加え、研究動向への考察と今後の方向性も示す構成です。ただし、arXivの概要には既存の総説との具体的な違いや、比較で優れていた手法の名前・数値はなく、特定手法の性能優位性は確認できません。",
+          "method": "総説のため、共通の入力を処理して予測を出す単一モデルは提案していません。点群を扱う深層学習手法を、形状の種類を判定する分類、物体を見つけて動きを追う検出・追跡、点群を領域ごとに分ける領域分割に整理します。この構成は、解きたい課題ごとに研究を見渡すためのものです。文献の選定基準や分類の詳細、個々の手法の仕組みは、arXivの概要だけでは確認できません。",
+          "evaluation": "複数の公開データセットについて、各手法の比較結果を掲載するとしています。扱う範囲は、3次元形状分類、3次元物体検出と追跡、3次元点群の領域分割です。ただし、arXivの概要にはデータセット名、比較手法、評価指標、数値結果がありません。また、比較結果が既存研究からの集約なのか、著者による再実験なのかも明記されておらず、実験条件をそろえた比較かどうかは確認できません。",
+          "futureWork": "arXivの概要は、今後の研究方向を提示すると述べていますが、その具体的な内容は記載していません。点群を深層学習で処理する際に固有の難しさがあるとしていますが、その内訳も不明です。そのため、著者がどの限界を重視し、どの課題への取り組みを提案しているかは、arXivの概要だけでは確認できません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "University of Western Australia, Australia"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/1912.12033",
+            "method": "arxiv-pdf"
+          },
+          "visualKeywords": [
+            "Deep Learning for 3D Point Clouds"
+          ]
+        },
+        {
+          "id": "1711.00199",
+          "title": "PoseCNN: A Convolutional Neural Network for 6D Object Pose Estimation in Cluttered Scenes",
+          "abstract": "Estimating the 6D pose of known objects is important for robots to interact with the real world. The problem is challenging due to the variety of objects as well as the complexity of a scene caused by clutter and occlusions between objects. In this work, we introduce PoseCNN, a new Convolutional Neural Network for 6D object pose estimation. PoseCNN estimates the 3D translation of an object by localizing its center in the image and predicting its distance from the camera. The 3D rotation of the object is estimated by regressing to a quaternion representation. We also introduce a novel loss function that enables PoseCNN to handle symmetric objects. In addition, we contribute a large scale video dataset for 6D object pose estimation named the YCB-Video dataset. Our dataset provides accurate 6D poses of 21 objects from the YCB dataset observed in 92 videos with 133,827 frames. We conduct extensive experiments on our YCB-Video dataset and the OccludedLINEMOD dataset to show that PoseCNN is highly robust to occlusions, can handle symmetric objects, and provide accurate pose estimation using only color images as input. When using depth data to further refine the poses, our approach achieves state-of-the-art results on the challenging OccludedLINEMOD dataset. Our code and dataset are available at https://rse-lab.cs.washington.edu/projects/posecnn/.",
+          "authors": [
+            "Yu Xiang",
+            "Tanner Schmidt",
+            "Venkatraman Narayanan",
+            "Dieter Fox"
+          ],
+          "published": "2017-11-01T04:10:58Z",
+          "updated": "2018-05-26T07:34:09Z",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Yu Xiang",
+              "institutions": []
+            },
+            {
+              "name": "Tanner Schmidt",
+              "institutions": []
+            },
+            {
+              "name": "Venkatraman Narayanan",
+              "institutions": []
+            },
+            {
+              "name": "Dieter Fox",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1711.00199",
+          "pdfUrl": "https://arxiv.org/pdf/1711.00199",
+          "citations": {
+            "count": 2461,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-18T02:44:51.219Z",
+            "url": "https://www.semanticscholar.org/paper/1c7e078611c9df412e6eb3a356f31a0da0c1f99c"
+          },
+          "topics": [
+            "Robotics",
+            "Computer Vision"
+          ],
+          "score": 1,
+          "personalScore": 0,
+          "groupId": "classic-robotics",
+          "headline": "PoseCNN：物体の重なりや対称性に対応する、位置と向きの推定",
+          "summary": "物が重なって一部が隠れた場面で、既知の物体の位置と向きを推定するPoseCNNを提案します。画像中の物体中心とカメラからの距離から位置を求め、向きは別に推定します。対称な物体に対応する学習の工夫と、大規模な動画データも提示し、カラー画像だけでも正確に推定できると報告しています。",
+          "advantages": "著者が新規性として挙げるのは、姿勢推定用の畳み込みニューラルネットワーク、対称な物体を扱う損失関数、YCB-Videoデータセットです。実験では、物体の隠れへの頑健さ、対称物体への対応、カラー画像だけでの正確な推定を報告しています。比較上の成果としては、奥行き情報で推定を補正した場合に、OccludedLINEMODで当時の最高水準の結果を達成したとしています。",
+          "method": "入力はカラー画像です。画像の局所的な特徴を捉える畳み込みニューラルネットワークを使い、画像内の物体中心とカメラからの距離を推定して、3次元位置を求めます。向きは、回転を四つの数で表す四元数として直接予測します。位置と向きを合わせたものが6次元姿勢です。対称な物体を扱えるよう損失関数、つまり学習時の誤差の測り方も工夫しますが、その具体式はarXivの概要にはありません。",
+          "evaluation": "YCB-VideoとOccludedLINEMODで実験しています。新たに提示したYCB-Videoには、YCBの21物体を撮影した92本の動画、133,827フレームがあり、正確な位置と向きの情報が付いています。カラー画像のみでの推定と、奥行き情報でさらに補正する場合の成果を報告しています。ただし、arXivの概要には評価指標、比較手法名、精度の数値はなく、ロボット実機での検証も確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。対象は既知の物体ですが、未知の物体への適用可能性や、隠れの程度による性能の限界は示されていません。これらは追加で確認すべき点であり、著者が今後の課題として述べているわけではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "NVIDIA Research, 2University of Washington, 3Carnegie Mellon University , , ,"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1711.00199v3",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "PoseCNN"
+          ]
+        },
+        {
+          "id": "2611.22219",
+          "title": "Fine-Grained Japanese Clinical Named Entity Recognition: A Controlled Comparison of BERT and Open-Weight Large Language Models",
+          "abstract": "Background: Generative large language models (LLMs) offer an alternative to encoder-based clinical named entity recognition (NER), but their performance on fine-grained Japanese extraction tasks and sensitivity to generation settings remain uncertain. Methods: We compared two fine-tuned BERT-CRF baselines with nine open-weight LLMs on iCorpus, which defines 113 entity categories. The evaluation used 433 sentences from 36 test documents; 1,672 sentences were used for training. LLMs were evaluated using zero-shot prompting with and without JSON Schema constraints and three-seed QLoRA fine-tuning. Fine-tuned models were assessed under different output-token limits, including 900 and larger model-specific limits of 2,600 or 4,096 tokens. Performance was measured using sentence-level label-surface matching with relaxed and exact-surface F1. Results: The highest zero-shot relaxed F1 was 0.337, compared with 0.836-0.841 for the BERT baselines. At the larger output limits, all eight fine-tuned LLMs with at least 13B total parameters exceeded both BERT baselines (relaxed F1, 0.882-0.914; exact-surface F1, 0.840-0.880). Across three-seed means, increasing the output limit improved relaxed F1 by 0.052-0.085, alongside higher recall and fewer length-limited outputs. JSON Schema constraints changed relaxed F1 by -0.014 to +0.008 among seven models outside the two reasoning-oriented configurations, while medical-general model pairs showed no consistent advantage for medical specialization. Conclusions: On this historical Japanese case-report benchmark, task-specific fine-tuning combined with adequate generation capacity was associated with stronger LLM extraction performance. Output-token limits materially affected comparisons with BERT, whereas enforcing output structure alone did not overcome low zero-shot accuracy.",
+          "authors": [
+            "Feng Han",
+            "Ayako Yagahara",
+            "Kenji Hirata",
+            "Atsushi Yoshida",
+            "Kohsuke Kudo"
+          ],
+          "published": "2026-11-17T05:01:24Z",
+          "updated": "2026-11-17T05:01:24Z",
+          "categories": [
+            "cs.AI",
+            "cs.CL"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Feng Han",
+              "institutions": []
+            },
+            {
+              "name": "Ayako Yagahara",
+              "institutions": []
+            },
+            {
+              "name": "Kenji Hirata",
+              "institutions": []
+            },
+            {
+              "name": "Atsushi Yoshida",
+              "institutions": []
+            },
+            {
+              "name": "Kohsuke Kudo",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.22219",
+          "pdfUrl": "https://arxiv.org/pdf/2611.22219",
+          "topics": [
+            "AI"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "yesterday-today",
+          "groupId": "recent-ai",
+          "headline": "日本語の医療用語抽出、追加学習と出力長で大規模言語モデルの精度が変わる",
+          "summary": "日本語の医療文書から、病名などを113種類に分類して取り出す研究です。文章理解型のBERTと、重みが公開された大規模言語モデルを比較しました。課題に合わせた追加学習と十分な出力長を組み合わせると、対象データでは大規模言語モデルがBERTを上回りました。",
+          "advantages": "独自点は、モデルの種類だけでなく、追加学習、出力形式の制約、出力長の影響を分けて比較した点です。実験では、十分な出力長を確保した追加学習済みの8モデルが、BERTの2手法を上回りました。一方、追加学習なしの精度は低く、JSONという構造化形式の強制だけでは改善しませんでした。医療特化モデルにも一貫した優位性はなく、医療分野全般での優位を示す結果ではありません。",
+          "method": "入力は日本語の医療文です。BERT側は、文脈表現とラベル列の整合性を扱うCRF（条件付き確率場）を組み合わせます。大規模言語モデル側は、追加学習なしの指示と、重みを低精度化して少数の追加パラメータを学ぶQLoRAによる追加学習を比較し、分類ラベルと該当表現を出力します。生成可能な長さも変え、抽出結果が途中で打ち切られる影響を調べています。",
+          "evaluation": "113分類のiCorpusを用い、学習は1,672文、評価は36文書の433文で行いました。BERTの2手法と公開重みの9モデルを比較し、追加学習は乱数条件を3通りに変えて実施しました。文ごとのラベルと表記の対応を、表記一致条件を緩めたF1と完全一致のF1で評価しています。F1は適合率と再現率をまとめた指標です。緩い条件のF1は、追加学習なしの最高値が0.337、BERTが0.836〜0.841、出力上限を拡大した総パラメータ数130億以上の追加学習済み8モデルが0.882〜0.914でした。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。評価は過去の日本語症例報告を用いたデータセットに限られています。現在の診療記録や別施設の文書でも同じ傾向になるか、実際の業務でどの程度役立つかは、arXivの概要だけでは確認できません。これらは追加で確認すべき点であり、著者が明示した今後の課題ではありません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.22219.png",
+            "caption": "PDF 4ページのプレビュー（図の切り抜きではありません）。",
+            "sourceUrl": "https://arxiv.org/pdf/2611.22219",
+            "originalUrl": "https://arxiv.org/pdf/2611.22219",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "pdf-page",
+            "pageNumber": 4,
+            "credit": "Feng Han, Ayako Yagahara, Kenji Hirata, Atsushi Yoshida, Kohsuke Kudo · arXiv:2611.22219"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Hokkaido University, Sapporo, Japan",
+              "Faculty of Health Sciences, Hokkaido University of Science, Sapporo, Japan",
+              "Faculty of Health Sciences, Hokkaido University, Sapporo, Japan",
+              "Department of Diagnostic Imaging, Faculty of Medicine, Hokkaido University, Sapporo, Japan; Present address:",
+              "Department of Nuclear Medicine, Faculty of Medicine, Kanazawa University, Kanazawa, Japan",
+              "Department of Diagnostic Imaging, Faculty of Medicine, Hokkaido University, Sapporo, Japan"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/2611.22219",
+            "method": "arxiv-pdf"
+          },
+          "visualKeywords": [
+            "Fine-Grained Japanese Clinical Named Entity Recognition"
+          ]
+        },
+        {
+          "id": "2611.22218",
+          "title": "Learning Optimal Transport Plans Via Autoregressive Token Regression",
+          "abstract": "Optimal Transport (OT) provides a principled framework for finding the minimum cost coupling between probability distributions. Classical solvers remain the gold standard for this task. At the same time, OT is an ideal testbed for studying whether learning-based amortized models can internalize the structure of OT type problems. Here, ground-truth solutions are available and marginal constraints are explicitly defined. Also, exact discrete solutions have well-characterized sparsity. We describe ToR-OT, a transformer-based model that learns to predict discrete OT plans through autoregressive token regression. We reframe OT into a structured sequence generation task. ToR-OT decodes sparse transport plans as sequences instead of solving an optimization task at test time. We focus on three properties: (a) Zero-shot generalization: pretraining on a large synthetic corpus of OT instances allows a single model to generalize to unseen distribution pairs and heterogeneous cost metrics without retraining, (b) Sparse primal decoding: by exploiting the inherent sparsity in exact discrete OT solutions, the decoder predicts only nonzero entries (avoids dense coupling outputs), (c) Amortized inference: on low-dimensional discrete problems, ToR-OT gives accurate approximate plans and compares favorably with per-instance neural OT baselines. Overall, ToR-OT is not yet a replacement for classical solvers, but a step toward understanding how autoregressive transformers can learn structure of constrained optimization problems like OT.",
+          "authors": [
+            "Ivan Jaen Marquez",
+            "Sotirios Panagiotis Chytas",
+            "Vikas Singh"
+          ],
+          "published": "2026-11-17T04:57:26Z",
+          "updated": "2026-11-17T04:57:26Z",
+          "categories": [
+            "cs.LG",
+            "cs.AI"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Ivan Jaen Marquez",
+              "institutions": []
+            },
+            {
+              "name": "Sotirios Panagiotis Chytas",
+              "institutions": []
+            },
+            {
+              "name": "Vikas Singh",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.22218",
+          "pdfUrl": "https://arxiv.org/pdf/2611.22218",
+          "topics": [
+            "Machine Learning"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "yesterday-today",
+          "groupId": "recent-ai",
+          "headline": "最適輸送を系列生成に置き換え、必要な対応だけを予測するToR-OT",
+          "summary": "二つの確率分布を最小コストで結ぶ「最適輸送」の計画を、学習済みモデルで近似する研究です。ToR-OTは、輸送先や輸送量の対応を系列として順に生成します。大量の合成問題で事前学習し、新しい分布や異なるコスト尺度にも、再学習なしで対応することを目指します。",
+          "advantages": "中心となる工夫は、輸送計画を密な表ではなく、値がゼロでない要素だけの系列として生成する点です。著者は、未学習の分布や異なるコスト尺度への対応と、学習済みモデルを繰り返し使える利点を挙げています。低次元の離散問題では、問題ごとに処理するニューラル最適輸送の比較手法に対して良好な結果を報告しています。ただし、具体的な差や数値はなく、従来の最適化手法を置き換える段階ではないとしています。",
+          "method": "最適輸送は、各分布の量を保ちながら、移動コストが最小になる対応を求める問題です。ToR-OTは大量の合成問題で学習したTransformerという系列モデルを使い、すでに生成した要素を手掛かりに次の要素を予測します。離散的な厳密解にはゼロ要素が多い性質を利用し、非ゼロ要素だけを出力します。これにより密な対応表の生成を避け、推論時には最適化問題を直接解かずに近似計画を得ます。",
+          "evaluation": "arXivの概要では、低次元の離散的な最適輸送問題を対象に、近似計画の精度と、問題ごとに処理するニューラル手法との比較を報告しています。また、事前学習で見ていない分布の組や異なるコスト尺度に、再学習なしで対応できるとしています。ただし、データ規模、具体的な比較手法名、誤差指標、実行時間、数値結果は記載されていません。分布の量を保つ制約をどの程度満たしたかも確認できません。",
+          "futureWork": "著者は、ToR-OTは従来の最適化手法の代替にはまだ至らず、制約付き最適化の構造を系列モデルが学べるかを理解するための一歩だと位置付けています。具体的な改善計画はarXivの概要に記載されていません。高次元や大規模な問題への適用、制約の充足精度は追加で確認すべき点ですが、著者が明示した今後の課題とは区別する必要があります。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.22218.png",
+            "caption": "Figure 1: Toy discrete OT instance showing the source measure μ\\mu, target measure ν\\nu, cost CC, and an optimal plan π⋆∈ℝ+n×m\\pi^{\\star}\\in\\mathbb{R}_{+}^{n\\times m}",
+            "sourceUrl": "https://arxiv.org/html/2611.22218v1",
+            "originalUrl": "https://arxiv.org/html/2611.22218v1/figures_cameraready/main_text/toy_ot_plan_transparent.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Ivan Jaen Marquez, Sotirios Panagiotis Chytas, Vikas Singh · arXiv:2611.22218"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "University of Wisconsin–Madison"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.22218v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Learning Optimal Transport Plans Via Autoregressive Token Regres"
+          ]
+        },
+        {
+          "id": "2611.22215",
+          "title": "Communicate the Change: Efficient Expert Parallelism via Activation Compression",
+          "abstract": "Scaling has driven the success of large language models (LLM), with sparse mixture-of-experts (MoE) architectures enabling greater parameter capacity without a proportional increase in computation. At large scales, MoE models rely on expert parallelism to distribute experts across devices. Each MoE layer requires two synchronous collective communication steps during inference: dispatching hidden states to the activated experts and combining the resulting expert outputs. As compute throughput has outpaced interconnect bandwidth, these synchronous collectives have become a major bottleneck to MoE scaling and efficiency. We address this challenge with EchoMoE, a lightweight architecture modification that retrofits existing MoE models, requiring approximately 8,500x fewer training tokens than full pretraining. Motivated by the observation that transformer blocks update the residual stream incrementally, we use a hidden state from an earlier layer as a reference and communicate only the compressed difference between it and the current state, rather than communicating each hidden state in full. EchoMoE periodically refreshes these reference states and transmits only the compressed differences synchronously, reducing the traffic on latency-critical paths without significant computational overhead. EchoMoE reduces inter-node communication volume by 58% and improves throughput by 22.6%, while preserving average performance within 3.8 percentage points across 18 benchmarks. EchoMoE further improves inference throughput by up to 2.38x over bandwidth-constrained Ethernet, paving the way for wide-area distributed inference. EchoMoE also tolerates quantization of the communicated representations without measurable quality loss. We release an efficient implementation for applying EchoMoE to pretrained MoE models, together with an inference integration for vLLM.",
+          "authors": [
+            "Fengyuan Liu",
+            "Jay Gala",
+            "Siva Reddy",
+            "Dzmitry Bahdanau"
+          ],
+          "published": "2026-11-17T04:52:41Z",
+          "updated": "2026-11-17T04:52:41Z",
+          "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.DC"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Fengyuan Liu",
+              "institutions": []
+            },
+            {
+              "name": "Jay Gala",
+              "institutions": []
+            },
+            {
+              "name": "Siva Reddy",
+              "institutions": []
+            },
+            {
+              "name": "Dzmitry Bahdanau",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.22215",
+          "pdfUrl": "https://arxiv.org/pdf/2611.22215",
+          "topics": [
+            "Machine Learning"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "yesterday-today",
+          "groupId": "recent-ai",
+          "headline": "状態全体ではなく変化分を送るEchoMoE、分散推論の通信量を削減",
+          "summary": "必要な専門ネットワークだけを使うMoE型言語モデルでは、複数装置間の通信が推論の足かせになります。EchoMoEは、以前の層の内部状態を参照し、現在との差分を圧縮して送ります。既存モデルに導入でき、通信量の削減と処理速度の向上を、評価性能の変化を抑えながら実現したと報告しています。",
+          "advantages": "通常は内部状態全体を送るところを、参照状態との差分の送信に置き換えます。既存モデルへ導入でき、必要な学習トークン数は事前学習全体の約8,500分の1だとしています。評価では装置間の通信量を58％削減し、単位時間当たりの処理量を22.6％向上させました。18ベンチマークの平均性能の変化は3.8ポイント以内と報告しています。ただし、これらの比較に用いた基準構成の詳細はarXivの概要にありません。",
+          "method": "MoEは複数の専門ネットワークから必要なものを選ぶ仕組みです。専門ネットワークを装置に分散すると、内部状態の振り分けと出力の集約で同期通信が発生します。EchoMoEは、層を通る際の状態更新が段階的であることを利用します。以前の層の状態を参照として保持し、現在との差分だけを圧縮して同期送信します。参照状態は定期的に更新し、処理の待ち時間を左右する経路の通信量を減らします。",
+          "evaluation": "通信量、単位時間当たりの処理量、18ベンチマークでの平均性能を評価しています。帯域が制約されたEthernet環境では、処理量が最大2.38倍になったと報告しています。また、送信する表現を低精度の数値にする量子化でも、測定可能な品質低下はなかったとしています。ただし、モデル名、装置数、通信帯域、ベンチマーク名、比較構成はarXivの概要に記載されていません。広域ネットワークで実証したかも確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。著者は、帯域が限られた環境での高速化を、広域分散推論につながる成果と位置付けています。ただし、広域環境での通信遅延や変動への対応、モデルや装置構成が変わった場合の効果は確認できません。これらは追加で確認すべき点であり、著者が明示した限界や今後の課題ではありません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.22215.png",
+            "caption": "PDF 1ページのプレビュー（図の切り抜きではありません）。",
+            "sourceUrl": "https://arxiv.org/pdf/2611.22215",
+            "originalUrl": "https://arxiv.org/pdf/2611.22215",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "pdf-page",
+            "pageNumber": 1,
+            "credit": "Fengyuan Liu, Jay Gala, Siva Reddy, Dzmitry Bahdanau · arXiv:2611.22215"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Mila - Quebec AI Institute McGill University Periodic Labs Canada CIFAR AI Chair *Equal Contribution. Author ordering determined by coin flip. Correspondence: {fengyuan.liu,jay.gala}@mila.quebec"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.22215v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Communicate the Change"
+          ]
+        },
+        {
+          "id": "1609.02907",
+          "title": "Semi-Supervised Classification with Graph Convolutional Networks",
+          "abstract": "We present a scalable approach for semi-supervised learning on graph-structured data that is based on an efficient variant of convolutional neural networks which operate directly on graphs. We motivate the choice of our convolutional architecture via a localized first-order approximation of spectral graph convolutions. Our model scales linearly in the number of graph edges and learns hidden layer representations that encode both local graph structure and features of nodes. In a number of experiments on citation networks and on a knowledge graph dataset we demonstrate that our approach outperforms related methods by a significant margin.",
+          "authors": [
+            "Thomas N. Kipf",
+            "Max Welling"
+          ],
+          "published": "2016-09-09T19:48:41Z",
+          "updated": "2017-02-22T09:55:36Z",
+          "categories": [
+            "cs.LG",
+            "stat.ML"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Thomas N. Kipf",
+              "institutions": []
+            },
+            {
+              "name": "Max Welling",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1609.02907",
+          "pdfUrl": "https://arxiv.org/pdf/1609.02907",
+          "citations": {
+            "count": 38844,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-18T02:44:54.458Z",
+            "url": "https://www.semanticscholar.org/paper/36eff562f65125511b5dfab68ce7f7a943c27478"
+          },
+          "topics": [
+            "Machine Learning"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-ai",
+          "headline": "グラフのつながりとノードの特徴を学び、少ないラベルで分類",
+          "summary": "一部のデータにだけ正解ラベルがある状況で、グラフ上のノードを分類する研究です。グラフに直接適用できる効率的な畳み込みニューラルネットワークを提案します。近隣のつながりと各ノードの特徴を併せて学び、グラフの辺の数に比例する計算量で処理します。",
+          "advantages": "著者が主張する利点は、局所的なグラフ構造とノードの特徴を併せて表現でき、辺の数に比例する計算量で規模を拡大できる点です。比較実験では、引用ネットワークと知識グラフのデータで関連手法を大きく上回ったと報告しています。ただし、arXivの概要には比較手法の名前や改善幅がなく、どの条件でどれほど優れていたかは確認できません。",
+          "method": "入力は、ノード間のつながりを表すグラフと、各ノードの特徴です。グラフの周波数的な性質を使う「スペクトルグラフ畳み込み」を、局所的な一次近似で効率化します。これに基づくネットワークで、近隣構造とノードの特徴を含む内部表現を学び、分類に利用します。局所的な計算にすることが効率性の要点ですが、層構成や学習手順の詳細はarXivの概要にはありません。",
+          "evaluation": "論文同士の引用関係を表す引用ネットワークと、知識グラフのデータセットで実験しています。関連手法との比較で、大きな性能向上を示したと報告しています。ただし、arXivの概要にはデータセット名、正解ラベルの割合、訓練・評価用データの分け方、評価指標、具体的な数値がありません。計算時間やメモリ使用量を実測して比較したかも確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "University of Amsterdam",
+              "Canadian Institute for Advanced Research (CIFAR)"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1609.02907v4",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Semi-Supervised Classification with Graph Convolutional Networks"
+          ]
+        },
+        {
+          "id": "1709.01507",
+          "title": "Squeeze-and-Excitation Networks",
+          "abstract": "The central building block of convolutional neural networks (CNNs) is the convolution operator, which enables networks to construct informative features by fusing both spatial and channel-wise information within local receptive fields at each layer. A broad range of prior research has investigated the spatial component of this relationship, seeking to strengthen the representational power of a CNN by enhancing the quality of spatial encodings throughout its feature hierarchy. In this work, we focus instead on the channel relationship and propose a novel architectural unit, which we term the \"Squeeze-and-Excitation\" (SE) block, that adaptively recalibrates channel-wise feature responses by explicitly modelling interdependencies between channels. We show that these blocks can be stacked together to form SENet architectures that generalise extremely effectively across different datasets. We further demonstrate that SE blocks bring significant improvements in performance for existing state-of-the-art CNNs at slight additional computational cost. Squeeze-and-Excitation Networks formed the foundation of our ILSVRC 2017 classification submission which won first place and reduced the top-5 error to 2.251%, surpassing the winning entry of 2016 by a relative improvement of ~25%. Models and code are available at https://github.com/hujie-frank/SENet.",
+          "authors": [
+            "Jie Hu",
+            "Li Shen",
+            "Samuel Albanie",
+            "Gang Sun",
+            "Enhua Wu"
+          ],
+          "published": "2017-09-05T17:42:13Z",
+          "updated": "2019-05-16T05:32:17Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Jie Hu",
+              "institutions": []
+            },
+            {
+              "name": "Li Shen",
+              "institutions": []
+            },
+            {
+              "name": "Samuel Albanie",
+              "institutions": []
+            },
+            {
+              "name": "Gang Sun",
+              "institutions": []
+            },
+            {
+              "name": "Enhua Wu",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1709.01507",
+          "pdfUrl": "https://arxiv.org/pdf/1709.01507",
+          "citations": {
+            "count": 38233,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-18T02:44:54.458Z",
+            "url": "https://www.semanticscholar.org/paper/fb37561499573109fc2cebb6a7b08f44917267dd"
+          },
+          "topics": [
+            "Computer Vision"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-ai",
+          "headline": "特徴の種類ごとの重要度を調整する「SEブロック」で画像認識を改善",
+          "summary": "画像認識で使う畳み込みニューラルネットワークの表現力を高める研究です。特徴の種類に当たる「チャネル」同士の依存関係を捉え、各チャネルの応答を入力に応じて調整するSEブロックを提案します。既存のネットワークにも組み込め、計算量の増加を小さく抑えながら性能を改善したと報告しています。",
+          "advantages": "画像内の位置関係をどう表すかに注目した従来研究に対し、チャネル間の関係を明示的に扱う点が特徴です。著者は、少ない追加計算で既存の高性能な畳み込みニューラルネットワークを改善できると主張しています。実験では複数のデータセットでの性能と、既存モデルの改善を報告しています。ただし、arXivの概要には個別の比較モデル名や追加計算量の数値はありません。",
+          "method": "畳み込みニューラルネットワークが抽出した特徴に対し、SEブロックがチャネル間の依存関係をモデル化します。その関係に応じて各チャネルの応答を調整し、調整後の特徴をネットワークで利用します。位置関係だけでなく特徴同士の関係も反映できることが、表現力を高める狙いです。ブロックを積み重ねてSENetを構成できますが、内部の具体的な演算はarXivの概要には記載されていません。",
+          "evaluation": "複数のデータセットでの汎化性能と、既存の高性能な畳み込みニューラルネットワークに組み込んだ際の性能改善を調べています。画像分類競技ILSVRC 2017では、SENetを基盤とする提出モデルが首位となりました。正解が予測上位5候補に入らない割合であるトップ5誤り率は2.251％で、2016年の優勝モデルから相対的に約25％改善したと報告しています。個別実験の条件はarXivの概要では確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "University of Oxford. SE blocks can also be used as a drop-in replacement for the"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/1709.01507",
+            "method": "arxiv-pdf"
+          },
+          "visualKeywords": [
+            "Squeeze-and-Excitation Networks"
+          ]
+        },
+        {
+          "id": "2103.14030",
+          "title": "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows",
+          "abstract": "This paper presents a new vision Transformer, called Swin Transformer, that capably serves as a general-purpose backbone for computer vision. Challenges in adapting Transformer from language to vision arise from differences between the two domains, such as large variations in the scale of visual entities and the high resolution of pixels in images compared to words in text. To address these differences, we propose a hierarchical Transformer whose representation is computed with \\textbf{S}hifted \\textbf{win}dows. The shifted windowing scheme brings greater efficiency by limiting self-attention computation to non-overlapping local windows while also allowing for cross-window connection. This hierarchical architecture has the flexibility to model at various scales and has linear computational complexity with respect to image size. These qualities of Swin Transformer make it compatible with a broad range of vision tasks, including image classification (87.3 top-1 accuracy on ImageNet-1K) and dense prediction tasks such as object detection (58.7 box AP and 51.1 mask AP on COCO test-dev) and semantic segmentation (53.5 mIoU on ADE20K val). Its performance surpasses the previous state-of-the-art by a large margin of +2.7 box AP and +2.6 mask AP on COCO, and +3.2 mIoU on ADE20K, demonstrating the potential of Transformer-based models as vision backbones. The hierarchical design and the shifted window approach also prove beneficial for all-MLP architectures. The code and models are publicly available at~\\url{https://github.com/microsoft/Swin-Transformer}.",
+          "authors": [
+            "Ze Liu",
+            "Yutong Lin",
+            "Yue Cao",
+            "Han Hu",
+            "Yixuan Wei",
+            "Zheng Zhang",
+            "Stephen Lin",
+            "Baining Guo"
+          ],
+          "published": "2021-03-25T17:59:31Z",
+          "updated": "2021-08-17T16:41:34Z",
+          "categories": [
+            "cs.CV",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Ze Liu",
+              "institutions": []
+            },
+            {
+              "name": "Yutong Lin",
+              "institutions": []
+            },
+            {
+              "name": "Yue Cao",
+              "institutions": []
+            },
+            {
+              "name": "Han Hu",
+              "institutions": []
+            },
+            {
+              "name": "Yixuan Wei",
+              "institutions": []
+            },
+            {
+              "name": "Zheng Zhang",
+              "institutions": []
+            },
+            {
+              "name": "Stephen Lin",
+              "institutions": []
+            },
+            {
+              "name": "Baining Guo",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2103.14030",
+          "pdfUrl": "https://arxiv.org/pdf/2103.14030",
+          "citations": {
+            "count": 37924,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-18T02:44:54.458Z",
+            "url": "https://www.semanticscholar.org/paper/c8b25fab5608c3e033d34b4483ec47e68ba109b7"
+          },
+          "topics": [
+            "Computer Vision",
+            "Machine Learning"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-ai",
+          "headline": "局所領域をずらして結び、高解像度画像を効率よく扱うSwin Transformer",
+          "summary": "画像の高解像度や対象物の大きさの違いに対応する、汎用的な画像特徴抽出モデルの研究です。要素間の関係を重み付けする自己注意を局所領域内に限定し、領域の位置をずらして領域間も結びます。階層的な表現により、画像サイズに比例する計算量で分類・物体検出・領域分割に対応します。",
+          "advantages": "著者が主張する利点は、局所領域内の計算による効率性と、領域をまたぐ情報交換を両立し、さまざまな大きさの対象を扱える点です。比較結果として、COCOで従来最高性能を検出枠の指標で2.7、物体領域の指標で2.6、ADE20Kの領域分割指標で3.2上回ったと報告しています。比較相手の名前や学習条件の一致は、arXivの概要だけでは確認できません。",
+          "method": "画像を入力し、重ならない局所領域に分けて、各領域内で自己注意を計算します。さらに領域の位置をずらすことで、領域をまたぐつながりを作ります。こうして得る表現を階層的に構成し、異なる大きさの対象を扱えるようにします。局所計算は計算量を抑え、領域のずらしは情報交換を可能にします。得られた特徴は分類や検出、領域分割に利用されます。",
+          "evaluation": "ImageNet-1Kの画像分類で、最上位の予測が正解するトップ1精度87.3％を報告しています。COCO test-devでは、検出性能を要約する平均適合率（AP）が検出枠で58.7、物体領域で51.1でした。ADE20K検証用データでは、予測領域と正解領域の重なりをクラス間で平均するmIoUが53.5でした。モデル規模や事前学習などの条件は、arXivの概要には記載されていません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2103.14030.png",
+            "caption": "Figure 2: An illustration of the shifted window approach for computing self-attention in the proposed Swin Transformer architecture. In layer ll (left), a regular window partitioning scheme is adopted, and self-attention is computed within each window. In the next layer l+1l+1 (right), the window partitioning is shifted, resulting in new windows. The self-attention computation in the new windows crosses the boundaries of the previous windows in layer ll, providing connections among them.",
+            "sourceUrl": "https://arxiv.org/html/2103.14030v2",
+            "originalUrl": "https://arxiv.org/html/2103.14030v2/figs/teaser_v4.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Ze Liu, Yutong Lin, Yue Cao, Han Hu, Yixuan Wei, Zheng Zhang, Stephen Lin, Baining Guo · arXiv:2103.14030"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Microsoft Research Asia"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/2103.14030",
+            "method": "arxiv-pdf"
+          },
+          "visualKeywords": [
+            "ImageNet"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-11-17",
       "generatedAt": "2026-11-17T03:26:23.400Z",
       "title": "Physical AI Daily",

@@ -2,6 +2,3088 @@
   "version": 1,
   "issues": [
     {
+      "date": "2026-11-24",
+      "generatedAt": "2026-11-24T05:09:09.314Z",
+      "title": "Physical AI Daily",
+      "timezone": "Asia/Tokyo",
+      "source": "arXiv abstract",
+      "preview": false,
+      "groups": [
+        {
+          "id": "recent-personal",
+          "title": "最新 · 関心に近いRobot Learning",
+          "kind": "recent",
+          "scope": "personal",
+          "requestedCount": 3,
+          "paperIds": [
+            "2611.30264",
+            "2611.29662",
+            "2611.29884"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "classic-personal",
+          "title": "高引用 · 関心に近いRobot Learning",
+          "kind": "classic",
+          "scope": "personal",
+          "requestedCount": 3,
+          "paperIds": [
+            "2202.02005",
+            "2501.09747",
+            "2402.10329"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "classic-robotics",
+          "title": "高引用 · ロボティクス全般",
+          "kind": "classic",
+          "scope": "robotics",
+          "requestedCount": 3,
+          "paperIds": [
+            "2007.00258",
+            "1711.07280",
+            "2108.10470"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "recent-ai",
+          "title": "最新 · AI / ML / Computer Vision",
+          "kind": "recent",
+          "scope": "ai",
+          "requestedCount": 3,
+          "paperIds": [
+            "2611.30354",
+            "2611.30353",
+            "2611.30352"
+          ],
+          "warnings": []
+        },
+        {
+          "id": "classic-ai",
+          "title": "高引用 · AI / ML / Computer Vision",
+          "kind": "classic",
+          "scope": "ai",
+          "requestedCount": 3,
+          "paperIds": [
+            "1311.2524",
+            "1406.1078",
+            "2303.08774"
+          ],
+          "warnings": []
+        }
+      ],
+      "papers": [
+        {
+          "id": "2611.30264",
+          "title": "Skill-Adaptive Noise Scheduling for Diffusion Policies",
+          "abstract": "Recent advances in diffusion policies have demonstrated strong effectiveness when integrated into hierarchical skill-based learning frameworks, leveraging offline data to capture multimodal and temporally abstracted behaviors. However, prior approaches have rarely considered the diffusion process as a learnable component, adopting fixed noise schedules applied uniformly across skills, regardless of their distinct behavioral contexts. Such a design fundamentally limits the achievable performance, particularly for contact-rich and dexterous manipulation tasks where different skills exhibit distinct couplings between action dimensions. In this paper, we present a skill-adaptive noise diffusion framework (SaND) which introduces a learnable, skill-conditioned noise schedule that modulates the diffusion process per action dimension, adapting the noising dynamics to each skill. To prevent the learned noise schedule from collapsing into trivial solutions, we employ an auxiliary inverse objective that reconstructs the skill embedding from the Legendre coefficients of the derivative of the noise schedule, encouraging the schedules to remain skill-discriminative. This formulation naturally enables adaptive control over the denoising steps for each skill, where noise schedules are clustered in the Legendre coefficient space, and the appropriate number of denoising steps is determined at the point where reconstruction error abruptly increases. At inference, we identify each skill embedding's cluster from its noise schedule and apply the corresponding number of denoising steps, dedicating more compute to skills requiring fine-grained control and less to simpler ones. In simulation and on real robot hardware, SaND outperforms existing skill learning and planning baselines on contact-rich and dexterous manipulation tasks, achieving higher success rates while requiring fewer denoising steps.",
+          "authors": [
+            "Woo Kyung Kim",
+            "Gwangpyo Yoo",
+            "Eunyoung Park",
+            "Honguk Woo"
+          ],
+          "published": "2026-11-23T08:25:56Z",
+          "updated": "2026-11-23T08:25:56Z",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Woo Kyung Kim",
+              "institutions": []
+            },
+            {
+              "name": "Gwangpyo Yoo",
+              "institutions": []
+            },
+            {
+              "name": "Eunyoung Park",
+              "institutions": []
+            },
+            {
+              "name": "Honguk Woo",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.30264",
+          "pdfUrl": "https://arxiv.org/pdf/2611.30264",
+          "topics": [
+            "Touch & Multimodal",
+            "Contact Manipulation",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 18,
+          "personalScore": 17,
+          "freshness": "yesterday-today",
+          "groupId": "recent-personal",
+          "headline": "動作スキルごとにノイズを学び、拡散方策の精度と計算効率を改善",
+          "summary": "ノイズを段階的に除いて動作を生成する「拡散方策」で、すべてのスキルに同じノイズ設定を使う制約に取り組みます。動作のまとまりであるスキルごとに、動作の各成分へ加えるノイズの変化を学習します。さらに、スキルに応じてノイズ除去の反復回数を調整し、接触を伴う精密な操作の成功率と計算効率の両立を目指します。",
+          "advantages": "著者が主張する独自点は、従来は固定されがちだったノイズの変化を、スキルと動作の各成分に応じて学習する点です。細かな制御が必要なスキルには計算を多く、単純なスキルには少なく割り当てます。比較実験では、既存のスキル学習・計画手法より高い成功率と少ないノイズ除去回数を報告しています。ただし、具体的な比較手法名や改善幅はarXivの概要にはありません。",
+          "method": "スキルを数値で表すベクトルを条件に、動作の各成分のノイズ設定を学習します。設定の変化率をルジャンドル多項式という基底の係数で表し、そこからスキルのベクトルを復元する補助学習を加えます。これは、設定がスキルの違いを失うことを防ぐ工夫です。さらに係数を群分けし、復元誤差が急増する点から群ごとのノイズ除去回数を決め、動作生成時に使います。",
+          "evaluation": "接触を多く伴う操作や、器用さを要する操作を対象に、シミュレーションと実機ロボットで検証しています。既存のスキル学習・計画手法と比較し、成功率が高く、ノイズ除去の反復回数が少ないと報告しています。arXivの概要には、個々の課題、ロボットの種類、試行数、具体的な数値はありません。反復回数の削減が実行時間の短縮にどの程度つながるかも確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。未学習のスキルへの対応や、ノイズ設定の学習に伴う追加の計算負担についても記載がなく、その適用範囲や負担の大きさは確認できません。これらは追加で確認すべき点であり、著者が明示した限界や今後の課題ではありません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.30264.png",
+            "caption": "Figure 2: SaND framework: In (i), skills are learned via a diffusion-based hierarchical structure with a skill-conditioned noise schedule and an inverse schedule. The skill-conditioned noise schedule assigns action dimension-wise noise rates for each skill, capturing mutual dependencies among action dimensions. In (ii), skills are clustered according to the Legendre coefficients of their noise schedule derivatives, and denoising budgets are assigned per cluster based on the smallest KK that maintains reconstruction quality. This enables skill-adaptive inference with reduced computational cost.",
+            "sourceUrl": "https://arxiv.org/html/2611.30264v1",
+            "originalUrl": "https://arxiv.org/html/2611.30264v1/figures/Fig_framework.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Woo Kyung Kim, Gwangpyo Yoo, Eunyoung Park, Honguk Woo · arXiv:2611.30264"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Department of Computer Science and Engineering, Sungkyunkwan University",
+              "Department of Artificial Intelligence, Sungkyunkwan University"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.30264v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Contact-rich Manipulation"
+          ]
+        },
+        {
+          "id": "2611.29662",
+          "title": "Grounded in Contact: Reducing Floating and Interpenetration Artifacts with Multimodal Skill-Effect Models",
+          "abstract": "Learning to predict the effects of contact-rich manipulation skills requires models that represent distinct outcome modes rather than a single expected result. Even for basic skills such as pushing, picking, and placing, small variations in contact conditions or object geometry can produce qualitatively different object motions under nearly identical states and actions. Deterministic and Gaussian models tend to average over these alternatives or represent them as a single broad distribution, obscuring distinct modes such as sliding, toppling, and rotating. We study probabilistic skill-effect models that learn multimodal distributions over object pose changes given partial point clouds and actions. We instantiate this abstraction with three representative model classes: mixture density networks, state tokenization, and flow matching, each paired with latent dynamics for next-step prediction. Across diverse objects and skills, explicitly multimodal models predict which outcome occurs more accurately than deterministic and Gaussian baselines. In planning, flow matching significantly improves task success over the deterministic baseline on every skill and achieves the highest success on every multi-step sequence. On a real robot, probabilistic models succeed at pick about twice as often as the deterministic baseline, providing evidence that probabilistic skill effects offer a practical abstraction for reasoning and planning under uncertainty.",
+          "authors": [
+            "Siyeon Kim",
+            "Mohanraj Devendran Shanthi",
+            "Joseph C. Liechty",
+            "Tucker Hermans"
+          ],
+          "published": "2026-11-22T18:05:22Z",
+          "updated": "2026-11-22T18:05:22Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Siyeon Kim",
+              "institutions": []
+            },
+            {
+              "name": "Mohanraj Devendran Shanthi",
+              "institutions": []
+            },
+            {
+              "name": "Joseph C. Liechty",
+              "institutions": []
+            },
+            {
+              "name": "Tucker Hermans",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.29662",
+          "pdfUrl": "https://arxiv.org/pdf/2611.29662",
+          "topics": [
+            "Touch & Multimodal",
+            "Contact Manipulation",
+            "Robotics"
+          ],
+          "score": 18,
+          "personalScore": 17,
+          "freshness": "yesterday-today",
+          "groupId": "recent-personal",
+          "headline": "接触操作の複数の結果を予測し、不確実さを踏まえた計画を改善",
+          "summary": "押す・つかむ・置くといった操作では、接触条件のわずかな違いで物体が滑る、倒れる、回転するなど結果が分かれます。本研究は、部分的な点群と動作から、物体の位置・向きの変化を複数の結果候補を持つ確率分布として予測します。結果を一つに平均化せず、不確実さを踏まえた操作計画に役立てます。",
+          "advantages": "単一の結果を返す決定論的モデルや、一つのガウス分布で結果を表すモデルとは異なり、質的に異なる結果を分けて扱う点が中心です。比較実験では、複数の結果を明示するモデルが、どの結果が起きるかをより正確に予測しました。計画では、フローマッチングが全スキルで決定論的モデルより高い成功率を示し、評価したすべての複数段階の操作列で最高の成功率を達成したと報告しています。",
+          "method": "入力は、物体表面を部分的に捉えた三次元点群と動作です。複数の分布を組み合わせる混合密度ネットワーク、状態を離散記号にする状態トークン化、分布間の変換を学ぶフローマッチングの3方式を用います。各方式を内部表現上の状態遷移モデルと組み合わせ、次の物体の位置・向きの変化を予測します。異なる結果候補を残すことで、平均的な予測だけでは捉えにくい操作の不確実さを計画で扱います。",
+          "evaluation": "多様な物体とスキルについて、結果予測の正確さと、予測を用いた計画の成功率を検証しています。比較対象は決定論的モデルとガウス分布モデルです。実機ロボットでのつかむ操作では、確率モデルの成功頻度が決定論的モデルの約2倍と報告しています。arXivの概要には、物体数、試行数、成功率の絶対値や予測精度の指標名はありません。浮きや物体同士のめり込みを直接測った評価も確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。物体同士のめり込みなど、物理的に不自然な予測が残る条件や、各方式の計算負担も説明されていません。これらは追加で確認すべき点であり、著者が限界として明示した内容ではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "University of Utah",
+              "NVIDIA Research"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.29662v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Contact-rich Manipulation"
+          ]
+        },
+        {
+          "id": "2611.29884",
+          "title": "Particle Belief Representations for Reinforcement Learning under Partial Observability",
+          "abstract": "Particle filters flexibly represent complex, multimodal beliefs but expose them as weighted, unordered sets incompatible with conventional fixed-dimensional policies. We study particle-belief encodings as inputs to reinforcement-learning policies while holding belief estimation and policy optimization fixed. We compare statistical summaries, cumulant-generating-function (CGF) features, and permutation-invariant set encoders. Trainable encoders are learned end-to-end or pretrained through belief reconstruction or task-specific prediction. Across eight tasks, pooling-based set encoders and gradient CGF features are reliable end-to-end, while the Set Transformer achieves the highest performance with appropriate pretraining. Task-specific pretraining helps when its target captures decision-relevant belief structure, whereas reconstruction pretraining and latent alignment provide more selective benefits. For selecting and training particle-belief encoders in partially observable Markov decision processes, our results show that an encoding that reconstructs the belief well is not necessarily a good input for control.",
+          "authors": [
+            "Himanshu Gupta",
+            "Brendan Crowe",
+            "Christoffer Heckman",
+            "Bradley Hayes",
+            "Zachary Sunberg"
+          ],
+          "published": "2026-11-23T01:26:21Z",
+          "updated": "2026-11-23T01:26:21Z",
+          "categories": [
+            "cs.AI",
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Himanshu Gupta",
+              "institutions": []
+            },
+            {
+              "name": "Brendan Crowe",
+              "institutions": []
+            },
+            {
+              "name": "Christoffer Heckman",
+              "institutions": []
+            },
+            {
+              "name": "Bradley Hayes",
+              "institutions": []
+            },
+            {
+              "name": "Zachary Sunberg",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.29884",
+          "pdfUrl": "https://arxiv.org/pdf/2611.29884",
+          "topics": [
+            "Touch & Multimodal",
+            "RL"
+          ],
+          "score": 12,
+          "personalScore": 12,
+          "freshness": "yesterday-today",
+          "groupId": "recent-personal",
+          "headline": "見えない状態の確率表現を、強化学習の制御にどう渡すかを比較",
+          "summary": "観測だけでは状態を特定できない環境では、状態の候補と重みを持つ粒子群で不確実さを表せます。しかし、この順序のない集合は通常の方策にそのまま入力しにくい形です。本研究は、状態推定と方策の学習方法を固定し、粒子群の入力表現と事前学習を8課題で比較します。分布をよく復元できる表現が、制御にも適するとは限らないと示します。",
+          "advantages": "状態の推定方法や方策の最適化方法を固定し、粒子群をどう入力表現へ変換するかを切り分けて調べる点が特徴です。比較では、集合を集約する方式と、累積母関数の勾配を使う特徴量が、方策と同時に学ぶ条件で安定した性能を示しました。集合内の要素間の関係を学ぶSet Transformerは、適切な事前学習を行うと最高性能を示しました。ただし、常に一つの方式が優れるという結論ではありません。",
+          "method": "粒子フィルタが出す、状態候補と重みの集合を方策の入力に変換します。比較するのは、統計量による要約、確率分布の特徴を表す累積母関数の特徴量、入力順序に依存しない集合の符号化器です。学習可能な符号化器は、方策とまとめて学ぶか、状態の確率分布の復元や課題に関わる予測で事前学習します。これにより、分布の再現性と、行動を選ぶための情報の有用性を区別して調べます。",
+          "evaluation": "状態が部分的にしか観測できない8課題で、状態推定と方策の最適化を固定して比較しています。表現方式に加え、同時学習、分布の復元による事前学習、課題固有の予測による事前学習などの条件を調べています。課題固有の事前学習は、予測対象が意思決定に重要な分布の構造を捉える場合に有効でした。arXivの概要には、課題名、性能指標の名称、数値、実機での実施の有無はありません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。ただし、分布をよく復元できても制御に適した入力とは限らず、復元を目的とした事前学習や内部表現を整合させる処理の効果も限定的であると報告しています。どの課題でどの表現を選ぶべきか、その具体的な条件はarXivの概要だけでは確認できません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Department of Computer Science, University of Colorado Boulder{firstname.lastname}@colorado.edu",
+              "Department of Aerospace Engineering Sciences, University of Colorado Boulder"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.29884v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Particle Belief Representations for Reinforcement Learning under"
+          ]
+        },
+        {
+          "id": "2202.02005",
+          "title": "BC-Z: Zero-Shot Task Generalization with Robotic Imitation Learning",
+          "abstract": "In this paper, we study the problem of enabling a vision-based robotic manipulation system to generalize to novel tasks, a long-standing challenge in robot learning. We approach the challenge from an imitation learning perspective, aiming to study how scaling and broadening the data collected can facilitate such generalization. To that end, we develop an interactive and flexible imitation learning system that can learn from both demonstrations and interventions and can be conditioned on different forms of information that convey the task, including pre-trained embeddings of natural language or videos of humans performing the task. When scaling data collection on a real robot to more than 100 distinct tasks, we find that this system can perform 24 unseen manipulation tasks with an average success rate of 44%, without any robot demonstrations for those tasks.",
+          "authors": [
+            "Eric Jang",
+            "Alex Irpan",
+            "Mohi Khansari",
+            "Daniel Kappler",
+            "Frederik Ebert",
+            "Corey Lynch",
+            "Sergey Levine",
+            "Chelsea Finn"
+          ],
+          "published": "2022-02-04T07:30:48Z",
+          "updated": "2022-02-04T07:30:48Z",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Eric Jang",
+              "institutions": []
+            },
+            {
+              "name": "Alex Irpan",
+              "institutions": []
+            },
+            {
+              "name": "Mohi Khansari",
+              "institutions": []
+            },
+            {
+              "name": "Daniel Kappler",
+              "institutions": []
+            },
+            {
+              "name": "Frederik Ebert",
+              "institutions": []
+            },
+            {
+              "name": "Corey Lynch",
+              "institutions": []
+            },
+            {
+              "name": "Sergey Levine",
+              "institutions": []
+            },
+            {
+              "name": "Chelsea Finn",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2202.02005",
+          "pdfUrl": "https://arxiv.org/pdf/2202.02005",
+          "citations": {
+            "count": 906,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-24T05:09:46.556Z",
+            "url": "https://www.semanticscholar.org/paper/f2c2732e67cdb4f0a10a9d83a0fe65e0b788dbae"
+          },
+          "topics": [
+            "Long-horizon",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 6,
+          "personalScore": 5,
+          "groupId": "classic-personal",
+          "headline": "BC-Z：言語や人の動画を手掛かりに、未学習のロボット作業へ対応",
+          "summary": "画像を使うロボットが、学習時に経験していない操作課題に対応する研究です。人の実演や操作への介入から学ぶ模倣学習に、言語や人の作業動画による課題指定を組み合わせます。実機で100種類を超える課題のデータを集め、対象課題のロボット実演なしで、未学習の24課題に平均44％の成功率を示しました。",
+          "advantages": "対象課題のロボット実演を用意せず、新しい課題に対応する点が特徴です。言語と人の動画という異なる形式で課題を指定でき、実演と介入の両方から学べます。arXivの概要では、収集データの規模と多様性を広げる方針が示されています。ただし、既存手法との比較結果や、各要素が成功率をどれだけ改善したかは確認できません。",
+          "method": "ロボットが見る画像に加え、何を実行するかを伝える情報を学習システムに与えます。課題の指定には、自然言語や人の作業動画を事前学習によって数値化した表現を使います。人の実演と、操作に人が介入した際の情報から行動を学びます。課題指定を手掛かりに行動を変える仕組みですが、具体的なモデル構造や介入方法はarXivの概要にはありません。",
+          "evaluation": "実ロボットで100種類を超える課題のデータを収集し、未学習の操作課題24種類で評価しています。評価対象の課題については、ロボットの実演データを使わない条件です。指標は平均成功率で、44％と報告されています。課題ごとの成績、試行回数、成功の判定基準、比較手法の詳細は、arXivの概要だけでは確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2202.02005.png",
+            "caption": "Figure 1: Overview of BC-Z. We collect a large-scale dataset (25,877 episodes) of 100 diverse manipulation tasks, and train a 7-DoF multi-task policy that conditions on task language strings or human video. We show this system produces a policy that is capable of generalizing zero-shot to new unseen tasks.",
+            "sourceUrl": "https://arxiv.org/html/2202.02005v1",
+            "originalUrl": "https://arxiv.org/html/2202.02005v1/figures/overview_v3.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Eric Jang, Alex Irpan, Mohi Khansari, Daniel Kappler, Frederik Ebert, Corey Lynch, Sergey Levine, Chelsea Finn · arXiv:2202.02005"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Everyday Robots",
+              "Robotics at Google",
+              "UC Berkeley",
+              "Stanford University[1em]"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2202.02005v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "BC-Z"
+          ]
+        },
+        {
+          "id": "2501.09747",
+          "title": "FAST: Efficient Action Tokenization for Vision-Language-Action Models",
+          "abstract": "Autoregressive sequence models, such as Transformer-based vision-language action (VLA) policies, can be tremendously effective for capturing complex and generalizable robotic behaviors. However, such models require us to choose a tokenization of our continuous action signals, which determines how the discrete symbols predicted by the model map to continuous robot actions. We find that current approaches for robot action tokenization, based on simple per-dimension, per-timestep binning schemes, typically perform poorly when learning dexterous skills from high-frequency robot data. To address this challenge, we propose a new compression-based tokenization scheme for robot actions, based on the discrete cosine transform. Our tokenization approach, Frequency-space Action Sequence Tokenization (FAST), enables us to train autoregressive VLAs for highly dexterous and high-frequency tasks where standard discretization methods fail completely. Based on FAST, we release FAST+, a universal robot action tokenizer, trained on 1M real robot action trajectories. It can be used as a black-box tokenizer for a wide range of robot action sequences, with diverse action spaces and control frequencies. Finally, we show that, when combined with the pi0 VLA, our method can scale to training on 10k hours of robot data and match the performance of diffusion VLAs, while reducing training time by up to 5x.",
+          "authors": [
+            "Karl Pertsch",
+            "Kyle Stachowicz",
+            "Brian Ichter",
+            "Danny Driess",
+            "Suraj Nair",
+            "Quan Vuong",
+            "Oier Mees",
+            "Chelsea Finn",
+            "Sergey Levine"
+          ],
+          "published": "2025-01-16T18:57:04Z",
+          "updated": "2025-01-16T18:57:04Z",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Karl Pertsch",
+              "institutions": []
+            },
+            {
+              "name": "Kyle Stachowicz",
+              "institutions": []
+            },
+            {
+              "name": "Brian Ichter",
+              "institutions": []
+            },
+            {
+              "name": "Danny Driess",
+              "institutions": []
+            },
+            {
+              "name": "Suraj Nair",
+              "institutions": []
+            },
+            {
+              "name": "Quan Vuong",
+              "institutions": []
+            },
+            {
+              "name": "Oier Mees",
+              "institutions": []
+            },
+            {
+              "name": "Chelsea Finn",
+              "institutions": []
+            },
+            {
+              "name": "Sergey Levine",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2501.09747",
+          "pdfUrl": "https://arxiv.org/pdf/2501.09747",
+          "citations": {
+            "count": 898,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-24T05:09:46.556Z",
+            "url": "https://www.semanticscholar.org/paper/3880f5bad862ba1b18f4f8ec060038b326b118ed"
+          },
+          "topics": [
+            "VLA",
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 7,
+          "personalScore": 6,
+          "groupId": "classic-personal",
+          "headline": "FAST：ロボットの連続動作を圧縮して、高頻度で器用な操作を学習",
+          "summary": "ロボットの連続動作を離散的な記号に変える際、単純な区切り方では高頻度で器用な操作を学びにくい問題を扱います。FASTは動作列を周波数成分で表し、圧縮して記号化します。画像・言語から動作を生成するモデルに適用し、従来の離散化では学習できなかった課題への対応と、学習時間の短縮を報告しています。",
+          "advantages": "各動作成分を各時刻で個別に区切る従来方式に対し、動作列を周波数の観点から圧縮する点が特徴です。arXivの概要では、標準的な離散化が完全に失敗する高頻度・高巧緻性の課題で学習できたと報告されています。また、pi0との組み合わせでは、拡散モデル型の動作生成手法と同等の性能で、学習を最大5倍高速化したとしています。",
+          "method": "入力は連続値のロボット動作列です。離散コサイン変換という、信号を周波数成分に分ける処理を基に圧縮し、モデルが予測する離散記号へ変換します。記号を順番に予測する自己回帰型のモデルで、高頻度の動作を扱えるようにします。さらに、実機の動作軌跡100万件で学習したFAST+を公開し、多様な動作の定義や制御頻度に使えるとしています。",
+          "evaluation": "器用さと高頻度制御が求められる課題で、標準的な動作の離散化方式との違いを検証しています。さらに、画像・言語・動作を扱うモデルであるpi0と組み合わせ、1万時間のロボットデータでの学習に適用しています。拡散モデル型との同等性能と最大5倍の学習高速化を報告していますが、課題名、性能指標、計算機条件、試行回数はarXivの概要にはありません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2501.09747.png",
+            "caption": "Fig. 2: Left: FAST tokenization enables training of autoregressive Transformers for dexterous robot control via simple next token prediction. Right: FAST outperforms popular binning tokenization schemes, e.g., used in OpenVLA [39], particularly for high-frequency robot data.",
+            "sourceUrl": "https://arxiv.org/html/2501.09747v1",
+            "originalUrl": "https://arxiv.org/html/2501.09747v1/teaser.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Karl Pertsch, Kyle Stachowicz, Brian Ichter, Danny Driess, Suraj Nair, Quan Vuong, Oier Mees, Chelsea Finn, Sergey Levine · arXiv:2501.09747"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Physical Intelligence",
+              "UC Berkeley",
+              "Stanford"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2501.09747v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "FAST"
+          ]
+        },
+        {
+          "id": "2402.10329",
+          "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+          "abstract": "We present Universal Manipulation Interface (UMI) -- a data collection and policy learning framework that allows direct skill transfer from in-the-wild human demonstrations to deployable robot policies. UMI employs hand-held grippers coupled with careful interface design to enable portable, low-cost, and information-rich data collection for challenging bimanual and dynamic manipulation demonstrations. To facilitate deployable policy learning, UMI incorporates a carefully designed policy interface with inference-time latency matching and a relative-trajectory action representation. The resulting learned policies are hardware-agnostic and deployable across multiple robot platforms. Equipped with these features, UMI framework unlocks new robot manipulation capabilities, allowing zero-shot generalizable dynamic, bimanual, precise, and long-horizon behaviors, by only changing the training data for each task. We demonstrate UMI's versatility and efficacy with comprehensive real-world experiments, where policies learned via UMI zero-shot generalize to novel environments and objects when trained on diverse human demonstrations. UMI's hardware and software system is open-sourced at https://umi-gripper.github.io.",
+          "authors": [
+            "Cheng Chi",
+            "Zhenjia Xu",
+            "Chuer Pan",
+            "Eric Cousineau",
+            "Benjamin Burchfiel",
+            "Siyuan Feng",
+            "Russ Tedrake",
+            "Shuran Song"
+          ],
+          "published": "2024-02-15T21:11:50Z",
+          "updated": "2024-03-06T00:11:34Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Cheng Chi",
+              "institutions": []
+            },
+            {
+              "name": "Zhenjia Xu",
+              "institutions": []
+            },
+            {
+              "name": "Chuer Pan",
+              "institutions": []
+            },
+            {
+              "name": "Eric Cousineau",
+              "institutions": []
+            },
+            {
+              "name": "Benjamin Burchfiel",
+              "institutions": []
+            },
+            {
+              "name": "Siyuan Feng",
+              "institutions": []
+            },
+            {
+              "name": "Russ Tedrake",
+              "institutions": []
+            },
+            {
+              "name": "Shuran Song",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2402.10329",
+          "pdfUrl": "https://arxiv.org/pdf/2402.10329",
+          "citations": {
+            "count": 883,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-24T05:09:46.556Z",
+            "url": "https://www.semanticscholar.org/paper/40beef770a0f6b8cb2aa90587988b61080c40ba9"
+          },
+          "topics": [
+            "Long-horizon",
+            "Robotics"
+          ],
+          "score": 6,
+          "personalScore": 5,
+          "groupId": "classic-personal",
+          "headline": "UMI：ロボットを持ち出さず、人の実演から多様な操作を教える",
+          "summary": "日常のさまざまな場所で集めた人の実演を、実際に動かせるロボットの行動方策へ移す研究です。手持ちのグリッパーで操作データを集め、推論時の遅延と動作の表現を工夫します。多様な実演で学習した方策が、新しい環境や物体にも追加学習なしで対応することを実世界の実験で示しています。",
+          "advantages": "実演の収集場所にロボットを置かず、持ち運べる手持ちグリッパーで教示できる点が特徴です。著者は、低コストで情報量の多い収集と、複数のロボット機種への方策の展開を利点に挙げています。実世界の実験では未知の環境・物体への対応を報告していますが、既存手法に対する定量的な優位性はarXivの概要には示されていません。",
+          "method": "人が手持ちグリッパーで行う作業を記録し、その実演からロボットの行動を決める方策を学習します。実行時の推論遅延を整合させる仕組みと、軌跡を相対的に表す動作表現を組み込み、人の実演を実機で使える方策へつなげます。これにより、ロボット機種に依存しない展開を目指しています。遅延の合わせ方や相対表現の基準はarXivの概要では説明されていません。",
+          "evaluation": "多様な人の実演で学習した方策を、実世界の実験で評価しています。新しい環境や物体に対し、追加学習なしで対応したと報告しています。動的な操作、両手操作、精密な操作、長い手順を要する操作への対応も述べています。ただし、個々の課題、使用機種、比較条件、成功率などの数値や評価指標は、arXivの概要だけでは確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Stanford University, 2 Columbia University, 3Toyota Research Insititute"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2402.10329v3",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Universal Manipulation Interface"
+          ]
+        },
+        {
+          "id": "2007.00258",
+          "title": "LIO-SAM: Tightly-coupled Lidar Inertial Odometry via Smoothing and Mapping",
+          "abstract": "We propose a framework for tightly-coupled lidar inertial odometry via smoothing and mapping, LIO-SAM, that achieves highly accurate, real-time mobile robot trajectory estimation and map-building. LIO-SAM formulates lidar-inertial odometry atop a factor graph, allowing a multitude of relative and absolute measurements, including loop closures, to be incorporated from different sources as factors into the system. The estimated motion from inertial measurement unit (IMU) pre-integration de-skews point clouds and produces an initial guess for lidar odometry optimization. The obtained lidar odometry solution is used to estimate the bias of the IMU. To ensure high performance in real-time, we marginalize old lidar scans for pose optimization, rather than matching lidar scans to a global map. Scan-matching at a local scale instead of a global scale significantly improves the real-time performance of the system, as does the selective introduction of keyframes, and an efficient sliding window approach that registers a new keyframe to a fixed-size set of prior ``sub-keyframes.'' The proposed method is extensively evaluated on datasets gathered from three platforms over various scales and environments.",
+          "authors": [
+            "Tixiao Shan",
+            "Brendan Englot",
+            "Drew Meyers",
+            "Wei Wang",
+            "Carlo Ratti",
+            "Daniela Rus"
+          ],
+          "published": "2020-07-01T05:41:33Z",
+          "updated": "2020-07-14T11:36:16Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Tixiao Shan",
+              "institutions": []
+            },
+            {
+              "name": "Brendan Englot",
+              "institutions": []
+            },
+            {
+              "name": "Drew Meyers",
+              "institutions": []
+            },
+            {
+              "name": "Wei Wang",
+              "institutions": []
+            },
+            {
+              "name": "Carlo Ratti",
+              "institutions": []
+            },
+            {
+              "name": "Daniela Rus",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2007.00258",
+          "pdfUrl": "https://arxiv.org/pdf/2007.00258",
+          "citations": {
+            "count": 2280,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-24T05:09:49.868Z",
+            "url": "https://www.semanticscholar.org/paper/e49902d212374c81b48d23c3cac1cee6e2339edd"
+          },
+          "topics": [
+            "Robotics"
+          ],
+          "score": 1,
+          "personalScore": 0,
+          "groupId": "classic-robotics",
+          "headline": "LIO-SAM：レーザー測距と慣性計測を密接に統合し、移動経路と地図を推定",
+          "summary": "移動ロボットの経路と地図を高精度かつリアルタイムに推定する手法です。レーザー測距装置の点群と慣性センサーの計測を密接に統合します。複数の観測をまとめて最適化し、局所的な点群照合と処理対象の選別で計算負荷を抑えます。",
+          "advantages": "異なる情報源の相対・絶対計測や、同じ場所への再訪情報を、一つの最適化の枠組みに組み込めます。著者らは、地図全体ではなく局所的な点群を照合することなどで、リアルタイム性能が大きく向上すると述べています。ただし、arXivの概要には比較手法名や精度・速度の数値がなく、比較実験での優位性の大きさは確認できません。",
+          "method": "観測間の関係を制約として表す「因子グラフ」で、位置と姿勢を推定します。慣性計測装置（IMU）の連続計測をまとめて動きを求め、点群の動きによるゆがみを補正し、レーザー測距による推定の初期値にします。その推定結果でIMUの偏りも推定します。古い観測は情報を集約して最適化対象から外し、選別した代表観測を固定数の過去観測と照合して計算量を抑えます。",
+          "evaluation": "三つのプラットフォームで収集したデータセットを使い、さまざまな規模と環境で幅広く評価したと記されています。ただし、各プラットフォームの種類、環境の内訳、データ量、比較手法、評価指標、実行機器はarXivの概要にはありません。経路推定の誤差や処理時間の数値もなく、高精度・リアルタイムという主張を具体的な条件と結び付けて確認することはできません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。適用が難しい環境や失敗条件についても記載がなく、どの条件まで性能を保てるかは、arXivの概要だけでは確認できません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "unavailable",
+            "reason": "論文から所属を確認できませんでした。"
+          },
+          "visualKeywords": [
+            "LIO-SAM"
+          ]
+        },
+        {
+          "id": "1711.07280",
+          "title": "Vision-and-Language Navigation: Interpreting visually-grounded navigation instructions in real environments",
+          "abstract": "A robot that can carry out a natural-language instruction has been a dream since before the Jetsons cartoon series imagined a life of leisure mediated by a fleet of attentive robot helpers. It is a dream that remains stubbornly distant. However, recent advances in vision and language methods have made incredible progress in closely related areas. This is significant because a robot interpreting a natural-language navigation instruction on the basis of what it sees is carrying out a vision and language process that is similar to Visual Question Answering. Both tasks can be interpreted as visually grounded sequence-to-sequence translation problems, and many of the same methods are applicable. To enable and encourage the application of vision and language methods to the problem of interpreting visually-grounded navigation instructions, we present the Matterport3D Simulator -- a large-scale reinforcement learning environment based on real imagery. Using this simulator, which can in future support a range of embodied vision and language tasks, we provide the first benchmark dataset for visually-grounded natural language navigation in real buildings -- the Room-to-Room (R2R) dataset.",
+          "authors": [
+            "Peter Anderson",
+            "Qi Wu",
+            "Damien Teney",
+            "Jake Bruce",
+            "Mark Johnson",
+            "Niko Sünderhauf",
+            "Ian Reid",
+            "Stephen Gould",
+            "Anton van den Hengel"
+          ],
+          "published": "2017-11-20T12:17:47Z",
+          "updated": "2018-04-05T22:57:44Z",
+          "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL",
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Peter Anderson",
+              "institutions": []
+            },
+            {
+              "name": "Qi Wu",
+              "institutions": []
+            },
+            {
+              "name": "Damien Teney",
+              "institutions": []
+            },
+            {
+              "name": "Jake Bruce",
+              "institutions": []
+            },
+            {
+              "name": "Mark Johnson",
+              "institutions": []
+            },
+            {
+              "name": "Niko Sünderhauf",
+              "institutions": []
+            },
+            {
+              "name": "Ian Reid",
+              "institutions": []
+            },
+            {
+              "name": "Stephen Gould",
+              "institutions": []
+            },
+            {
+              "name": "Anton van den Hengel",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1711.07280",
+          "pdfUrl": "https://arxiv.org/pdf/1711.07280",
+          "citations": {
+            "count": 2142,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-24T05:09:49.868Z",
+            "url": "https://www.semanticscholar.org/paper/c37c23b12e00168833eccff8025a830ce27c5abc"
+          },
+          "topics": [
+            "Physical AI",
+            "RL",
+            "Robotics",
+            "Computer Vision"
+          ],
+          "score": 6,
+          "personalScore": 3,
+          "groupId": "classic-robotics",
+          "headline": "実画像と自然言語で道案内を学ぶ、Matterport3D SimulatorとR2R",
+          "summary": "見えている景色を手掛かりに、自然言語の道案内に従う研究を支える環境とデータセットを提案します。実画像に基づくMatterport3D Simulatorと、実在する建物を対象としたRoom-to-Roomを提供し、視覚と言語を結び付けた移動判断の研究基盤を整えます。",
+          "advantages": "中心となる貢献は、移動判断の手法そのものより、研究用の環境と共通評価用データセットの提供です。実画像に基づく大規模な学習環境を用意し、視覚と言語の手法を道案内の理解へ応用しやすくします。著者らはRoom-to-Roomを、実在する建物で視覚に基づく自然言語ナビゲーションを扱う初のベンチマークと位置付けています。既存手法を上回る性能の報告はarXivの概要にありません。",
+          "method": "入力は自然言語の移動指示と、その場所で見える画像です。著者らは、この課題を、画像に関する質問へ答える処理と同様に、視覚情報に基づいて入力の系列を出力の系列へ変換する問題として捉えます。この見方により、既存の視覚・言語手法を応用できます。試行と報酬から行動を学ぶ「強化学習」向けにシミュレーターを提供しますが、具体的な行動生成モデルはarXivの概要には示されていません。",
+          "evaluation": "実画像に基づくMatterport3D Simulatorを用い、実在する建物で自然言語の移動指示に従う課題の共通評価用データセットとして、Room-to-Room（R2R）を提供しています。ただし、建物数や指示数、学習用と評価用の分け方、比較手法、成功率などの評価指標・結果はarXivの概要に記載されていません。実画像を使うシミュレーターであり、実機ロボットでの検証実施も確認できません。",
+          "futureWork": "arXivの概要では、将来、シミュレーターを身体を持つエージェントのさまざまな視覚・言語課題に対応させられると述べています。ただし、具体的な拡張計画や現在の限界は示されていません。これは将来の用途に関する見通しであり、複数の課題への対応が既に検証されたという意味ではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Australian National University University of Adelaide Queensland University of Technology Macquarie University",
+              "{qi.wu01,damien.teney,ian.reid,anton.vandenhengel}@adelaide.edu.au,"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1711.07280v3",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Vision-and-Language Navigation"
+          ]
+        },
+        {
+          "id": "2108.10470",
+          "title": "Isaac Gym: High Performance GPU-Based Physics Simulation For Robot Learning",
+          "abstract": "Isaac Gym offers a high performance learning platform to train policies for wide variety of robotics tasks directly on GPU. Both physics simulation and the neural network policy training reside on GPU and communicate by directly passing data from physics buffers to PyTorch tensors without ever going through any CPU bottlenecks. This leads to blazing fast training times for complex robotics tasks on a single GPU with 2-3 orders of magnitude improvements compared to conventional RL training that uses a CPU based simulator and GPU for neural networks. We host the results and videos at \\url{https://sites.google.com/view/isaacgym-nvidia} and isaac gym can be downloaded at \\url{https://developer.nvidia.com/isaac-gym}.",
+          "authors": [
+            "Viktor Makoviychuk",
+            "Lukasz Wawrzyniak",
+            "Yunrong Guo",
+            "Michelle Lu",
+            "Kier Storey",
+            "Miles Macklin",
+            "David Hoeller",
+            "Nikita Rudin",
+            "Arthur Allshire",
+            "Ankur Handa",
+            "Gavriel State"
+          ],
+          "published": "2021-08-24T01:38:11Z",
+          "updated": "2021-08-25T23:42:59Z",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Viktor Makoviychuk",
+              "institutions": []
+            },
+            {
+              "name": "Lukasz Wawrzyniak",
+              "institutions": []
+            },
+            {
+              "name": "Yunrong Guo",
+              "institutions": []
+            },
+            {
+              "name": "Michelle Lu",
+              "institutions": []
+            },
+            {
+              "name": "Kier Storey",
+              "institutions": []
+            },
+            {
+              "name": "Miles Macklin",
+              "institutions": []
+            },
+            {
+              "name": "David Hoeller",
+              "institutions": []
+            },
+            {
+              "name": "Nikita Rudin",
+              "institutions": []
+            },
+            {
+              "name": "Arthur Allshire",
+              "institutions": []
+            },
+            {
+              "name": "Ankur Handa",
+              "institutions": []
+            },
+            {
+              "name": "Gavriel State",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2108.10470",
+          "pdfUrl": "https://arxiv.org/pdf/2108.10470",
+          "citations": {
+            "count": 2135,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-24T05:09:49.868Z",
+            "url": "https://www.semanticscholar.org/paper/49142e3e381c0dc7fee0049ea41d2ef02c0340d7"
+          },
+          "topics": [
+            "Robotics",
+            "Machine Learning"
+          ],
+          "score": 1,
+          "personalScore": 0,
+          "groupId": "classic-robotics",
+          "headline": "Isaac Gym：物理シミュレーションと学習をGPU内でつなぎ、ロボット学習を高速化",
+          "summary": "ロボットの行動方策、つまり状況に応じた行動の決め方を高速に学ぶための基盤です。物理シミュレーションとニューラルネットワークの学習を、ともに並列計算向けのGPU上で実行します。データの受け渡しでCPUを経由せず、学習時間の短縮を図ります。",
+          "advantages": "物理シミュレーションをCPU、ニューラルネットワークをGPUで動かす従来構成に対し、両方をGPU内で実行する点が特徴です。著者らは、CPUを介したデータ受け渡しのボトルネックをなくせると説明しています。arXivの概要では、複雑なロボット課題の学習を単一GPUで行い、従来の強化学習構成に対して2〜3桁、約100〜1000倍の高速化を報告しています。比較条件の詳細は不明です。",
+          "method": "物理シミュレーションが生成する状態などのデータを、GPU上の物理計算用バッファから、機械学習ライブラリーPyTorchのテンソル、つまり多次元配列へ直接渡します。行動の決め方を表すニューラルネットワークの学習も同じGPU上で実行します。シミュレーションと学習の間でCPUを経由しないため、データの受け渡しが処理全体を遅くする要因を取り除ける仕組みです。",
+          "evaluation": "比較対象は、CPU上の物理シミュレーターとGPU上のニューラルネットワークを組み合わせる従来の強化学習構成です。単一GPUで複雑なロボット課題を学習し、学習時間の大幅な短縮を報告しています。ただし、課題名、GPUの機種、比較実装、到達させる性能の基準、所要時間の実数値はarXivの概要にありません。実機への適用や、シミュレーション精度の比較も確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。対応できる物理現象や課題の制約、GPUメモリーによる制限、実機への適用可能性についても説明がなく、これらはarXivの概要だけでは確認できません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2108.10470.png",
+            "caption": "Figure 2: An illustration of the Isaac Gym pipeline. The Tensor API provides an interface to Python code to step the PhysX backend, as well as get and set simulator states, directly on the GPU, allowing a 100-1000x speedup in the overall RL training pipeline while providing high-fidelity simulation and the ability to interface with existing robot models.",
+            "sourceUrl": "https://arxiv.org/html/2108.10470v2",
+            "originalUrl": "https://arxiv.org/html/2108.10470v2/system_v0.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Viktor Makoviychuk, Lukasz Wawrzyniak, Yunrong Guo, Michelle Lu, Kier Storey, Miles Macklin, David Hoeller, Nikita Rudin, Arthur Allshire, Ankur Handa, Gavriel State · arXiv:2108.10470"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "NVIDIA",
+              "{vmakoviychuk, lwawrzyniak, kellyg, michellel, kstorey, mmacklin,",
+              "dhoeller, nrudin, aallshire, ahanda, gstate}@nvidia.com"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2108.10470v2",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Isaac Gym"
+          ]
+        },
+        {
+          "id": "2611.30354",
+          "title": "STAR: Structure-Aware Temporal Action Recovery for Point Supervised Temporal Action Localization",
+          "abstract": "Point supervised temporal action localization is becoming the need of time in this era of ever growing and non-stop video data. Existing method mainly rely on snippet level action response to generate pseudo labels. However, these labels often suffer from boundary ambiguity, over extended proposals, and weak temporal structure. To address these issues, we propose STAR, a structure-aware Temporal Action Recovery framework for point supervised temporal action localization. STAR works by enhancing the base S model with temporal difference interaction with attention module to capture forward and backward snippet changes, and introduces the learning of start, core, and end roles to model the internal temporal structure of actions. In addition, STAR further improves the pseudo label generation through All point proposal ranking and Rolebank based structural re-ranking, which suppress neighbor crossing and structurally inconsistent proposals. Finally, temporal action detector to STAR feedback supervision transfers high quality detector prediction back to the STAR model through soft start, core, end, action, and background targets. This helps to further refine the pseudo labels. Extensive experiments on four standard benchmarks shows the effectiveness of STAR. By using I3D features, STAR achieves 67.2% at AVG@0.1:0.7 on THUMOS'14, 58.1% on GTEA, 74.6% on BEOID, and 31.7% at AVG@0.5:0.95 on ActivityNet-1.3, outperforming previous point supervised methods across multiple benchmarks.",
+          "authors": [
+            "Yawar Rehman",
+            "Min Young Kim"
+          ],
+          "published": "2026-11-23T09:25:04Z",
+          "updated": "2026-11-23T09:25:04Z",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Yawar Rehman",
+              "institutions": []
+            },
+            {
+              "name": "Min Young Kim",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.30354",
+          "pdfUrl": "https://arxiv.org/pdf/2611.30354",
+          "topics": [
+            "Computer Vision"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "yesterday-today",
+          "groupId": "recent-ai",
+          "headline": "動作の始まり・中心・終わりを学び、動画内の動作区間を推定するSTAR",
+          "summary": "動画内の動作を示す時点だけを教師情報として、動作の開始・終了区間を推定する研究です。STARは、前後の映像変化と動作内部の構造を学び、学習用に自動生成する仮の正解ラベルを改善します。さらに、検出器の予測を学習へ戻し、境界が曖昧な区間や長すぎる区間の削減を図ります。",
+          "advantages": "従来手法は主に、動画を短く区切った各部分の動作反応から仮の正解ラベルを作ります。STARはこれに、前後の変化と開始・中心・終了という構造を取り入れます。隣接する動作をまたぐ候補や、構造が不整合な候補を抑える点が著者の主張する利点です。比較実験では、複数の評価用データセットで従来の点教師あり手法を上回ったとarXivの概要に報告されています。",
+          "method": "動画の短い区間ごとの特徴を基に、時間差と注目すべき情報を選ぶ仕組みで前後の変化を捉えます。同時に、各部分が動作の開始・中心・終了のどれに当たるかを学習します。すべての教師点を使った候補の順位付けと、Rolebankによる構造面の再順位付けで仮の正解ラベルを選別します。さらに検出器の予測を、開始・中心・終了・動作・背景の確率的な教師情報として戻し、ラベルを磨きます。",
+          "evaluation": "動画特徴量I3Dを使い、4つの標準的な評価用データセットで検証しています。THUMOS'14ではAVG@0.1:0.7が67.2%、ActivityNet-1.3ではAVG@0.5:0.95が31.7%と報告されています。GTEAは58.1%、BEOIDは74.6%ですが、この2つの指標表記はarXivの概要にありません。AVGの厳密な定義、比較手法の名前、各構成要素の寄与は確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。境界の曖昧さや長すぎる候補は研究が解決を目指す問題として挙げられていますが、提案後にどの程度残るかは確認できません。失敗しやすい動作や処理負荷についても記載がなく、著者が今後の課題として示したとは扱えません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Kyungpook National University, Buk-gu, Daegu 41566, Republic of Korea"
+            ],
+            "sourceUrl": "https://arxiv.org/pdf/2611.30354",
+            "method": "arxiv-pdf"
+          },
+          "visualKeywords": [
+            "STAR"
+          ]
+        },
+        {
+          "id": "2611.30353",
+          "title": "PseuDRAGON: Knowledge-Guided Local LLMs for Financial-Data Pseudonymization in Closed Networks",
+          "abstract": "Staff pseudonymizing financial data in closed networks must interpret abbreviated column names, identify personal information, and choose processing methods. Local language models can assist, but may give different labels for the same input. PseuDRAGON keeps confirmed judgments and corrections outside a fixed model and reuses them through exact-name lookup and learned rules. For expert review, the workflow searches institutional policy, national privacy law, then international sources. Across 92 columns from one institution, rules increase reuse under the same approval checks from 75 to 83 labels without reuse errors when all training judgments are available. With 25% of the training judgments, withholding non-PII rules for unseen names eliminated the extra PII misses in replay at the cost of lower reuse. Revising or withdrawing approvals rebuilds derived rules, and tests on synthetic records verify that selected methods produce the specified outputs. In three paired runs, the history-first baseline cut automated identification time by 83.0% on average versus no reuse.",
+          "authors": [
+            "Gwangui Hong",
+            "Seonho An",
+            "Seonkyu Lim",
+            "KyungTae Lim",
+            "Min-Soo Kim"
+          ],
+          "published": "2026-11-23T09:24:48Z",
+          "updated": "2026-11-23T09:24:48Z",
+          "categories": [
+            "cs.AI",
+            "cs.CR"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Gwangui Hong",
+              "institutions": []
+            },
+            {
+              "name": "Seonho An",
+              "institutions": []
+            },
+            {
+              "name": "Seonkyu Lim",
+              "institutions": []
+            },
+            {
+              "name": "KyungTae Lim",
+              "institutions": []
+            },
+            {
+              "name": "Min-Soo Kim",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.30353",
+          "pdfUrl": "https://arxiv.org/pdf/2611.30353",
+          "topics": [
+            "AI"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "yesterday-today",
+          "groupId": "recent-ai",
+          "headline": "閉域網の金融データ仮名化で、承認済み判断と修正を再利用するPseuDRAGON",
+          "summary": "外部接続を制限した閉域網で、金融データの個人情報を識別し、仮名化の処理方法を選ぶ作業を支援します。PseuDRAGONは、ローカルで動く大規模言語モデルの外に承認済み判断や修正を保存します。列名の完全一致と学習した規則で再利用し、同じ入力への判断のばらつきに対処します。",
+          "advantages": "モデル自体を更新せず、確認済みの判断と修正を外部に保持して再利用する点が中心です。承認の変更や撤回を、派生した規則にも反映できます。実験では、同じ承認確認の下で、規則によって再利用数が75件から83件へ増え、再利用の誤りはありませんでした。ただし、これは1機関の92列を対象とした結果です。処理時間の83.0%削減は、提案方式全体ではなく履歴優先の比較用方式の結果です。",
+          "method": "省略された列名を扱い、個人情報かどうかの判断や処理方法の選択を支援します。過去の確定判断を列名の完全一致で探し、学習した規則も使って判断を再利用します。専門家による確認では、組織内方針、国内のプライバシー法、国際的な情報源の順に根拠を検索します。承認を修正・撤回した場合は派生規則を再構築し、古い判断が規則として残ることに対処します。",
+          "evaluation": "1機関の92列で評価しています。学習用判断をすべて使える条件では、規則による再利用が75件から83件へ増え、再利用誤りはありませんでした。判断を25%に減らした再評価では、未見の列名に非個人情報とする規則を適用しないことで、追加の個人情報見逃しがなくなる一方、再利用は減りました。合成レコードでは指定どおりの処理出力を確認しています。対応のある3組の実行では、履歴優先方式が再利用なしより自動識別時間を平均83.0%削減しました。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。ただし、学習用判断が少ない条件では、個人情報の見逃しを避けるために規則の適用を絞ると、再利用が減るというトレードオフが示されています。他機関や異なる列名体系でも同じ結果になるかは確認できません。これは追加で確認すべき点であり、著者が明記した将来計画ではありません。",
+          "figure": {
+            "status": "available",
+            "src": "figures/2611.30353.png",
+            "caption": "(a) Initial proposal(b) Approved PII label reused(c) Retained candidate(d) Recorded selectionFigure 2. Recorded examples: (a, b) CMS_NO labels before and after a demonstration approval whose explanation records the customer mapping; (c, d) DPS_ACNO MASK code and annotated outputs for the same synthetic input.Top: Two cropped PDF views of CMS_NO from the running web interface, preserving its displayed text and styles. The first view shows the non-PII badge from the initial proposal. The second shows the PII badge and identifies expert feedback as the source of the reused label after demonstration approval. The example uses reconstructed schema metadata and recorded proposals, rather than fresh model inference. Bottom: Two vector captures of the current web source-code editor populated with recorded MASK choices for HF_TRNS_TRAN.DPS_ACNO. The candidate code keeps the last three digits, whereas the recorded selection masks the last four characters. Output annotations show synthetic input 00123456 becoming *****456 and 0012****. These are recorded choices replayed for illustration.",
+            "sourceUrl": "https://arxiv.org/html/2611.30353v1",
+            "originalUrl": "https://arxiv.org/html/2611.30353v1/review-reuse.png",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "method": "html-figure",
+            "credit": "Gwangui Hong, Seonho An, Seonkyu Lim, KyungTae Lim, Min-Soo Kim · arXiv:2611.30353"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "KAIST, Daejeon, South Korea",
+              "KFTC, Seoul, South Korea"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.30353v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "PseuDRAGON"
+          ]
+        },
+        {
+          "id": "2611.30352",
+          "title": "AutoClip-DPZO: Practical Private Clipping Selection for Differentially Private Zeroth-Order LLM Fine-Tuning",
+          "abstract": "Differentially private zeroth-order optimization (DPZO) is a promising approach for privacy-preserving LLM fine-tuning, offering exceptional memory efficiency. However, its utility is highly sensitive to the clipping threshold $C$, a key DP-specific hyperparameter that controls the trade-off between noise injection and clipping bias. Existing DPZO methods typically tune $C$ by repeatedly evaluating candidate values and reporting the best result, which is computationally expensive and incurs additional privacy cost that must be accounted for under DP. Designing a practical DP procedure for selecting $C$ in DPZO is challenging because no fixed choice performs well across settings, straightforward search-based strategies suffer from poor utility and efficiency, and existing clipping-selection methods for DPSGD do not transfer well to DPZO due to its fundamentally different error regime. In this paper, we propose AutoClip-DPZO, a practical DP method that automatically and efficiently selects $C$ for DPZO. Our key idea is to avoid fine-tuning-based search by reducing clipping selection to a private quantile estimation problem, where the target quantile depends only on public privacy and training parameters. To derive this selection rule, we develop a novel characterization of DPZO error as a function of $C$ that captures both noise variance and clipping bias while remaining accurate and easy to optimize. Experiments show that AutoClip-DPZO achieves utility comparable to that obtained with the optimal $C$, while avoiding repeated fine-tuning-based search and incurring negligible additional overhead. Moreover, AutoClip-DPZO does not rely on sensitive hyperparameters.",
+          "authors": [
+            "Xinghe Chen",
+            "Haichao Sha",
+            "Zihao Wang",
+            "Xiaokui Xiao",
+            "XiaoFeng Wang",
+            "Wei Dong"
+          ],
+          "published": "2026-11-23T09:23:42Z",
+          "updated": "2026-11-23T09:23:42Z",
+          "categories": [
+            "cs.CR",
+            "cs.LG"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Xinghe Chen",
+              "institutions": []
+            },
+            {
+              "name": "Haichao Sha",
+              "institutions": []
+            },
+            {
+              "name": "Zihao Wang",
+              "institutions": []
+            },
+            {
+              "name": "Xiaokui Xiao",
+              "institutions": []
+            },
+            {
+              "name": "XiaoFeng Wang",
+              "institutions": []
+            },
+            {
+              "name": "Wei Dong",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2611.30352",
+          "pdfUrl": "https://arxiv.org/pdf/2611.30352",
+          "topics": [
+            "Machine Learning"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "freshness": "yesterday-today",
+          "groupId": "recent-ai",
+          "headline": "プライバシーを守る言語モデル追加学習で、クリッピング閾値を自動選択",
+          "summary": "個々のデータの影響を抑える差分プライバシーと、勾配を直接計算しないゼロ次最適化を組み合わせた言語モデルの追加学習を扱います。AutoClip-DPZOは、更新量を制限する閾値の選択を、プライバシーを守る分位点推定に置き換えます。候補ごとの追加学習を避け、計算負担と追加のプライバシー消費を抑えます。",
+          "advantages": "従来の閾値調整は、候補ごとに追加学習と評価を繰り返すため、計算量だけでなくプライバシー消費の計上も必要になります。提案法は、その探索を分位点推定へ置き換えます。著者は、設定に敏感な調整パラメータに頼らず、追加負担もごく小さいと主張しています。実験では、最適な閾値を使った場合に匹敵する性能を報告していますが、差の数値や比較手法の詳細はarXivの概要にありません。",
+          "method": "閾値を小さくすると更新量を切り詰める偏りが増え、大きくすると加える雑音の影響が増えます。まず、この両方を捉える誤差の関係式を導きます。次に、閾値選択を、値の分布における所定の位置を求める分位点推定へ変換します。目標の位置は公開されたプライバシー設定と学習設定だけで決め、推定自体にも差分プライバシーを適用します。得られた閾値を追加学習に使うため、候補ごとの学習探索が不要になります。",
+          "evaluation": "大規模言語モデルの追加学習実験で、自動選択した閾値による性能を、最適な閾値を使った場合と比較しています。arXivの概要は、性能が同程度で、繰り返しの追加学習探索を避けられ、追加負担もごく小さいと報告しています。ただし、使用モデル、データセット、タスク、性能指標、プライバシー設定、実行時間の数値は記載されていません。「最適な閾値」を求めた範囲や手順も確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。固定閾値が設定をまたいで良好に機能しないことや、既存の別方式向けの閾値選択法を転用しにくいことは、研究の出発点として述べられています。提案法が苦手とする条件や適用範囲の限界は示されておらず、あらゆるモデルや学習条件で有効だとは確認できません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Nanyang Technological University, Singapore 2National University of Singapore, Singapore"
+            ],
+            "sourceUrl": "https://arxiv.org/html/2611.30352v1",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Clipped Objective"
+          ]
+        },
+        {
+          "id": "1311.2524",
+          "title": "Rich feature hierarchies for accurate object detection and semantic segmentation",
+          "abstract": "Object detection performance, as measured on the canonical PASCAL VOC dataset, has plateaued in the last few years. The best-performing methods are complex ensemble systems that typically combine multiple low-level image features with high-level context. In this paper, we propose a simple and scalable detection algorithm that improves mean average precision (mAP) by more than 30% relative to the previous best result on VOC 2012---achieving a mAP of 53.3%. Our approach combines two key insights: (1) one can apply high-capacity convolutional neural networks (CNNs) to bottom-up region proposals in order to localize and segment objects and (2) when labeled training data is scarce, supervised pre-training for an auxiliary task, followed by domain-specific fine-tuning, yields a significant performance boost. Since we combine region proposals with CNNs, we call our method R-CNN: Regions with CNN features. We also compare R-CNN to OverFeat, a recently proposed sliding-window detector based on a similar CNN architecture. We find that R-CNN outperforms OverFeat by a large margin on the 200-class ILSVRC2013 detection dataset. Source code for the complete system is available at http://www.cs.berkeley.edu/~rbg/rcnn.",
+          "authors": [
+            "Ross Girshick",
+            "Jeff Donahue",
+            "Trevor Darrell",
+            "Jitendra Malik"
+          ],
+          "published": "2013-11-11T18:43:49Z",
+          "updated": "2014-10-22T17:23:20Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Ross Girshick",
+              "institutions": []
+            },
+            {
+              "name": "Jeff Donahue",
+              "institutions": []
+            },
+            {
+              "name": "Trevor Darrell",
+              "institutions": []
+            },
+            {
+              "name": "Jitendra Malik",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1311.2524",
+          "pdfUrl": "https://arxiv.org/pdf/1311.2524",
+          "citations": {
+            "count": 29962,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-24T05:09:52.790Z",
+            "url": "https://www.semanticscholar.org/paper/2f4df08d9072fc2ac181b7fced6a245315ce05c8"
+          },
+          "topics": [
+            "Computer Vision"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-ai",
+          "headline": "物体の候補領域と深層画像特徴を組み合わせるR-CNN",
+          "summary": "画像中の物体の位置や種類を見つける物体検出の精度停滞に取り組む研究です。物体がありそうな候補領域に、画像の特徴を学ぶ畳み込みニューラルネットワークを適用します。別の課題での事前学習と対象分野での追加学習を組み合わせ、学習用の正解データが少ない場合にも精度向上を図ります。",
+          "advantages": "著者は、複数の画像特徴や文脈情報を組み合わせる複雑な従来方式に対し、単純で規模を拡張しやすい検出方式だと説明しています。比較結果として、VOC 2012では従来の最高結果に対して平均適合率が相対的に30％超向上したと報告しています。また、ILSVRC2013の物体検出では、類似したネットワーク構造を使うOverFeatを大きく上回ったとしています。",
+          "method": "画像の情報から物体らしい候補領域を作り、それぞれに畳み込みニューラルネットワークを適用します。候補領域と学習した画像特徴を組み合わせ、物体の位置特定や領域分割につなげるのがR-CNNです。また、補助的な課題の正解データで事前学習し、その後に対象分野のデータで調整します。この手順が、正解データの少なさを補う工夫です。領域分割の詳細な処理はarXivの概要にはありません。",
+          "evaluation": "物体検出用データセットのPASCAL VOC 2012で、検出精度をまとめる平均適合率（mAP）53.3％を報告しています。従来最高からの改善は相対的に30％超で、30ポイント超の上昇ではありません。200クラスを扱うILSVRC2013では、画像上の窓をずらして検出するOverFeatと比較しています。ただし、その比較の具体的な数値や領域分割の評価結果は、arXivの概要だけでは確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。処理速度や計算資源の必要量、候補領域の作り方による影響、領域分割での性能や失敗例は、arXivの概要だけでは確認できません。これらは追加で確認すべき点であり、著者が明示した限界や今後の計画ではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "UC Berkeley"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1311.2524v5",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Rich feature hierarchies for accurate object detection and seman"
+          ]
+        },
+        {
+          "id": "1406.1078",
+          "title": "Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation",
+          "abstract": "In this paper, we propose a novel neural network model called RNN Encoder-Decoder that consists of two recurrent neural networks (RNN). One RNN encodes a sequence of symbols into a fixed-length vector representation, and the other decodes the representation into another sequence of symbols. The encoder and decoder of the proposed model are jointly trained to maximize the conditional probability of a target sequence given a source sequence. The performance of a statistical machine translation system is empirically found to improve by using the conditional probabilities of phrase pairs computed by the RNN Encoder-Decoder as an additional feature in the existing log-linear model. Qualitatively, we show that the proposed model learns a semantically and syntactically meaningful representation of linguistic phrases.",
+          "authors": [
+            "Kyunghyun Cho",
+            "Bart van Merrienboer",
+            "Caglar Gulcehre",
+            "Dzmitry Bahdanau",
+            "Fethi Bougares",
+            "Holger Schwenk",
+            "Yoshua Bengio"
+          ],
+          "published": "2014-06-03T17:47:08Z",
+          "updated": "2014-09-03T00:25:02Z",
+          "categories": [
+            "cs.CL",
+            "cs.LG",
+            "cs.NE",
+            "stat.ML"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "Kyunghyun Cho",
+              "institutions": []
+            },
+            {
+              "name": "Bart van Merrienboer",
+              "institutions": []
+            },
+            {
+              "name": "Caglar Gulcehre",
+              "institutions": []
+            },
+            {
+              "name": "Dzmitry Bahdanau",
+              "institutions": []
+            },
+            {
+              "name": "Fethi Bougares",
+              "institutions": []
+            },
+            {
+              "name": "Holger Schwenk",
+              "institutions": []
+            },
+            {
+              "name": "Yoshua Bengio",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/1406.1078",
+          "pdfUrl": "https://arxiv.org/pdf/1406.1078",
+          "citations": {
+            "count": 28703,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-24T05:09:52.790Z",
+            "url": "https://www.semanticscholar.org/paper/0b544dfe355a5070b60986319a3f51fb45d1348e"
+          },
+          "topics": [
+            "Machine Learning"
+          ],
+          "score": 0,
+          "personalScore": 0,
+          "groupId": "classic-ai",
+          "headline": "語句をベクトルに変換するRNN Encoder-Decoderで統計的機械翻訳を改善",
+          "summary": "翻訳元と翻訳先の語句の対応を学び、統計的機械翻訳を改善する研究です。系列を順に処理する再帰型ニューラルネットワークを二つ使い、入力の語句を固定長の数値表現に変換してから出力の語句へ復元します。学習した語句対の条件付き確率を既存の翻訳システムに追加し、翻訳性能の向上を報告しています。",
+          "advantages": "中心となる提案は、入力系列を数値表現にまとめる側と、それを出力系列に変換する側を一緒に学習するモデルです。既存の翻訳システムを置き換えるのではなく、語句対の確率を追加の判断材料として使います。実験では翻訳性能の改善が確認されたとしています。また、語句の意味や文法構造を反映した表現が得られたと定性的に示していますが、改善幅や他のニューラル手法との比較はarXivの概要にはありません。",
+          "method": "入力は、翻訳元となる語句などの記号列です。一つ目の再帰型ニューラルネットワークが入力を固定長のベクトル、つまり一定個数の数値にまとめ、二つ目がそこから出力の記号列を生成します。入力に対する正しい出力の条件付き確率を高めるよう、両者を共同で学習します。得られた語句対の確率を、複数の特徴を重み付きで組み合わせる既存の対数線形モデルに追加し、翻訳の判断に利用します。",
+          "evaluation": "既存の統計的機械翻訳システムに、提案モデルが計算した語句対の条件付き確率を特徴として加え、翻訳性能の改善を実験的に確認しています。さらに、学習した語句表現について、意味や文法構造を反映していることを定性的に示しています。ただし、使用言語、データセット、評価指標、改善の数値、学習条件はarXivの概要には記載されておらず、比較の詳細は確認できません。",
+          "futureWork": "arXivの概要には今後の課題の記載がありません。入力を固定長の表現にまとめる設計が、長い語句や複雑な文にどう影響するかは、arXivの概要だけでは確認できません。他の言語やデータ量での有効性も追加の確認事項ですが、これらを著者が指摘した限界とみなすことはできません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Bart van Merriënboer Caglar Gulcehre",
+              "Université de Montréal",
+              "Dzmitry Bahdanau",
+              "Jacobs University, Germany",
+              "Université du Maine, France",
+              "Université de Montréal, CIFAR Senior Fellow"
+            ],
+            "sourceUrl": "https://arxiv.org/html/1406.1078v3",
+            "method": "arxiv-html"
+          },
+          "visualKeywords": [
+            "Learning Phrase Representations using RNN Encoder-Decoder for St"
+          ]
+        },
+        {
+          "id": "2303.08774",
+          "title": "GPT-4 Technical Report",
+          "abstract": "We report the development of GPT-4, a large-scale, multimodal model which can accept image and text inputs and produce text outputs. While less capable than humans in many real-world scenarios, GPT-4 exhibits human-level performance on various professional and academic benchmarks, including passing a simulated bar exam with a score around the top 10% of test takers. GPT-4 is a Transformer-based model pre-trained to predict the next token in a document. The post-training alignment process results in improved performance on measures of factuality and adherence to desired behavior. A core component of this project was developing infrastructure and optimization methods that behave predictably across a wide range of scales. This allowed us to accurately predict some aspects of GPT-4's performance based on models trained with no more than 1/1,000th the compute of GPT-4.",
+          "authors": [
+            "OpenAI",
+            "Josh Achiam",
+            "Steven Adler",
+            "Sandhini Agarwal",
+            "Lama Ahmad",
+            "Ilge Akkaya",
+            "Florencia Leoni Aleman",
+            "Diogo Almeida",
+            "Janko Altenschmidt",
+            "Sam Altman",
+            "Shyamal Anadkat",
+            "Red Avila",
+            "Igor Babuschkin",
+            "Suchir Balaji",
+            "Valerie Balcom",
+            "Paul Baltescu",
+            "Haiming Bao",
+            "Mohammad Bavarian",
+            "Jeff Belgum",
+            "Irwan Bello",
+            "Jake Berdine",
+            "Gabriel Bernadett-Shapiro",
+            "Christopher Berner",
+            "Lenny Bogdonoff",
+            "Oleg Boiko",
+            "Madelaine Boyd",
+            "Anna-Luisa Brakman",
+            "Greg Brockman",
+            "Tim Brooks",
+            "Miles Brundage",
+            "Kevin Button",
+            "Trevor Cai",
+            "Rosie Campbell",
+            "Andrew Cann",
+            "Brittany Carey",
+            "Chelsea Carlson",
+            "Rory Carmichael",
+            "Brooke Chan",
+            "Che Chang",
+            "Fotis Chantzis",
+            "Derek Chen",
+            "Sully Chen",
+            "Ruby Chen",
+            "Jason Chen",
+            "Mark Chen",
+            "Ben Chess",
+            "Chester Cho",
+            "Casey Chu",
+            "Hyung Won Chung",
+            "Dave Cummings",
+            "Jeremiah Currier",
+            "Yunxing Dai",
+            "Cory Decareaux",
+            "Thomas Degry",
+            "Noah Deutsch",
+            "Damien Deville",
+            "Arka Dhar",
+            "David Dohan",
+            "Steve Dowling",
+            "Sheila Dunning",
+            "Adrien Ecoffet",
+            "Atty Eleti",
+            "Tyna Eloundou",
+            "David Farhi",
+            "Liam Fedus",
+            "Niko Felix",
+            "Simón Posada Fishman",
+            "Juston Forte",
+            "Isabella Fulford",
+            "Leo Gao",
+            "Elie Georges",
+            "Christian Gibson",
+            "Vik Goel",
+            "Tarun Gogineni",
+            "Gabriel Goh",
+            "Rapha Gontijo-Lopes",
+            "Jonathan Gordon",
+            "Morgan Grafstein",
+            "Scott Gray",
+            "Ryan Greene",
+            "Joshua Gross",
+            "Shixiang Shane Gu",
+            "Yufei Guo",
+            "Chris Hallacy",
+            "Jesse Han",
+            "Jeff Harris",
+            "Yuchen He",
+            "Mike Heaton",
+            "Johannes Heidecke",
+            "Chris Hesse",
+            "Alan Hickey",
+            "Wade Hickey",
+            "Peter Hoeschele",
+            "Brandon Houghton",
+            "Kenny Hsu",
+            "Shengli Hu",
+            "Xin Hu",
+            "Joost Huizinga",
+            "Shantanu Jain",
+            "Shawn Jain",
+            "Joanne Jang",
+            "Angela Jiang",
+            "Roger Jiang",
+            "Haozhun Jin",
+            "Denny Jin",
+            "Shino Jomoto",
+            "Billie Jonn",
+            "Heewoo Jun",
+            "Tomer Kaftan",
+            "Łukasz Kaiser",
+            "Ali Kamali",
+            "Ingmar Kanitscheider",
+            "Nitish Shirish Keskar",
+            "Tabarak Khan",
+            "Logan Kilpatrick",
+            "Jong Wook Kim",
+            "Christina Kim",
+            "Yongjik Kim",
+            "Jan Hendrik Kirchner",
+            "Jamie Kiros",
+            "Matt Knight",
+            "Daniel Kokotajlo",
+            "Łukasz Kondraciuk",
+            "Andrew Kondrich",
+            "Aris Konstantinidis",
+            "Kyle Kosic",
+            "Gretchen Krueger",
+            "Vishal Kuo",
+            "Michael Lampe",
+            "Ikai Lan",
+            "Teddy Lee",
+            "Jan Leike",
+            "Jade Leung",
+            "Daniel Levy",
+            "Chak Ming Li",
+            "Rachel Lim",
+            "Molly Lin",
+            "Stephanie Lin",
+            "Mateusz Litwin",
+            "Theresa Lopez",
+            "Ryan Lowe",
+            "Patricia Lue",
+            "Anna Makanju",
+            "Kim Malfacini",
+            "Sam Manning",
+            "Todor Markov",
+            "Yaniv Markovski",
+            "Bianca Martin",
+            "Katie Mayer",
+            "Andrew Mayne",
+            "Bob McGrew",
+            "Scott Mayer McKinney",
+            "Christine McLeavey",
+            "Paul McMillan",
+            "Jake McNeil",
+            "David Medina",
+            "Aalok Mehta",
+            "Jacob Menick",
+            "Luke Metz",
+            "Andrey Mishchenko",
+            "Pamela Mishkin",
+            "Vinnie Monaco",
+            "Evan Morikawa",
+            "Daniel Mossing",
+            "Tong Mu",
+            "Mira Murati",
+            "Oleg Murk",
+            "David Mély",
+            "Ashvin Nair",
+            "Reiichiro Nakano",
+            "Rajeev Nayak",
+            "Arvind Neelakantan",
+            "Richard Ngo",
+            "Hyeonwoo Noh",
+            "Long Ouyang",
+            "Cullen O'Keefe",
+            "Jakub Pachocki",
+            "Alex Paino",
+            "Joe Palermo",
+            "Ashley Pantuliano",
+            "Giambattista Parascandolo",
+            "Joel Parish",
+            "Emy Parparita",
+            "Alex Passos",
+            "Mikhail Pavlov",
+            "Andrew Peng",
+            "Adam Perelman",
+            "Filipe de Avila Belbute Peres",
+            "Michael Petrov",
+            "Henrique Ponde de Oliveira Pinto",
+            "Michael",
+            "Pokorny",
+            "Michelle Pokrass",
+            "Vitchyr H. Pong",
+            "Tolly Powell",
+            "Alethea Power",
+            "Boris Power",
+            "Elizabeth Proehl",
+            "Raul Puri",
+            "Alec Radford",
+            "Jack Rae",
+            "Aditya Ramesh",
+            "Cameron Raymond",
+            "Francis Real",
+            "Kendra Rimbach",
+            "Carl Ross",
+            "Bob Rotsted",
+            "Henri Roussez",
+            "Nick Ryder",
+            "Mario Saltarelli",
+            "Ted Sanders",
+            "Shibani Santurkar",
+            "Girish Sastry",
+            "Heather Schmidt",
+            "David Schnurr",
+            "John Schulman",
+            "Daniel Selsam",
+            "Kyla Sheppard",
+            "Toki Sherbakov",
+            "Jessica Shieh",
+            "Sarah Shoker",
+            "Pranav Shyam",
+            "Szymon Sidor",
+            "Eric Sigler",
+            "Maddie Simens",
+            "Jordan Sitkin",
+            "Katarina Slama",
+            "Ian Sohl",
+            "Benjamin Sokolowsky",
+            "Yang Song",
+            "Natalie Staudacher",
+            "Felipe Petroski Such",
+            "Natalie Summers",
+            "Ilya Sutskever",
+            "Jie Tang",
+            "Nikolas Tezak",
+            "Madeleine B. Thompson",
+            "Phil Tillet",
+            "Amin Tootoonchian",
+            "Elizabeth Tseng",
+            "Preston Tuggle",
+            "Nick Turley",
+            "Jerry Tworek",
+            "Juan Felipe Cerón Uribe",
+            "Andrea Vallone",
+            "Arun Vijayvergiya",
+            "Chelsea Voss",
+            "Carroll Wainwright",
+            "Justin Jay Wang",
+            "Alvin Wang",
+            "Ben Wang",
+            "Jonathan Ward",
+            "Jason Wei",
+            "CJ Weinmann",
+            "Akila Welihinda",
+            "Peter Welinder",
+            "Jiayi Weng",
+            "Lilian Weng",
+            "Matt Wiethoff",
+            "Dave Willner",
+            "Clemens Winter",
+            "Samuel Wolrich",
+            "Hannah Wong",
+            "Lauren Workman",
+            "Sherwin Wu",
+            "Jeff Wu",
+            "Michael Wu",
+            "Kai Xiao",
+            "Tao Xu",
+            "Sarah Yoo",
+            "Kevin Yu",
+            "Qiming Yuan",
+            "Wojciech Zaremba",
+            "Rowan Zellers",
+            "Chong Zhang",
+            "Marvin Zhang",
+            "Shengjia Zhao",
+            "Tianhao Zheng",
+            "Juntang Zhuang",
+            "William Zhuk",
+            "Barret Zoph"
+          ],
+          "published": "2023-03-15T17:15:04Z",
+          "updated": "2024-03-04T06:01:33Z",
+          "categories": [
+            "cs.CL",
+            "cs.AI"
+          ],
+          "authorAffiliations": [
+            {
+              "name": "OpenAI",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Josh Achiam",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Steven Adler",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Sandhini Agarwal",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Lama Ahmad",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Ilge Akkaya",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Florencia Leoni Aleman",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Diogo Almeida",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Janko Altenschmidt",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Sam Altman",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Shyamal Anadkat",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Red Avila",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Igor Babuschkin",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Suchir Balaji",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Valerie Balcom",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Paul Baltescu",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Haiming Bao",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Mohammad Bavarian",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Jeff Belgum",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Irwan Bello",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Jake Berdine",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Gabriel Bernadett-Shapiro",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Christopher Berner",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Lenny Bogdonoff",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Oleg Boiko",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Madelaine Boyd",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Anna-Luisa Brakman",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Greg Brockman",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Tim Brooks",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Miles Brundage",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Kevin Button",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Trevor Cai",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Rosie Campbell",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Andrew Cann",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Brittany Carey",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Chelsea Carlson",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Rory Carmichael",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Brooke Chan",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Che Chang",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Fotis Chantzis",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Derek Chen",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Sully Chen",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Ruby Chen",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Jason Chen",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Mark Chen",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Ben Chess",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Chester Cho",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Casey Chu",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Hyung Won Chung",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Dave Cummings",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Jeremiah Currier",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Yunxing Dai",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Cory Decareaux",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Thomas Degry",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Noah Deutsch",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Damien Deville",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Arka Dhar",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "David Dohan",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Steve Dowling",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Sheila Dunning",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Adrien Ecoffet",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Atty Eleti",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Tyna Eloundou",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "David Farhi",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Liam Fedus",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Niko Felix",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Simón Posada Fishman",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Juston Forte",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Isabella Fulford",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Leo Gao",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Elie Georges",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Christian Gibson",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Vik Goel",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Tarun Gogineni",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Gabriel Goh",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Rapha Gontijo-Lopes",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Jonathan Gordon",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Morgan Grafstein",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Scott Gray",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Ryan Greene",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Joshua Gross",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Shixiang Shane Gu",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Yufei Guo",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Chris Hallacy",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Jesse Han",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Jeff Harris",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Yuchen He",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Mike Heaton",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Johannes Heidecke",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Chris Hesse",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Alan Hickey",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Wade Hickey",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Peter Hoeschele",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Brandon Houghton",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Kenny Hsu",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Shengli Hu",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Xin Hu",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Joost Huizinga",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Shantanu Jain",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Shawn Jain",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Joanne Jang",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Angela Jiang",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Roger Jiang",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Haozhun Jin",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Denny Jin",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Shino Jomoto",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Billie Jonn",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Heewoo Jun",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Tomer Kaftan",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Łukasz Kaiser",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Ali Kamali",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Ingmar Kanitscheider",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Nitish Shirish Keskar",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Tabarak Khan",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Logan Kilpatrick",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Jong Wook Kim",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Christina Kim",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Yongjik Kim",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Jan Hendrik Kirchner",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Jamie Kiros",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Matt Knight",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Daniel Kokotajlo",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Łukasz Kondraciuk",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Andrew Kondrich",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Aris Konstantinidis",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Kyle Kosic",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Gretchen Krueger",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Vishal Kuo",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Michael Lampe",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Ikai Lan",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Teddy Lee",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Jan Leike",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Jade Leung",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Daniel Levy",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Chak Ming Li",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Rachel Lim",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Molly Lin",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Stephanie Lin",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Mateusz Litwin",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Theresa Lopez",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Ryan Lowe",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Patricia Lue",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Anna Makanju",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Kim Malfacini",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Sam Manning",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Todor Markov",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Yaniv Markovski",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Bianca Martin",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Katie Mayer",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Andrew Mayne",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Bob McGrew",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Scott Mayer McKinney",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Christine McLeavey",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Paul McMillan",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Jake McNeil",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "David Medina",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Aalok Mehta",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Jacob Menick",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Luke Metz",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Andrey Mishchenko",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Pamela Mishkin",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Vinnie Monaco",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Evan Morikawa",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Daniel Mossing",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Tong Mu",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Mira Murati",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Oleg Murk",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "David Mély",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Ashvin Nair",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Reiichiro Nakano",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Rajeev Nayak",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Arvind Neelakantan",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Richard Ngo",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Hyeonwoo Noh",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Long Ouyang",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Cullen O'Keefe",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Jakub Pachocki",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Alex Paino",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Joe Palermo",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Ashley Pantuliano",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Giambattista Parascandolo",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Joel Parish",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Emy Parparita",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Alex Passos",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Mikhail Pavlov",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Andrew Peng",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Adam Perelman",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Filipe de Avila Belbute Peres",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Michael Petrov",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Henrique Ponde de Oliveira Pinto",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Michael",
+              "institutions": [
+                "Rai"
+              ]
+            },
+            {
+              "name": "Pokorny",
+              "institutions": []
+            },
+            {
+              "name": "Michelle Pokrass",
+              "institutions": []
+            },
+            {
+              "name": "Vitchyr H. Pong",
+              "institutions": []
+            },
+            {
+              "name": "Tolly Powell",
+              "institutions": []
+            },
+            {
+              "name": "Alethea Power",
+              "institutions": []
+            },
+            {
+              "name": "Boris Power",
+              "institutions": []
+            },
+            {
+              "name": "Elizabeth Proehl",
+              "institutions": []
+            },
+            {
+              "name": "Raul Puri",
+              "institutions": []
+            },
+            {
+              "name": "Alec Radford",
+              "institutions": []
+            },
+            {
+              "name": "Jack Rae",
+              "institutions": []
+            },
+            {
+              "name": "Aditya Ramesh",
+              "institutions": []
+            },
+            {
+              "name": "Cameron Raymond",
+              "institutions": []
+            },
+            {
+              "name": "Francis Real",
+              "institutions": []
+            },
+            {
+              "name": "Kendra Rimbach",
+              "institutions": []
+            },
+            {
+              "name": "Carl Ross",
+              "institutions": []
+            },
+            {
+              "name": "Bob Rotsted",
+              "institutions": []
+            },
+            {
+              "name": "Henri Roussez",
+              "institutions": []
+            },
+            {
+              "name": "Nick Ryder",
+              "institutions": []
+            },
+            {
+              "name": "Mario Saltarelli",
+              "institutions": []
+            },
+            {
+              "name": "Ted Sanders",
+              "institutions": []
+            },
+            {
+              "name": "Shibani Santurkar",
+              "institutions": []
+            },
+            {
+              "name": "Girish Sastry",
+              "institutions": []
+            },
+            {
+              "name": "Heather Schmidt",
+              "institutions": []
+            },
+            {
+              "name": "David Schnurr",
+              "institutions": []
+            },
+            {
+              "name": "John Schulman",
+              "institutions": []
+            },
+            {
+              "name": "Daniel Selsam",
+              "institutions": []
+            },
+            {
+              "name": "Kyla Sheppard",
+              "institutions": []
+            },
+            {
+              "name": "Toki Sherbakov",
+              "institutions": []
+            },
+            {
+              "name": "Jessica Shieh",
+              "institutions": []
+            },
+            {
+              "name": "Sarah Shoker",
+              "institutions": []
+            },
+            {
+              "name": "Pranav Shyam",
+              "institutions": []
+            },
+            {
+              "name": "Szymon Sidor",
+              "institutions": []
+            },
+            {
+              "name": "Eric Sigler",
+              "institutions": []
+            },
+            {
+              "name": "Maddie Simens",
+              "institutions": []
+            },
+            {
+              "name": "Jordan Sitkin",
+              "institutions": []
+            },
+            {
+              "name": "Katarina Slama",
+              "institutions": []
+            },
+            {
+              "name": "Ian Sohl",
+              "institutions": []
+            },
+            {
+              "name": "Benjamin Sokolowsky",
+              "institutions": []
+            },
+            {
+              "name": "Yang Song",
+              "institutions": []
+            },
+            {
+              "name": "Natalie Staudacher",
+              "institutions": []
+            },
+            {
+              "name": "Felipe Petroski Such",
+              "institutions": []
+            },
+            {
+              "name": "Natalie Summers",
+              "institutions": []
+            },
+            {
+              "name": "Ilya Sutskever",
+              "institutions": []
+            },
+            {
+              "name": "Jie Tang",
+              "institutions": []
+            },
+            {
+              "name": "Nikolas Tezak",
+              "institutions": []
+            },
+            {
+              "name": "Madeleine B. Thompson",
+              "institutions": []
+            },
+            {
+              "name": "Phil Tillet",
+              "institutions": []
+            },
+            {
+              "name": "Amin Tootoonchian",
+              "institutions": []
+            },
+            {
+              "name": "Elizabeth Tseng",
+              "institutions": []
+            },
+            {
+              "name": "Preston Tuggle",
+              "institutions": []
+            },
+            {
+              "name": "Nick Turley",
+              "institutions": []
+            },
+            {
+              "name": "Jerry Tworek",
+              "institutions": []
+            },
+            {
+              "name": "Juan Felipe Cerón Uribe",
+              "institutions": []
+            },
+            {
+              "name": "Andrea Vallone",
+              "institutions": []
+            },
+            {
+              "name": "Arun Vijayvergiya",
+              "institutions": []
+            },
+            {
+              "name": "Chelsea Voss",
+              "institutions": []
+            },
+            {
+              "name": "Carroll Wainwright",
+              "institutions": []
+            },
+            {
+              "name": "Justin Jay Wang",
+              "institutions": []
+            },
+            {
+              "name": "Alvin Wang",
+              "institutions": []
+            },
+            {
+              "name": "Ben Wang",
+              "institutions": []
+            },
+            {
+              "name": "Jonathan Ward",
+              "institutions": []
+            },
+            {
+              "name": "Jason Wei",
+              "institutions": []
+            },
+            {
+              "name": "CJ Weinmann",
+              "institutions": []
+            },
+            {
+              "name": "Akila Welihinda",
+              "institutions": []
+            },
+            {
+              "name": "Peter Welinder",
+              "institutions": []
+            },
+            {
+              "name": "Jiayi Weng",
+              "institutions": []
+            },
+            {
+              "name": "Lilian Weng",
+              "institutions": []
+            },
+            {
+              "name": "Matt Wiethoff",
+              "institutions": []
+            },
+            {
+              "name": "Dave Willner",
+              "institutions": []
+            },
+            {
+              "name": "Clemens Winter",
+              "institutions": []
+            },
+            {
+              "name": "Samuel Wolrich",
+              "institutions": []
+            },
+            {
+              "name": "Hannah Wong",
+              "institutions": []
+            },
+            {
+              "name": "Lauren Workman",
+              "institutions": []
+            },
+            {
+              "name": "Sherwin Wu",
+              "institutions": []
+            },
+            {
+              "name": "Jeff Wu",
+              "institutions": []
+            },
+            {
+              "name": "Michael Wu",
+              "institutions": []
+            },
+            {
+              "name": "Kai Xiao",
+              "institutions": []
+            },
+            {
+              "name": "Tao Xu",
+              "institutions": []
+            },
+            {
+              "name": "Sarah Yoo",
+              "institutions": []
+            },
+            {
+              "name": "Kevin Yu",
+              "institutions": []
+            },
+            {
+              "name": "Qiming Yuan",
+              "institutions": []
+            },
+            {
+              "name": "Wojciech Zaremba",
+              "institutions": []
+            },
+            {
+              "name": "Rowan Zellers",
+              "institutions": []
+            },
+            {
+              "name": "Chong Zhang",
+              "institutions": []
+            },
+            {
+              "name": "Marvin Zhang",
+              "institutions": []
+            },
+            {
+              "name": "Shengjia Zhao",
+              "institutions": []
+            },
+            {
+              "name": "Tianhao Zheng",
+              "institutions": []
+            },
+            {
+              "name": "Juntang Zhuang",
+              "institutions": []
+            },
+            {
+              "name": "William Zhuk",
+              "institutions": []
+            },
+            {
+              "name": "Barret Zoph",
+              "institutions": []
+            }
+          ],
+          "url": "https://arxiv.org/abs/2303.08774",
+          "pdfUrl": "https://arxiv.org/pdf/2303.08774",
+          "citations": {
+            "count": 28609,
+            "source": "Semantic Scholar",
+            "checkedAt": "2026-11-24T05:09:52.790Z",
+            "url": "https://www.semanticscholar.org/paper/163b4d6a79a5b19af88b8585456363340d9efd04"
+          },
+          "topics": [
+            "Touch & Multimodal"
+          ],
+          "score": 9,
+          "personalScore": 9,
+          "groupId": "classic-ai",
+          "headline": "画像と文章を入力できるGPT-4、その能力と大規模学習の予測可能性",
+          "summary": "画像と文章を入力し、文章を出力する大規模モデルGPT-4の開発報告です。文章の次の単位を予測する事前学習と、事実性や望ましい振る舞いを高める追加調整を行います。専門・学術分野の評価で人間並みの性能を示す一方、実社会の多くの場面では人間に及ばないとしています。",
+          "advantages": "著者は、複数の専門・学術ベンチマークで人間並みの性能を示すと報告しています。具体例は、模擬司法試験で受験者の上位約10％に相当する成績です。また、学習後の調整によって事実性と望ましい振る舞いへの適合度が改善したとしています。ただし、他モデルとの比較数値や調整による改善幅はarXivの概要にはなく、実社会で人間と同等に働けることを示したわけではありません。",
+          "method": "GPT-4は、系列データを扱うニューラルネットワーク構造であるTransformerを基盤とします。文章を処理単位に分けたトークンについて、次に来るものを予測するよう事前学習し、その後に望ましい応答へ近づける調整を行います。画像・文章を入力して文章を出力しますが、画像の処理方法はarXivの概要では説明されていません。また、規模を変えた際の挙動を予測しやすい学習基盤と最適化手法を整備しています。",
+          "evaluation": "専門・学術分野の複数のベンチマークで評価し、模擬司法試験では受験者の上位約10％に相当する成績を報告しています。学習後の調整については、事実性と望ましい振る舞いへの適合度に関する指標で改善を報告していますが、指標名や数値は不明です。さらに、GPT-4の1,000分の1以下の計算量で学習したモデルから性能の一部を正確に予測できたとしていますが、予測対象や誤差の詳細はarXivの概要にはありません。",
+          "futureWork": "限界として、実社会の多くの場面では人間より能力が低いと明記されています。ただし、どの場面で、どの程度劣るのかはarXivの概要だけでは確認できません。arXivの概要には今後の課題の記載がありません。事実性に関する残る誤りや、画像入力での失敗条件も追加で確認すべき点ですが、著者がここで具体的な課題として列挙したものではありません。",
+          "figure": {
+            "status": "unavailable",
+            "reason": "図の再利用条件を確認できないため、原論文をご覧ください。"
+          },
+          "affiliations": {
+            "status": "available",
+            "institutions": [
+              "Rai"
+            ],
+            "sourceUrl": "https://arxiv.org/abs/2303.08774",
+            "method": "arxiv-api"
+          },
+          "visualKeywords": [
+            "GPT-4 Technical Report"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-11-22",
       "generatedAt": "2026-11-22T00:58:29.654Z",
       "title": "Physical AI Daily",
